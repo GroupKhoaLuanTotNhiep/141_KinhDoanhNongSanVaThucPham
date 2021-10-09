@@ -7,3 +7,8 @@ D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongS
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\141_KinhDoanhNongSanVaThucPham.csproj.GenerateResource.Cache
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\141_KinhDoanhNongSanVaThucPham.exe
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\141_KinhDoanhNongSanVaThucPham.pdb
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmNhapKho.resources
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmTrangChu.resources
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmXuatKho.resources
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmBanHang.resources
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmThemQuayHang.resources

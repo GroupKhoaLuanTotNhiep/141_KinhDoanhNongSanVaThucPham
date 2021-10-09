@@ -16,7 +16,10 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDangNhap());
+            //Application.Run(new frmDangNhap());
+            //Application.Run(new frmNhapKho());
+            //Application.Run(new frmXuatKho());
+            Application.Run(new frmBanHang());
         }
     }
 }

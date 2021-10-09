@@ -33,9 +33,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTenDN = new System.Windows.Forms.Label();
             this.lblMatKhau = new System.Windows.Forms.Label();
-            this.txtTenDN = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.chkHienThiMK = new System.Windows.Forms.CheckBox();
+            this.txtTenDN = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -109,15 +109,6 @@
             this.lblMatKhau.Text = "Mật khẩu";
             this.lblMatKhau.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // txtTenDN
-            // 
-            this.txtTenDN.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtTenDN.Location = new System.Drawing.Point(243, 141);
-            this.txtTenDN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTenDN.Name = "txtTenDN";
-            this.txtTenDN.Size = new System.Drawing.Size(295, 27);
-            this.txtTenDN.TabIndex = 3;
-            // 
             // txtMatKhau
             // 
             this.txtMatKhau.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -139,6 +130,15 @@
             this.chkHienThiMK.TabIndex = 5;
             this.chkHienThiMK.Text = "Hiển thị mật khẩu ?";
             this.chkHienThiMK.UseVisualStyleBackColor = true;
+            // 
+            // txtTenDN
+            // 
+            this.txtTenDN.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtTenDN.Location = new System.Drawing.Point(243, 141);
+            this.txtTenDN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenDN.Name = "txtTenDN";
+            this.txtTenDN.Size = new System.Drawing.Size(295, 27);
+            this.txtTenDN.TabIndex = 3;
             // 
             // btnDangNhap
             // 
@@ -177,6 +177,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập hệ thống";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
