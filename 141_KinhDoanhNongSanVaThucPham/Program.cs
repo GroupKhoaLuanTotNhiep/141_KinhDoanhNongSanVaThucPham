@@ -19,7 +19,11 @@ namespace _141_KinhDoanhNongSanVaThucPham
             //Application.Run(new frmDangNhap());
             //Application.Run(new frmNhapKho());
             //Application.Run(new frmXuatKho());
-            Application.Run(new frmBanHang());
+            //Application.Run(new frmBanHang());
+            //Application.Run(new frmGiaoHang());
+            //Application.Run(new frmThanhLy());
+            Application.Run(new frmDanhMucKhuyenMai());
+            //Application.Run(new frmLichSuGia());
         }
     }
 }
