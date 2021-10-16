@@ -22,7 +22,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             //Application.Run(new frmBanHang());
             //Application.Run(new frmGiaoHang());
             //Application.Run(new frmThanhLy());
-            Application.Run(new frmDanhMucKhuyenMai());
+            Application.Run(new frmDangNhap());
             //Application.Run(new frmLichSuGia());
         }
     }
