@@ -17,13 +17,15 @@ namespace _141_KinhDoanhNongSanVaThucPham
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmDangNhap());
+            Application.Run(new frmTrangChu());
             //Application.Run(new frmNhapKho());
             //Application.Run(new frmXuatKho());
             //Application.Run(new frmBanHang());
             //Application.Run(new frmGiaoHang());
             //Application.Run(new frmThanhLy());
-            Application.Run(new frmDanhMucKhuyenMai());
+            //Application.Run(new frmDanhMucQuyenNV());
             //Application.Run(new frmLichSuGia());
+            //Application.Run(new frmQuanLyNhanVien());
         }
     }
 }

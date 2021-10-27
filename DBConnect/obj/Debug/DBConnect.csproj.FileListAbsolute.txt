@@ -1,0 +1,5 @@
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debug\DBConnect.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debug\DBConnect.pdb
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.csprojResolveAssemblyReference.cache
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.pdb

@@ -44,77 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBanHang.cs">
+    <Compile Include="frmChamCong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBanHang.Designer.cs">
-      <DependentUpon>frmBanHang.cs</DependentUpon>
+    <Compile Include="frmChamCong.Designer.cs">
+      <DependentUpon>frmChamCong.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucChiNhanh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucChiNhanh.Designer.cs">
-      <DependentUpon>frmDanhMucChiNhanh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucDonViTinh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucDonViTinh.Designer.cs">
-      <DependentUpon>frmDanhMucDonViTinh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucHangHoa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucHangHoa.Designer.cs">
-      <DependentUpon>frmDanhMucHangHoa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucHT_ThanhToan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucHT_ThanhToan.Designer.cs">
-      <DependentUpon>frmDanhMucHT_ThanhToan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucKhachHang.Designer.cs">
-      <DependentUpon>frmDanhMucKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucKhuyenMai.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucKhuyenMai.Designer.cs">
-      <DependentUpon>frmDanhMucKhuyenMai.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucLoaiSanPham.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucLoaiSanPham.Designer.cs">
-      <DependentUpon>frmDanhMucLoaiSanPham.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucLoHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucLoHang.Designer.cs">
-      <DependentUpon>frmDanhMucLoHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucNCC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucNCC.Designer.cs">
-      <DependentUpon>frmDanhMucNCC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDanhMucQuayHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDanhMucQuayHang.Designer.cs">
-      <DependentUpon>frmDanhMucQuayHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGiaoHang.cs">
       <SubType>Form</SubType>
@@ -127,12 +67,6 @@
     </Compile>
     <Compile Include="frmHoatDongChiNhanh.Designer.cs">
       <DependentUpon>frmHoatDongChiNhanh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLichSuGia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLichSuGia.Designer.cs">
-      <DependentUpon>frmLichSuGia.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNhapKho.cs">
       <SubType>Form</SubType>
@@ -182,11 +116,17 @@
     <Compile Include="frmThemQuayHang.Designer.cs">
       <DependentUpon>frmThemQuayHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThongKeDoanhThu.cs">
+    <Compile Include="frmThemTaiKhoanNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThongKeDoanhThu.Designer.cs">
-      <DependentUpon>frmThongKeDoanhThu.cs</DependentUpon>
+    <Compile Include="frmThemTaiKhoanNhanVien.Designer.cs">
+      <DependentUpon>frmThemTaiKhoanNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTinhLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTinhLuong.Designer.cs">
+      <DependentUpon>frmTinhLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTrangChu.cs">
       <SubType>Form</SubType>
@@ -202,50 +142,143 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmBanHang.resx">
-      <DependentUpon>frmBanHang.cs</DependentUpon>
+    <Compile Include="UC_Background.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Background.Designer.cs">
+      <DependentUpon>UC_Background.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_BanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_BanHang.Designer.cs">
+      <DependentUpon>UC_BanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucChiNhanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucChiNhanh.Designer.cs">
+      <DependentUpon>UC_DanhMucChiNhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucChucVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucChucVu.Designer.cs">
+      <DependentUpon>UC_DanhMucChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucDonViTinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucDonViTinh.Designer.cs">
+      <DependentUpon>UC_DanhMucDonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucHangHoa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucHangHoa.Designer.cs">
+      <DependentUpon>UC_DanhMucHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucHT_ThanhToan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucHT_ThanhToan.Designer.cs">
+      <DependentUpon>UC_DanhMucHT_ThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucKhachHang.Designer.cs">
+      <DependentUpon>UC_DanhMucKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucKhuyenMai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucKhuyenMai.Designer.cs">
+      <DependentUpon>UC_DanhMucKhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucLoaiSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucLoaiSanPham.Designer.cs">
+      <DependentUpon>UC_DanhMucLoaiSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucLoHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucLoHang.Designer.cs">
+      <DependentUpon>UC_DanhMucLoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucNCC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucNCC.Designer.cs">
+      <DependentUpon>UC_DanhMucNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucQuayHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucQuayHang.Designer.cs">
+      <DependentUpon>UC_DanhMucQuayHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_DanhMucQuyenNV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_DanhMucQuyenNV.Designer.cs">
+      <DependentUpon>UC_DanhMucQuyenNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_GiaoHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_GiaoHang.Designer.cs">
+      <DependentUpon>UC_GiaoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_LichSuGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_LichSuGia.Designer.cs">
+      <DependentUpon>UC_LichSuGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NhapKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NhapKho.Designer.cs">
+      <DependentUpon>UC_NhapKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanVien.Designer.cs">
+      <DependentUpon>UC_QuanLyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThanhLy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThanhLy.Designer.cs">
+      <DependentUpon>UC_ThanhLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThongKeDoanhThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongKeDoanhThu.Designer.cs">
+      <DependentUpon>UC_ThongKeDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_XuatKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_XuatKho.Designer.cs">
+      <DependentUpon>UC_XuatKho.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmChamCong.resx">
+      <DependentUpon>frmChamCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucChiNhanh.resx">
-      <DependentUpon>frmDanhMucChiNhanh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucDonViTinh.resx">
-      <DependentUpon>frmDanhMucDonViTinh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucHangHoa.resx">
-      <DependentUpon>frmDanhMucHangHoa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucHT_ThanhToan.resx">
-      <DependentUpon>frmDanhMucHT_ThanhToan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucKhachHang.resx">
-      <DependentUpon>frmDanhMucKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucKhuyenMai.resx">
-      <DependentUpon>frmDanhMucKhuyenMai.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucLoaiSanPham.resx">
-      <DependentUpon>frmDanhMucLoaiSanPham.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucLoHang.resx">
-      <DependentUpon>frmDanhMucLoHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucNCC.resx">
-      <DependentUpon>frmDanhMucNCC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDanhMucQuayHang.resx">
-      <DependentUpon>frmDanhMucQuayHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGiaoHang.resx">
       <DependentUpon>frmGiaoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHoatDongChiNhanh.resx">
       <DependentUpon>frmHoatDongChiNhanh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLichSuGia.resx">
-      <DependentUpon>frmLichSuGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhapKho.resx">
       <DependentUpon>frmNhapKho.cs</DependentUpon>
@@ -271,8 +304,11 @@
     <EmbeddedResource Include="frmThemQuayHang.resx">
       <DependentUpon>frmThemQuayHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThongKeDoanhThu.resx">
-      <DependentUpon>frmThongKeDoanhThu.cs</DependentUpon>
+    <EmbeddedResource Include="frmThemTaiKhoanNhanVien.resx">
+      <DependentUpon>frmThemTaiKhoanNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTinhLuong.resx">
+      <DependentUpon>frmTinhLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrangChu.resx">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
@@ -289,6 +325,69 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UC_Background.resx">
+      <DependentUpon>UC_Background.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_BanHang.resx">
+      <DependentUpon>UC_BanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucChiNhanh.resx">
+      <DependentUpon>UC_DanhMucChiNhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucChucVu.resx">
+      <DependentUpon>UC_DanhMucChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucDonViTinh.resx">
+      <DependentUpon>UC_DanhMucDonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucHangHoa.resx">
+      <DependentUpon>UC_DanhMucHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucHT_ThanhToan.resx">
+      <DependentUpon>UC_DanhMucHT_ThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucKhachHang.resx">
+      <DependentUpon>UC_DanhMucKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucKhuyenMai.resx">
+      <DependentUpon>UC_DanhMucKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucLoaiSanPham.resx">
+      <DependentUpon>UC_DanhMucLoaiSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucLoHang.resx">
+      <DependentUpon>UC_DanhMucLoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucNCC.resx">
+      <DependentUpon>UC_DanhMucNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucQuayHang.resx">
+      <DependentUpon>UC_DanhMucQuayHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_DanhMucQuyenNV.resx">
+      <DependentUpon>UC_DanhMucQuyenNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_GiaoHang.resx">
+      <DependentUpon>UC_GiaoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_LichSuGia.resx">
+      <DependentUpon>UC_LichSuGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_NhapKho.resx">
+      <DependentUpon>UC_NhapKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyNhanVien.resx">
+      <DependentUpon>UC_QuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThanhLy.resx">
+      <DependentUpon>UC_ThanhLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongKeDoanhThu.resx">
+      <DependentUpon>UC_ThongKeDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_XuatKho.resx">
+      <DependentUpon>UC_XuatKho.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -301,6 +400,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBConnect\DBConnect.csproj">
+      <Project>{bb1b9dce-6ec2-4d37-b43c-0708d7635728}</Project>
+      <Name>DBConnect</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
