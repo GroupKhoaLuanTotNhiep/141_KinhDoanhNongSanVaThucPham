@@ -1,0 +1,7 @@
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\NongSanThucPham.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\NongSanThucPham.pdb
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\DBConnect.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\DBConnect.pdb
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csprojResolveAssemblyReference.cache
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.pdb

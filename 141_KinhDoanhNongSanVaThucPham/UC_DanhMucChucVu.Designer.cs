@@ -45,12 +45,12 @@
             this.lblMaCV = new System.Windows.Forms.Label();
             this.groupBoxChucVu = new System.Windows.Forms.GroupBox();
             this.dataGV_DMChucVu = new System.Windows.Forms.DataGridView();
-            this.groupBoxNhanVien = new System.Windows.Forms.GroupBox();
-            this.dataGV_DSNhanVien = new System.Windows.Forms.DataGridView();
             this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HeSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LuongCoBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBoxNhanVien = new System.Windows.Forms.GroupBox();
+            this.dataGV_DSNhanVien = new System.Windows.Forms.DataGridView();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tennv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +60,7 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkTuTang = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxTTChucVu.SuspendLayout();
             this.groupBoxChucVu.SuspendLayout();
@@ -102,6 +103,7 @@
             // 
             // groupBoxTTChucVu
             // 
+            this.groupBoxTTChucVu.Controls.Add(this.chkTuTang);
             this.groupBoxTTChucVu.Controls.Add(this.btnSuaCV);
             this.groupBoxTTChucVu.Controls.Add(this.btnXoaCV);
             this.groupBoxTTChucVu.Controls.Add(this.btnInDanhSach);
@@ -130,6 +132,7 @@
             this.btnSuaCV.TabIndex = 10;
             this.btnSuaCV.Text = "Sửa CV";
             this.btnSuaCV.UseVisualStyleBackColor = true;
+            this.btnSuaCV.Click += new System.EventHandler(this.btnSuaCV_Click);
             // 
             // btnXoaCV
             // 
@@ -139,6 +142,7 @@
             this.btnXoaCV.TabIndex = 9;
             this.btnXoaCV.Text = "Xóa CV";
             this.btnXoaCV.UseVisualStyleBackColor = true;
+            this.btnXoaCV.Click += new System.EventHandler(this.btnXoaCV_Click);
             // 
             // btnInDanhSach
             // 
@@ -157,6 +161,7 @@
             this.btnThemCV.TabIndex = 8;
             this.btnThemCV.Text = "Thêm CV";
             this.btnThemCV.UseVisualStyleBackColor = true;
+            this.btnThemCV.Click += new System.EventHandler(this.btnThemCV_Click);
             // 
             // txtLuongCB
             // 
@@ -164,6 +169,7 @@
             this.txtLuongCB.Name = "txtLuongCB";
             this.txtLuongCB.Size = new System.Drawing.Size(160, 22);
             this.txtLuongCB.TabIndex = 7;
+            this.txtLuongCB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLuongCB_KeyPress);
             // 
             // lblLuongCoBan
             // 
@@ -180,6 +186,7 @@
             this.txtHeSoLuong.Name = "txtHeSoLuong";
             this.txtHeSoLuong.Size = new System.Drawing.Size(150, 22);
             this.txtHeSoLuong.TabIndex = 5;
+            this.txtHeSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHeSoLuong_KeyPress);
             // 
             // lblHSLuong
             // 
@@ -192,7 +199,7 @@
             // 
             // txtTenCV
             // 
-            this.txtTenCV.Location = new System.Drawing.Point(260, 44);
+            this.txtTenCV.Location = new System.Drawing.Point(314, 44);
             this.txtTenCV.Name = "txtTenCV";
             this.txtTenCV.Size = new System.Drawing.Size(200, 22);
             this.txtTenCV.TabIndex = 3;
@@ -200,11 +207,11 @@
             // lblTenCV
             // 
             this.lblTenCV.AutoSize = true;
-            this.lblTenCV.Location = new System.Drawing.Point(257, 24);
+            this.lblTenCV.Location = new System.Drawing.Point(311, 24);
             this.lblTenCV.Name = "lblTenCV";
-            this.lblTenCV.Size = new System.Drawing.Size(109, 17);
+            this.lblTenCV.Size = new System.Drawing.Size(86, 17);
             this.lblTenCV.TabIndex = 2;
-            this.lblTenCV.Text = "Tên khuyến mãi";
+            this.lblTenCV.Text = "Tên chức vụ";
             // 
             // txtMaCV
             // 
@@ -249,6 +256,34 @@
             this.dataGV_DMChucVu.TabIndex = 3;
             this.dataGV_DMChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DMChucVu_CellClick);
             // 
+            // MaChucVu
+            // 
+            this.MaChucVu.DataPropertyName = "MaChucVu";
+            this.MaChucVu.HeaderText = "Mã chức vụ";
+            this.MaChucVu.Name = "MaChucVu";
+            this.MaChucVu.Width = 251;
+            // 
+            // TenChucVu
+            // 
+            this.TenChucVu.DataPropertyName = "TenChucVu";
+            this.TenChucVu.HeaderText = "Tên chức vụ";
+            this.TenChucVu.Name = "TenChucVu";
+            this.TenChucVu.Width = 252;
+            // 
+            // HeSoLuong
+            // 
+            this.HeSoLuong.DataPropertyName = "HeSoLuong";
+            this.HeSoLuong.HeaderText = "Hệ số lương";
+            this.HeSoLuong.Name = "HeSoLuong";
+            this.HeSoLuong.Width = 251;
+            // 
+            // LuongCoBan
+            // 
+            this.LuongCoBan.DataPropertyName = "LuongCoBan";
+            this.LuongCoBan.HeaderText = "Lương cơ bản";
+            this.LuongCoBan.Name = "LuongCoBan";
+            this.LuongCoBan.Width = 251;
+            // 
             // groupBoxNhanVien
             // 
             this.groupBoxNhanVien.Controls.Add(this.dataGV_DSNhanVien);
@@ -279,34 +314,6 @@
             this.dataGV_DSNhanVien.RowTemplate.Height = 24;
             this.dataGV_DSNhanVien.Size = new System.Drawing.Size(1048, 236);
             this.dataGV_DSNhanVien.TabIndex = 3;
-            // 
-            // MaChucVu
-            // 
-            this.MaChucVu.DataPropertyName = "MaChucVu";
-            this.MaChucVu.HeaderText = "Mã chức vụ";
-            this.MaChucVu.Name = "MaChucVu";
-            this.MaChucVu.Width = 251;
-            // 
-            // TenChucVu
-            // 
-            this.TenChucVu.DataPropertyName = "TenChucVu";
-            this.TenChucVu.HeaderText = "Tên chức vụ";
-            this.TenChucVu.Name = "TenChucVu";
-            this.TenChucVu.Width = 252;
-            // 
-            // HeSoLuong
-            // 
-            this.HeSoLuong.DataPropertyName = "HeSoLuong";
-            this.HeSoLuong.HeaderText = "Hệ số lương";
-            this.HeSoLuong.Name = "HeSoLuong";
-            this.HeSoLuong.Width = 251;
-            // 
-            // LuongCoBan
-            // 
-            this.LuongCoBan.DataPropertyName = "LuongCoBan";
-            this.LuongCoBan.HeaderText = "Lương cơ bản";
-            this.LuongCoBan.Name = "LuongCoBan";
-            this.LuongCoBan.Width = 251;
             // 
             // MaNV
             // 
@@ -368,6 +375,16 @@
             this.Hinh.HeaderText = "Hình ảnh";
             this.Hinh.Name = "Hinh";
             // 
+            // chkTuTang
+            // 
+            this.chkTuTang.AutoSize = true;
+            this.chkTuTang.Location = new System.Drawing.Point(181, 45);
+            this.chkTuTang.Name = "chkTuTang";
+            this.chkTuTang.Size = new System.Drawing.Size(79, 21);
+            this.chkTuTang.TabIndex = 12;
+            this.chkTuTang.Text = "Tự tăng";
+            this.chkTuTang.UseVisualStyleBackColor = true;
+            // 
             // UC_DanhMucChucVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -421,5 +438,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn cv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hinh;
+        private System.Windows.Forms.CheckBox chkTuTang;
     }
 }

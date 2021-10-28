@@ -45,3 +45,5 @@ D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongS
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.UC_XuatKho.resources
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\DBConnect.dll
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\DBConnect.pdb
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\NongSanThucPham.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\NongSanThucPham.pdb

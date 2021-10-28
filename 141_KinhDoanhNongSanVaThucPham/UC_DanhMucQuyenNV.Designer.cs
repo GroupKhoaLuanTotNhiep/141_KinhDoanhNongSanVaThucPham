@@ -41,10 +41,10 @@
             this.lblMaQuyen = new System.Windows.Forms.Label();
             this.groupBoxQuyen = new System.Windows.Forms.GroupBox();
             this.dataGV_DMQuyen = new System.Windows.Forms.DataGridView();
-            this.groupBoxNhanVien = new System.Windows.Forms.GroupBox();
-            this.dataGV_DSNhanVien = new System.Windows.Forms.DataGridView();
             this.MaQuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenQuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBoxNhanVien = new System.Windows.Forms.GroupBox();
+            this.dataGV_DSNhanVien = new System.Windows.Forms.DataGridView();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tennv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,6 +121,7 @@
             this.btnSuaQuyen.TabIndex = 10;
             this.btnSuaQuyen.Text = "Sửa quyền";
             this.btnSuaQuyen.UseVisualStyleBackColor = true;
+            this.btnSuaQuyen.Click += new System.EventHandler(this.btnSuaQuyen_Click);
             // 
             // btnXoaQuyen
             // 
@@ -130,6 +131,7 @@
             this.btnXoaQuyen.TabIndex = 9;
             this.btnXoaQuyen.Text = "Xóa quyền";
             this.btnXoaQuyen.UseVisualStyleBackColor = true;
+            this.btnXoaQuyen.Click += new System.EventHandler(this.btnXoaQuyen_Click);
             // 
             // btnInDanhSach
             // 
@@ -148,6 +150,7 @@
             this.btnThemQuyen.TabIndex = 8;
             this.btnThemQuyen.Text = "Thêm quyền";
             this.btnThemQuyen.UseVisualStyleBackColor = true;
+            this.btnThemQuyen.Click += new System.EventHandler(this.btnThemQuyen_Click);
             // 
             // txtTenQuyen
             // 
@@ -206,6 +209,20 @@
             this.dataGV_DMQuyen.TabIndex = 3;
             this.dataGV_DMQuyen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DMQuyen_CellClick);
             // 
+            // MaQuyen
+            // 
+            this.MaQuyen.DataPropertyName = "MaQuyen";
+            this.MaQuyen.HeaderText = "Mã quyền";
+            this.MaQuyen.Name = "MaQuyen";
+            this.MaQuyen.Width = 150;
+            // 
+            // TenQuyen
+            // 
+            this.TenQuyen.DataPropertyName = "TenQuyen";
+            this.TenQuyen.HeaderText = "Tên quyền";
+            this.TenQuyen.Name = "TenQuyen";
+            this.TenQuyen.Width = 200;
+            // 
             // groupBoxNhanVien
             // 
             this.groupBoxNhanVien.Controls.Add(this.dataGV_DSNhanVien);
@@ -237,20 +254,6 @@
             this.dataGV_DSNhanVien.RowTemplate.Height = 24;
             this.dataGV_DSNhanVien.Size = new System.Drawing.Size(1048, 236);
             this.dataGV_DSNhanVien.TabIndex = 3;
-            // 
-            // MaQuyen
-            // 
-            this.MaQuyen.DataPropertyName = "MaQuyen";
-            this.MaQuyen.HeaderText = "Mã quyền";
-            this.MaQuyen.Name = "MaQuyen";
-            this.MaQuyen.Width = 150;
-            // 
-            // TenQuyen
-            // 
-            this.TenQuyen.DataPropertyName = "TenQuyen";
-            this.TenQuyen.HeaderText = "Tên quyền";
-            this.TenQuyen.Name = "TenQuyen";
-            this.TenQuyen.Width = 200;
             // 
             // MaNV
             // 

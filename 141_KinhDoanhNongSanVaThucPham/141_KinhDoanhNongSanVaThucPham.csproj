@@ -406,6 +406,10 @@
       <Project>{bb1b9dce-6ec2-4d37-b43c-0708d7635728}</Project>
       <Name>DBConnect</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NongSanThucPham\NongSanThucPham.csproj">
+      <Project>{8b260e54-9fdc-4160-8ea7-42763a1c8c6a}</Project>
+      <Name>NongSanThucPham</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

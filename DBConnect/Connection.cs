@@ -96,27 +96,35 @@ namespace DBConnect
             closeConnect();
         }
 
-        //public int getCount(string strSQL)
-        //{
-        //    openConnect();
-        //    SqlCommand cmd = new SqlCommand();
-        //    cmd.Connection = conn;
-        //    cmd.CommandText = strSQL;
-        //    int count = (int)cmd.ExecuteScalar();
-        //    closeConnect();
-        //    return count;
-        //}
+        public DataTable LoadData(string sql) //Load lại dữ liệu
+        {
+            DataTable table = new DataTable();
+            SqlDataAdapter adt = new SqlDataAdapter(sql, this.conn);
+            adt.Fill(table);
+            return table;
+        }
 
-        //public bool checkExist(string tableName, string fieldName, string value)
-        //{
-        //    string strSQL = "SELECT COUNT(*) FROM " + tableName + " WHERE " + fieldName + "='" + value + "'";
-        //    return getCount(strSQL) > 0 ? true : false;
-        //}
+        public int getCount(string strSQL)
+        {
+            openConnect();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = strSQL;
+            int count = (int)cmd.ExecuteScalar();
+            closeConnect();
+            return count;
+        }
 
-        //public bool checkExistTwoKey(string tableName, string fieldName1, string fieldName2, string value1, string value2)
-        //{
-        //    string strSQL = "SELECT COUNT(*) FROM " + tableName + " WHERE " + fieldName1 + "='" + value1 + "' AND " + fieldName2 + "='" + value2 + "'";
-        //    return getCount(strSQL) > 0 ? true : false;
-        //}
+        public bool checkExist(string tableName, string fieldName, string value) //Kiểm tra trùng một khóa
+        {
+            string strSQL = "SELECT COUNT(*) FROM " + tableName + " WHERE " + fieldName + "='" + value + "'";
+            return getCount(strSQL) > 0 ? true : false;
+        }
+
+        public bool checkExistTwoKey(string tableName, string fieldName1, string fieldName2, string value1, string value2) //Kiểm tra trùng hai khóa
+        {
+            string strSQL = "SELECT COUNT(*) FROM " + tableName + " WHERE " + fieldName1 + "='" + value1 + "' AND " + fieldName2 + "='" + value2 + "'";
+            return getCount(strSQL) > 0 ? true : false;
+        }
     }
 }
