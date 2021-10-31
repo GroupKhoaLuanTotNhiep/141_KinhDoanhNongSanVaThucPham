@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace DBConnect
 {
@@ -125,6 +126,19 @@ namespace DBConnect
         {
             string strSQL = "SELECT COUNT(*) FROM " + tableName + " WHERE " + fieldName1 + "='" + value1 + "' AND " + fieldName2 + "='" + value2 + "'";
             return getCount(strSQL) > 0 ? true : false;
+        }
+
+        public bool isEmail(string inputEmail)
+        {
+            inputEmail = inputEmail ?? string.Empty;
+            string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                  @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                  @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            Regex re = new Regex(strRegex);
+            if (re.IsMatch(inputEmail))
+                return (true);
+            else
+                return (false);
         }
     }
 }

@@ -31,10 +31,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblChamCong = new System.Windows.Forms.Label();
             this.dataGV_ChamCong = new System.Windows.Forms.DataGridView();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayLam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.cbbTinhTrang = new System.Windows.Forms.ComboBox();
@@ -55,6 +51,10 @@
             this.lblNhanVien = new System.Windows.Forms.Label();
             this.txtChonNgay = new System.Windows.Forms.DateTimePicker();
             this.lblLocNgay = new System.Windows.Forms.Label();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayLam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_ChamCong)).BeginInit();
             this.panel1.SuspendLayout();
@@ -108,30 +108,6 @@
             this.dataGV_ChamCong.RowTemplate.Height = 24;
             this.dataGV_ChamCong.Size = new System.Drawing.Size(1128, 283);
             this.dataGV_ChamCong.TabIndex = 1;
-            // 
-            // MaNV
-            // 
-            this.MaNV.HeaderText = "Mã nhân viên";
-            this.MaNV.Name = "MaNV";
-            this.MaNV.Width = 120;
-            // 
-            // TenNV
-            // 
-            this.TenNV.HeaderText = "Tên nhân viên";
-            this.TenNV.Name = "TenNV";
-            this.TenNV.Width = 200;
-            // 
-            // NgayLam
-            // 
-            this.NgayLam.HeaderText = "Ngày làm";
-            this.NgayLam.Name = "NgayLam";
-            this.NgayLam.Width = 120;
-            // 
-            // TinhTrang
-            // 
-            this.TinhTrang.HeaderText = "Tình trạng";
-            this.TinhTrang.Name = "TinhTrang";
-            this.TinhTrang.Width = 150;
             // 
             // panel1
             // 
@@ -320,6 +296,34 @@
             this.lblLocNgay.TabIndex = 0;
             this.lblLocNgay.Text = "Lọc ngày";
             // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã nhân viên";
+            this.MaNV.Name = "MaNV";
+            this.MaNV.Width = 120;
+            // 
+            // TenNV
+            // 
+            this.TenNV.DataPropertyName = "TenNV";
+            this.TenNV.HeaderText = "Tên nhân viên";
+            this.TenNV.Name = "TenNV";
+            this.TenNV.Width = 200;
+            // 
+            // NgayLam
+            // 
+            this.NgayLam.DataPropertyName = "NgayLam";
+            this.NgayLam.HeaderText = "Ngày làm";
+            this.NgayLam.Name = "NgayLam";
+            this.NgayLam.Width = 120;
+            // 
+            // TinhTrang
+            // 
+            this.TinhTrang.DataPropertyName = "TinhTrang";
+            this.TinhTrang.HeaderText = "Tình trạng";
+            this.TinhTrang.Name = "TinhTrang";
+            this.TinhTrang.Width = 150;
+            // 
             // frmChamCong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -328,7 +332,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmChamCong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "From chấm công nhân viên";
+            this.Text = "From Chấm công nhân viên";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_ChamCong)).EndInit();
@@ -345,10 +349,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblChamCong;
         private System.Windows.Forms.DataGridView dataGV_ChamCong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.ComboBox cbbTinhTrang;
@@ -369,5 +369,9 @@
         private System.Windows.Forms.Label lblNhanVien;
         private System.Windows.Forms.DateTimePicker txtChonNgay;
         private System.Windows.Forms.Label lblLocNgay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
     }
 }

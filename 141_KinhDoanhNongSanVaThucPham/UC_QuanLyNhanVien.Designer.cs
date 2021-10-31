@@ -363,7 +363,8 @@
             // 
             // txtNgaySinh
             // 
-            this.txtNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtNgaySinh.CustomFormat = "dd/MM/yyyy";
+            this.txtNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtNgaySinh.Location = new System.Drawing.Point(129, 288);
             this.txtNgaySinh.Name = "txtNgaySinh";
             this.txtNgaySinh.Size = new System.Drawing.Size(300, 22);
@@ -400,6 +401,7 @@
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(300, 22);
             this.txtDienThoai.TabIndex = 14;
+            this.txtDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
             // 
             // pictureBoxNhanVien
             // 
@@ -412,6 +414,7 @@
             this.pictureBoxNhanVien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxNhanVien.TabIndex = 11;
             this.pictureBoxNhanVien.TabStop = false;
+            this.pictureBoxNhanVien.Click += new System.EventHandler(this.pictureBoxNhanVien_Click);
             // 
             // lblEmail
             // 
@@ -586,6 +589,7 @@
             this.btnLuuNV.TabIndex = 1;
             this.btnLuuNV.Text = "Lưu";
             this.btnLuuNV.UseVisualStyleBackColor = true;
+            this.btnLuuNV.Click += new System.EventHandler(this.btnLuuNV_Click);
             // 
             // btnTinhLuong
             // 
@@ -605,6 +609,7 @@
             this.btnXoaNV.TabIndex = 3;
             this.btnXoaNV.Text = "Xóa";
             this.btnXoaNV.UseVisualStyleBackColor = true;
+            this.btnXoaNV.Click += new System.EventHandler(this.btnXoaNV_Click);
             // 
             // btnSuaNV
             // 
@@ -614,6 +619,7 @@
             this.btnSuaNV.TabIndex = 2;
             this.btnSuaNV.Text = "Sửa";
             this.btnSuaNV.UseVisualStyleBackColor = true;
+            this.btnSuaNV.Click += new System.EventHandler(this.btnSuaNV_Click);
             // 
             // btnThemMoi
             // 
