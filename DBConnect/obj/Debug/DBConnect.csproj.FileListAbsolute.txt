@@ -3,3 +3,8 @@ D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debu
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.csprojResolveAssemblyReference.cache
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.dll
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.pdb
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debug\DBConnect.dll
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debug\DBConnect.pdb
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.dll
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.pdb

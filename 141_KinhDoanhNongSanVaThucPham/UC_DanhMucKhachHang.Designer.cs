@@ -45,8 +45,8 @@
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TichDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.gbTKKhach.SuspendLayout();
@@ -177,9 +177,11 @@
             this.btnTaoKhachHang.TabIndex = 0;
             this.btnTaoKhachHang.Text = "Tạo khách hàng";
             this.btnTaoKhachHang.UseVisualStyleBackColor = true;
+            this.btnTaoKhachHang.Click += new System.EventHandler(this.btnTaoKhachHang_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKhachHang,
@@ -187,54 +189,64 @@
             this.DiaChi,
             this.SDT,
             this.email,
-            this.MatKhau,
-            this.TichDiem});
+            this.TichDiem,
+            this.MatKhau});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 193);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1094, 564);
             this.dataGridView1.TabIndex = 2;
             // 
             // MaKhachHang
             // 
+            this.MaKhachHang.DataPropertyName = "makh";
             this.MaKhachHang.HeaderText = "Mã khách hàng";
+            this.MaKhachHang.MinimumWidth = 6;
             this.MaKhachHang.Name = "MaKhachHang";
-            this.MaKhachHang.Width = 140;
             // 
             // TenKhachHang
             // 
+            this.TenKhachHang.DataPropertyName = "tenkh";
             this.TenKhachHang.HeaderText = "Tên khách hàng";
+            this.TenKhachHang.MinimumWidth = 6;
             this.TenKhachHang.Name = "TenKhachHang";
-            this.TenKhachHang.Width = 200;
             // 
             // DiaChi
             // 
+            this.DiaChi.DataPropertyName = "diachi";
             this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 6;
             this.DiaChi.Name = "DiaChi";
-            this.DiaChi.Width = 250;
             // 
             // SDT
             // 
+            this.SDT.DataPropertyName = "dienthoai";
             this.SDT.HeaderText = "Điện thoại";
+            this.SDT.MinimumWidth = 6;
             this.SDT.Name = "SDT";
-            this.SDT.Width = 120;
             // 
             // email
             // 
+            this.email.DataPropertyName = "email";
             this.email.HeaderText = "Email";
+            this.email.MinimumWidth = 6;
             this.email.Name = "email";
-            this.email.Width = 130;
-            // 
-            // MatKhau
-            // 
-            this.MatKhau.HeaderText = "Mật khẩu";
-            this.MatKhau.Name = "MatKhau";
             // 
             // TichDiem
             // 
+            this.TichDiem.DataPropertyName = "tichdiem";
             this.TichDiem.HeaderText = "Tích điểm";
+            this.TichDiem.MinimumWidth = 6;
             this.TichDiem.Name = "TichDiem";
+            // 
+            // MatKhau
+            // 
+            this.MatKhau.DataPropertyName = "congno";
+            this.MatKhau.HeaderText = "Công nợ";
+            this.MatKhau.MinimumWidth = 6;
+            this.MatKhau.Name = "MatKhau";
             // 
             // UC_DanhMucKhachHang
             // 
@@ -243,6 +255,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UC_DanhMucKhachHang";
             this.Size = new System.Drawing.Size(1100, 760);
+            this.Load += new System.EventHandler(this.UC_DanhMucKhachHang_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -273,7 +286,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MatKhau;
         private System.Windows.Forms.DataGridViewTextBoxColumn TichDiem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MatKhau;
     }
 }

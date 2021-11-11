@@ -52,15 +52,22 @@ namespace DBConnect
 
         public Connection()
         {
-            strServerName = @"LAPTOP-U0DUSSA2\SQLEXPRESS";
-            strDBName = "QL_SieuThiNongSan";
+            //strServerName = @"LAPTOP-U0DUSSA2\SQLEXPRESS";
+            //strDBName = "QL_SieuThiNongSan";
 
-            //Dùng với quyền của Windowns
-            //strConnect = @"Data Source=" + strServerName + ";Initial Catalog=" + strDBName + ";Integrated Security=true";
+            ////Dùng với quyền của Windowns
+            ////strConnect = @"Data Source=" + strServerName + ";Initial Catalog=" + strDBName + ";Integrated Security=true";
 
-            //Dùng với quyền của SQL Server
+            ////Dùng với quyền của SQL Server
+            //strUserID = "sa";
+            //strPassword = "sa2012";
+
+
+            // cua An
+            strServerName = @"DESKTOP-QLKS44V\SQLEXPRESS";
+            strDBName = @"QL_SieuThiNongSan";
             strUserID = "sa";
-            strPassword = "sa2012";
+            strPassword = "123";
             strConnect = @"Data Source=" + strServerName + ";Initial Catalog=" + strDBName + ";User ID=" + strUserID + ";Password=" + strPassword;
 
             conn = new SqlConnection(strConnect); //Khởi tạo đối tượng kết nối đến CSDL

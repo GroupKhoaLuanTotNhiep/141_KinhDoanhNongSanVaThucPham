@@ -5,3 +5,12 @@ D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bi
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csprojResolveAssemblyReference.cache
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.dll
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.pdb
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\NongSanThucPham.dll
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\NongSanThucPham.pdb
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\DBConnect.dll
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\DBConnect.pdb
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csproj.AssemblyReference.cache
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csproj.CopyComplete
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.dll
+C:\Users\ASUS\OneDrive\Máy tính\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.pdb
