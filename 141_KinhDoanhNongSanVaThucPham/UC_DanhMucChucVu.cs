@@ -96,20 +96,25 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 string strTenCV = txtTenCV.Text.Trim();
                 string strHSL = txtHeSoLuong.Text.Trim();
                 string strLuongCB = txtLuongCB.Text.Trim();
-                if (strTenCV != string.Empty && strHSL != string.Empty && strLuongCB != string.Empty)
+                if (strMaCV != string.Empty && strTenCV != string.Empty && strHSL != string.Empty && strLuongCB != string.Empty)
                 {
                     if (conn.checkExist("ChucVu", "MaChucVu", strMaCV))
                     {
                         MessageBox.Show("Mã chức vụ " + strMaCV + " này đã tồn tại!", "Thông báo");
                         return;
                     }
-                    string strSQL = "INSERT ChucVu VALUES(N'" + strTenCV + "', " + strHSL + ", " + strLuongCB + ")";
+                    if (conn.checkExist("ChucVu", "TenChucVu", strTenCV))
+                    {
+                        MessageBox.Show("Tên chức vụ không được trùng nhau!", "Thông báo");
+                        return;
+                    }
+                    string strSQL = "INSERT ChucVu VALUES('" + strMaCV + "', N'" + strTenCV + "', " + strHSL + ", " + strLuongCB + ")";
                     conn.updateToDatabase(strSQL);
                     loadLaiData();
                     MessageBox.Show("Thêm chức vụ thành công!");
                 }
                 else
-                    MessageBox.Show("Bạn chưa nhập đủ thông tin yêu cầu");
+                    MessageBox.Show("Bạn chưa nhập đủ thông tin");
             }
             catch
             {

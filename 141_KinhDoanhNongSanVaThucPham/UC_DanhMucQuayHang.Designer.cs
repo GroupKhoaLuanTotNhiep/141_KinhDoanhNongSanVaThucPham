@@ -39,7 +39,7 @@
             this.gbChucnang = new System.Windows.Forms.GroupBox();
             this.btnXoaQuay = new System.Windows.Forms.Button();
             this.btnSuaQuay = new System.Windows.Forms.Button();
-            this.btnInExc = new System.Windows.Forms.Button();
+            this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnTaoQuay = new System.Windows.Forms.Button();
             this.dataGV_QuayHang = new System.Windows.Forms.DataGridView();
             this.MaQuay = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +116,7 @@
             this.btnTKQuay.TabIndex = 1;
             this.btnTKQuay.Text = "Tìm kiếm";
             this.btnTKQuay.UseVisualStyleBackColor = true;
+            this.btnTKQuay.Click += new System.EventHandler(this.btnTKQuay_Click);
             // 
             // txtTKQuay
             // 
@@ -128,7 +129,7 @@
             // 
             this.gbChucnang.Controls.Add(this.btnXoaQuay);
             this.gbChucnang.Controls.Add(this.btnSuaQuay);
-            this.gbChucnang.Controls.Add(this.btnInExc);
+            this.gbChucnang.Controls.Add(this.btnLamMoi);
             this.gbChucnang.Controls.Add(this.btnTaoQuay);
             this.gbChucnang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbChucnang.Location = new System.Drawing.Point(364, 3);
@@ -146,6 +147,7 @@
             this.btnXoaQuay.TabIndex = 2;
             this.btnXoaQuay.Text = "Xóa quầy";
             this.btnXoaQuay.UseVisualStyleBackColor = true;
+            this.btnXoaQuay.Click += new System.EventHandler(this.btnXoaQuay_Click);
             // 
             // btnSuaQuay
             // 
@@ -155,15 +157,17 @@
             this.btnSuaQuay.TabIndex = 1;
             this.btnSuaQuay.Text = "Sửa quầy";
             this.btnSuaQuay.UseVisualStyleBackColor = true;
+            this.btnSuaQuay.Click += new System.EventHandler(this.btnSuaQuay_Click);
             // 
-            // btnInExc
+            // btnLamMoi
             // 
-            this.btnInExc.Location = new System.Drawing.Point(239, 90);
-            this.btnInExc.Name = "btnInExc";
-            this.btnInExc.Size = new System.Drawing.Size(110, 40);
-            this.btnInExc.TabIndex = 3;
-            this.btnInExc.Text = "In Excel";
-            this.btnInExc.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Location = new System.Drawing.Point(239, 90);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(110, 40);
+            this.btnLamMoi.TabIndex = 3;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnTaoQuay
             // 
@@ -173,9 +177,11 @@
             this.btnTaoQuay.TabIndex = 0;
             this.btnTaoQuay.Text = "Tạo quầy";
             this.btnTaoQuay.UseVisualStyleBackColor = true;
+            this.btnTaoQuay.Click += new System.EventHandler(this.btnTaoQuay_Click);
             // 
             // dataGV_QuayHang
             // 
+            this.dataGV_QuayHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,20 +205,25 @@
             this.dataGV_QuayHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGV_QuayHang.Location = new System.Drawing.Point(3, 251);
             this.dataGV_QuayHang.Name = "dataGV_QuayHang";
+            this.dataGV_QuayHang.RowHeadersWidth = 51;
             this.dataGV_QuayHang.RowTemplate.Height = 24;
             this.dataGV_QuayHang.Size = new System.Drawing.Size(814, 456);
             this.dataGV_QuayHang.TabIndex = 2;
+            this.dataGV_QuayHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_QuayHang_CellClick);
             // 
             // MaQuay
             // 
+            this.MaQuay.DataPropertyName = "MaQuay";
             this.MaQuay.HeaderText = "Mã quầy hàng";
+            this.MaQuay.MinimumWidth = 6;
             this.MaQuay.Name = "MaQuay";
             // 
             // TenQuay
             // 
+            this.TenQuay.DataPropertyName = "TenQuay";
             this.TenQuay.HeaderText = "Tên quầy hàng";
+            this.TenQuay.MinimumWidth = 6;
             this.TenQuay.Name = "TenQuay";
-            this.TenQuay.Width = 150;
             // 
             // UC_DanhMucQuayHang
             // 
@@ -221,6 +232,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UC_DanhMucQuayHang";
             this.Size = new System.Drawing.Size(820, 710);
+            this.Load += new System.EventHandler(this.UC_DanhMucQuayHang_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -243,7 +255,7 @@
         private System.Windows.Forms.GroupBox gbChucnang;
         private System.Windows.Forms.Button btnXoaQuay;
         private System.Windows.Forms.Button btnSuaQuay;
-        private System.Windows.Forms.Button btnInExc;
+        private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnTaoQuay;
         private System.Windows.Forms.DataGridView dataGV_QuayHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaQuay;

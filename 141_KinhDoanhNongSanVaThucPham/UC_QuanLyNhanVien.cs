@@ -19,6 +19,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
     {
         Connection conn = new Connection();
         NhanVien nhanVien = new NhanVien();
+        ChucVu chucVu = new ChucVu();
         string paths = Application.StartupPath.Substring(0, Application.StartupPath.Length - 10);
         //SqlDataAdapter da_NhanVien;
         //DataSet ds_NhanVien;
@@ -62,7 +63,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
 
         void loadComboBoxChucVu()
         {
-            cboChucVu.DataSource = nhanVien.loadChucVu();
+            cboChucVu.DataSource = chucVu.loadChucVu();
             cboChucVu.DisplayMember = "TenChucVu";
             cboChucVu.ValueMember = "MaChucVu";
         }
@@ -93,7 +94,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             txtDiaChi.Text = dataGV_NhanVien.Rows[index].Cells[4].Value.ToString();
             txtDienThoai.Text = dataGV_NhanVien.Rows[index].Cells[5].Value.ToString();
             txtEmail.Text = dataGV_NhanVien.Rows[index].Cells[6].Value.ToString();
-            cboChucVu.Text = dataGV_NhanVien.Rows[index].Cells[7].Value.ToString();
+            cboChucVu.Text = chucVu.layTenChucVu(dataGV_NhanVien.Rows[index].Cells[7].Value.ToString());
             txtHinhNV.Text = dataGV_NhanVien.Rows[index].Cells[8].Value.ToString();
             try
             {
@@ -114,7 +115,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             {
                 pictureBoxNhanVien.Image = System.Drawing.Image.FromFile(paths + "\\image\\anhavatar.png");
             }
-            txtMaNV.Enabled = true;
+            txtMaNV.Enabled = false;
             btnSuaNV.Enabled = btnXoaNV.Enabled = true;
         }
 
@@ -129,10 +130,10 @@ namespace _141_KinhDoanhNongSanVaThucPham
 
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
-            txtMaNV.Enabled = true;
+            txtMaNV.Enabled = false;
             txtMaNV.Clear();
             txtTenNV.Clear();
-            cboChucVu.Text = "";
+            cboChucVu.SelectedIndex = 0;
             radNam.Checked = true;
             txtNgaySinh.Text = "";
             txtDiaChi.Clear();
@@ -170,7 +171,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     }
                     if ((DateTime.Now.Year - DateTime.Parse(strNgaySinh).Year) < 18)
                     {
-                        MessageBox.Show("Bạn chưa đủ tuổi hoặc dữ liệu nhập không đúng!");
+                        MessageBox.Show("Bạn chưa đủ 18 tuổi hoặc dữ liệu nhập không đúng!");
                         return;
                     }
                     if(strEmail != string.Empty)
@@ -246,7 +247,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     }
                     if ((DateTime.Now.Year - DateTime.Parse(strNgaySinh).Year) < 18)
                     {
-                        MessageBox.Show("Bạn chưa đủ tuổi hoặc dữ liệu nhập không đúng!");
+                        MessageBox.Show("Bạn chưa đủ 18 tuổi hoặc dữ liệu nhập không đúng!");
                         return;
                     }
                     if (strEmail != string.Empty)

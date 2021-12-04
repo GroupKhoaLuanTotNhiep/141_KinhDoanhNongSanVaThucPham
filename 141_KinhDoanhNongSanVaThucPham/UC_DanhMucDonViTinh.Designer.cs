@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
-            this.btnDong = new System.Windows.Forms.Button();
+            this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnSuaDVT = new System.Windows.Forms.Button();
             this.btnXoaDVT = new System.Windows.Forms.Button();
             this.btnThemDVT = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@
             // 
             // groupBoxChucNang
             // 
-            this.groupBoxChucNang.Controls.Add(this.btnDong);
+            this.groupBoxChucNang.Controls.Add(this.btnLamMoi);
             this.groupBoxChucNang.Controls.Add(this.btnSuaDVT);
             this.groupBoxChucNang.Controls.Add(this.btnXoaDVT);
             this.groupBoxChucNang.Controls.Add(this.btnThemDVT);
@@ -79,14 +79,15 @@
             this.groupBoxChucNang.TabStop = false;
             this.groupBoxChucNang.Text = "Chức năng";
             // 
-            // btnDong
+            // btnLamMoi
             // 
-            this.btnDong.Location = new System.Drawing.Point(493, 87);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(100, 40);
-            this.btnDong.TabIndex = 4;
-            this.btnDong.Text = "Đóng";
-            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Location = new System.Drawing.Point(493, 87);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(100, 40);
+            this.btnLamMoi.TabIndex = 4;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnSuaDVT
             // 
@@ -96,6 +97,7 @@
             this.btnSuaDVT.TabIndex = 3;
             this.btnSuaDVT.Text = "Sửa ĐVT";
             this.btnSuaDVT.UseVisualStyleBackColor = true;
+            this.btnSuaDVT.Click += new System.EventHandler(this.btnSuaDVT_Click);
             // 
             // btnXoaDVT
             // 
@@ -105,6 +107,7 @@
             this.btnXoaDVT.TabIndex = 2;
             this.btnXoaDVT.Text = "Xóa ĐVT";
             this.btnXoaDVT.UseVisualStyleBackColor = true;
+            this.btnXoaDVT.Click += new System.EventHandler(this.btnXoaDVT_Click);
             // 
             // btnThemDVT
             // 
@@ -114,6 +117,7 @@
             this.btnThemDVT.TabIndex = 1;
             this.btnThemDVT.Text = "Thêm ĐVT";
             this.btnThemDVT.UseVisualStyleBackColor = true;
+            this.btnThemDVT.Click += new System.EventHandler(this.btnThemDVT_Click);
             // 
             // txtTenDVT
             // 
@@ -139,6 +143,7 @@
             // 
             // dataGV_DonViTinh
             // 
+            this.dataGV_DonViTinh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGV_DonViTinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DonViTinh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaDVT,
@@ -146,21 +151,25 @@
             this.dataGV_DonViTinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGV_DonViTinh.Location = new System.Drawing.Point(3, 247);
             this.dataGV_DonViTinh.Name = "dataGV_DonViTinh";
+            this.dataGV_DonViTinh.RowHeadersWidth = 51;
             this.dataGV_DonViTinh.RowTemplate.Height = 24;
             this.dataGV_DonViTinh.Size = new System.Drawing.Size(644, 360);
             this.dataGV_DonViTinh.TabIndex = 3;
+            this.dataGV_DonViTinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DonViTinh_CellClick);
             // 
             // MaDVT
             // 
+            this.MaDVT.DataPropertyName = "MaDVT";
             this.MaDVT.HeaderText = "Mã đơn vị tính";
+            this.MaDVT.MinimumWidth = 6;
             this.MaDVT.Name = "MaDVT";
-            this.MaDVT.Width = 200;
             // 
             // TenDVT
             // 
+            this.TenDVT.DataPropertyName = "TenDVT";
             this.TenDVT.HeaderText = "Tên đơn vị tính";
+            this.TenDVT.MinimumWidth = 6;
             this.TenDVT.Name = "TenDVT";
-            this.TenDVT.Width = 250;
             // 
             // UC_DanhMucDonViTinh
             // 
@@ -169,6 +178,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UC_DanhMucDonViTinh";
             this.Size = new System.Drawing.Size(650, 610);
+            this.Load += new System.EventHandler(this.UC_DanhMucDonViTinh_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBoxChucNang.ResumeLayout(false);
@@ -182,7 +192,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBoxChucNang;
-        private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnSuaDVT;
         private System.Windows.Forms.Button btnXoaDVT;
         private System.Windows.Forms.Button btnThemDVT;
@@ -191,6 +201,5 @@
         private System.Windows.Forms.DataGridView dataGV_DonViTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaDVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenDVT;
-
     }
 }

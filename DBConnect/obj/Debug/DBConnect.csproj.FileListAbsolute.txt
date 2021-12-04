@@ -3,3 +3,14 @@ D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debu
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.csprojResolveAssemblyReference.cache
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.dll
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.pdb
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debug\DBConnect.dll
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debug\DBConnect.pdb
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.csprojResolveAssemblyReference.cache
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.dll
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.pdb
+E:\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debug\DBConnect.dll
+E:\141_KinhDoanhNongSanVaThucPham\DBConnect\bin\Debug\DBConnect.pdb
+E:\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.csproj.AssemblyReference.cache
+E:\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.csproj.CoreCompileInputs.cache
+E:\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.dll
+E:\141_KinhDoanhNongSanVaThucPham\DBConnect\obj\Debug\DBConnect.pdb

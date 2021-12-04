@@ -18,6 +18,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
     {
         Connection conn = new Connection();
         NhanVien nhanVien = new NhanVien();
+        NhomQuyen quyen = new NhomQuyen();
 
         public frmThemTaiKhoanNhanVien()
         {
@@ -26,24 +27,24 @@ namespace _141_KinhDoanhNongSanVaThucPham
 
         void createTable_NhanVienChuaCoTK()
         {
-            dataGV_NhanVienTK.DataSource = nhanVien.loadNhanVienChuaCoTaiKhoan();
+            dataGV_NhanVienTK.DataSource = nhanVien.loadBangNhanVienChuaCoTaiKhoan();
         }
 
         void createTable_NhanVienDaCoTK()
         {
-            dataGV_QuyenNhanVien.DataSource = nhanVien.loadNhanVienDaCoTaiKhoan();
+            dataGV_QuyenNhanVien.DataSource = nhanVien.loadBangNhanVienDaCoTaiKhoan();
         }
 
         void loadComboBoxQuyen()
         {
-            cbbQuyen.DataSource = nhanVien.loadQuyen();
+            cbbQuyen.DataSource = quyen.loadQuyen();
             cbbQuyen.DisplayMember = "TenQuyen";
             cbbQuyen.ValueMember = "MaQuyen";
         }
 
         void loadComboBoxQuyenHan()
         {
-            cbbQuyenHan.DataSource = nhanVien.loadQuyen();
+            cbbQuyenHan.DataSource = quyen.loadQuyen();
             cbbQuyenHan.DisplayMember = "TenQuyen";
             cbbQuyenHan.ValueMember = "MaQuyen";
         }
@@ -75,7 +76,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             loadComboBoxQuyen();
             loadComboBoxQuyenHan();
             txtMaNV.Enabled = txtMaNhanVien.Enabled = false;
-            btnLuuTK.Enabled = btnCapNhatTK.Enabled = btnXoaTK.Enabled = false;
+            btnLuuTK.Enabled = btnCapNhatTK.Enabled = btnXoaTK.Enabled = btnThemTK.Enabled = false;
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)

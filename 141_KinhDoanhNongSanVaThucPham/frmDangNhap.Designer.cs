@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangNhap));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,8 +39,10 @@
             this.txtTenDN = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -115,9 +118,9 @@
             this.txtMatKhau.Location = new System.Drawing.Point(243, 198);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(295, 27);
             this.txtMatKhau.TabIndex = 4;
+            this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // chkHienThiMK
             // 
@@ -130,6 +133,7 @@
             this.chkHienThiMK.TabIndex = 5;
             this.chkHienThiMK.Text = "Hiển thị mật khẩu ?";
             this.chkHienThiMK.UseVisualStyleBackColor = true;
+            this.chkHienThiMK.CheckedChanged += new System.EventHandler(this.chkHienThiMK_CheckedChanged);
             // 
             // txtTenDN
             // 
@@ -139,6 +143,7 @@
             this.txtTenDN.Name = "txtTenDN";
             this.txtTenDN.Size = new System.Drawing.Size(295, 27);
             this.txtTenDN.TabIndex = 3;
+            this.txtTenDN.Leave += new System.EventHandler(this.txtTenDN_Leave);
             // 
             // btnDangNhap
             // 
@@ -153,6 +158,7 @@
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // btnThoat
             // 
@@ -167,6 +173,11 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmDangNhap
             // 
@@ -179,9 +190,11 @@
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập hệ thống";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangNhap_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -197,6 +210,7 @@
         private System.Windows.Forms.TextBox txtTenDN;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

@@ -31,10 +31,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblChamCong = new System.Windows.Forms.Label();
             this.dataGV_ChamCong = new System.Windows.Forms.DataGridView();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayLam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.cbbTinhTrang = new System.Windows.Forms.ComboBox();
-            this.btnThemNgayCong = new System.Windows.Forms.Button();
+            this.btnSuaTinhTrang = new System.Windows.Forms.Button();
             this.lblTinhTrang = new System.Windows.Forms.Label();
             this.txtNgayLam = new System.Windows.Forms.DateTimePicker();
             this.lblNgayLam = new System.Windows.Forms.Label();
@@ -43,18 +47,14 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.lblMaNV = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cbbThang = new System.Windows.Forms.ComboBox();
-            this.lblLocThang = new System.Windows.Forms.Label();
             this.btnInExel = new System.Windows.Forms.Button();
-            this.btnXoaToanBo = new System.Windows.Forms.Button();
+            this.btnXoaThongTin = new System.Windows.Forms.Button();
             this.cbbNhanVien = new System.Windows.Forms.ComboBox();
             this.lblNhanVien = new System.Windows.Forms.Label();
             this.txtChonNgay = new System.Windows.Forms.DateTimePicker();
             this.lblLocNgay = new System.Windows.Forms.Label();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayLam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThemThongTin = new System.Windows.Forms.Button();
+            this.btnXem = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_ChamCong)).BeginInit();
             this.panel1.SuspendLayout();
@@ -108,12 +108,41 @@
             this.dataGV_ChamCong.RowTemplate.Height = 24;
             this.dataGV_ChamCong.Size = new System.Drawing.Size(1128, 283);
             this.dataGV_ChamCong.TabIndex = 1;
+            this.dataGV_ChamCong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_ChamCong_CellClick);
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã nhân viên";
+            this.MaNV.Name = "MaNV";
+            this.MaNV.Width = 120;
+            // 
+            // TenNV
+            // 
+            this.TenNV.DataPropertyName = "TenNV";
+            this.TenNV.HeaderText = "Tên nhân viên";
+            this.TenNV.Name = "TenNV";
+            this.TenNV.Width = 200;
+            // 
+            // NgayLam
+            // 
+            this.NgayLam.DataPropertyName = "NgayLam";
+            this.NgayLam.HeaderText = "Ngày làm";
+            this.NgayLam.Name = "NgayLam";
+            this.NgayLam.Width = 120;
+            // 
+            // TinhTrang
+            // 
+            this.TinhTrang.DataPropertyName = "TinhTrang";
+            this.TinhTrang.HeaderText = "Tình trạng";
+            this.TinhTrang.Name = "TinhTrang";
+            this.TinhTrang.Width = 150;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnCapNhat);
             this.panel1.Controls.Add(this.cbbTinhTrang);
-            this.panel1.Controls.Add(this.btnThemNgayCong);
+            this.panel1.Controls.Add(this.btnSuaTinhTrang);
             this.panel1.Controls.Add(this.lblTinhTrang);
             this.panel1.Controls.Add(this.txtNgayLam);
             this.panel1.Controls.Add(this.lblNgayLam);
@@ -135,6 +164,7 @@
             this.btnCapNhat.TabIndex = 8;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // cbbTinhTrang
             // 
@@ -144,14 +174,15 @@
             this.cbbTinhTrang.Size = new System.Drawing.Size(150, 24);
             this.cbbTinhTrang.TabIndex = 7;
             // 
-            // btnThemNgayCong
+            // btnSuaTinhTrang
             // 
-            this.btnThemNgayCong.Location = new System.Drawing.Point(885, 60);
-            this.btnThemNgayCong.Name = "btnThemNgayCong";
-            this.btnThemNgayCong.Size = new System.Drawing.Size(200, 30);
-            this.btnThemNgayCong.TabIndex = 4;
-            this.btnThemNgayCong.Text = "Thêm ngày công";
-            this.btnThemNgayCong.UseVisualStyleBackColor = true;
+            this.btnSuaTinhTrang.Location = new System.Drawing.Point(885, 60);
+            this.btnSuaTinhTrang.Name = "btnSuaTinhTrang";
+            this.btnSuaTinhTrang.Size = new System.Drawing.Size(200, 30);
+            this.btnSuaTinhTrang.TabIndex = 4;
+            this.btnSuaTinhTrang.Text = "Cập nhật trạng thái";
+            this.btnSuaTinhTrang.UseVisualStyleBackColor = true;
+            this.btnSuaTinhTrang.Click += new System.EventHandler(this.btnSuaTinhTrang_Click);
             // 
             // lblTinhTrang
             // 
@@ -164,7 +195,8 @@
             // 
             // txtNgayLam
             // 
-            this.txtNgayLam.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtNgayLam.CustomFormat = "dd/MM/yyyy";
+            this.txtNgayLam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtNgayLam.Location = new System.Drawing.Point(465, 49);
             this.txtNgayLam.Name = "txtNgayLam";
             this.txtNgayLam.Size = new System.Drawing.Size(150, 22);
@@ -213,10 +245,10 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.cbbThang);
-            this.panel2.Controls.Add(this.lblLocThang);
+            this.panel2.Controls.Add(this.btnXem);
+            this.panel2.Controls.Add(this.btnThemThongTin);
             this.panel2.Controls.Add(this.btnInExel);
-            this.panel2.Controls.Add(this.btnXoaToanBo);
+            this.panel2.Controls.Add(this.btnXoaThongTin);
             this.panel2.Controls.Add(this.cbbNhanVien);
             this.panel2.Controls.Add(this.lblNhanVien);
             this.panel2.Controls.Add(this.txtChonNgay);
@@ -227,23 +259,6 @@
             this.panel2.Size = new System.Drawing.Size(1128, 112);
             this.panel2.TabIndex = 3;
             // 
-            // cbbThang
-            // 
-            this.cbbThang.FormattingEnabled = true;
-            this.cbbThang.Location = new System.Drawing.Point(465, 48);
-            this.cbbThang.Name = "cbbThang";
-            this.cbbThang.Size = new System.Drawing.Size(121, 24);
-            this.cbbThang.TabIndex = 8;
-            // 
-            // lblLocThang
-            // 
-            this.lblLocThang.AutoSize = true;
-            this.lblLocThang.Location = new System.Drawing.Point(462, 29);
-            this.lblLocThang.Name = "lblLocThang";
-            this.lblLocThang.Size = new System.Drawing.Size(103, 17);
-            this.lblLocThang.TabIndex = 7;
-            this.lblLocThang.Text = "Lọc theo tháng";
-            // 
             // btnInExel
             // 
             this.btnInExel.Location = new System.Drawing.Point(985, 44);
@@ -253,27 +268,32 @@
             this.btnInExel.Text = "In Excel";
             this.btnInExel.UseVisualStyleBackColor = true;
             // 
-            // btnXoaToanBo
+            // btnXoaThongTin
             // 
-            this.btnXoaToanBo.Location = new System.Drawing.Point(799, 44);
-            this.btnXoaToanBo.Name = "btnXoaToanBo";
-            this.btnXoaToanBo.Size = new System.Drawing.Size(150, 30);
-            this.btnXoaToanBo.TabIndex = 5;
-            this.btnXoaToanBo.Text = "Xóa toàn bộ";
-            this.btnXoaToanBo.UseVisualStyleBackColor = true;
+            this.btnXoaThongTin.Location = new System.Drawing.Point(799, 44);
+            this.btnXoaThongTin.Name = "btnXoaThongTin";
+            this.btnXoaThongTin.Size = new System.Drawing.Size(150, 30);
+            this.btnXoaThongTin.TabIndex = 5;
+            this.btnXoaThongTin.Text = "Xóa thông tin";
+            this.btnXoaThongTin.UseVisualStyleBackColor = true;
+            this.btnXoaThongTin.Click += new System.EventHandler(this.btnXoaThongTin_Click);
             // 
             // cbbNhanVien
             // 
+            this.cbbNhanVien.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbbNhanVien.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbNhanVien.FormattingEnabled = true;
-            this.cbbNhanVien.Location = new System.Drawing.Point(228, 48);
+            this.cbbNhanVien.Location = new System.Drawing.Point(308, 48);
             this.cbbNhanVien.Name = "cbbNhanVien";
             this.cbbNhanVien.Size = new System.Drawing.Size(200, 24);
             this.cbbNhanVien.TabIndex = 3;
+            this.cbbNhanVien.SelectedIndexChanged += new System.EventHandler(this.cbbNhanVien_SelectedIndexChanged);
+            this.cbbNhanVien.SelectionChangeCommitted += new System.EventHandler(this.cbbNhanVien_SelectionChangeCommitted);
             // 
             // lblNhanVien
             // 
             this.lblNhanVien.AutoSize = true;
-            this.lblNhanVien.Location = new System.Drawing.Point(225, 29);
+            this.lblNhanVien.Location = new System.Drawing.Point(305, 29);
             this.lblNhanVien.Name = "lblNhanVien";
             this.lblNhanVien.Size = new System.Drawing.Size(97, 17);
             this.lblNhanVien.TabIndex = 2;
@@ -281,8 +301,9 @@
             // 
             // txtChonNgay
             // 
-            this.txtChonNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtChonNgay.Location = new System.Drawing.Point(41, 50);
+            this.txtChonNgay.CustomFormat = "dd/MM/yyyy";
+            this.txtChonNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtChonNgay.Location = new System.Drawing.Point(41, 46);
             this.txtChonNgay.Name = "txtChonNgay";
             this.txtChonNgay.Size = new System.Drawing.Size(150, 22);
             this.txtChonNgay.TabIndex = 1;
@@ -290,39 +311,31 @@
             // lblLocNgay
             // 
             this.lblLocNgay.AutoSize = true;
-            this.lblLocNgay.Location = new System.Drawing.Point(38, 29);
+            this.lblLocNgay.Location = new System.Drawing.Point(38, 25);
             this.lblLocNgay.Name = "lblLocNgay";
             this.lblLocNgay.Size = new System.Drawing.Size(66, 17);
             this.lblLocNgay.TabIndex = 0;
             this.lblLocNgay.Text = "Lọc ngày";
             // 
-            // MaNV
+            // btnThemThongTin
             // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã nhân viên";
-            this.MaNV.Name = "MaNV";
-            this.MaNV.Width = 120;
+            this.btnThemThongTin.Location = new System.Drawing.Point(609, 44);
+            this.btnThemThongTin.Name = "btnThemThongTin";
+            this.btnThemThongTin.Size = new System.Drawing.Size(150, 30);
+            this.btnThemThongTin.TabIndex = 7;
+            this.btnThemThongTin.Text = "Thêm thông tin";
+            this.btnThemThongTin.UseVisualStyleBackColor = true;
+            this.btnThemThongTin.Click += new System.EventHandler(this.btnThemThongTin_Click);
             // 
-            // TenNV
+            // btnXem
             // 
-            this.TenNV.DataPropertyName = "TenNV";
-            this.TenNV.HeaderText = "Tên nhân viên";
-            this.TenNV.Name = "TenNV";
-            this.TenNV.Width = 200;
-            // 
-            // NgayLam
-            // 
-            this.NgayLam.DataPropertyName = "NgayLam";
-            this.NgayLam.HeaderText = "Ngày làm";
-            this.NgayLam.Name = "NgayLam";
-            this.NgayLam.Width = 120;
-            // 
-            // TinhTrang
-            // 
-            this.TinhTrang.DataPropertyName = "TinhTrang";
-            this.TinhTrang.HeaderText = "Tình trạng";
-            this.TinhTrang.Name = "TinhTrang";
-            this.TinhTrang.Width = 150;
+            this.btnXem.Location = new System.Drawing.Point(197, 44);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(75, 30);
+            this.btnXem.TabIndex = 8;
+            this.btnXem.Text = "Xem";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // frmChamCong
             // 
@@ -333,6 +346,7 @@
             this.Name = "frmChamCong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "From Chấm công nhân viên";
+            this.Load += new System.EventHandler(this.frmChamCong_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_ChamCong)).EndInit();
@@ -352,7 +366,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.ComboBox cbbTinhTrang;
-        private System.Windows.Forms.Button btnThemNgayCong;
+        private System.Windows.Forms.Button btnSuaTinhTrang;
         private System.Windows.Forms.Label lblTinhTrang;
         private System.Windows.Forms.DateTimePicker txtNgayLam;
         private System.Windows.Forms.Label lblNgayLam;
@@ -361,10 +375,8 @@
         private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.Label lblMaNV;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox cbbThang;
-        private System.Windows.Forms.Label lblLocThang;
         private System.Windows.Forms.Button btnInExel;
-        private System.Windows.Forms.Button btnXoaToanBo;
+        private System.Windows.Forms.Button btnXoaThongTin;
         private System.Windows.Forms.ComboBox cbbNhanVien;
         private System.Windows.Forms.Label lblNhanVien;
         private System.Windows.Forms.DateTimePicker txtChonNgay;
@@ -373,5 +385,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayLam;
         private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
+        private System.Windows.Forms.Button btnThemThongTin;
+        private System.Windows.Forms.Button btnXem;
     }
 }

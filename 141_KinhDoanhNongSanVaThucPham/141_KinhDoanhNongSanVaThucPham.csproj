@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,11 +71,23 @@
     <Compile Include="frmHoatDongChiNhanh.Designer.cs">
       <DependentUpon>frmHoatDongChiNhanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLuuNoNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLuuNoNhaCungCap.Designer.cs">
+      <DependentUpon>frmLuuNoNhaCungCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNhapKho.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmNhapKho.Designer.cs">
       <DependentUpon>frmNhapKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuyDoiDonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuyDoiDonViTinh.Designer.cs">
+      <DependentUpon>frmQuyDoiDonViTinh.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThanhLy.cs">
       <SubType>Form</SubType>
@@ -139,6 +154,12 @@
     </Compile>
     <Compile Include="frmXuatKho.Designer.cs">
       <DependentUpon>frmXuatKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYeuCauTichDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYeuCauTichDiem.Designer.cs">
+      <DependentUpon>frmYeuCauTichDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -262,6 +283,12 @@
     <Compile Include="UC_ThongKeDoanhThu.Designer.cs">
       <DependentUpon>UC_ThongKeDoanhThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_ThongTinNguoiDung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongTinNguoiDung.Designer.cs">
+      <DependentUpon>UC_ThongTinNguoiDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_XuatKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -280,8 +307,14 @@
     <EmbeddedResource Include="frmHoatDongChiNhanh.resx">
       <DependentUpon>frmHoatDongChiNhanh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLuuNoNhaCungCap.resx">
+      <DependentUpon>frmLuuNoNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNhapKho.resx">
       <DependentUpon>frmNhapKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuyDoiDonViTinh.resx">
+      <DependentUpon>frmQuyDoiDonViTinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThanhLy.resx">
       <DependentUpon>frmThanhLy.cs</DependentUpon>
@@ -315,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmXuatKho.resx">
       <DependentUpon>frmXuatKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYeuCauTichDiem.resx">
+      <DependentUpon>frmYeuCauTichDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -384,6 +420,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_ThongKeDoanhThu.resx">
       <DependentUpon>UC_ThongKeDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongTinNguoiDung.resx">
+      <DependentUpon>UC_ThongTinNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_XuatKho.resx">
       <DependentUpon>UC_XuatKho.cs</DependentUpon>

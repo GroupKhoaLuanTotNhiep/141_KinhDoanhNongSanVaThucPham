@@ -72,7 +72,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.lblThemQuay, 3);
             this.lblThemQuay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblThemQuay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThemQuay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblThemQuay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lblThemQuay.Location = new System.Drawing.Point(51, 0);
             this.lblThemQuay.Name = "lblThemQuay";
             this.lblThemQuay.Size = new System.Drawing.Size(435, 50);
@@ -149,6 +149,7 @@
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnThemMoi
             // 
@@ -160,6 +161,7 @@
             this.btnThemMoi.TabIndex = 1;
             this.btnThemMoi.Text = "Thêm mới";
             this.btnThemMoi.UseVisualStyleBackColor = true;
+            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
             // 
             // btnDong
             // 
@@ -171,6 +173,7 @@
             this.btnDong.TabIndex = 2;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmThemQuayHang
             // 

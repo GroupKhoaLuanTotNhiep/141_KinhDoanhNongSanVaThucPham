@@ -88,14 +88,19 @@ namespace _141_KinhDoanhNongSanVaThucPham
             {
                 string strMaQuyen = txtMaQuyen.Text.Trim();
                 string strTenQuyen = txtTenQuyen.Text.Trim();
-                if (strTenQuyen != string.Empty)
+                if (strMaQuyen != string.Empty && strTenQuyen != string.Empty)
                 {
                     if (conn.checkExist("NhomQuyen", "MaQuyen", strMaQuyen))
                     {
                         MessageBox.Show("Mã quyền " + strMaQuyen + " này đã tồn tại!", "Thông báo");
                         return;
                     }
-                    string strSQL = "INSERT NhomQuyen VALUES(N'" + strTenQuyen + "')";
+                    if (conn.checkExist("NhomQuyen", "TenQuyen", strTenQuyen))
+                    {
+                        MessageBox.Show("Tên quyền không được trùng nhau!", "Thông báo");
+                        return;
+                    }
+                    string strSQL = "INSERT NhomQuyen VALUES('" + strMaQuyen + "', N'" + strTenQuyen + "')";
                     conn.updateToDatabase(strSQL);
                     loadLaiData();
                     MessageBox.Show("Thêm quyền thành công!");

@@ -8,6 +8,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
 {
     static class Program
     {
+        public static frmTrangChu FrmTrangChu;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,8 +17,8 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmDangNhap());
-            Application.Run(new frmTrangChu());
+            Application.Run(new frmDangNhap());
+            //Application.Run(new frmTrangChu());
             //Application.Run(new frmNhapKho());
             //Application.Run(new frmXuatKho());
             //Application.Run(new frmBanHang());

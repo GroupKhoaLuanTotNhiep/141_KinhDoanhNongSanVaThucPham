@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbl_Tieude = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageTheoThang = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,10 +46,10 @@
             this.btnInExlThang = new System.Windows.Forms.Button();
             this.dataGV_DTTheoThang = new System.Windows.Forms.DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sdh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.th = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDonHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongBan_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageNhanVien = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
@@ -78,11 +77,11 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTuNgayKH = new System.Windows.Forms.Label();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtTuNgay = new System.Windows.Forms.DateTimePicker();
+            this.txtNgayBD_KH = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDenNgayKH = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDenNgay = new System.Windows.Forms.DateTimePicker();
+            this.txtNgayKT_KH = new System.Windows.Forms.DateTimePicker();
             this.btnXemTKKhachHang = new System.Windows.Forms.Button();
             this.btnInExlKH = new System.Windows.Forms.Button();
             this.btnXemCTTheoKhachHang = new System.Windows.Forms.Button();
@@ -99,15 +98,17 @@
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTuNgayHH = new System.Windows.Forms.Label();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtTuNgay_HH = new System.Windows.Forms.DateTimePicker();
+            this.txtNgayBD_HH = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDenNgayHH = new System.Windows.Forms.Label();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDenNgay_HH = new System.Windows.Forms.DateTimePicker();
+            this.txtNgayKT_HH = new System.Windows.Forms.DateTimePicker();
             this.btnXemTKHangHoa = new System.Windows.Forms.Button();
             this.btnInExlHH = new System.Windows.Forms.Button();
             this.btnXemCTTheoHangHoa = new System.Windows.Forms.Button();
             this.dataGV_DTTheoHangHoa = new System.Windows.Forms.DataGridView();
+            this.lbl_Tieude = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.sott = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,8 +155,8 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.lbl_Tieude, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_Tieude, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -164,20 +165,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 750);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // lbl_Tieude
-            // 
-            this.lbl_Tieude.AutoSize = true;
-            this.lbl_Tieude.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_Tieude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Tieude.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lbl_Tieude.Location = new System.Drawing.Point(3, 0);
-            this.lbl_Tieude.Name = "lbl_Tieude";
-            this.lbl_Tieude.Size = new System.Drawing.Size(1194, 75);
-            this.lbl_Tieude.TabIndex = 0;
-            this.lbl_Tieude.Text = "THỐNG KÊ DOANH THU BÁN HÀNG";
-            this.lbl_Tieude.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tableLayoutPanel1.TabIndex = 3;
             // 
             // tabControl1
             // 
@@ -191,7 +179,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1194, 669);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl1.TabIndex = 2;
             // 
             // tabPageTheoThang
             // 
@@ -360,6 +348,7 @@
             this.btnXemTKThang.TabIndex = 8;
             this.btnXemTKThang.Text = "Xem";
             this.btnXemTKThang.UseVisualStyleBackColor = true;
+            this.btnXemTKThang.Click += new System.EventHandler(this.btnXemTKThang_Click);
             // 
             // btnInExlThang
             // 
@@ -370,16 +359,18 @@
             this.btnInExlThang.TabIndex = 9;
             this.btnInExlThang.Text = "In Excel";
             this.btnInExlThang.UseVisualStyleBackColor = true;
+            this.btnInExlThang.Click += new System.EventHandler(this.btnInExlThang_Click);
             // 
             // dataGV_DTTheoThang
             // 
+            this.dataGV_DTTheoThang.AllowUserToAddRows = false;
             this.dataGV_DTTheoThang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DTTheoThang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
-            this.ngay,
-            this.sdh,
-            this.sl,
-            this.th});
+            this.NgayLap,
+            this.SoDonHang_tt,
+            this.SoLuongBan_tt,
+            this.TienHang_tt});
             this.dataGV_DTTheoThang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGV_DTTheoThang.Location = new System.Drawing.Point(3, 78);
             this.dataGV_DTTheoThang.Name = "dataGV_DTTheoThang";
@@ -389,32 +380,37 @@
             // 
             // STT
             // 
+            this.STT.DataPropertyName = "STT_tt";
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
             // 
-            // ngay
+            // NgayLap
             // 
-            this.ngay.HeaderText = "Ngày";
-            this.ngay.Name = "ngay";
-            this.ngay.Width = 120;
+            this.NgayLap.DataPropertyName = "NgayLap";
+            this.NgayLap.HeaderText = "Ngày";
+            this.NgayLap.Name = "NgayLap";
+            this.NgayLap.Width = 120;
             // 
-            // sdh
+            // SoDonHang_tt
             // 
-            this.sdh.HeaderText = "Số đơn hàng";
-            this.sdh.Name = "sdh";
-            this.sdh.Width = 150;
+            this.SoDonHang_tt.DataPropertyName = "SoDonHang_tt";
+            this.SoDonHang_tt.HeaderText = "Số đơn hàng";
+            this.SoDonHang_tt.Name = "SoDonHang_tt";
+            this.SoDonHang_tt.Width = 150;
             // 
-            // sl
+            // SoLuongBan_tt
             // 
-            this.sl.HeaderText = "Số lượng";
-            this.sl.Name = "sl";
-            this.sl.Width = 120;
+            this.SoLuongBan_tt.DataPropertyName = "SoLuongBan_tt";
+            this.SoLuongBan_tt.HeaderText = "Số lượng";
+            this.SoLuongBan_tt.Name = "SoLuongBan_tt";
+            this.SoLuongBan_tt.Width = 120;
             // 
-            // th
+            // TienHang_tt
             // 
-            this.th.HeaderText = "Tiền hàng";
-            this.th.Name = "th";
-            this.th.Width = 150;
+            this.TienHang_tt.DataPropertyName = "TienHang_tt";
+            this.TienHang_tt.HeaderText = "Tiền hàng";
+            this.TienHang_tt.Name = "TienHang_tt";
+            this.TienHang_tt.Width = 150;
             // 
             // tabPageNhanVien
             // 
@@ -573,6 +569,7 @@
             this.btnXemTKNhanVien.TabIndex = 8;
             this.btnXemTKNhanVien.Text = "Xem";
             this.btnXemTKNhanVien.UseVisualStyleBackColor = true;
+            this.btnXemTKNhanVien.Click += new System.EventHandler(this.btnXemTKNhanVien_Click);
             // 
             // btnInExlNV
             // 
@@ -583,6 +580,7 @@
             this.btnInExlNV.TabIndex = 9;
             this.btnInExlNV.Text = "In Excel";
             this.btnInExlNV.UseVisualStyleBackColor = true;
+            this.btnInExlNV.Click += new System.EventHandler(this.btnInExlNV_Click);
             // 
             // btnXemCTTheoNhanVien
             // 
@@ -596,6 +594,7 @@
             // 
             // dataGV_DTTheoNhanVien
             // 
+            this.dataGV_DTTheoNhanVien.AllowUserToAddRows = false;
             this.dataGV_DTTheoNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DTTheoNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.thutu,
@@ -613,35 +612,41 @@
             // 
             // thutu
             // 
+            this.thutu.DataPropertyName = "STT_nv";
             this.thutu.HeaderText = "STT";
             this.thutu.Name = "thutu";
             // 
             // MaNV
             // 
-            this.MaNV.HeaderText = "Mã nhân viên";
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã số";
             this.MaNV.Name = "MaNV";
             this.MaNV.Width = 140;
             // 
             // TenNV
             // 
-            this.TenNV.HeaderText = "Người bán";
+            this.TenNV.DataPropertyName = "TenNV";
+            this.TenNV.HeaderText = "Họ và tên";
             this.TenNV.Name = "TenNV";
             this.TenNV.Width = 200;
             // 
             // sodh
             // 
+            this.sodh.DataPropertyName = "SoDonHang_nv";
             this.sodh.HeaderText = "Số đơn hàng";
             this.sodh.Name = "sodh";
             this.sodh.Width = 150;
             // 
             // soluong
             // 
+            this.soluong.DataPropertyName = "SoLuongBan_nv";
             this.soluong.HeaderText = "Số lượng";
             this.soluong.Name = "soluong";
             this.soluong.Width = 120;
             // 
             // tienhang
             // 
+            this.tienhang.DataPropertyName = "TienHang_nv";
             this.tienhang.HeaderText = "Tiền hàng";
             this.tienhang.Name = "tienhang";
             this.tienhang.Width = 150;
@@ -727,7 +732,7 @@
             // 
             this.tableLayoutPanel17.ColumnCount = 1;
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Controls.Add(this.txtTuNgay, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.txtNgayBD_KH, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(475, 3);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
@@ -737,14 +742,14 @@
             this.tableLayoutPanel17.Size = new System.Drawing.Size(171, 51);
             this.tableLayoutPanel17.TabIndex = 5;
             // 
-            // txtTuNgay
+            // txtNgayBD_KH
             // 
-            this.txtTuNgay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtTuNgay.Location = new System.Drawing.Point(3, 5);
-            this.txtTuNgay.Name = "txtTuNgay";
-            this.txtTuNgay.Size = new System.Drawing.Size(165, 27);
-            this.txtTuNgay.TabIndex = 0;
+            this.txtNgayBD_KH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNgayBD_KH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtNgayBD_KH.Location = new System.Drawing.Point(3, 5);
+            this.txtNgayBD_KH.Name = "txtNgayBD_KH";
+            this.txtNgayBD_KH.Size = new System.Drawing.Size(165, 27);
+            this.txtNgayBD_KH.TabIndex = 0;
             // 
             // tableLayoutPanel18
             // 
@@ -774,7 +779,7 @@
             // 
             this.tableLayoutPanel19.ColumnCount = 1;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Controls.Add(this.txtDenNgay, 0, 1);
+            this.tableLayoutPanel19.Controls.Add(this.txtNgayKT_KH, 0, 1);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(770, 3);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
@@ -784,14 +789,14 @@
             this.tableLayoutPanel19.Size = new System.Drawing.Size(171, 51);
             this.tableLayoutPanel19.TabIndex = 7;
             // 
-            // txtDenNgay
+            // txtNgayKT_KH
             // 
-            this.txtDenNgay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDenNgay.Location = new System.Drawing.Point(3, 5);
-            this.txtDenNgay.Name = "txtDenNgay";
-            this.txtDenNgay.Size = new System.Drawing.Size(165, 27);
-            this.txtDenNgay.TabIndex = 0;
+            this.txtNgayKT_KH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNgayKT_KH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtNgayKT_KH.Location = new System.Drawing.Point(3, 5);
+            this.txtNgayKT_KH.Name = "txtNgayKT_KH";
+            this.txtNgayKT_KH.Size = new System.Drawing.Size(165, 27);
+            this.txtNgayKT_KH.TabIndex = 0;
             // 
             // btnXemTKKhachHang
             // 
@@ -802,6 +807,7 @@
             this.btnXemTKKhachHang.TabIndex = 8;
             this.btnXemTKKhachHang.Text = "Xem";
             this.btnXemTKKhachHang.UseVisualStyleBackColor = true;
+            this.btnXemTKKhachHang.Click += new System.EventHandler(this.btnXemTKKhachHang_Click);
             // 
             // btnInExlKH
             // 
@@ -812,6 +818,7 @@
             this.btnInExlKH.TabIndex = 9;
             this.btnInExlKH.Text = "In Excel";
             this.btnInExlKH.UseVisualStyleBackColor = true;
+            this.btnInExlKH.Click += new System.EventHandler(this.btnInExlKH_Click);
             // 
             // btnXemCTTheoKhachHang
             // 
@@ -825,6 +832,7 @@
             // 
             // dataGV_DTTheoKhachHang
             // 
+            this.dataGV_DTTheoKhachHang.AllowUserToAddRows = false;
             this.dataGV_DTTheoKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DTTheoKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tt,
@@ -842,36 +850,42 @@
             // 
             // tt
             // 
+            this.tt.DataPropertyName = "STT_kh";
             this.tt.HeaderText = "STT";
             this.tt.Name = "tt";
             this.tt.Width = 80;
             // 
             // MaKH
             // 
-            this.MaKH.HeaderText = "Mã khách hàng";
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.HeaderText = "Mã số";
             this.MaKH.Name = "MaKH";
             this.MaKH.Width = 160;
             // 
             // TenKH
             // 
-            this.TenKH.HeaderText = "Tên khách hàng";
+            this.TenKH.DataPropertyName = "TenKH";
+            this.TenKH.HeaderText = "Họ và tên";
             this.TenKH.Name = "TenKH";
             this.TenKH.Width = 220;
             // 
             // SoDonHang
             // 
+            this.SoDonHang.DataPropertyName = "SoDonHang_kh";
             this.SoDonHang.HeaderText = "Số đơn hàng";
             this.SoDonHang.Name = "SoDonHang";
             this.SoDonHang.Width = 130;
             // 
             // ls
             // 
+            this.ls.DataPropertyName = "SoLuongBan_kh";
             this.ls.HeaderText = "Số lượng";
             this.ls.Name = "ls";
             this.ls.Width = 120;
             // 
             // tongth
             // 
+            this.tongth.DataPropertyName = "TienHang_kh";
             this.tongth.HeaderText = "Tiền hàng";
             this.tongth.Name = "tongth";
             this.tongth.Width = 150;
@@ -957,7 +971,7 @@
             // 
             this.tableLayoutPanel23.ColumnCount = 1;
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Controls.Add(this.txtTuNgay_HH, 0, 1);
+            this.tableLayoutPanel23.Controls.Add(this.txtNgayBD_HH, 0, 1);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel23.Location = new System.Drawing.Point(475, 3);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
@@ -967,14 +981,14 @@
             this.tableLayoutPanel23.Size = new System.Drawing.Size(171, 51);
             this.tableLayoutPanel23.TabIndex = 5;
             // 
-            // txtTuNgay_HH
+            // txtNgayBD_HH
             // 
-            this.txtTuNgay_HH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTuNgay_HH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtTuNgay_HH.Location = new System.Drawing.Point(3, 5);
-            this.txtTuNgay_HH.Name = "txtTuNgay_HH";
-            this.txtTuNgay_HH.Size = new System.Drawing.Size(165, 27);
-            this.txtTuNgay_HH.TabIndex = 0;
+            this.txtNgayBD_HH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNgayBD_HH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtNgayBD_HH.Location = new System.Drawing.Point(3, 5);
+            this.txtNgayBD_HH.Name = "txtNgayBD_HH";
+            this.txtNgayBD_HH.Size = new System.Drawing.Size(165, 27);
+            this.txtNgayBD_HH.TabIndex = 0;
             // 
             // tableLayoutPanel24
             // 
@@ -1004,7 +1018,7 @@
             // 
             this.tableLayoutPanel25.ColumnCount = 1;
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Controls.Add(this.txtDenNgay_HH, 0, 1);
+            this.tableLayoutPanel25.Controls.Add(this.txtNgayKT_HH, 0, 1);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel25.Location = new System.Drawing.Point(770, 3);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
@@ -1014,14 +1028,14 @@
             this.tableLayoutPanel25.Size = new System.Drawing.Size(171, 51);
             this.tableLayoutPanel25.TabIndex = 7;
             // 
-            // txtDenNgay_HH
+            // txtNgayKT_HH
             // 
-            this.txtDenNgay_HH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDenNgay_HH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDenNgay_HH.Location = new System.Drawing.Point(3, 5);
-            this.txtDenNgay_HH.Name = "txtDenNgay_HH";
-            this.txtDenNgay_HH.Size = new System.Drawing.Size(165, 27);
-            this.txtDenNgay_HH.TabIndex = 0;
+            this.txtNgayKT_HH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNgayKT_HH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtNgayKT_HH.Location = new System.Drawing.Point(3, 5);
+            this.txtNgayKT_HH.Name = "txtNgayKT_HH";
+            this.txtNgayKT_HH.Size = new System.Drawing.Size(165, 27);
+            this.txtNgayKT_HH.TabIndex = 0;
             // 
             // btnXemTKHangHoa
             // 
@@ -1032,6 +1046,7 @@
             this.btnXemTKHangHoa.TabIndex = 8;
             this.btnXemTKHangHoa.Text = "Xem";
             this.btnXemTKHangHoa.UseVisualStyleBackColor = true;
+            this.btnXemTKHangHoa.Click += new System.EventHandler(this.btnXemTKHangHoa_Click);
             // 
             // btnInExlHH
             // 
@@ -1042,6 +1057,7 @@
             this.btnInExlHH.TabIndex = 9;
             this.btnInExlHH.Text = "In Excel";
             this.btnInExlHH.UseVisualStyleBackColor = true;
+            this.btnInExlHH.Click += new System.EventHandler(this.btnInExlHH_Click);
             // 
             // btnXemCTTheoHangHoa
             // 
@@ -1055,6 +1071,7 @@
             // 
             // dataGV_DTTheoHangHoa
             // 
+            this.dataGV_DTTheoHangHoa.AllowUserToAddRows = false;
             this.dataGV_DTTheoHangHoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DTTheoHangHoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sott,
@@ -1070,38 +1087,61 @@
             this.dataGV_DTTheoHangHoa.Size = new System.Drawing.Size(1180, 555);
             this.dataGV_DTTheoHangHoa.TabIndex = 1;
             // 
+            // lbl_Tieude
+            // 
+            this.lbl_Tieude.AutoSize = true;
+            this.lbl_Tieude.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Tieude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Tieude.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lbl_Tieude.Location = new System.Drawing.Point(3, 0);
+            this.lbl_Tieude.Name = "lbl_Tieude";
+            this.lbl_Tieude.Size = new System.Drawing.Size(1194, 75);
+            this.lbl_Tieude.TabIndex = 0;
+            this.lbl_Tieude.Text = "THỐNG KÊ DOANH THU BÁN HÀNG";
+            this.lbl_Tieude.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
             // sott
             // 
+            this.sott.DataPropertyName = "STT_mh";
             this.sott.HeaderText = "STT";
             this.sott.Name = "sott";
             this.sott.Width = 80;
             // 
             // MaSP
             // 
+            this.MaSP.DataPropertyName = "MaSP";
             this.MaSP.HeaderText = "Mã hàng";
             this.MaSP.Name = "MaSP";
             this.MaSP.Width = 120;
             // 
             // TenSP
             // 
+            this.TenSP.DataPropertyName = "TenSP";
             this.TenSP.HeaderText = "Tên hàng";
             this.TenSP.Name = "TenSP";
             this.TenSP.Width = 250;
             // 
             // dvt
             // 
+            this.dvt.DataPropertyName = "TenDVT";
             this.dvt.HeaderText = "Đơn vị tính";
             this.dvt.Name = "dvt";
-            this.dvt.Width = 150;
+            this.dvt.Width = 120;
             // 
             // SoLuongBan
             // 
+            this.SoLuongBan.DataPropertyName = "SoLuongBan_mh";
             this.SoLuongBan.HeaderText = "Số lượng bán";
             this.SoLuongBan.Name = "SoLuongBan";
             this.SoLuongBan.Width = 150;
             // 
             // tth
             // 
+            this.tth.DataPropertyName = "TienHang_mh";
             this.tth.HeaderText = "Tiền hàng";
             this.tth.Name = "tth";
             this.tth.Width = 150;
@@ -1163,7 +1203,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label lbl_Tieude;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageTheoThang;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -1181,10 +1220,10 @@
         private System.Windows.Forms.Button btnInExlThang;
         private System.Windows.Forms.DataGridView dataGV_DTTheoThang;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sdh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn th;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoDonHang_tt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan_tt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TienHang_tt;
         private System.Windows.Forms.TabPage tabPageNhanVien;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
@@ -1212,11 +1251,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Label lblTuNgayKH;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private System.Windows.Forms.DateTimePicker txtTuNgay;
+        private System.Windows.Forms.DateTimePicker txtNgayBD_KH;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.Label lblDenNgayKH;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
-        private System.Windows.Forms.DateTimePicker txtDenNgay;
+        private System.Windows.Forms.DateTimePicker txtNgayKT_KH;
         private System.Windows.Forms.Button btnXemTKKhachHang;
         private System.Windows.Forms.Button btnInExlKH;
         private System.Windows.Forms.Button btnXemCTTheoKhachHang;
@@ -1233,20 +1272,23 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.Label lblTuNgayHH;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
-        private System.Windows.Forms.DateTimePicker txtTuNgay_HH;
+        private System.Windows.Forms.DateTimePicker txtNgayBD_HH;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.Label lblDenNgayHH;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
-        private System.Windows.Forms.DateTimePicker txtDenNgay_HH;
+        private System.Windows.Forms.DateTimePicker txtNgayKT_HH;
         private System.Windows.Forms.Button btnXemTKHangHoa;
         private System.Windows.Forms.Button btnInExlHH;
         private System.Windows.Forms.Button btnXemCTTheoHangHoa;
         private System.Windows.Forms.DataGridView dataGV_DTTheoHangHoa;
+        private System.Windows.Forms.Label lbl_Tieude;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sott;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvt;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn tth;
+
     }
 }

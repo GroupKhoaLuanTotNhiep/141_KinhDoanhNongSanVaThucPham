@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
-            this.btnDong = new System.Windows.Forms.Button();
+            this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnSuaLoai = new System.Windows.Forms.Button();
             this.btnXoaLoai = new System.Windows.Forms.Button();
             this.btnThemLoai = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@
             // 
             // groupBoxChucNang
             // 
-            this.groupBoxChucNang.Controls.Add(this.btnDong);
+            this.groupBoxChucNang.Controls.Add(this.btnLamMoi);
             this.groupBoxChucNang.Controls.Add(this.btnSuaLoai);
             this.groupBoxChucNang.Controls.Add(this.btnXoaLoai);
             this.groupBoxChucNang.Controls.Add(this.btnThemLoai);
@@ -79,15 +79,16 @@
             this.groupBoxChucNang.TabStop = false;
             this.groupBoxChucNang.Text = "Chức năng";
             // 
-            // btnDong
+            // btnLamMoi
             // 
-            this.btnDong.Location = new System.Drawing.Point(616, 109);
-            this.btnDong.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(125, 50);
-            this.btnDong.TabIndex = 4;
-            this.btnDong.Text = "Đóng";
-            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Location = new System.Drawing.Point(616, 109);
+            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(125, 50);
+            this.btnLamMoi.TabIndex = 4;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnSuaLoai
             // 
@@ -98,6 +99,7 @@
             this.btnSuaLoai.TabIndex = 3;
             this.btnSuaLoai.Text = "Sửa loại";
             this.btnSuaLoai.UseVisualStyleBackColor = true;
+            this.btnSuaLoai.Click += new System.EventHandler(this.btnSuaLoai_Click);
             // 
             // btnXoaLoai
             // 
@@ -108,6 +110,7 @@
             this.btnXoaLoai.TabIndex = 2;
             this.btnXoaLoai.Text = "Xóa loại";
             this.btnXoaLoai.UseVisualStyleBackColor = true;
+            this.btnXoaLoai.Click += new System.EventHandler(this.btnXoaLoai_Click);
             // 
             // btnThemLoai
             // 
@@ -118,6 +121,7 @@
             this.btnThemLoai.TabIndex = 1;
             this.btnThemLoai.Text = "Thêm loại";
             this.btnThemLoai.UseVisualStyleBackColor = true;
+            this.btnThemLoai.Click += new System.EventHandler(this.btnThemLoai_Click);
             // 
             // txtTenLoai
             // 
@@ -143,6 +147,7 @@
             // 
             // dataGV_LoaiSanPham
             // 
+            this.dataGV_LoaiSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGV_LoaiSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_LoaiSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaLoaiSP,
@@ -151,21 +156,25 @@
             this.dataGV_LoaiSanPham.Location = new System.Drawing.Point(4, 304);
             this.dataGV_LoaiSanPham.Margin = new System.Windows.Forms.Padding(4);
             this.dataGV_LoaiSanPham.Name = "dataGV_LoaiSanPham";
+            this.dataGV_LoaiSanPham.RowHeadersWidth = 51;
             this.dataGV_LoaiSanPham.RowTemplate.Height = 24;
             this.dataGV_LoaiSanPham.Size = new System.Drawing.Size(802, 442);
             this.dataGV_LoaiSanPham.TabIndex = 3;
+            this.dataGV_LoaiSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_LoaiSanPham_CellClick);
             // 
             // MaLoaiSP
             // 
+            this.MaLoaiSP.DataPropertyName = "MaLoaiSP";
             this.MaLoaiSP.HeaderText = "Mã loại sản phẩm";
+            this.MaLoaiSP.MinimumWidth = 6;
             this.MaLoaiSP.Name = "MaLoaiSP";
-            this.MaLoaiSP.Width = 200;
             // 
             // TenLoaiSP
             // 
+            this.TenLoaiSP.DataPropertyName = "TenLoaiSP";
             this.TenLoaiSP.HeaderText = "Tên loại sản phẩm";
+            this.TenLoaiSP.MinimumWidth = 6;
             this.TenLoaiSP.Name = "TenLoaiSP";
-            this.TenLoaiSP.Width = 250;
             // 
             // UC_DanhMucLoaiSanPham
             // 
@@ -174,6 +183,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UC_DanhMucLoaiSanPham";
             this.Size = new System.Drawing.Size(810, 750);
+            this.Load += new System.EventHandler(this.UC_DanhMucLoaiSanPham_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBoxChucNang.ResumeLayout(false);
@@ -187,7 +197,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBoxChucNang;
-        private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnSuaLoai;
         private System.Windows.Forms.Button btnXoaLoai;
         private System.Windows.Forms.Button btnThemLoai;

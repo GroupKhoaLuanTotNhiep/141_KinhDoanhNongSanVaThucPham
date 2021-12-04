@@ -77,7 +77,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1396, 744);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1482, 753);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelCenter
@@ -85,7 +85,7 @@
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCenter.Location = new System.Drawing.Point(3, 40);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(1390, 663);
+            this.panelCenter.Size = new System.Drawing.Size(1476, 671);
             this.panelCenter.TabIndex = 3;
             // 
             // menuStrip1
@@ -100,7 +100,7 @@
             this.thốngKêToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1396, 37);
+            this.menuStrip1.Size = new System.Drawing.Size(1482, 37);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,6 +120,7 @@
             this.thôngTinNgườiDùngToolStripMenuItem.Name = "thôngTinNgườiDùngToolStripMenuItem";
             this.thôngTinNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.thôngTinNgườiDùngToolStripMenuItem.Text = "Thông tin người dùng";
+            this.thôngTinNgườiDùngToolStripMenuItem.Click += new System.EventHandler(this.thôngTinNgườiDùngToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
@@ -127,6 +128,7 @@
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // quảnLýToolStripMenuItem
             // 
@@ -337,9 +339,9 @@
             this.lblTenNguoiDung.AutoSize = true;
             this.lblTenNguoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTenNguoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenNguoiDung.Location = new System.Drawing.Point(3, 706);
+            this.lblTenNguoiDung.Location = new System.Drawing.Point(3, 714);
             this.lblTenNguoiDung.Name = "lblTenNguoiDung";
-            this.lblTenNguoiDung.Size = new System.Drawing.Size(1390, 38);
+            this.lblTenNguoiDung.Size = new System.Drawing.Size(1476, 39);
             this.lblTenNguoiDung.TabIndex = 2;
             this.lblTenNguoiDung.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -347,13 +349,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1396, 744);
+            this.ClientSize = new System.Drawing.Size(1482, 753);
             this.Controls.Add(this.tableLayoutPanel1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmTrangChu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hệ thống quản lý kinh doanh Nông Sản và Thực Phẩm";
+            this.Load += new System.EventHandler(this.frmTrangChu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

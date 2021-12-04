@@ -60,7 +60,6 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkTuTang = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxTTChucVu.SuspendLayout();
             this.groupBoxChucVu.SuspendLayout();
@@ -103,7 +102,6 @@
             // 
             // groupBoxTTChucVu
             // 
-            this.groupBoxTTChucVu.Controls.Add(this.chkTuTang);
             this.groupBoxTTChucVu.Controls.Add(this.btnSuaCV);
             this.groupBoxTTChucVu.Controls.Add(this.btnXoaCV);
             this.groupBoxTTChucVu.Controls.Add(this.btnInDanhSach);
@@ -375,16 +373,6 @@
             this.Hinh.HeaderText = "Hình ảnh";
             this.Hinh.Name = "Hinh";
             // 
-            // chkTuTang
-            // 
-            this.chkTuTang.AutoSize = true;
-            this.chkTuTang.Location = new System.Drawing.Point(181, 45);
-            this.chkTuTang.Name = "chkTuTang";
-            this.chkTuTang.Size = new System.Drawing.Size(79, 21);
-            this.chkTuTang.TabIndex = 12;
-            this.chkTuTang.Text = "Tự tăng";
-            this.chkTuTang.UseVisualStyleBackColor = true;
-            // 
             // UC_DanhMucChucVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -438,6 +426,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn cv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hinh;
-        private System.Windows.Forms.CheckBox chkTuTang;
     }
 }

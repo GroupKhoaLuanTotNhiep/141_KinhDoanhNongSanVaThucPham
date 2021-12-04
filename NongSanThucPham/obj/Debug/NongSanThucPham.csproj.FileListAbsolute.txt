@@ -5,3 +5,19 @@ D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bi
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csprojResolveAssemblyReference.cache
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.dll
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.pdb
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\NongSanThucPham.dll
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\NongSanThucPham.pdb
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\DBConnect.dll
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\DBConnect.pdb
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csprojResolveAssemblyReference.cache
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.dll
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.pdb
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\NongSanThucPham.dll
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\NongSanThucPham.pdb
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\DBConnect.dll
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\bin\Debug\DBConnect.pdb
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csproj.AssemblyReference.cache
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csproj.CoreCompileInputs.cache
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.csproj.CopyComplete
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.dll
+E:\141_KinhDoanhNongSanVaThucPham\NongSanThucPham\obj\Debug\NongSanThucPham.pdb

@@ -37,6 +37,7 @@ namespace NongSanThucPham
             return ds_NhanVien.Tables["NhanVien"];
         }
 
+        //Lấy nhân viên theo chức vụ (theo mã chức vụ)
         public DataTable GetNhanVien(string ma)
         {
             string lenh = string.Format("Select * From NhanVien Where MaChucVu ='" + ma + "'");
@@ -45,10 +46,35 @@ namespace NongSanThucPham
             adt.Fill(table);
             return table;
         }
-
         public DataTable layNhanVien(string ma)
         {
             return GetNhanVien(ma);
+        }
+
+        public DataTable loadChucVu()
+        {
+            da_ChucVu = new SqlDataAdapter("Select * From ChucVu", conn.conn);
+            DataTable dt_ChucVu = new DataTable();
+            da_ChucVu.Fill(dt_ChucVu);
+            return dt_ChucVu;
+        }
+
+        //Lấy tên chức vụ theo mã chức vụ
+        public string GetTenChucVu(string ma)
+        {
+            string ten = "";
+            string strSql = "Select TenChucVu From ChucVu Where MaChucVu='" + ma + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while(dr.Read())
+            {
+                ten = dr["TenChucVu"].ToString();
+            }
+            dr.Close();
+            return ten;
+        }
+        public string layTenChucVu(string ma)
+        {
+            return GetTenChucVu(ma);
         }
     }
 }

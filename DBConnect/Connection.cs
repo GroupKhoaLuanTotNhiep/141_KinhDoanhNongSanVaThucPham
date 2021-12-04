@@ -53,15 +53,19 @@ namespace DBConnect
         public Connection()
         {
             strServerName = @"LAPTOP-U0DUSSA2\SQLEXPRESS";
-            strDBName = "QL_SieuThiNongSan";
+            strDBName = @"QL_SieuThiNongSan";
+            //strServerName = "LAPTOP-NUIIK9O9\\SQLEXPRESS";
+            //strDBName = "QL_SieuThiNongSan";
 
             //Dùng với quyền của Windowns
             //strConnect = @"Data Source=" + strServerName + ";Initial Catalog=" + strDBName + ";Integrated Security=true";
 
             //Dùng với quyền của SQL Server
+            //strUserID = "sa";
+            //strPassword = "1";
             strUserID = "sa";
             strPassword = "sa2012";
-            strConnect = @"Data Source=" + strServerName + ";Initial Catalog=" + strDBName + ";User ID=" + strUserID + ";Password=" + strPassword;
+            strConnect = "Data Source=" + strServerName + ";Initial Catalog=" + strDBName + ";User ID=" + strUserID + ";Password=" + strPassword;
 
             conn = new SqlConnection(strConnect); //Khởi tạo đối tượng kết nối đến CSDL
         }
@@ -103,6 +107,16 @@ namespace DBConnect
             SqlDataAdapter adt = new SqlDataAdapter(sql, this.conn);
             adt.Fill(table);
             return table;
+        }
+
+        public SqlDataReader getDataReader(string strSQL) //Trả về một DataReader
+        {
+            openConnect();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = strSQL;
+            SqlDataReader dataReader = cmd.ExecuteReader(); //Thực thi
+            return dataReader;
         }
 
         public int getCount(string strSQL)

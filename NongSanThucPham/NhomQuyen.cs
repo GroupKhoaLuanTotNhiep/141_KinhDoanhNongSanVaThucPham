@@ -50,5 +50,13 @@ namespace NongSanThucPham
         {
             return GetNhanVien(ma);
         }
+
+        public DataTable loadQuyen()
+        {
+            da_Quyen = new SqlDataAdapter("Select * From NhomQuyen", conn.conn);
+            DataTable dt_Quyen = new DataTable();
+            da_Quyen.Fill(dt_Quyen);
+            return dt_Quyen;
+        }
     }
 }

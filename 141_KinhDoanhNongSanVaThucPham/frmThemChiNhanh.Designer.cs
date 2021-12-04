@@ -36,10 +36,12 @@
             this.lblThemChiNhanh = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblDC = new System.Windows.Forms.Label();
             this.lblDT = new System.Windows.Forms.Label();
             this.lblTenChinhNhanh = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtmachinhanh = new System.Windows.Forms.TextBox();
             this.txtDienThoai = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtTenChiNhanh = new System.Windows.Forms.TextBox();
@@ -98,6 +100,7 @@
             this.btnDong.TabIndex = 2;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnLuuChiNhanh
             // 
@@ -110,6 +113,7 @@
             this.btnLuuChiNhanh.TabIndex = 0;
             this.btnLuuChiNhanh.Text = "Lưu";
             this.btnLuuChiNhanh.UseVisualStyleBackColor = true;
+            this.btnLuuChiNhanh.Click += new System.EventHandler(this.btnLuuChiNhanh_Click);
             // 
             // btnThemMoi
             // 
@@ -122,6 +126,7 @@
             this.btnThemMoi.TabIndex = 1;
             this.btnThemMoi.Text = "Thêm mới";
             this.btnThemMoi.UseVisualStyleBackColor = true;
+            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
             // 
             // lblThemChiNhanh
             // 
@@ -153,6 +158,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblDC);
             this.groupBox1.Controls.Add(this.lblDT);
             this.groupBox1.Controls.Add(this.lblTenChinhNhanh);
@@ -163,11 +169,21 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(64, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Mã chi nhánh";
+            // 
             // lblDC
             // 
             this.lblDC.AutoSize = true;
             this.lblDC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.lblDC.Location = new System.Drawing.Point(113, 95);
+            this.lblDC.Location = new System.Drawing.Point(112, 107);
             this.lblDC.Name = "lblDC";
             this.lblDC.Size = new System.Drawing.Size(61, 20);
             this.lblDC.TabIndex = 2;
@@ -187,7 +203,7 @@
             // 
             this.lblTenChinhNhanh.AutoSize = true;
             this.lblTenChinhNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenChinhNhanh.Location = new System.Drawing.Point(60, 31);
+            this.lblTenChinhNhanh.Location = new System.Drawing.Point(59, 55);
             this.lblTenChinhNhanh.Name = "lblTenChinhNhanh";
             this.lblTenChinhNhanh.Size = new System.Drawing.Size(114, 20);
             this.lblTenChinhNhanh.TabIndex = 0;
@@ -195,6 +211,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtmachinhanh);
             this.groupBox2.Controls.Add(this.txtDienThoai);
             this.groupBox2.Controls.Add(this.txtDiaChi);
             this.groupBox2.Controls.Add(this.txtTenChiNhanh);
@@ -205,6 +222,14 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // txtmachinhanh
+            // 
+            this.txtmachinhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmachinhanh.Location = new System.Drawing.Point(20, 11);
+            this.txtmachinhanh.Name = "txtmachinhanh";
+            this.txtmachinhanh.Size = new System.Drawing.Size(400, 27);
+            this.txtmachinhanh.TabIndex = 3;
+            // 
             // txtDienThoai
             // 
             this.txtDienThoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,11 +237,12 @@
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(400, 27);
             this.txtDienThoai.TabIndex = 2;
+            this.txtDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiaChi.Location = new System.Drawing.Point(20, 92);
+            this.txtDiaChi.Location = new System.Drawing.Point(20, 104);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(400, 27);
             this.txtDiaChi.TabIndex = 1;
@@ -224,7 +250,7 @@
             // txtTenChiNhanh
             // 
             this.txtTenChiNhanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenChiNhanh.Location = new System.Drawing.Point(20, 28);
+            this.txtTenChiNhanh.Location = new System.Drawing.Point(20, 52);
             this.txtTenChiNhanh.Name = "txtTenChiNhanh";
             this.txtTenChiNhanh.Size = new System.Drawing.Size(400, 27);
             this.txtTenChiNhanh.TabIndex = 0;
@@ -238,6 +264,7 @@
             this.Name = "frmThemChiNhanh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "From Thêm chi nhánh";
+            this.Load += new System.EventHandler(this.frmThemChiNhanh_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -267,5 +294,7 @@
         private System.Windows.Forms.TextBox txtDienThoai;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtTenChiNhanh;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtmachinhanh;
     }
 }
