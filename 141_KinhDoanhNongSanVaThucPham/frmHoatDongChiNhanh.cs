@@ -17,7 +17,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
         NhapKho nhapKho = new NhapKho();
         XuatHang xuatHang = new XuatHang();
         ThanhLy thanhLy = new ThanhLy();
-        GiaoHang giaoHang = new GiaoHang();
+        HoaDon giaoHang = new HoaDon();
 
         public frmHoatDongChiNhanh(string macn)
         {
@@ -56,8 +56,8 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             int index = e.RowIndex;
             if (e.RowIndex == -1) return;
-            string a = dataGV_PhieuGiaoHang.Rows[index].Cells[0].Value.ToString();
-            dataGV_CTGiaoHang.DataSource = giaoHang.layChiTietPhieuGiaoHang(a);
+            string a = dataGV_PhieuGiaoHang.Rows[index].Cells["MaHoaDon"].Value.ToString();
+            dataGV_ChiTietGiaoHang.DataSource = giaoHang.layChiTietHoaDon(a);
         }
     }
 }

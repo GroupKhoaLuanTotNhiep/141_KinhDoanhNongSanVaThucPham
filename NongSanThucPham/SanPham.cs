@@ -35,7 +35,7 @@ namespace NongSanThucPham
             ds_SanPham.Tables["SanPham"].PrimaryKey = key;
             return ds_SanPham.Tables["SanPham"];
         }
-        public bool addSP(string masp, string tensp, string hinhanh, int giavon ,int giaban,float giamgia ,int soluong ,string  xuatxu ,string	mota ,int	maloaisp ,int	madvt ,string	maquay )
+        public bool addSP(string masp, string tensp, string hinhanh, int giavon ,int giaban,float giamgia ,float soluong ,string xuatxu ,string	mota ,int maloaisp ,int	madvt ,string maquay )
         {
             try
             {
@@ -49,7 +49,7 @@ namespace NongSanThucPham
             }
 
         }
-        public bool updateSP(string masp, string tensp, string hinhanh, int giavon, int giaban, float giamgia, int soluong, string xuatxu, string mota, int maloaisp, int madvt, string maquay)
+        public bool updateSP(string masp, string tensp, string hinhanh, int giavon, int giaban, float giamgia, float soluong, string xuatxu, string mota, int maloaisp, int madvt, string maquay)
         {
             try
             {

@@ -144,7 +144,7 @@
             this.lblXuatHang.Name = "lblXuatHang";
             this.lblXuatHang.Size = new System.Drawing.Size(1394, 38);
             this.lblXuatHang.TabIndex = 0;
-            this.lblXuatHang.Text = "XUẤT HÀNG";
+            this.lblXuatHang.Text = "XUẤT HÀNG RA QUẦY";
             this.lblXuatHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabControlXuatHang
@@ -409,6 +409,7 @@
             this.cbbQuayHang.Name = "cbbQuayHang";
             this.cbbQuayHang.Size = new System.Drawing.Size(150, 24);
             this.cbbQuayHang.TabIndex = 6;
+            this.cbbQuayHang.SelectedIndexChanged += new System.EventHandler(this.cbbQuayHang_SelectedIndexChanged);
             // 
             // lblQuayHang
             // 

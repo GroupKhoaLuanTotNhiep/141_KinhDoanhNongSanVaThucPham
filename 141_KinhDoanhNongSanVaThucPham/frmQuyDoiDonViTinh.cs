@@ -60,25 +60,25 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 DateTime ngaySanXuat = UC_DanhMucHangHoa.ngaysx;
                 DateTime hanSuDung = UC_DanhMucHangHoa.hsd;
                 int strMaPNH = int.Parse(txtMaPNH.Text.Trim());
-                int soLuongDuocDoi = int.Parse(strSLSPCanDoi) * int.Parse(strSLQuyDoi1DV);
+                float soLuongDuocDoi = float.Parse(strSLSPCanDoi) * float.Parse(strSLQuyDoi1DV);
 
-                if(int.Parse(strSLSPCanDoi) > int.Parse(sanPham.laySoLuongSPTheoSanPham(strMaSPCanDoi)))
+                if(float.Parse(strSLSPCanDoi) > float.Parse(sanPham.laySoLuongSPTheoSanPham(strMaSPCanDoi)))
                 {
                     MessageBox.Show("Số lượng sản phẩm đổi phải nhỏ hơn hoặc bằng số lượng sản phẩm đang có!");
                     txtSoLuongDoi.Focus();
                     return;
                 }
 
-                string strSqlCanDoi = "UPDATE SanPham SET SoLuongSP=" + (int.Parse(sanPham.laySoLuongSPTheoSanPham(strMaSPCanDoi)) - int.Parse(strSLSPCanDoi)) + " WHERE MaSP='" + strMaSPCanDoi + "'";
+                string strSqlCanDoi = "UPDATE SanPham SET SoLuongSP=" + (float.Parse(sanPham.laySoLuongSPTheoSanPham(strMaSPCanDoi)) - float.Parse(strSLSPCanDoi)) + " WHERE MaSP='" + strMaSPCanDoi + "'";
                 conn.updateToDatabase(strSqlCanDoi);
-                string strSqlUDLo = "UPDATE LoHang SET SoLuong=" + (int.Parse(loHang.laySoLuong(strMaLoSPCanDoi)) - int.Parse(strSLSPCanDoi)) + " WHERE MaLo='" + strMaLoSPCanDoi + "'";
+                string strSqlUDLo = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(strMaLoSPCanDoi)) - float.Parse(strSLSPCanDoi)) + " WHERE MaLo='" + strMaLoSPCanDoi + "'";
                 conn.updateToDatabase(strSqlUDLo);
 
-                string strSqlDuocDoi = "UPDATE SanPham SET SoLuongSP=" + (int.Parse(sanPham.laySoLuongSPTheoSanPham(strMaSPDuocDoi)) + soLuongDuocDoi) + " WHERE MaSP='" + strMaSPDuocDoi + "'";
+                string strSqlDuocDoi = "UPDATE SanPham SET SoLuongSP=" + (float.Parse(sanPham.laySoLuongSPTheoSanPham(strMaSPDuocDoi)) + soLuongDuocDoi) + " WHERE MaSP='" + strMaSPDuocDoi + "'";
                 conn.updateToDatabase(strSqlDuocDoi);
                 if (conn.checkExistTwoKey("LoHang", "MaLo", "MaPNH", strMaLoMoi, strMaPNH.ToString()))
                 {
-                    string strSqlUDLoMoi = "UPDATE LoHang SET SoLuong=" + (int.Parse(loHang.laySoLuong(strMaLoMoi)) + soLuongDuocDoi) + " WHERE MaLo='" + strMaLoMoi + "'";
+                    string strSqlUDLoMoi = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(strMaLoMoi)) + soLuongDuocDoi) + " WHERE MaLo='" + strMaLoMoi + "'";
                     conn.updateToDatabase(strSqlUDLoMoi);
                     MessageBox.Show("Cập nhật thành công!");
                 }

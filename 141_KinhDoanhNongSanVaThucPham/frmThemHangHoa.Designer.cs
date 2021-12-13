@@ -430,7 +430,7 @@
             this.txtSoLuongSP.Name = "txtSoLuongSP";
             this.txtSoLuongSP.Size = new System.Drawing.Size(125, 27);
             this.txtSoLuongSP.TabIndex = 5;
-            this.txtSoLuongSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaVon_KeyPress);
+            this.txtSoLuongSP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamGia_KeyPress);
             // 
             // txtGiaBan
             // 

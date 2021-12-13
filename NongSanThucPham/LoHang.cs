@@ -36,7 +36,7 @@ namespace NongSanThucPham
             set { _MaSP = value; }
         }
 
-        public bool addLoHang(string ma,string ten,DateTime nsx,DateTime hsd,int soluong, int mapnh,string masp, int magia)
+        public bool addLoHang(string ma,string ten,DateTime nsx,DateTime hsd,float soluong, int mapnh,string masp, int magia)
         {
             try
             {
@@ -165,10 +165,36 @@ namespace NongSanThucPham
             return soLuong;
         }
 
+        public string laySLTheoGiaVaSanPham(string magia, string masp)
+        {
+            string soLuong = "";
+            string strSql = "Select * From LoHang Where MaGia = '" + magia + "' And MaSP='" + masp + "'";
+            SqlDataReader soLuongdr = conn.getDataReader(strSql);
+            while (soLuongdr.Read())
+            {
+                soLuong = soLuongdr["SoLuong"].ToString();
+            }
+            soLuongdr.Close();
+            return soLuong;
+        }
+
         public string layHanSuDung(string malo)
         {
             string hsd = "";
             string strSql = "Select * From LoHang Where MaLo = '" + malo + "'";
+            SqlDataReader hsddr = conn.getDataReader(strSql);
+            while (hsddr.Read())
+            {
+                hsd = hsddr["HanSuDung"].ToString();
+            }
+            hsddr.Close();
+            return hsd;
+        }
+
+        public string layHSDTheoGiaVaSanPham(string magia, string masp)
+        {
+            string hsd = "";
+            string strSql = "Select * From LoHang Where MaGia = '" + magia + "' And MaSP='" + masp + "'";
             SqlDataReader hsddr = conn.getDataReader(strSql);
             while (hsddr.Read())
             {
@@ -195,5 +221,71 @@ namespace NongSanThucPham
         {
             return GetTenLoHang(malo);
         }
+
+        public string layMaLoHang(string magia, string masp)
+        {
+            string ma = "";
+            string strSql = "Select MaLo From LoHang Where MaSP='" + masp + "' And MaGia='" + magia + "' And HanSuDung >='" + DateTime.Now + "' And SoLuong >" + 0;
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                ma = dr["MaLo"].ToString();
+            }
+            dr.Close();
+            return ma;
+        }
+
+        public string layMaLoHetHang(string magia, string masp)
+        {
+            string ma = "";
+            string strSql = "Select MaLo From LoHang Where MaSP='" + masp + "' And MaGia='" + magia + "' And HanSuDung >='" + DateTime.Now + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                ma = dr["MaLo"].ToString();
+            }
+            dr.Close();
+            return ma;
+        }
+
+        public string layMaLo(string magia, string masp)
+        {
+            string ma = "";
+            string strSql = "Select MaLo From LoHang Where MaSP='" + masp + "' And MaGia='" + magia + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                ma = dr["MaLo"].ToString();
+            }
+            dr.Close();
+            return ma;
+        }
+
+        public string layMaLoHetHan(string magia, string masp)
+        {
+            string ma = "";
+            string strSql = "Select MaLo From LoHang Where MaSP='" + masp + "' And MaGia='" + magia + "' And HanSuDung <'" + DateTime.Now + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                ma = dr["MaLo"].ToString();
+            }
+            dr.Close();
+            return ma;
+        }
+
+        public string layMaSPTheoLoHang(string malo)
+        {
+            string ma = "";
+            string strSql = "Select MaSP From LoHang Where MaLo = '" + malo + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                ma = dr["MaSP"].ToString();
+            }
+            dr.Close();
+            return ma;
+        }
+
     }
 }

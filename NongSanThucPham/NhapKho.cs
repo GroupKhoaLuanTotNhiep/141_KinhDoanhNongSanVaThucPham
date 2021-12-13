@@ -58,6 +58,19 @@ namespace NongSanThucPham
             return giaNhap;
         }
 
+        public string layThanhTienCTPN(string mapn, string masp)
+        {
+            string thanhTien = "";
+            string strSql = "Select * From ChiTietPhieuNhapHang Where MaPNH='" + mapn + "' And MaSP='" + masp + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                thanhTien = dr["ThanhTien"].ToString();
+            }
+            dr.Close();
+            return thanhTien;
+        }
+
         public string layMaPNH() //Lấy mã phiếu nhập cuối cùng
         {
             string mapn = "";
@@ -71,14 +84,14 @@ namespace NongSanThucPham
             return mapn;
         }
 
-        public int updateTongSoLuong(string mapn)
+        public float updateTongSoLuong(string mapn)
         {
-            int tongSLSP = 0;
+            float tongSLSP = 0;
             string strSql = "Select * From ChiTietPhieuNhapHang Where MaPNH = '" + mapn + "'";
             SqlDataReader tongSLSPdr = conn.getDataReader(strSql);
             while (tongSLSPdr.Read())
             {
-                tongSLSP += int.Parse(tongSLSPdr["SoLuong"].ToString());
+                tongSLSP += float.Parse(tongSLSPdr["SoLuong"].ToString());
             }
             tongSLSPdr.Close();
             return tongSLSP;

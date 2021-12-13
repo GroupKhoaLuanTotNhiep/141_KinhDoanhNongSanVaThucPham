@@ -75,7 +75,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
 
         private void txtSoLuongXuat_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
                 e.Handled = true;
         }
 
@@ -91,7 +91,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             createTable_CTPXH();
             txtMaPhieuXuat.Enabled = false;
             txtTongSLXuat.Enabled = txtTongSLSanPham.Enabled = false;
-            cbbDonViTinh.Enabled = false;
+            cbbDonViTinh.Enabled = cbbNhanVien.Enabled = false;
             btnLuuPXH.Enabled = btnXoaCTPXH.Enabled = btnSuaPXH.Enabled = btnXoaPhieuXuat.Enabled = false;
         }
 
@@ -101,6 +101,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             txtMaPhieuXuat.Clear();
             txtNgayXuat.Text = DateTime.Now.ToString();
             //cbbNhanVien.SelectedIndex = 0;
+            cbbNhanVien.Text = frmDangNhap.maNV;
             cbbChiNhanh.SelectedIndex = 0;
             cbbQuayHang.SelectedIndex = 0;
             cbbLoSanPham.Text = "";
@@ -170,14 +171,14 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         MessageBox.Show("Trùng khóa chính rồi!");
                         return;
                     }
-                    if (int.Parse(strSoLuongXuat) > int.Parse(loHang.laySoLuong(strLoHang)))
+                    if (float.Parse(strSoLuongXuat) > float.Parse(loHang.laySoLuong(strLoHang)))
                     {
-                        MessageBox.Show("Số lượng xuất phải nhỏ hơn hoặc bằng số lượng có trong lô (" + int.Parse(loHang.laySoLuong(strLoHang)) + ")!");
+                        MessageBox.Show("Số lượng xuất phải nhỏ hơn hoặc bằng số lượng có trong lô (" + float.Parse(loHang.laySoLuong(strLoHang)) + ")!");
                         return;
                     }
-                    if(int.Parse(strSoLuongXuat) > int.Parse(loHang.laySoLuong(strLoHang)) - xuatHang.layTongSLHangXuatCuaLoHangCuaSanPham(strLoHang))
+                    if(float.Parse(strSoLuongXuat) > float.Parse(loHang.laySoLuong(strLoHang)) - xuatHang.layTongSLHangXuatCuaLoHangCuaSanPham(strLoHang))
                     {
-                        MessageBox.Show("Số lượng xuất phải nhỏ hơn hoặc bằng số lượng có trong kho của lô hàng đó (" + (int.Parse(loHang.laySoLuong(strLoHang)) - xuatHang.layTongSLHangXuatCuaLoHangCuaSanPham(strLoHang)) + ")!");
+                        MessageBox.Show("Số lượng xuất phải nhỏ hơn hoặc bằng số lượng có trong kho của lô hàng đó (" + (float.Parse(loHang.laySoLuong(strLoHang)) - xuatHang.layTongSLHangXuatCuaLoHangCuaSanPham(strLoHang)) + ")!");
                         return;
                     }
                     string strSqlCTPX = "INSERT ChiTietPhieuXuatHang VALUES('" + strMaPhieuXuat + "', '" + strLoHang + "', " + strSoLuongXuat + ")";
@@ -218,7 +219,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     return;
                 }
 
-                string strSqlPX = "UPDATE PhieuXuatHang SET NgayXuat='" + strNgayXuat + "', MaNV='" + strNhanVien + "', MaChiNhanh='" + strChiNhanh + "', MaQuay='" + strQuayHang + "' WHERE MaPXH='" + strMaPhieuXuat + "'";
+                string strSqlPX = "UPDATE PhieuXuatHang SET NgayXuat='" + strNgayXuat + "', MaChiNhanh='" + strChiNhanh + "', MaQuay='" + strQuayHang + "' WHERE MaPXH='" + strMaPhieuXuat + "'";
                 conn.updateToDatabase(strSqlPX);
                 createTable_PhieuXuatHang();
                 MessageBox.Show("Cập nhật phiếu xuất hàng thành công!");
@@ -233,16 +234,16 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     MessageBox.Show("Khóa chính này chưa tồn tại!");
                     return;
                 }
-                if (int.Parse(strSoLuongXuat) > int.Parse(loHang.laySoLuong(strLoHang)))
+                if (float.Parse(strSoLuongXuat) > float.Parse(loHang.laySoLuong(strLoHang)))
                 {
-                    MessageBox.Show("Số lượng xuất phải nhỏ hơn hoặc bằng số lượng có trong lô (" + int.Parse(loHang.laySoLuong(strLoHang)) + ")!");
+                    MessageBox.Show("Số lượng xuất phải nhỏ hơn hoặc bằng số lượng có trong lô (" + float.Parse(loHang.laySoLuong(strLoHang)) + ")!");
                     return;
                 }
                 //string strSqlUPCTPX = "UPDATE ChiTietPhieuXuatHang SET SoLuongXuat=" + 1 + " WHERE MaPXH='" + strMaPhieuXuat + "' AND MaLo='" + strLoHang + "'";
                 //conn.updateToDatabase(strSqlUPCTPX);
-                if (int.Parse(strSoLuongXuat) > int.Parse(loHang.laySoLuong(strLoHang)) - xuatHang.layTongSLHangXuatCuaLoHangCuaSanPham(strLoHang) + xuatHang.laySLHangXuatCuaMotChiTiet(strMaPhieuXuat, strLoHang))
+                if (float.Parse(strSoLuongXuat) > float.Parse(loHang.laySoLuong(strLoHang)) - xuatHang.layTongSLHangXuatCuaLoHangCuaSanPham(strLoHang) + xuatHang.laySLHangXuatCuaMotChiTiet(strMaPhieuXuat, strLoHang))
                 {
-                    MessageBox.Show("Số lượng xuất phải nhỏ hơn hoặc bằng số lượng có trong kho của lô hàng đó (" + (int.Parse(loHang.laySoLuong(strLoHang)) - xuatHang.layTongSLHangXuatCuaLoHangCuaSanPham(strLoHang) + xuatHang.laySLHangXuatCuaMotChiTiet(strMaPhieuXuat, strLoHang)) + ")!");
+                    MessageBox.Show("Số lượng xuất phải nhỏ hơn hoặc bằng số lượng có trong kho của lô hàng đó (" + (float.Parse(loHang.laySoLuong(strLoHang)) - xuatHang.layTongSLHangXuatCuaLoHangCuaSanPham(strLoHang) + xuatHang.laySLHangXuatCuaMotChiTiet(strMaPhieuXuat, strLoHang)) + ")!");
                     return;
                 }
                 string strSqlCTPX = "UPDATE ChiTietPhieuXuatHang SET SoLuongXuat=" + strSoLuongXuat + " WHERE MaPXH='" + strMaPhieuXuat + "' AND MaLo='" + strLoHang + "'";
@@ -383,12 +384,15 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             if (conn.checkExist("LoHang", "MaSP", cbbSanPham.SelectedValue.ToString()))
             {
-                cbbLoSanPham.DataSource = xuatHang.loadLoHangTheoSanPham(cbbSanPham.SelectedValue.ToString());
+                cbbLoSanPham.DataSource = xuatHang.loadLoHangTheoSanPhamConHSD(cbbSanPham.SelectedValue.ToString());
                 cbbLoSanPham.DisplayMember = "TenLo";
                 cbbLoSanPham.ValueMember = "MaLo";
+                if (cbbLoSanPham.Items.Count == 0)
+                    cbbLoSanPham.Text = "";
             }
             else
             {
+                cbbLoSanPham.DataSource = xuatHang.loadLoHangTheoSanPhamConHSD(cbbSanPham.SelectedValue.ToString());
                 cbbLoSanPham.Text = "";
             }
 
@@ -401,6 +405,18 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             frmThemQuayHang quay = new frmThemQuayHang();
             quay.ShowDialog();
+        }
+
+        private void cbbQuayHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (conn.checkExist("SanPham", "MaQuay", cbbQuayHang.SelectedValue.ToString()))
+            {
+                cbbSanPham.DataSource = sanPham.searchSanPhamTheoQuayHang(cbbQuayHang.SelectedValue.ToString());
+                cbbSanPham.DisplayMember = "MaSP";
+                cbbSanPham.ValueMember = "MaSP";
+            }
+            else
+                loadComboBoxSanPham();
         }
     }
 }

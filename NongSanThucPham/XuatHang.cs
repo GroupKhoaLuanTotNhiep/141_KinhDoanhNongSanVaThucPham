@@ -16,9 +16,9 @@ namespace NongSanThucPham
         SqlDataAdapter da_PhieuXuat, da_CTPX;
         DataSet ds_PhieuXuat, ds_CTPX;
 
-        public DataTable loadLoHangTheoSanPham(string masp)
+        public DataTable loadLoHangTheoSanPhamConHSD(string masp)
         {
-            string strSQL = "Select * From LoHang, SanPham Where LoHang.MaSP = SanPham.MaSP And SanPham.MaSP='" + masp + "'";
+            string strSQL = "Select * From LoHang, SanPham Where LoHang.MaSP = SanPham.MaSP And SanPham.MaSP='" + masp + "' And HanSuDung >= '" + DateTime.Now + "'";
             DataTable dt_LoHang = new DataTable();
             SqlDataAdapter da_LoHang = new SqlDataAdapter(strSQL, conn.conn);
             da_LoHang.Fill(dt_LoHang);
@@ -56,40 +56,40 @@ namespace NongSanThucPham
             return mapx;
         }
 
-        public int layTongSLHangXuatCuaLoHangCuaSanPham(string malo)
+        public float layTongSLHangXuatCuaLoHangCuaSanPham(string malo)
         {
-            int tongSL = 0;
+            float tongSL = 0;
             string strSql = "Select * From ChiTietPhieuXuatHang Where MaLo='" + malo + "'";
             SqlDataReader tongSLdr = conn.getDataReader(strSql);
             while (tongSLdr.Read())
             {
-                tongSL += int.Parse(tongSLdr["SoLuongXuat"].ToString());
+                tongSL += float.Parse(tongSLdr["SoLuongXuat"].ToString());
             }
             tongSLdr.Close();
             return tongSL;
         }
 
-        public int laySLHangXuatCuaMotChiTiet(string mapx, string malo)
+        public float laySLHangXuatCuaMotChiTiet(string mapx, string malo)
         {
-            int soluong = 0;
+            float soluong = 0;
             string strSql = "Select * From ChiTietPhieuXuatHang Where MaPXH='" + mapx + "' And MaLo='" + malo + "'";
             SqlDataReader soluongdr = conn.getDataReader(strSql);
             while (soluongdr.Read())
             {
-                soluong = int.Parse(soluongdr["SoLuongXuat"].ToString());
+                soluong = float.Parse(soluongdr["SoLuongXuat"].ToString());
             }
             soluongdr.Close();
             return soluong;
         }
 
-        public int updateTongSoLuongXuat(string mapx)
+        public float updateTongSoLuongXuat(string mapx)
         {
-            int tongSL = 0;
+            float tongSL = 0;
             string strSql = "Select * From ChiTietPhieuXuatHang Where MaPXH = '" + mapx + "'";
             SqlDataReader tongSLdr = conn.getDataReader(strSql);
             while (tongSLdr.Read())
             {
-                tongSL += int.Parse(tongSLdr["SoLuongXuat"].ToString());
+                tongSL += float.Parse(tongSLdr["SoLuongXuat"].ToString());
             }
             tongSLdr.Close();
             return tongSL;

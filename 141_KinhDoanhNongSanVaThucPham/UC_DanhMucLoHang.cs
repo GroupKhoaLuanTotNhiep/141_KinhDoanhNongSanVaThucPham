@@ -153,7 +153,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 string tenlo = dataGV_LoHang.Rows[index].Cells[1].Value.ToString();
                 DateTime nsx = DateTime.Parse( dataGV_LoHang.Rows[index].Cells[2].Value.ToString());
                 DateTime hsd= DateTime.Parse(dataGV_LoHang.Rows[index].Cells[3].Value.ToString());
-                int sl = int.Parse( dataGV_LoHang.Rows[index].Cells[4].Value.ToString());
+                float sl = float.Parse( dataGV_LoHang.Rows[index].Cells[4].Value.ToString());
                 int mapnh = int.Parse(dataGV_LoHang.Rows[index].Cells[5].Value.ToString());
                 string masp = dataGV_LoHang.Rows[index].Cells[6].Value.ToString();
                 int magia = int.Parse(dataGV_LoHang.Rows[index].Cells[7].Value.ToString());

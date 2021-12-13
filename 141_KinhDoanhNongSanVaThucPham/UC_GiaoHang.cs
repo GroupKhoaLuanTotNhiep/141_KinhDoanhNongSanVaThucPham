@@ -93,6 +93,27 @@ namespace _141_KinhDoanhNongSanVaThucPham
             loadComboBoxTinhTrang();
             loadComboBoxSanPham();
             createTable_PhieuGiaoHang();
+            try
+            {
+                for(int i = 0; i < dataGV_PhieuGiaoHang.RowCount - 1; i++)
+                {
+                    string mapg = dataGV_PhieuGiaoHang.Rows[i].Cells[0].Value.ToString();
+                    string mahd = dataGV_PhieuGiaoHang.Rows[i].Cells[6].Value.ToString();
+                    if(hoaDon.layTinhTrang(mahd) == "Đã giao hàng" || (hoaDon.layTinhTrang(mahd) == "Hủy hàng" && giaoHang.layTinhTrang(mapg) == "Đang giao hàng"))
+                    {
+                        string strSQL = "UPDATE PhieuGiaoHang SET TinhTrang=N'Hoàn tất' WHERE MaPGH=" + mapg;
+                        conn.updateToDatabase(strSQL);
+                        createTable_PhieuGiaoHang();
+                    }
+                    if(hoaDon.layTinhTrang(mahd) == "Chưa giao hàng")
+                    {
+                        string strSql = "UPDATE PhieuGiaoHang SET TinhTrang=N'Đang giao hàng' WHERE MaPGH=" + mapg;
+                        conn.updateToDatabase(strSql);
+                        createTable_PhieuGiaoHang();
+                    }
+                }
+            }
+            catch { }
             //createTable_CTPGH();
             txtMaPhieuGiao.Enabled = false;
             txtGiaBan.Enabled = false;
@@ -189,7 +210,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     txtSoLuongGiao.Focus();
                     return;
                 }
-                int thanhTien = int.Parse(strSoLuongGiao) * (int.Parse(strGiaBan) - (int)(int.Parse(strGiaBan) * float.Parse(strGiamGia)));
+                int thanhTien = (int)(float.Parse(strSoLuongGiao) * (int.Parse(strGiaBan) - (int.Parse(strGiaBan) * float.Parse(strGiamGia))));
 
                 if (conn.checkExist("PhieuGiaoHang", "MaPGH", strMaPGH))
                 {
@@ -228,7 +249,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 //        MessageBox.Show("Trùng khóa chính rồi!");
                 //        return;
                 //    }
-                //    if (int.Parse(strSoLuongGiao) > int.Parse(hoaDon.laySoLuongBan(strHoaDon, strSanPham)))
+                //    if (float.Parse(strSoLuongGiao) > float.Parse(hoaDon.laySoLuongBan(strHoaDon, strSanPham)))
                 //    {
                 //        MessageBox.Show("Số lượng giao phải nhỏ hơn hoặc bằng số lượng bán!");
                 //        return;
@@ -273,14 +294,15 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         for (int i = 0; i < dataGV_CTGiaoHang.RowCount - 1; i++)
                         {
                             string masp = dataGV_CTGiaoHang.Rows[i].Cells["MaSP"].Value.ToString().Trim();
-                            string malo = dataGV_CTGiaoHang.Rows[i].Cells["MaLo"].Value.ToString().Trim();
-                            int soluong = int.Parse(dataGV_CTGiaoHang.Rows[i].Cells["SoLuongBan"].Value.ToString().Trim());
+                            string gia = dataGV_CTGiaoHang.Rows[i].Cells["GiaXuat"].Value.ToString().Trim();
+                            string malo = loHang.layMaLo(sanPham.layMaGiaBanTheoTenGia(int.Parse(gia)), masp);
+                            float soluong = float.Parse(dataGV_CTGiaoHang.Rows[i].Cells["SoLuongBan"].Value.ToString().Trim());
                             if (conn.checkExistTwoKey("LoHang", "MaLo", "MaSP", malo, masp))
                             {
-                                string strSQLLo = "UPDATE LoHang SET SoLuong=" + (int.Parse(loHang.laySoLuong(malo)) + soluong) + " WHERE MaLo='" + malo + "'";
+                                string strSQLLo = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(malo)) + soluong) + " WHERE MaLo='" + malo + "'";
                                 conn.updateToDatabase(strSQLLo);
                             }
-                            string strSQLSP = "UPDATE SanPham SET SoLuongSP=" + (int.Parse(sanPham.laySoLuongSPTheoSanPham(masp)) + soluong) + " WHERE MaSP='" + masp + "'";
+                            string strSQLSP = "UPDATE SanPham SET SoLuongSP=" + (float.Parse(sanPham.laySoLuongSPTheoSanPham(masp)) + soluong) + " WHERE MaSP='" + masp + "'";
                             conn.updateToDatabase(strSQLSP);
                         }
                         strTienTraLai = String.Format("{0:0,0}", int.Parse(txtTienPhaiTra.Text));
@@ -361,13 +383,17 @@ namespace _141_KinhDoanhNongSanVaThucPham
 
         private void dataGV_CTGiaoHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            if (e.RowIndex == -1) return;
-            cbbHoaDon.Text = dataGV_CTGiaoHang.Rows[index].Cells[0].Value.ToString();
-            cbbSanPham.Text = dataGV_CTGiaoHang.Rows[index].Cells[1].Value.ToString();
-            txtSoLuongGiao.Text = dataGV_CTGiaoHang.CurrentRow.Cells[2].Value.ToString();
-            txtGiaBan.Text = dataGV_CTGiaoHang.Rows[index].Cells[3].Value.ToString();
-            cbbGiamGia.Text = dataGV_CTGiaoHang.Rows[index].Cells[4].Value.ToString();
+            try
+            {
+                int index = e.RowIndex;
+                if (e.RowIndex == -1) return;
+                cbbHoaDon.Text = dataGV_CTGiaoHang.Rows[index].Cells[0].Value.ToString();
+                cbbSanPham.Text = dataGV_CTGiaoHang.Rows[index].Cells[1].Value.ToString();
+                txtSoLuongGiao.Text = dataGV_CTGiaoHang.CurrentRow.Cells[2].Value.ToString();
+                txtGiaBan.Text = dataGV_CTGiaoHang.Rows[index].Cells[3].Value.ToString();
+                cbbGiamGia.Text = dataGV_CTGiaoHang.Rows[index].Cells[4].Value.ToString();
+            }
+            catch { }
         }
 
         private void btnSuaPGH_Click(object sender, EventArgs e)
@@ -399,7 +425,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     txtSoLuongGiao.Focus();
                     return;
                 }
-                int thanhTien = int.Parse(strSoLuongGiao) * (int.Parse(strGiaBan) - (int)(int.Parse(strGiaBan) * float.Parse(strGiamGia)));
+                int thanhTien = (int)(float.Parse(strSoLuongGiao) * (int.Parse(strGiaBan) - (int.Parse(strGiaBan) * float.Parse(strGiamGia))));
 
                 if (!conn.checkExist("PhieuGiaoHang", "MaPGH", strMaPGH))
                 {
@@ -428,7 +454,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 //    MessageBox.Show("Khóa chính này chưa tồn tại!");
                 //    return;
                 //}
-                //if (int.Parse(strSoLuongGiao) > int.Parse(hoaDon.laySoLuongBan(strHoaDon, strSanPham)))
+                //if (float.Parse(strSoLuongGiao) > float.Parse(hoaDon.laySoLuongBan(strHoaDon, strSanPham)))
                 //{
                 //    MessageBox.Show("Số lượng giao phải nhỏ hơn hoặc bằng số lượng bán!");
                 //    return;
@@ -457,11 +483,17 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 //}
                 if (cbbTinhTrangGiao.Text.Trim() == "Đang giao hàng")
                 {
+                    string strSqlUDPGH1 = "UPDATE PhieuGiaoHang SET TinhTrang=N'Đang giao hàng' WHERE MaPGH='" + strMaPGH + "'";
+                    conn.updateToDatabase(strSqlUDPGH1);
+                    createTable_PhieuGiaoHang();
                     string strSqlUDHD = "UPDATE HoaDon SET TinhTrang=N'Chưa giao hàng' WHERE MaHoaDon='" + strHoaDon + "'";
                     conn.updateToDatabase(strSqlUDHD);
                 }
                 if (cbbTinhTrangGiao.Text.Trim() == "Hoàn tất")
                 {
+                    string strSqlUDPGH2 = "UPDATE PhieuGiaoHang SET TinhTrang=N'Hoàn tất' WHERE MaPGH='" + strMaPGH + "'";
+                    conn.updateToDatabase(strSqlUDPGH2);
+                    createTable_PhieuGiaoHang();
                     string strSqlUDHD = "UPDATE HoaDon SET TinhTrang=N'Đã giao hàng' WHERE MaHoaDon='" + strHoaDon + "'";
                     conn.updateToDatabase(strSqlUDHD);
                 }
@@ -473,14 +505,15 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         for (int i = 0; i < dataGV_CTGiaoHang.RowCount - 1; i++)
                         {
                             string masp = dataGV_CTGiaoHang.Rows[i].Cells["MaSP"].Value.ToString().Trim();
-                            string malo = dataGV_CTGiaoHang.Rows[i].Cells["MaLo"].Value.ToString().Trim();
-                            int soluong = int.Parse(dataGV_CTGiaoHang.Rows[i].Cells["SoLuongBan"].Value.ToString().Trim());
+                            string gia = dataGV_CTGiaoHang.Rows[i].Cells["GiaXuat"].Value.ToString().Trim();
+                            string malo = loHang.layMaLo(sanPham.layMaGiaBanTheoTenGia(int.Parse(gia)), masp);
+                            float soluong = float.Parse(dataGV_CTGiaoHang.Rows[i].Cells["SoLuongBan"].Value.ToString().Trim());
                             if (conn.checkExistTwoKey("LoHang", "MaLo", "MaSP", malo, masp))
                             {
-                                string strSQLLo = "UPDATE LoHang SET SoLuong=" + (int.Parse(loHang.laySoLuong(malo)) + soluong) + " WHERE MaLo='" + malo + "'";
+                                string strSQLLo = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(malo)) + soluong) + " WHERE MaLo='" + malo + "'";
                                 conn.updateToDatabase(strSQLLo);
                             }
-                            string strSQLSP = "UPDATE SanPham SET SoLuongSP=" + (int.Parse(sanPham.laySoLuongSPTheoSanPham(masp)) + soluong) + " WHERE MaSP='" + masp + "'";
+                            string strSQLSP = "UPDATE SanPham SET SoLuongSP=" + (float.Parse(sanPham.laySoLuongSPTheoSanPham(masp)) + soluong) + " WHERE MaSP='" + masp + "'";
                             conn.updateToDatabase(strSQLSP);
                         }
                         strTienTraLai = String.Format("{0:0,0}", int.Parse(txtTienPhaiTra.Text));
@@ -529,7 +562,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
         //            txtSoLuongGiao.Focus();
         //            return;
         //        }
-        //        int thanhTien = int.Parse(strSoLuongGiao) * (int.Parse(strGiaBan) - (int)(int.Parse(strGiaBan) * float.Parse(strGiamGia)));
+        //        int thanhTien = (int)(float.Parse(strSoLuongGiao) * (int.Parse(strGiaBan) - (int.Parse(strGiaBan) * float.Parse(strGiamGia))));
 
         //        if (!conn.checkExistTwoKey("ChiTietPhieuGiaoHang", "MaPGH", "MaSP", strMaPGH, strSanPham))
         //        {

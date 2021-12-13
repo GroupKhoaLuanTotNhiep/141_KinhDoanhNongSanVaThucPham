@@ -29,6 +29,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             cbbGiaBan.DataSource = sanPham.loadGiaBanTheoSanPham(cbbSanPham.Text.Trim());
             cbbGiaBan.DisplayMember = "GiaSP";
             cbbGiaBan.ValueMember = "MaGia";
+            txtSoLuong.Enabled = false;
         }
 
         public frmThemLoHang()
@@ -145,13 +146,19 @@ namespace _141_KinhDoanhNongSanVaThucPham
                             conn.updateToDatabase(strSqlBG);
                             MessageBox.Show("Đã thêm thông tin giá bán");
                         }
-                        string strSql_GSP = "Insert Gia_SanPham Values('" + strSanPham + "', " + sanPham.layMaGiaBanTheoTenGia(int.Parse(strGiaBan)) + ", '" + DateTime.Now.ToString() + "', NULL)";
-                        conn.updateToDatabase(strSql_GSP);
-                        MessageBox.Show("Đã thêm thông tin giá sản phẩm");
+                        if(!conn.checkExistTwoKey("Gia_SanPham", "MaSP", "MaGia", strSanPham, sanPham.layMaGiaBanTheoTenGia(int.Parse(strGiaBan))))
+                        {
+                            string strSql_GSP = "Insert Gia_SanPham Values('" + strSanPham + "', " + sanPham.layMaGiaBanTheoTenGia(int.Parse(strGiaBan)) + ", '" + DateTime.Now.ToString() + "', NULL)";
+                            conn.updateToDatabase(strSql_GSP);
+                            MessageBox.Show("Đã thêm thông tin giá sản phẩm");
+                        }
 
                         string strSql = "INSERT LoHang VALUES('" + strMaLo + "', N'" + strTenLo + "', '" + strNgaySanXuat + "', '" + strHanSuDung + "', " + strSoLuong + ", " + strPhieuNhap + ", '" + strSanPham + "', " + sanPham.layMaGiaBanTheoTenGia(int.Parse(strGiaBan)) + ")";
                         conn.updateToDatabase(strSql);
                         MessageBox.Show("Lưu lô hàng thành công!");
+
+                        string strSQLSP = "UPDATE SanPham SET GiaBan=" + strGiaBan + " WHERE MaSP='" + strSanPham + "'";
+                        conn.updateToDatabase(strSQLSP);
 
                         this.Close();
                     }
@@ -171,13 +178,19 @@ namespace _141_KinhDoanhNongSanVaThucPham
                             conn.updateToDatabase(strSqlBG);
                             MessageBox.Show("Đã thêm thông tin giá bán");
                         }
-                        string strSql_GSP = "Insert Gia_SanPham Values('" + strSanPham + "', " + strGiaBan + ", '" + DateTime.Now.ToString() + "', NULL)";
-                        conn.updateToDatabase(strSql_GSP);
-                        MessageBox.Show("Đã thêm thông tin giá sản phẩm");
+                        if (!conn.checkExistTwoKey("Gia_SanPham", "MaSP", "MaGia", strSanPham, strGiaBan))
+                        {
+                            string strSql_GSP = "Insert Gia_SanPham Values('" + strSanPham + "', " + strGiaBan + ", '" + DateTime.Now.ToString() + "', NULL)";
+                            conn.updateToDatabase(strSql_GSP);
+                            MessageBox.Show("Đã thêm thông tin giá sản phẩm");
+                        }
 
                         string strSql = "INSERT LoHang VALUES('" + strMaLo + "', N'" + strTenLo + "', '" + strNgaySanXuat + "', '" + strHanSuDung + "', " + strSoLuong + ", " + strPhieuNhap + ", '" + strSanPham + "', " + strGiaBan + ")";
                         conn.updateToDatabase(strSql);
                         MessageBox.Show("Lưu lô hàng thành công!");
+
+                        string strSqlSp = "UPDATE SanPham SET GiaBan=" + strGiaBan + " WHERE MaSP='" + strSanPham + "'";
+                        conn.updateToDatabase(strSqlSp);
 
                         this.Close();
                     }

@@ -34,7 +34,6 @@
             this.btnSuaQuyen = new System.Windows.Forms.Button();
             this.btnXoaQuyen = new System.Windows.Forms.Button();
             this.btnInDanhSach = new System.Windows.Forms.Button();
-            this.btnThemQuyen = new System.Windows.Forms.Button();
             this.txtTenQuyen = new System.Windows.Forms.TextBox();
             this.lblTenQuyen = new System.Windows.Forms.Label();
             this.txtMaQuyen = new System.Windows.Forms.TextBox();
@@ -100,7 +99,6 @@
             this.groupBoxTTQuyen.Controls.Add(this.btnSuaQuyen);
             this.groupBoxTTQuyen.Controls.Add(this.btnXoaQuyen);
             this.groupBoxTTQuyen.Controls.Add(this.btnInDanhSach);
-            this.groupBoxTTQuyen.Controls.Add(this.btnThemQuyen);
             this.groupBoxTTQuyen.Controls.Add(this.txtTenQuyen);
             this.groupBoxTTQuyen.Controls.Add(this.lblTenQuyen);
             this.groupBoxTTQuyen.Controls.Add(this.txtMaQuyen);
@@ -115,7 +113,7 @@
             // 
             // btnSuaQuyen
             // 
-            this.btnSuaQuyen.Location = new System.Drawing.Point(709, 76);
+            this.btnSuaQuyen.Location = new System.Drawing.Point(618, 53);
             this.btnSuaQuyen.Name = "btnSuaQuyen";
             this.btnSuaQuyen.Size = new System.Drawing.Size(110, 40);
             this.btnSuaQuyen.TabIndex = 10;
@@ -125,7 +123,7 @@
             // 
             // btnXoaQuyen
             // 
-            this.btnXoaQuyen.Location = new System.Drawing.Point(834, 30);
+            this.btnXoaQuyen.Location = new System.Drawing.Point(754, 53);
             this.btnXoaQuyen.Name = "btnXoaQuyen";
             this.btnXoaQuyen.Size = new System.Drawing.Size(110, 40);
             this.btnXoaQuyen.TabIndex = 9;
@@ -135,22 +133,12 @@
             // 
             // btnInDanhSach
             // 
-            this.btnInDanhSach.Location = new System.Drawing.Point(834, 76);
+            this.btnInDanhSach.Location = new System.Drawing.Point(889, 53);
             this.btnInDanhSach.Name = "btnInDanhSach";
             this.btnInDanhSach.Size = new System.Drawing.Size(110, 40);
             this.btnInDanhSach.TabIndex = 11;
             this.btnInDanhSach.Text = "In danh sách";
             this.btnInDanhSach.UseVisualStyleBackColor = true;
-            // 
-            // btnThemQuyen
-            // 
-            this.btnThemQuyen.Location = new System.Drawing.Point(709, 30);
-            this.btnThemQuyen.Name = "btnThemQuyen";
-            this.btnThemQuyen.Size = new System.Drawing.Size(110, 40);
-            this.btnThemQuyen.TabIndex = 8;
-            this.btnThemQuyen.Text = "Thêm quyền";
-            this.btnThemQuyen.UseVisualStyleBackColor = true;
-            this.btnThemQuyen.Click += new System.EventHandler(this.btnThemQuyen_Click);
             // 
             // txtTenQuyen
             // 
@@ -350,7 +338,6 @@
         private System.Windows.Forms.Button btnSuaQuyen;
         private System.Windows.Forms.Button btnXoaQuyen;
         private System.Windows.Forms.Button btnInDanhSach;
-        private System.Windows.Forms.Button btnThemQuyen;
         private System.Windows.Forms.TextBox txtTenQuyen;
         private System.Windows.Forms.Label lblTenQuyen;
         private System.Windows.Forms.TextBox txtMaQuyen;

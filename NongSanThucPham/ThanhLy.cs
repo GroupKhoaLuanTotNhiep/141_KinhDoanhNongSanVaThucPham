@@ -34,6 +34,15 @@ namespace NongSanThucPham
             return dt_DVT;
         }
 
+        public DataTable loadLoHangTheoSanPhamHetHSD(string masp)
+        {
+            string strSQL = "Select * From LoHang, SanPham Where LoHang.MaSP = SanPham.MaSP And SanPham.MaSP='" + masp + "' And HanSuDung < '" + DateTime.Now + "'";
+            DataTable dt_LoHang = new DataTable();
+            SqlDataAdapter da_LoHang = new SqlDataAdapter(strSQL, conn.conn);
+            da_LoHang.Fill(dt_LoHang);
+            return dt_LoHang;
+        }
+
         public string layMaPTL() //Lấy mã phiếu thanh lý cuối cùng
         {
             string matl = "";
@@ -47,14 +56,14 @@ namespace NongSanThucPham
             return matl;
         }
 
-        public int updateTongSLThanhLy(string matl)
+        public float updateTongSLThanhLy(string matl)
         {
-            int tongSL = 0;
+            float tongSL = 0;
             string strSql = "Select * From ChiTietPhieuThanhLy Where MaPTL = '" + matl + "'";
             SqlDataReader tongSLdr = conn.getDataReader(strSql);
             while (tongSLdr.Read())
             {
-                tongSL += int.Parse(tongSLdr["SoLuong"].ToString());
+                tongSL += float.Parse(tongSLdr["SoLuong"].ToString());
             }
             tongSLdr.Close();
             return tongSL;
@@ -99,6 +108,32 @@ namespace NongSanThucPham
             return soLuong;
         }
 
+        public string layLiDo(string matl)
+        {
+            string liDo = "";
+            string strSql = "Select * From PhieuThanhLy Where MaPTL='" + matl + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                liDo = dr["LiDo"].ToString();
+            }
+            dr.Close();
+            return liDo;
+        }
+
+        public string layTinhTrangPTL(string matl)
+        {
+            string tinhTrang = "";
+            string strSql = "Select * From PhieuThanhLy Where MaPTL='" + matl + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                tinhTrang = dr["TinhTrang"].ToString();
+            }
+            dr.Close();
+            return tinhTrang;
+        }
+
         public DataTable searchPhieuThanhLy(string matl)
         {
             DataTable table = new DataTable();
@@ -120,7 +155,7 @@ namespace NongSanThucPham
         //Bảng trong giao diện lập phiếu thanh lý
         public DataTable loadDataGV_CTPTLTheoMaPTL(string matl)
         {
-            da_CTPTL = new SqlDataAdapter("Select MaPTL, ChiTietPhieuThanhLy.MaLo, MaSP, ChiTietPhieuThanhLy.SoLuong, NgayKT, TinhTrang From ChiTietPhieuThanhLy, LoHang Where ChiTietPhieuThanhLy.MaLo = LoHang.MaLo And MaPTL='" + matl + "'", conn.conn);
+            da_CTPTL = new SqlDataAdapter("Select MaPTL, ChiTietPhieuThanhLy.MaLo, MaSP, ChiTietPhieuThanhLy.SoLuong From ChiTietPhieuThanhLy, LoHang Where ChiTietPhieuThanhLy.MaLo = LoHang.MaLo And MaPTL='" + matl + "'", conn.conn);
             ds_CTPTL = new DataSet();
             da_CTPTL.Fill(ds_CTPTL, "ChiTietPhieuThanhLy, LoHang");
             //DataColumn[] key = new DataColumn[1];
@@ -131,7 +166,7 @@ namespace NongSanThucPham
 
         public DataTable GetCTPTL(string matl)
         {
-            string lenh = string.Format("Select MaPTL, ChiTietPhieuThanhLy.MaLo, MaSP, ChiTietPhieuThanhLy.SoLuong, NgayKT, TinhTrang From ChiTietPhieuThanhLy, LoHang Where ChiTietPhieuThanhLy.MaLo = LoHang.MaLo And MaPTL='" + matl + "'");
+            string lenh = string.Format("Select MaPTL, ChiTietPhieuThanhLy.MaLo, MaSP, ChiTietPhieuThanhLy.SoLuong From ChiTietPhieuThanhLy, LoHang Where ChiTietPhieuThanhLy.MaLo = LoHang.MaLo And MaPTL='" + matl + "'");
             DataTable table = new DataTable();
             SqlDataAdapter adt = new SqlDataAdapter(lenh, conn.conn);
             adt.Fill(table);
@@ -156,7 +191,7 @@ namespace NongSanThucPham
 
         public DataTable loadDataGV_ChiTietPhieuThanhLy()
         {
-            string strSQL = "Select MaPTL, ChiTietPhieuThanhLy.MaLo, TenLo, LoHang.MaSP, TenSP, TenDVT, ChiTietPhieuThanhLy.SoLuong, NgayKT, TinhTrang From ChiTietPhieuThanhLy, LoHang, SanPham, DonViTinh" +
+            string strSQL = "Select MaPTL, ChiTietPhieuThanhLy.MaLo, TenLo, LoHang.MaSP, TenSP, TenDVT, ChiTietPhieuThanhLy.SoLuong From ChiTietPhieuThanhLy, LoHang, SanPham, DonViTinh" +
                 " Where ChiTietPhieuThanhLy.MaLo = LoHang.MaLo And LoHang.MaSP = SanPham.MaSP And SanPham.MaDVT = DonViTinh.MaDVT";
             da_CTPTL = new SqlDataAdapter(strSQL, conn.conn);
             ds_CTPTL = new DataSet();
@@ -167,7 +202,7 @@ namespace NongSanThucPham
 
         public DataTable GetChiTietPhieuThanhLy(string matl)
         {
-            string lenh = string.Format("Select MaPTL, ChiTietPhieuThanhLy.MaLo, TenLo, LoHang.MaSP, TenSP, TenDVT, ChiTietPhieuThanhLy.SoLuong, NgayKT, TinhTrang From ChiTietPhieuThanhLy, LoHang, SanPham, DonViTinh" +
+            string lenh = string.Format("Select MaPTL, ChiTietPhieuThanhLy.MaLo, TenLo, LoHang.MaSP, TenSP, TenDVT, ChiTietPhieuThanhLy.SoLuong From ChiTietPhieuThanhLy, LoHang, SanPham, DonViTinh" +
                 " Where ChiTietPhieuThanhLy.MaLo = LoHang.MaLo And LoHang.MaSP = SanPham.MaSP And SanPham.MaDVT = DonViTinh.MaDVT And MaPTL='" + matl + "'");
             DataTable table = new DataTable();
             SqlDataAdapter adt = new SqlDataAdapter(lenh, conn.conn);

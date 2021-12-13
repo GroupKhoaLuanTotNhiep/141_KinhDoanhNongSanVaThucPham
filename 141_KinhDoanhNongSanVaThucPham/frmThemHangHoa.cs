@@ -70,7 +70,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     int giavon = int.Parse(txtGiaVon.Text);
                     int giaban = int.Parse(txtGiaBan.Text);
                     float giamgia = float.Parse(txtGiamGia.Text);
-                    int soluong = int.Parse(txtSoLuongSP.Text);
+                    float soluong = float.Parse(txtSoLuongSP.Text);
                     string xuatxu = txtXuatXu.Text;
                     string mota = txtMota.Text;
                     int maloaisp = int.Parse(cbbLoaiSanPham.SelectedValue.ToString());
@@ -80,6 +80,11 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     if(conn.checkExist("SanPham", "MaSP", masp))
                     {
                         MessageBox.Show("Mã sản phẩm " + masp + " đã tồn tại");
+                        return;
+                    }
+                    if(giaban <= giavon)
+                    {
+                        MessageBox.Show("Giá bán phải lớn hơn giá vốn!");
                         return;
                     }
                     if (sp.addSP(masp, tensp, hinhanh, giavon, giaban, giamgia, soluong, xuatxu, mota, maloaisp, madvt, maquay))
@@ -97,9 +102,12 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         }
                         else
                         {
-                            string strSql_GSP = "Insert Gia_SanPham Values('" + masp + "', " + sp.layMaGiaBanTheoTenGia(giaban) + ", '" + DateTime.Now.ToString() + "', NULL)";
-                            conn.updateToDatabase(strSql_GSP);
-                            MessageBox.Show("Đã thêm thông tin giá sản phẩm");
+                            if (!conn.checkExistTwoKey("Gia_SanPham", "MaSP", "MaGia", masp, sp.layMaGiaBanTheoTenGia(giaban)))
+                            {
+                                string strSql_GSP = "Insert Gia_SanPham Values('" + masp + "', " + sp.layMaGiaBanTheoTenGia(giaban) + ", '" + DateTime.Now.ToString() + "', NULL)";
+                                conn.updateToDatabase(strSql_GSP);
+                                MessageBox.Show("Đã thêm thông tin giá sản phẩm");
+                            }
                         }
                         //Thêm thông tin bảng Giảm giá và Giảm giá sản phẩm
                         if (!conn.checkExist("GiamGia", "PhanTramGiam", giamgia.ToString()))
@@ -113,9 +121,12 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         }
                         else
                         {
-                            string strSqlGG_SP = "Insert GiamGia_SanPham Values('" + masp + "', " + sp.layMaGiamGiaTheoPhanTramGiam(giamgia) + ", '" + DateTime.Now.ToString() + "', NULL)";
-                            conn.updateToDatabase(strSqlGG_SP);
-                            MessageBox.Show("Đã thêm thông tin giảm giá sản phẩm");
+                            if (!conn.checkExistTwoKey("GiamGia_SanPham", "MaSP", "MaGiam", masp, sp.layMaGiamGiaTheoPhanTramGiam(giamgia)))
+                            {
+                                string strSqlGG_SP = "Insert GiamGia_SanPham Values('" + masp + "', " + sp.layMaGiamGiaTheoPhanTramGiam(giamgia) + ", '" + DateTime.Now.ToString() + "', NULL)";
+                                conn.updateToDatabase(strSqlGG_SP);
+                                MessageBox.Show("Đã thêm thông tin giảm giá sản phẩm");
+                            }
                         }
 
                         txtload();

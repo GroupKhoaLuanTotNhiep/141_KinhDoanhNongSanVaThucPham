@@ -71,12 +71,6 @@
     <Compile Include="frmHoatDongChiNhanh.Designer.cs">
       <DependentUpon>frmHoatDongChiNhanh.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLuuNoNhaCungCap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLuuNoNhaCungCap.Designer.cs">
-      <DependentUpon>frmLuuNoNhaCungCap.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmNhapKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,9 +300,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHoatDongChiNhanh.resx">
       <DependentUpon>frmHoatDongChiNhanh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLuuNoNhaCungCap.resx">
-      <DependentUpon>frmLuuNoNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhapKho.resx">
       <DependentUpon>frmNhapKho.cs</DependentUpon>

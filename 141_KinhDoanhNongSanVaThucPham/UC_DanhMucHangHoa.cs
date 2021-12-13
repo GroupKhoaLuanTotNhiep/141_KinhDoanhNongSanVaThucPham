@@ -155,7 +155,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 int giavon = int.Parse(dataGV_HangHoa.Rows[index].Cells["GiaVon"].Value.ToString().Trim());
                 int giaban = int.Parse(dataGV_HangHoa.Rows[index].Cells["GiaBan"].Value.ToString().Trim());
                 float giamgia = float.Parse(dataGV_HangHoa.Rows[index].Cells["GiamGia"].Value.ToString().Trim());
-                int soluong = int.Parse(dataGV_HangHoa.Rows[index].Cells["SoLuongSP"].Value.ToString().Trim());
+                float soluong = float.Parse(dataGV_HangHoa.Rows[index].Cells["SoLuongSP"].Value.ToString().Trim());
                 string xuatxu = dataGV_HangHoa.Rows[index].Cells["XuatXu"].Value.ToString().Trim();
                 string mota = dataGV_HangHoa.Rows[index].Cells["MoTa"].Value.ToString().Trim();
                 int maloaisp = int.Parse(dataGV_HangHoa.Rows[index].Cells["MaLoaiSP"].Value.ToString().Trim());

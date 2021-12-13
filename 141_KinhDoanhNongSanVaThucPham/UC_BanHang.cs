@@ -45,13 +45,6 @@ namespace _141_KinhDoanhNongSanVaThucPham
             cbbKhachHang.ValueMember = "MaKH";
         }
 
-        void loadComboBoxLoHang()
-        {
-            cbbLoHang.DataSource = loHang.loadLoHangChuaHetHan();
-            cbbLoHang.DisplayMember = "TenLo";
-            cbbLoHang.ValueMember = "MaLo";
-        }
-
         void loadComboBoxSanPham()
         {
             cbbSanPham.DataSource = sanPham.loadSanPham();
@@ -82,14 +75,13 @@ namespace _141_KinhDoanhNongSanVaThucPham
             createTable_HoaDon();
             //loadComboBoxNhanVien();
             loadComboBoxKhachHang();
-            //loadComboBoxLoHang();
             loadComboBoxSanPham();
             loadComboBoxKhuyenMai();
             loadComboBoxHinhThuc();
             loadComboBoxTinhTrang();
             txtMaHoaDon.Enabled = false;
             txtGiaBan.Enabled = txtTongTien.Enabled = txtTienPhaiTra.Enabled = txtKhauTru.Enabled = false;
-            cbbDonViTinh.Enabled = cbbGiamGia.Enabled = cbbTinhTrangHD.Enabled = cbbKhuyenMai.Enabled = false;
+            cbbDonViTinh.Enabled = cbbGiamGia.Enabled = cbbTinhTrangHD.Enabled = cbbKhuyenMai.Enabled = cbbNhanVien.Enabled = false;
             btnLuuHD.Enabled = btnSuaHD.Enabled = btnXoaCTHD.Enabled = btnTichDiem.Enabled = btnCapNhatDiem.Enabled = btnLayNo.Enabled = false;
         }
 
@@ -114,26 +106,25 @@ namespace _141_KinhDoanhNongSanVaThucPham
             cbbDonViTinh.DisplayMember = "TenDVT";
             cbbDonViTinh.ValueMember = "MaDVT";
 
-            if (conn.checkExist("LoHang", "MaSP", cbbSanPham.SelectedValue.ToString()))
-            {
-                cbbLoHang.DataSource = hoaDon.loadLoHangTheoSanPhamChuaHetHan(cbbSanPham.SelectedValue.ToString());
-                cbbLoHang.DisplayMember = "TenLo";
-                cbbLoHang.ValueMember = "MaLo";
-                //if (cbbLoHang.Items.Count > 0)
-                //    cbbLoHang.SelectedText = " ";
-                if (cbbLoHang.Items.Count == 0)
-                    cbbLoHang.Text = " ";
-            }
-            else
-            {
-                cbbLoHang.DataSource = hoaDon.loadLoHangTheoSanPhamChuaHetHan(cbbSanPham.SelectedValue.ToString());
-                cbbLoHang.DisplayMember = "";
-                cbbLoHang.ValueMember = "MaLo";
-                cbbLoHang.Text = " ";
-            }
-            //txtGiaBan.Text = hoaDon.layGiaBanTheoSanPham(cbbSanPham.SelectedValue.ToString());
+            //if (conn.checkExist("LoHang", "MaSP", cbbSanPham.SelectedValue.ToString()))
+            //{
+            //    cbbLoHang.DataSource = hoaDon.loadLoHangTheoSanPhamChuaHetHan(cbbSanPham.SelectedValue.ToString());
+            //    cbbLoHang.DisplayMember = "TenLo";
+            //    cbbLoHang.ValueMember = "MaLo";
+            //    //if (cbbLoHang.Items.Count > 0)
+            //    //    cbbLoHang.SelectedText = " ";
+            //    if (cbbLoHang.Items.Count == 0)
+            //        cbbLoHang.Text = " ";
+            //}
+            //else
+            //{
+            //    cbbLoHang.DataSource = hoaDon.loadLoHangTheoSanPhamChuaHetHan(cbbSanPham.SelectedValue.ToString());
+            //    cbbLoHang.DisplayMember = "";
+            //    cbbLoHang.ValueMember = "MaLo";
+            //    cbbLoHang.Text = " ";
+            //}
+            txtGiaBan.Text = hoaDon.layGiaBanTheoSanPham(cbbSanPham.SelectedValue.ToString());
             cbbGiamGia.Text = hoaDon.layGiamGiaTheoSanPham(cbbSanPham.SelectedValue.ToString());
-            txtGiaBan.Text = "";
         }
 
         private void txtSoLuongBan_KeyPress(object sender, KeyPressEventArgs e)
@@ -151,12 +142,11 @@ namespace _141_KinhDoanhNongSanVaThucPham
             txtTienPhaiTra.Text = "0";
             txtGhiChu.Clear();
             //cbbNhanVien.SelectedIndex = 0;
+            cbbNhanVien.Text = frmDangNhap.maNV;
             cbbKhachHang.SelectedIndex = 0;
             cbbKhuyenMai.SelectedIndex = 0;
             cbbSanPham.SelectedIndex = 0;
             cbbTinhTrangHD.SelectedIndex = 0;
-            //loadComboBoxLoHang();
-            //cbbLoHang.SelectedIndex = 0;
             cbbDonViTinh.Text = "";
             cbbGiamGia.Text = "";
             txtSoLuongBan.Clear();
@@ -166,6 +156,19 @@ namespace _141_KinhDoanhNongSanVaThucPham
             btnLuuHD.Enabled = btnLayNo.Enabled = true;
             cbbKhuyenMai.Enabled = false;
         }
+
+        //public int laySoNgay()
+        //{
+        //    string layMaGia = sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text.Trim()));
+        //    string strSanPham = cbbSanPham.SelectedValue.ToString().Trim();
+        //    string strLoHang = loHang.layMaLo(layMaGia, strSanPham);
+        //    string strHanSuDung = loHang.layHanSuDung(strLoHang);
+        //    DateTime ngayht = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+        //    DateTime hsd = Convert.ToDateTime(strHanSuDung);
+        //    TimeSpan Time = ngayht - hsd;
+        //    int TongSoNgay = Time.Days;
+        //    return TongSoNgay;
+        //}
 
         public bool kiemTraNgayLapVaNgayHT()
         {
@@ -213,8 +216,9 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 }
                 string strTienPhaiTra = txtTienPhaiTra.Text.Trim();
                 string strGhiChu = txtGhiChu.Text.Trim();
-                string strLoHang = cbbLoHang.SelectedValue.ToString().Trim();
                 string strSanPham = cbbSanPham.SelectedValue.ToString().Trim();
+                //Lô còn hạn sử dụng và số lượng
+                string strLoHang = loHang.layMaLoHang(sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text.Trim())), strSanPham);
                 string strSoLuongBan = txtSoLuongBan.Text.Trim();
                 string strGiaBan = txtGiaBan.Text.Trim();
                 string strGiamGia = cbbGiamGia.Text.Trim();
@@ -228,7 +232,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     txtSoLuongBan.Focus();
                     return;
                 }
-                int thanhTien = int.Parse(strSoLuongBan) * (int.Parse(strGiaBan) - (int)(int.Parse(strGiaBan) * float.Parse(strGiamGia)));
+                int thanhTien = (int)(float.Parse(strSoLuongBan) * (int.Parse(strGiaBan) - (int.Parse(strGiaBan) * float.Parse(strGiamGia))));
 
                 if(!conn.checkExist("HoaDon", "MaHoaDon", strMaHoaDon))
                 {
@@ -250,6 +254,11 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 }
                 if(conn.checkExist("HoaDon", "MaHoaDon", strMaHoaDon))
                 {
+                    if (hoaDon.layTinhTrang(strMaHoaDon) == "Đã giao hàng" || hoaDon.layTinhTrang(strMaHoaDon) == "Hủy hàng")
+                    {
+                        MessageBox.Show("Hóa đơn này đã hoàn tất, không thể thêm!");
+                        return;
+                    }
                     if (!conn.checkExist("SanPham", "MaSP", strSanPham))
                     {
                         MessageBox.Show("Sản phẩm này chưa tồn tại!");
@@ -260,21 +269,36 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         MessageBox.Show("Trùng khóa chính rồi!");
                         return;
                     }
-                    if(int.Parse(strSoLuongBan) > int.Parse(hoaDon.laySoLuongSPTheoSanPham(strSanPham)))
+                    if(float.Parse(strSoLuongBan) > float.Parse(hoaDon.laySoLuongSPTheoSanPham(strSanPham)))
                     {
                         MessageBox.Show("Không đủ số lượng sản phẩm để bán!");
                         return;
                     }
-                    if(int.Parse(strSoLuongBan) > int.Parse(loHang.laySoLuong(strLoHang)))
+                    if(!conn.checkExist("LoHang", "MaSP", strSanPham))
+                    {
+                        MessageBox.Show("Sản phẩm này chưa được nhập vào kho/lô!");
+                        return;
+                    }
+                    //if (float.Parse(loHang.laySLTheoGiaVaSanPham(sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text.Trim())), strSanPham)) == 0)
+                    //{
+                    //    MessageBox.Show("Sản phẩm này đã hết số lượng trong lô!");
+                    //    return;
+                    //}
+                    //if (laySoNgay() < 0)
+                    //{
+                    //    MessageBox.Show("Sản phẩm này đã hết hạn sử dụng!");
+                    //    return;
+                    //}
+                    if(float.Parse(strSoLuongBan) > float.Parse(loHang.laySoLuong(strLoHang)))
                     {
                         MessageBox.Show("Lô này không đủ sản phẩm để bán!");
                         return;
                     }
-                    string strSqlCTHD = "INSERT ChiTietHoaDon VALUES('" + strMaHoaDon + "', '" + strSanPham + "', " + strSoLuongBan + ", " + strGiaBan + ", " + thanhTien + ", '" + strLoHang + "')";
+                    string strSqlCTHD = "INSERT ChiTietHoaDon VALUES('" + strMaHoaDon + "', '" + strSanPham + "', " + strSoLuongBan + ", " + strGiaBan + ", " + thanhTien + ")";
                     conn.updateToDatabase(strSqlCTHD);
                     createTable_CTHD();
                     MessageBox.Show("Lưu chi tiết hóa đơn thành công!");
-                    string strSqlUPLH = "UPDATE LoHang SET SoLuong=" + (int.Parse(loHang.laySoLuong(strLoHang)) - int.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham))) + " From LoHang, SanPham WHERE LoHang.MaSP = SanPham.MaSP AND MaLo='" + strLoHang + "' AND LoHang.MaSP='" + strSanPham + "'";
+                    string strSqlUPLH = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(strLoHang)) - float.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham))) + " From LoHang, SanPham WHERE LoHang.MaSP = SanPham.MaSP AND MaLo='" + strLoHang + "' AND LoHang.MaSP='" + strSanPham + "'";
                     conn.updateToDatabase(strSqlUPLH);
                 }
                 strTongTien = hoaDon.updateTongTien(strMaHoaDon).ToString();
@@ -288,7 +312,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 {
                     string strSqlKH = "UPDATE KhachHang SET CongNo=" + Math.Abs(tienTra) + " WHERE MaKH='" + strKhachHang + "'";
                     conn.updateToDatabase(strSqlKH);
-                    txtKhauTru.Text = strTongTien;
+                    txtKhauTru.Text = (khauTruCu - Math.Abs(tienTra)).ToString();
                     tienTra = 0;
                 }
                 else
@@ -356,15 +380,15 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 conn.updateToDatabase(strSqlUDHD);
                 createTable_HoaDon();
                 btnXoaCTHD.Enabled = btnSuaHD.Enabled = false;
-                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= 100000)
-                {
-                    btnTichDiem.Enabled = true;
-                    btnCapNhatDiem.Enabled = false;
-                }
+                //if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= 100000)
+                //{
+                //    btnTichDiem.Enabled = true;
+                //    btnCapNhatDiem.Enabled = false;
+                //}
             }
             catch
             {
-                MessageBox.Show("Quá trình lưu thất bại!");
+                MessageBox.Show("Quá trình lưu thất bại (Có thể do hết HSD hoặc hết số lượng trong lô)!");
             }
         }
 
@@ -406,10 +430,8 @@ namespace _141_KinhDoanhNongSanVaThucPham
             txtSoLuongBan.Text = dataGV_CTBanHang.CurrentRow.Cells[2].Value.ToString();
             txtGiaBan.Text = dataGV_CTBanHang.Rows[index].Cells[3].Value.ToString();
             cbbGiamGia.Text = dataGV_CTBanHang.Rows[index].Cells[4].Value.ToString();
-            cbbLoHang.Text = loHang.layTenLoHang(dataGV_CTBanHang.Rows[index].Cells[6].Value.ToString());
             btnXoaCTHD.Enabled = btnSuaHD.Enabled = true;
             
-
         }
 
         private void dataGV_HoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -431,7 +453,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             string a = dataGV_HoaDon.Rows[index].Cells[0].Value.ToString();
             dataGV_CTHoaDon.DataSource = hoaDon.layChiTietHoaDon(a);
             dataGV_CTBanHang.DataSource = hoaDon.layCTHD(a);
-            btnSuaHD.Enabled = true;
+            btnSuaHD.Enabled = btnLayNo.Enabled = true;
             cbbKhuyenMai.Enabled = cbbTinhTrangHD.Enabled = true;
         }
 
@@ -451,12 +473,9 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 string strTienPhaiTra = txtTienPhaiTra.Text.Trim();
                 string strGhiChu = txtGhiChu.Text.Trim();
                 string strKhauTru = txtKhauTru.Text.Trim();
-                string strLoHang = "";
-                if (cbbLoHang.Items.Count == 0)
-                    cbbLoHang.Text = "";
-                else
-                    strLoHang = cbbLoHang.SelectedValue.ToString().Trim();
                 string strSanPham = cbbSanPham.SelectedValue.ToString().Trim();
+                //Lô còn hạn sử dụng, không quan tâm số lượng
+                string strLoHang = loHang.layMaLoHetHang(sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text.Trim())), strSanPham);
                 string strSoLuongBan = txtSoLuongBan.Text.Trim();
                 string strGiaBan = txtGiaBan.Text.Trim();
                 string strGiamGia = cbbGiamGia.Text.Trim();
@@ -470,7 +489,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     txtSoLuongBan.Focus();
                     return;
                 }
-                int thanhTien = int.Parse(strSoLuongBan) * (int.Parse(strGiaBan) - (int)(int.Parse(strGiaBan) * float.Parse(strGiamGia)));
+                int thanhTien = (int)(float.Parse(strSoLuongBan) * (int.Parse(strGiaBan) - (int.Parse(strGiaBan) * float.Parse(strGiamGia))));
 
                 if (!conn.checkExist("HoaDon", "MaHoaDon", strMaHoaDon))
                 {
@@ -488,12 +507,12 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     MessageBox.Show("Ngày giao phải lớn hơn hoặc là Ngày lập!");
                     return;
                 }
-                if(cbbTinhTrangHD.Text == "Đã giao hàng" || cbbTinhTrangHD.Text == "Hủy hàng")
+                if (hoaDon.layTinhTrang(strMaHoaDon) == "Đã giao hàng" || hoaDon.layTinhTrang(strMaHoaDon) == "Hủy hàng")
                 {
                     MessageBox.Show("Hóa đơn này đã hoàn tất, không thể sửa!");
                     return;
                 }
-                string strSqlHD = "UPDATE HoaDon SET MaNV='" + strNhanVien + "', MaKH='" + strKhachHang + "', NgayLap='" + strNgayLap + "', NgayGiao='" + strNgayGiao + "', MaTH='" + strHinhThuc + "', MaKM='" + strKhuyenMai + "', TinhTrang=N'" + strTinhTrang + "', GhiChu=N'" + strGhiChu + "' WHERE MaHoaDon='" + strMaHoaDon + "'";
+                string strSqlHD = "UPDATE HoaDon SET MaKH='" + strKhachHang + "', NgayLap='" + strNgayLap + "', NgayGiao='" + strNgayGiao + "', MaTH='" + strHinhThuc + "', MaKM='" + strKhuyenMai + "', TinhTrang=N'" + strTinhTrang + "', GhiChu=N'" + strGhiChu + "' WHERE MaHoaDon='" + strMaHoaDon + "'";
                 conn.updateToDatabase(strSqlHD);
                 createTable_HoaDon();
                 MessageBox.Show("Cập nhật hóa đơn thành công!");
@@ -503,23 +522,38 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     MessageBox.Show("Khóa chính này chưa có tồn tại!");
                     return;
                 }
-                if (int.Parse(strSoLuongBan) > int.Parse(hoaDon.laySoLuongSPTheoSanPham(strSanPham)))
+                if (!conn.checkExist("LoHang", "MaSP", strSanPham))
+                {
+                    MessageBox.Show("Sản phẩm này chưa được nhập vào kho/lô!");
+                    return;
+                }
+                //if (float.Parse(loHang.laySLTheoGiaVaSanPham(sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text.Trim())), strSanPham)) == 0)
+                //{
+                //    MessageBox.Show("Sản phẩm này đã hết số lượng trong lô!");
+                //    return;
+                //}
+                //if (loHang.laySoNgay(sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text.Trim())), strSanPham) < 0)
+                //{
+                //    MessageBox.Show("Sản phẩm này đã hết hạn sử dụng!");
+                //    return;
+                //}
+                if (float.Parse(strSoLuongBan) > float.Parse(hoaDon.laySoLuongSPTheoSanPham(strSanPham)))
                 {
                     MessageBox.Show("Không đủ số lượng sản phẩm để bán!");
                     return;
                 }
-                if (int.Parse(strSoLuongBan) > int.Parse(loHang.laySoLuong(strLoHang)))
+                string strSqlUPLHCu = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(strLoHang)) + float.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham))) + " From LoHang, SanPham WHERE LoHang.MaSP = SanPham.MaSP AND MaLo='" + strLoHang + "' AND LoHang.MaSP='" + strSanPham + "'";
+                conn.updateToDatabase(strSqlUPLHCu);
+                if (float.Parse(strSoLuongBan) > float.Parse(loHang.laySoLuong(strLoHang)))
                 {
-                    MessageBox.Show("Lô này không đủ sản phẩm để bán - Số lượng lô (" + int.Parse(loHang.laySoLuong(strLoHang)) + ")");
+                    MessageBox.Show("Lô này không đủ sản phẩm để bán - Số lượng lô (" + float.Parse(loHang.laySoLuong(strLoHang)) + ")");
                     return;
                 }
-                string strSqlUPLHCu = "UPDATE LoHang SET SoLuong=" + (int.Parse(loHang.laySoLuong(strLoHang)) + int.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham))) + " From LoHang, SanPham WHERE LoHang.MaSP = SanPham.MaSP AND MaLo='" + strLoHang + "' AND LoHang.MaSP='" + strSanPham + "'";
-                conn.updateToDatabase(strSqlUPLHCu);
                 string strSqlCTHD = "UPDATE ChiTietHoaDon SET SoLuongBan=" + strSoLuongBan + ", GiaBan=" + strGiaBan + ", ThanhTien=" + thanhTien + " WHERE MaHoaDon='" + strMaHoaDon + "' AND MaSP='" + strSanPham + "'";
                 conn.updateToDatabase(strSqlCTHD);
                 createTable_CTHD();
                 MessageBox.Show("Cập nhật chi tiết hóa đơn thành công!");
-                string strSqlUPLHMoi = "UPDATE LoHang SET SoLuong=" + (int.Parse(loHang.laySoLuong(strLoHang)) - int.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham))) + " From LoHang, SanPham WHERE LoHang.MaSP = SanPham.MaSP AND MaLo='" + strLoHang + "' AND LoHang.MaSP='" + strSanPham + "'";
+                string strSqlUPLHMoi = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(strLoHang)) - float.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham))) + " From LoHang, SanPham WHERE LoHang.MaSP = SanPham.MaSP AND MaLo='" + strLoHang + "' AND LoHang.MaSP='" + strSanPham + "'";
                 conn.updateToDatabase(strSqlUPLHMoi);
 
                 strTongTien = hoaDon.updateTongTien(strMaHoaDon).ToString();
@@ -533,7 +567,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 {
                     string strSqlKH = "UPDATE KhachHang SET CongNo=" + Math.Abs(tienTra) + " WHERE MaKH='" + strKhachHang + "'";
                     conn.updateToDatabase(strSqlKH);
-                    txtKhauTru.Text = strTongTien;
+                    txtKhauTru.Text = (khauTruCu - Math.Abs(tienTra)).ToString();
                     tienTra = 0;
                 }
                 else
@@ -601,20 +635,15 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 conn.updateToDatabase(strSqlUDHD);
                 createTable_HoaDon();
                 btnXoaCTHD.Enabled = btnSuaHD.Enabled = false;
-                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= 100000)
-                {
-                    btnTichDiem.Enabled = true;
-                    btnCapNhatDiem.Enabled = false;
-                }
-                else
+                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) < 100000)
                 {
                     btnCapNhatDiem.Enabled = true;
-                    btnTichDiem.Enabled = false;
+                    btnTichDiem.Enabled = false;               
                 }
             }
             catch
             {
-                MessageBox.Show("Quá trình cập nhật thất bại!");
+                MessageBox.Show("Quá trình cập nhật thất bại (Có thể do HSD hoặc hết số lượng trong lô)!");
             }
         }
 
@@ -624,24 +653,34 @@ namespace _141_KinhDoanhNongSanVaThucPham
             {
                 string strMaHoaDon = txtMaHoaDon.Text.Trim();
                 string strSanPham = cbbSanPham.SelectedValue.ToString().Trim();
-                string strLoHang = cbbLoHang.SelectedValue.ToString().Trim();
+                string strLoHang = loHang.layMaLoHetHang(sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text.Trim())), strSanPham);
                 string strKhachHang = cbbKhachHang.SelectedValue.ToString().Trim();
                 string strKhuyenMai = cbbKhuyenMai.SelectedValue.ToString().Trim();
                 string strTongTien = txtTongTien.Text.Trim();
                 string strTienPhaiTra = txtTienPhaiTra.Text.Trim();
                 string strKhauTru = txtKhauTru.Text.Trim();
-                int soLuong = int.Parse(loHang.laySoLuong(strLoHang)) + int.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham));
+                float soLuong = float.Parse(loHang.laySoLuong(strLoHang)) + float.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham));
 
                 if (!conn.checkExistTwoKey("ChiTietHoaDon", "MaHoaDon", "MaSP", strMaHoaDon, strSanPham))
                 {
                     MessageBox.Show("Khóa chính này chưa tồn tại!");
                     return;
                 }
-                if (cbbTinhTrangHD.Text == "Đã giao hàng" || cbbTinhTrangHD.Text == "Hủy hàng")
+                if (hoaDon.layTinhTrang(strMaHoaDon) == "Đã giao hàng" || hoaDon.layTinhTrang(strMaHoaDon) == "Hủy hàng")
                 {
                     MessageBox.Show("Hóa đơn này đã hoàn tất, không thể xóa chi tiết!");
                     return;
                 }
+                if (!conn.checkExist("LoHang", "MaSP", strSanPham))
+                {
+                    MessageBox.Show("Sản phẩm này chưa được nhập vào kho/lô!");
+                    return;
+                }
+                //if (int.Parse(loHang.laySLTheoGiaVaSanPham(sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text.Trim())), strSanPham)) == 0)
+                //{
+                //    MessageBox.Show("Sản phẩm này đã hết số lượng trong lô!");
+                //    return;
+                //}
                 if (MessageBox.Show("Bạn có thật sự muốn xóa chi tiết hóa đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.No)
                     return;
                 string strSql = "DELETE ChiTietHoaDon WHERE MaHoaDon='" + strMaHoaDon + "' AND MaSP='" + strSanPham + "'";
@@ -662,7 +701,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 {
                     string strSqlKH = "UPDATE KhachHang SET CongNo=" + Math.Abs(tienTra) + " WHERE MaKH='" + strKhachHang + "'";
                     conn.updateToDatabase(strSqlKH);
-                    txtKhauTru.Text = strTongTien;
+                    txtKhauTru.Text = (khauTruCu - Math.Abs(tienTra)).ToString();
                     tienTra = 0;
                 }
                 else
@@ -730,12 +769,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 conn.updateToDatabase(strSqlUDHD);
                 createTable_HoaDon();
                 btnXoaCTHD.Enabled = btnSuaHD.Enabled = false;
-                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= 100000)
-                {
-                    btnTichDiem.Enabled = true;
-                    btnCapNhatDiem.Enabled = false;
-                }
-                else
+                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) < 100000)
                 {
                     btnCapNhatDiem.Enabled = true;
                     btnTichDiem.Enabled = false;
@@ -818,7 +852,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 string mahd = txtMaHoaDon.Text.Trim();
                 string strKhachHang = cbbKhachHang.SelectedValue.ToString().Trim();
                 string strKhuyenMai = cbbKhuyenMai.SelectedValue.ToString().Trim();
-                if(cbbTinhTrangHD.Text == "Đã giao hàng" || cbbTinhTrangHD.Text == "Hủy hàng")
+                if (hoaDon.layTinhTrang(mahd) == "Đã giao hàng" || hoaDon.layTinhTrang(mahd) == "Hủy hàng")
                 {
                     MessageBox.Show("Đơn hàng " + mahd + " đã được xử lý xong!");
                     return;
@@ -826,14 +860,15 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 for (int i = 0; i < dataGV_CTBanHang.RowCount - 1; i++)
                 {
                     string masp = dataGV_CTBanHang.Rows[i].Cells["MaSP"].Value.ToString().Trim();
-                    string malo = dataGV_CTBanHang.Rows[i].Cells["MaLoHang"].Value.ToString().Trim();
-                    int soluong = int.Parse(dataGV_CTBanHang.Rows[i].Cells["SoLuongBan"].Value.ToString().Trim());
+                    string gia = dataGV_CTBanHang.Rows[i].Cells["GiaBan"].Value.ToString().Trim();
+                    string malo = loHang.layMaLo(sanPham.layMaGiaBanTheoTenGia(int.Parse(gia)), masp);
+                    float soluong = float.Parse(dataGV_CTBanHang.Rows[i].Cells["SoLuongBan"].Value.ToString().Trim());
                     if (conn.checkExistTwoKey("LoHang", "MaLo", "MaSP", malo, masp))
                     {
-                        string strSQLLo = "UPDATE LoHang SET SoLuong=" + (int.Parse(loHang.laySoLuong(malo)) + soluong) + " WHERE MaLo='" + malo + "'";
+                        string strSQLLo = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(malo)) + soluong) + " WHERE MaLo='" + malo + "'";
                         conn.updateToDatabase(strSQLLo);
                     }
-                    string strSQLSP = "UPDATE SanPham SET SoLuongSP=" + (int.Parse(sanPham.laySoLuongSPTheoSanPham(masp)) + soluong) + " WHERE MaSP='" + masp + "'";
+                    string strSQLSP = "UPDATE SanPham SET SoLuongSP=" + (float.Parse(sanPham.laySoLuongSPTheoSanPham(masp)) + soluong) + " WHERE MaSP='" + masp + "'";
                     conn.updateToDatabase(strSQLSP);                   
                 }
                 int tichDiem = int.Parse(khachHang.layTichDiem(strKhachHang)) + int.Parse(khuyenMai.layTichLuy(strKhuyenMai));
@@ -867,11 +902,6 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             frmThemKhachHang kh = new frmThemKhachHang();
             kh.ShowDialog();
-        }
-
-        private void cbbLoHang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtGiaBan.Text = hoaDon.layGiaBan(cbbLoHang.SelectedValue.ToString());
         }
 
         private void btnLayNo_Click(object sender, EventArgs e)
@@ -913,6 +943,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             try
             {
+                string strMaHoaHon = txtMaHoaDon.Text.Trim();
                 string strKhachHang = cbbKhachHang.SelectedValue.ToString().Trim();
                 string strKhuyenMai = cbbKhuyenMai.SelectedValue.ToString().Trim();
                 string strTichDiem = khachHang.layTichDiem(strKhachHang);
@@ -925,6 +956,16 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     txtTienPhaiTra.Text = tienPhaiTra.ToString();
                     //string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - int.Parse(strTichLuy)) + " WHERE MaKH='" + strKhachHang + "'";
                     //conn.updateToDatabase(strSqlKH);
+                    if (int.Parse(hoaDon.layTongTien(strMaHoaHon)) >= 100000)
+                    {
+                        btnTichDiem.Enabled = true;
+                        btnCapNhatDiem.Enabled = false;
+                    }
+                    else
+                    {
+                        btnCapNhatDiem.Enabled = true;
+                        btnTichDiem.Enabled = false;
+                    }
                 }
                 else
                 {

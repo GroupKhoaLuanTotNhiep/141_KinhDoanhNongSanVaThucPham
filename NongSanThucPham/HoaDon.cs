@@ -178,6 +178,19 @@ namespace NongSanThucPham
             return gia;
         }
 
+        public string layTinhTrang(string mahd)
+        {
+            string ttrang = "";
+            string strSql = "Select * From HoaDon Where MaHoaDon= '" + mahd + "'";
+            SqlDataReader ttrangdr = conn.getDataReader(strSql);
+            while (ttrangdr.Read())
+            {
+                ttrang = ttrangdr["TinhTrang"].ToString();
+            }
+            ttrangdr.Close();
+            return ttrang;
+        }
+
         public DataTable searchHoaDon(string mahd)
         {
             DataTable table = new DataTable();
@@ -216,7 +229,7 @@ namespace NongSanThucPham
         //Bảng trong giao diện lập hóa đơn
         public DataTable loadDataGV_CTHDTheoMaHD(string mahd)
         {
-            da_CTHD = new SqlDataAdapter("Select MaHoaDon, ChiTietHoaDon.MaSP, SoLuongBan, ChiTietHoaDon.GiaBan, GiamGia, ThanhTien, MaLo From ChiTietHoaDon, SanPham Where ChiTietHoaDon.MaSP = SanPham.MaSP And MaHoaDon='" + mahd + "'", conn.conn);
+            da_CTHD = new SqlDataAdapter("Select MaHoaDon, ChiTietHoaDon.MaSP, SoLuongBan, ChiTietHoaDon.GiaBan, GiamGia, ThanhTien From ChiTietHoaDon, SanPham Where ChiTietHoaDon.MaSP = SanPham.MaSP And MaHoaDon='" + mahd + "'", conn.conn);
             ds_CTHD = new DataSet();
             da_CTHD.Fill(ds_CTHD, "ChiTietHoaDon, SanPham");
             //DataColumn[] key = new DataColumn[1];
@@ -227,7 +240,7 @@ namespace NongSanThucPham
 
         public DataTable GetCTHD(string mahd)
         {
-            string lenh = string.Format("Select MaHoaDon, ChiTietHoaDon.MaSP, SoLuongBan, ChiTietHoaDon.GiaBan, GiamGia, ThanhTien, MaLo From ChiTietHoaDon, SanPham Where ChiTietHoaDon.MaSP = SanPham.MaSP And MaHoaDon='" + mahd + "'");
+            string lenh = string.Format("Select MaHoaDon, ChiTietHoaDon.MaSP, SoLuongBan, ChiTietHoaDon.GiaBan, GiamGia, ThanhTien From ChiTietHoaDon, SanPham Where ChiTietHoaDon.MaSP = SanPham.MaSP And MaHoaDon='" + mahd + "'");
             DataTable table = new DataTable();
             SqlDataAdapter adt = new SqlDataAdapter(lenh, conn.conn);
             adt.Fill(table);
@@ -252,7 +265,7 @@ namespace NongSanThucPham
 
         public DataTable loadDataGV_ChiTietHoaDon()
         {
-            string strSQL = "Select MaHoaDon, ChiTietHoaDon.MaSP, TenSP, TenDVT, SoLuongBan, ChiTietHoaDon.GiaBan, GiamGia, ThanhTien, MaLo From ChiTietHoaDon, SanPham, DonViTinh" +
+            string strSQL = "Select MaHoaDon, ChiTietHoaDon.MaSP, TenSP, TenDVT, SoLuongBan, ChiTietHoaDon.GiaBan, GiamGia, ThanhTien From ChiTietHoaDon, SanPham, DonViTinh" +
                 " Where ChiTietHoaDon.MaSP = SanPham.MaSP And SanPham.MaDVT = DonViTinh.MaDVT";
             da_CTHD = new SqlDataAdapter(strSQL, conn.conn);
             ds_CTHD = new DataSet();
@@ -263,7 +276,7 @@ namespace NongSanThucPham
 
         public DataTable GetChiTietHoaDon(string mahd)
         {
-            string lenh = string.Format("Select MaHoaDon, ChiTietHoaDon.MaSP, TenSP, TenDVT, SoLuongBan, ChiTietHoaDon.GiaBan, GiamGia, ThanhTien, MaLo From ChiTietHoaDon, SanPham, DonViTinh" +
+            string lenh = string.Format("Select MaHoaDon, ChiTietHoaDon.MaSP, TenSP, TenDVT, SoLuongBan, ChiTietHoaDon.GiaBan, GiamGia, ThanhTien From ChiTietHoaDon, SanPham, DonViTinh" +
                 " Where ChiTietHoaDon.MaSP = SanPham.MaSP And SanPham.MaDVT = DonViTinh.MaDVT And MaHoaDon='" + mahd + "'");
             DataTable table = new DataTable();
             SqlDataAdapter adt = new SqlDataAdapter(lenh, conn.conn);
