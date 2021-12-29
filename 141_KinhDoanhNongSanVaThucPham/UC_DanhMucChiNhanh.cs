@@ -26,15 +26,22 @@ namespace _141_KinhDoanhNongSanVaThucPham
 
         private void btnXemHoatDong_Click(object sender, EventArgs e)
         {
-            if (index == -1)
+            try
+            {
+                if (index == -1)
+                {
+                    MessageBox.Show("Vui lòng chọn một chi nhánh cần xem");
+                }
+                else
+                {
+                    string macn = dataGV_ChiNhanh.Rows[index].Cells[0].Value.ToString().Trim();
+                    frmHoatDongChiNhanh hdChiNhanh = new frmHoatDongChiNhanh(macn);
+                    hdChiNhanh.ShowDialog();
+                }
+            }
+            catch
             {
                 MessageBox.Show("Vui lòng chọn một chi nhánh cần xem");
-            }
-            else
-            {
-                string macn = dataGV_ChiNhanh.Rows[index].Cells[0].Value.ToString().Trim();
-                frmHoatDongChiNhanh hdChiNhanh = new frmHoatDongChiNhanh(macn);
-                hdChiNhanh.ShowDialog();
             }
         }
 

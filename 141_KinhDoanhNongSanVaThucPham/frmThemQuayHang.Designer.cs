@@ -185,7 +185,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmThemQuayHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "From Thêm mới quầy hàng";
+            this.Text = "Form Thêm mới quầy hàng";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

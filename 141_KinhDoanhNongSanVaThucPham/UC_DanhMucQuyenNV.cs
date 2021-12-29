@@ -173,5 +173,102 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 MessageBox.Show("Xóa quyền thất bại");
             }
         }
+
+        private void btnInDanhSach_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                exportExcel_Quyen(dataGV_DSNhanVien, saveFileDialog1.FileName); 
+        }
+        private void exportExcel_Quyen(DataGridView dv, string fileName)
+        {
+            Microsoft.Office.Interop.Excel.Application excel;
+            Microsoft.Office.Interop.Excel.Workbook workbook;
+            Microsoft.Office.Interop.Excel.Worksheet worksheet;
+
+            try
+            {
+                excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = false;
+                excel.DisplayAlerts = false;
+
+                workbook = excel.Workbooks.Add(Type.Missing);
+
+                worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
+                worksheet.Name = "Danh mục quyền";
+
+                worksheet.Cells[2, 2] = "DANH MỤC QUYỀN";
+                worksheet.Cells[4, 2] = "Mã quyền: ";
+                worksheet.Cells[4, 3] = txtMaQuyen.Text;
+                worksheet.Cells[5, 2] = "Quyền: ";
+                worksheet.Cells[5, 3] = txtTenQuyen.Text;
+
+                for (int i = 0; i < dataGV_DSNhanVien.ColumnCount; i++)
+                {
+                    worksheet.Cells[7, i + 1] = dataGV_DSNhanVien.Columns[i].HeaderText;
+                }
+
+                for (int i = 0; i < dataGV_DSNhanVien.RowCount; i++)
+                {
+                    for (int j = 0; j < dataGV_DSNhanVien.ColumnCount; j++)
+                    {
+                        worksheet.Cells[i + 8, j + 1] = dataGV_DSNhanVien.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                int dmQ = dataGV_DSNhanVien.RowCount;
+
+                //Định dạng trang
+                worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlLandscape;
+                worksheet.PageSetup.PaperSize = Microsoft.Office.Interop.Excel.XlPaperSize.xlPaperA4;
+                worksheet.PageSetup.LeftMargin = 0;
+                worksheet.PageSetup.RightMargin = 0;
+                worksheet.PageSetup.TopMargin = 0;
+                worksheet.PageSetup.BottomMargin = 0;
+
+                //Định dạng cột
+                worksheet.Range["A1"].ColumnWidth = 7.89;
+                worksheet.Range["B1"].ColumnWidth = 20.22;
+                worksheet.Range["C1"].ColumnWidth = 9.33;
+                worksheet.Range["D1"].ColumnWidth = 15.56;
+                worksheet.Range["E1"].ColumnWidth = 25.67;
+                worksheet.Range["F1"].ColumnWidth = 12;
+                worksheet.Range["G1"].ColumnWidth = 21.89;
+                worksheet.Range["H1"].ColumnWidth = 9.22;
+                worksheet.Range["I1"].ColumnWidth = 10.33;
+                worksheet.Range["J1"].ColumnWidth = 8;
+
+                //Định dạng fone chữ
+                worksheet.Range["A1", "J100"].Font.Name = "Times New Roman";
+                worksheet.Range["A1", "J100"].Font.Size = 13;
+                worksheet.Range["A2", "J2"].MergeCells = true;
+                worksheet.Range["A2", "J2"].Font.Bold = true;
+                worksheet.Range["A2", "J2"].Font.Size = 15;
+
+
+                worksheet.Range["A7", "J7"].Font.Bold = true;
+
+                //Kẻ bảng
+                worksheet.Range["A7", "J" + (dmQ + 7)].Borders.LineStyle = 1;
+
+                //Định dạng các dòng text
+                worksheet.Range["A2", "J2"].HorizontalAlignment = 3;
+                worksheet.Range["A7", "J7"].HorizontalAlignment = 3;
+                worksheet.Range["A8", "D" + (dmQ + 8)].HorizontalAlignment = 3;
+                worksheet.Range["F8", "J" + (dmQ + 8)].HorizontalAlignment = 3;
+
+                workbook.SaveAs(fileName);
+                workbook.Close();
+                excel.Quit();
+                MessageBox.Show("Xuất excel thành công!!!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                workbook = null;
+                worksheet = null;
+            }
+        }
     }
 }

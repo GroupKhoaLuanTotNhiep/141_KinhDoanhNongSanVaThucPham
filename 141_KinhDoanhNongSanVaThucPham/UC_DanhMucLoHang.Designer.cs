@@ -49,6 +49,7 @@
             this.lblPhieuNhap = new System.Windows.Forms.Label();
             this.btnTKLoHang = new System.Windows.Forms.Button();
             this.txtTKLoHang = new System.Windows.Forms.TextBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_LoHang)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             // dataGV_LoHang
             // 
+            this.dataGV_LoHang.AllowUserToAddRows = false;
             this.dataGV_LoHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_LoHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaLo,
@@ -230,6 +232,7 @@
             this.btnInExc.TabIndex = 3;
             this.btnInExc.Text = "In Excel";
             this.btnInExc.UseVisualStyleBackColor = true;
+            this.btnInExc.Click += new System.EventHandler(this.btnInExc_Click);
             // 
             // gbTKLoHang
             // 
@@ -280,6 +283,10 @@
             this.txtTKLoHang.Size = new System.Drawing.Size(250, 22);
             this.txtTKLoHang.TabIndex = 0;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
             // UC_DanhMucLoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -322,5 +329,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn MaPNH;
         private System.Windows.Forms.DataGridViewComboBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewComboBoxColumn MaGia;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

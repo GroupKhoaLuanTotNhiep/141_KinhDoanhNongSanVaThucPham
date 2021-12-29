@@ -54,6 +54,7 @@
             this.Quyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenDN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxTTQuyen.SuspendLayout();
             this.groupBoxQuyen.SuspendLayout();
@@ -139,6 +140,7 @@
             this.btnInDanhSach.TabIndex = 11;
             this.btnInDanhSach.Text = "In danh sách";
             this.btnInDanhSach.UseVisualStyleBackColor = true;
+            this.btnInDanhSach.Click += new System.EventHandler(this.btnInDanhSach_Click);
             // 
             // txtTenQuyen
             // 
@@ -224,6 +226,7 @@
             // 
             // dataGV_DSNhanVien
             // 
+            this.dataGV_DSNhanVien.AllowUserToAddRows = false;
             this.dataGV_DSNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DSNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV,
@@ -311,6 +314,10 @@
             this.MatKhau.Name = "MatKhau";
             this.MatKhau.Width = 120;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
             // UC_DanhMucQuyenNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -358,5 +365,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quyen;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenDN;
         private System.Windows.Forms.DataGridViewTextBoxColumn MatKhau;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

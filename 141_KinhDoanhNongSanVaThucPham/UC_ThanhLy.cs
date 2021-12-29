@@ -380,7 +380,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
 
                 txtTongSLThanhLy.Text = thanhLy.updateTongSLThanhLy(strMaPTL).ToString();
                 txtTongSLSanPham.Text = thanhLy.demSLMatHang(strMaPTL).ToString();
-                
+
             }
             catch
             {

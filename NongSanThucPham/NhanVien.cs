@@ -53,6 +53,17 @@ namespace NongSanThucPham
             return ds_NhanVien.Tables["NhanVien"];
         }
 
+        public DataTable searchNhanVien(string tukhoa)
+        {
+            da_NhanVien = new SqlDataAdapter("Exec SP_SearchNV N'" + tukhoa + "'", conn.conn);
+            ds_NhanVien = new DataSet();
+            da_NhanVien.Fill(ds_NhanVien, "NhanVien");
+            DataColumn[] key = new DataColumn[1];
+            key[0] = ds_NhanVien.Tables["NhanVien"].Columns[0];
+            ds_NhanVien.Tables["NhanVien"].PrimaryKey = key;
+            return ds_NhanVien.Tables["NhanVien"];
+        }
+
         public DataTable loadBangNhanVienChuaCoTaiKhoan()
         {
             string strSQL = "Select NhanVien.MaNV, TenNV, GioiTinh, TenChucVu From NhanVien, ChucVu" +

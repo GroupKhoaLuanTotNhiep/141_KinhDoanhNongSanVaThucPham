@@ -84,7 +84,7 @@
             this.txtTongSoLuong = new System.Windows.Forms.TextBox();
             this.lblTongSoLuong = new System.Windows.Forms.Label();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
-            this.btnInExecel = new System.Windows.Forms.Button();
+            this.btnInExcel = new System.Windows.Forms.Button();
             this.btnInReport = new System.Windows.Forms.Button();
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.btnSuaPN = new System.Windows.Forms.Button();
@@ -94,7 +94,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnThemTTLoHang = new System.Windows.Forms.Button();
-            this.btnInPhieuReport = new System.Windows.Forms.Button();
             this.btnInAllNhap = new System.Windows.Forms.Button();
             this.btnXoaPhieuNhap = new System.Windows.Forms.Button();
             this.btnXem = new System.Windows.Forms.Button();
@@ -707,7 +706,7 @@
             // 
             // groupBoxChucNang
             // 
-            this.groupBoxChucNang.Controls.Add(this.btnInExecel);
+            this.groupBoxChucNang.Controls.Add(this.btnInExcel);
             this.groupBoxChucNang.Controls.Add(this.btnInReport);
             this.groupBoxChucNang.Controls.Add(this.btnThemMoi);
             this.groupBoxChucNang.Controls.Add(this.btnSuaPN);
@@ -722,15 +721,15 @@
             this.groupBoxChucNang.TabStop = false;
             this.groupBoxChucNang.Text = "Chức năng";
             // 
-            // btnInExecel
+            // btnInExcel
             // 
-            this.btnInExecel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInExecel.Location = new System.Drawing.Point(1220, 31);
-            this.btnInExecel.Name = "btnInExecel";
-            this.btnInExecel.Size = new System.Drawing.Size(90, 40);
-            this.btnInExecel.TabIndex = 5;
-            this.btnInExecel.Text = "In Execel";
-            this.btnInExecel.UseVisualStyleBackColor = true;
+            this.btnInExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInExcel.Location = new System.Drawing.Point(1220, 31);
+            this.btnInExcel.Name = "btnInExcel";
+            this.btnInExcel.Size = new System.Drawing.Size(90, 40);
+            this.btnInExcel.TabIndex = 5;
+            this.btnInExcel.Text = "In Excel";
+            this.btnInExcel.UseVisualStyleBackColor = true;
             // 
             // btnInReport
             // 
@@ -819,7 +818,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnThemTTLoHang);
-            this.groupBox1.Controls.Add(this.btnInPhieuReport);
             this.groupBox1.Controls.Add(this.btnInAllNhap);
             this.groupBox1.Controls.Add(this.btnXoaPhieuNhap);
             this.groupBox1.Controls.Add(this.btnXem);
@@ -840,27 +838,17 @@
             // btnThemTTLoHang
             // 
             this.btnThemTTLoHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemTTLoHang.Location = new System.Drawing.Point(1013, 74);
+            this.btnThemTTLoHang.Location = new System.Drawing.Point(1100, 73);
             this.btnThemTTLoHang.Name = "btnThemTTLoHang";
-            this.btnThemTTLoHang.Size = new System.Drawing.Size(250, 40);
+            this.btnThemTTLoHang.Size = new System.Drawing.Size(256, 40);
             this.btnThemTTLoHang.TabIndex = 8;
             this.btnThemTTLoHang.Text = "Thêm thông tin Lô hàng";
             this.btnThemTTLoHang.UseVisualStyleBackColor = true;
             this.btnThemTTLoHang.Click += new System.EventHandler(this.btnThemTTLoHang_Click);
             // 
-            // btnInPhieuReport
-            // 
-            this.btnInPhieuReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInPhieuReport.Location = new System.Drawing.Point(1275, 28);
-            this.btnInPhieuReport.Name = "btnInPhieuReport";
-            this.btnInPhieuReport.Size = new System.Drawing.Size(100, 40);
-            this.btnInPhieuReport.TabIndex = 7;
-            this.btnInPhieuReport.Text = "In Report";
-            this.btnInPhieuReport.UseVisualStyleBackColor = true;
-            // 
             // btnInAllNhap
             // 
-            this.btnInAllNhap.Location = new System.Drawing.Point(1179, 28);
+            this.btnInAllNhap.Location = new System.Drawing.Point(1266, 27);
             this.btnInAllNhap.Name = "btnInAllNhap";
             this.btnInAllNhap.Size = new System.Drawing.Size(90, 40);
             this.btnInAllNhap.TabIndex = 1;
@@ -869,7 +857,7 @@
             // 
             // btnXoaPhieuNhap
             // 
-            this.btnXoaPhieuNhap.Location = new System.Drawing.Point(1013, 28);
+            this.btnXoaPhieuNhap.Location = new System.Drawing.Point(1100, 27);
             this.btnXoaPhieuNhap.Name = "btnXoaPhieuNhap";
             this.btnXoaPhieuNhap.Size = new System.Drawing.Size(160, 40);
             this.btnXoaPhieuNhap.TabIndex = 0;
@@ -1204,7 +1192,7 @@
         private System.Windows.Forms.TextBox txtTongSoLuong;
         private System.Windows.Forms.Label lblTongSoLuong;
         private System.Windows.Forms.GroupBox groupBoxChucNang;
-        private System.Windows.Forms.Button btnInExecel;
+        private System.Windows.Forms.Button btnInExcel;
         private System.Windows.Forms.Button btnInReport;
         private System.Windows.Forms.Button btnThemMoi;
         private System.Windows.Forms.Button btnSuaPN;
@@ -1214,7 +1202,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnThemTTLoHang;
-        private System.Windows.Forms.Button btnInPhieuReport;
         private System.Windows.Forms.Button btnInAllNhap;
         private System.Windows.Forms.Button btnXoaPhieuNhap;
         private System.Windows.Forms.Button btnXem;

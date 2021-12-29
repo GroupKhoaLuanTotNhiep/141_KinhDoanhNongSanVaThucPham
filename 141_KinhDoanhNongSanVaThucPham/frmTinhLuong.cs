@@ -57,7 +57,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
             int ngay = DateTime.Parse(ngayHienTai).Day - DateTime.Parse(strNgayTinhLuong).Day;
             int thang = DateTime.Parse(ngayHienTai).Month - DateTime.Parse(strNgayTinhLuong).Month;
             int nam = DateTime.Parse(ngayHienTai).Year - DateTime.Parse(strNgayTinhLuong).Year;
-            if (nam < 0 || (thang < 0 && nam == 0) || ((ngay < 0) && thang == 0 && nam == 0))
+            if (nam < 0 || (thang < 0 && nam == 0) || ((ngay < 0 || ngay > 0) && thang == 0 && nam == 0))
                 return false;
             return true;
         }
@@ -102,14 +102,13 @@ namespace _141_KinhDoanhNongSanVaThucPham
             return true;
         }
 
-
         private void btnCapNhatLNV_Click(object sender, EventArgs e)
         {
             try
             {
                 if (kiemTraNgayTinhLuongVaNgayHT() == false)
                 {
-                    MessageBox.Show("Ngày tính lương phải là ngày trước hoặc là Ngày hiện tại!");
+                    MessageBox.Show("Ngày tính lương phải là Ngày hiện tại!");
                     return;
                 }
                 if (kiemTraThangTinhLuongVaThangHT() == false)

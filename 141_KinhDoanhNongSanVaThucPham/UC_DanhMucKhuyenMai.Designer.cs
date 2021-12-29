@@ -31,7 +31,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblKhuyenMai = new System.Windows.Forms.Label();
             this.groupBoxTTKhuyenMai = new System.Windows.Forms.GroupBox();
-            this.btn = new System.Windows.Forms.Button();
+            this.txtTichLuy = new System.Windows.Forms.TextBox();
+            this.lblTichLuy = new System.Windows.Forms.Label();
+            this.btnYeuCau = new System.Windows.Forms.Button();
             this.btnSuaKM = new System.Windows.Forms.Button();
             this.btnXoaKM = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
@@ -45,8 +47,6 @@
             this.txtMaKM = new System.Windows.Forms.TextBox();
             this.lblMaKM = new System.Windows.Forms.Label();
             this.dataGV_DMKhuyenMai = new System.Windows.Forms.DataGridView();
-            this.txtTichLuy = new System.Windows.Forms.TextBox();
-            this.lblTichLuy = new System.Windows.Forms.Label();
             this.MaKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaTriKM = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,7 +91,7 @@
             // 
             this.groupBoxTTKhuyenMai.Controls.Add(this.txtTichLuy);
             this.groupBoxTTKhuyenMai.Controls.Add(this.lblTichLuy);
-            this.groupBoxTTKhuyenMai.Controls.Add(this.btn);
+            this.groupBoxTTKhuyenMai.Controls.Add(this.btnYeuCau);
             this.groupBoxTTKhuyenMai.Controls.Add(this.btnSuaKM);
             this.groupBoxTTKhuyenMai.Controls.Add(this.btnXoaKM);
             this.groupBoxTTKhuyenMai.Controls.Add(this.btnLamMoi);
@@ -112,15 +112,32 @@
             this.groupBoxTTKhuyenMai.TabStop = false;
             this.groupBoxTTKhuyenMai.Text = "Thông tin khuyến mãi";
             // 
-            // btn
+            // txtTichLuy
             // 
-            this.btn.Location = new System.Drawing.Point(822, 110);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(240, 40);
-            this.btn.TabIndex = 12;
-            this.btn.Text = "Yêu cầu tích điểm";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
+            this.txtTichLuy.Location = new System.Drawing.Point(227, 151);
+            this.txtTichLuy.Name = "txtTichLuy";
+            this.txtTichLuy.Size = new System.Drawing.Size(100, 22);
+            this.txtTichLuy.TabIndex = 14;
+            this.txtTichLuy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTichLuy_KeyPress);
+            // 
+            // lblTichLuy
+            // 
+            this.lblTichLuy.AutoSize = true;
+            this.lblTichLuy.Location = new System.Drawing.Point(71, 154);
+            this.lblTichLuy.Name = "lblTichLuy";
+            this.lblTichLuy.Size = new System.Drawing.Size(57, 17);
+            this.lblTichLuy.TabIndex = 13;
+            this.lblTichLuy.Text = "Tích lũy";
+            // 
+            // btnYeuCau
+            // 
+            this.btnYeuCau.Location = new System.Drawing.Point(822, 110);
+            this.btnYeuCau.Name = "btnYeuCau";
+            this.btnYeuCau.Size = new System.Drawing.Size(240, 40);
+            this.btnYeuCau.TabIndex = 12;
+            this.btnYeuCau.Text = "Yêu cầu tích điểm";
+            this.btnYeuCau.UseVisualStyleBackColor = true;
+            this.btnYeuCau.Click += new System.EventHandler(this.btnYeuCau_Click);
             // 
             // btnSuaKM
             // 
@@ -246,23 +263,6 @@
             this.dataGV_DMKhuyenMai.TabIndex = 2;
             this.dataGV_DMKhuyenMai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DMKhuyenMai_CellClick);
             // 
-            // txtTichLuy
-            // 
-            this.txtTichLuy.Location = new System.Drawing.Point(227, 151);
-            this.txtTichLuy.Name = "txtTichLuy";
-            this.txtTichLuy.Size = new System.Drawing.Size(100, 22);
-            this.txtTichLuy.TabIndex = 14;
-            this.txtTichLuy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTichLuy_KeyPress);
-            // 
-            // lblTichLuy
-            // 
-            this.lblTichLuy.AutoSize = true;
-            this.lblTichLuy.Location = new System.Drawing.Point(71, 154);
-            this.lblTichLuy.Name = "lblTichLuy";
-            this.lblTichLuy.Size = new System.Drawing.Size(57, 17);
-            this.lblTichLuy.TabIndex = 13;
-            this.lblTichLuy.Text = "Tích lũy";
-            // 
             // MaKM
             // 
             this.MaKM.DataPropertyName = "MaKM";
@@ -337,7 +337,7 @@
         private System.Windows.Forms.TextBox txtMaKM;
         private System.Windows.Forms.Label lblMaKM;
         private System.Windows.Forms.DataGridView dataGV_DMKhuyenMai;
-        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Button btnYeuCau;
         private System.Windows.Forms.TextBox txtTichLuy;
         private System.Windows.Forms.Label lblTichLuy;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;

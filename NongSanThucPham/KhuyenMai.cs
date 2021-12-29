@@ -13,8 +13,8 @@ namespace NongSanThucPham
     public class KhuyenMai
     {
         Connection conn = new Connection();
-        SqlDataAdapter da_KhuyenMai;
-        DataSet ds_KhuyenMai;
+        SqlDataAdapter da_KhuyenMai, da_TichDiem;
+        DataSet ds_KhuyenMai, ds_TichDiem;
         DataTable dt_KhuyenMai;
 
         public DataTable loadDataGV_KM()
@@ -27,6 +27,83 @@ namespace NongSanThucPham
             ds_KhuyenMai.Tables["KhuyenMai"].PrimaryKey = key;
             return ds_KhuyenMai.Tables["KhuyenMai"];
         }
+
+        public DataTable loadDataGV_YCTichDiem()
+        {
+            da_TichDiem = new SqlDataAdapter("Select * From YeuCauTichDiem", conn.conn);
+            ds_TichDiem = new DataSet();
+            da_TichDiem.Fill(ds_TichDiem, "YeuCauTichDiem");
+            DataColumn[] key = new DataColumn[1];
+            key[0] = ds_TichDiem.Tables["YeuCauTichDiem"].Columns[0];
+            ds_TichDiem.Tables["YeuCauTichDiem"].PrimaryKey = key;
+            return ds_TichDiem.Tables["YeuCauTichDiem"];
+        }
+
+        public string layMaYeuCau()
+        {
+            string ma = "";
+            string strSql = "Select * From YeuCauTichDiem";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                ma = dr["MaYeuCau"].ToString();
+            }
+            dr.Close();
+            return ma;
+        }
+
+        public string layGTHoaDonBT(string mayc)
+        {
+            string giaTri = "";
+            string strSql = "Select * From YeuCauTichDiem Where MaYeuCau = '" + mayc + "'";
+            SqlDataReader giaTridr = conn.getDataReader(strSql);
+            while (giaTridr.Read())
+            {
+                giaTri = giaTridr["GTHoaDonBT"].ToString();
+            }
+            giaTridr.Close();
+            return giaTri;
+        }
+
+        public string layGTHoaDonLon(string mayc)
+        {
+            string giaTri = "";
+            string strSql = "Select * From YeuCauTichDiem Where MaYeuCau = '" + mayc + "'";
+            SqlDataReader giaTridr = conn.getDataReader(strSql);
+            while (giaTridr.Read())
+            {
+                giaTri = giaTridr["GTHoaDonLon"].ToString();
+            }
+            giaTridr.Close();
+            return giaTri;
+        }
+
+        public string layTichDiemBT(string mayc)
+        {
+            string giaTri = "";
+            string strSql = "Select * From YeuCauTichDiem Where MaYeuCau = '" + mayc + "'";
+            SqlDataReader giaTridr = conn.getDataReader(strSql);
+            while (giaTridr.Read())
+            {
+                giaTri = giaTridr["TichLuyBT"].ToString();
+            }
+            giaTridr.Close();
+            return giaTri;
+        }
+
+        public string layTichDiemLon(string mayc)
+        {
+            string giaTri = "";
+            string strSql = "Select * From YeuCauTichDiem Where MaYeuCau = '" + mayc + "'";
+            SqlDataReader giaTridr = conn.getDataReader(strSql);
+            while (giaTridr.Read())
+            {
+                giaTri = giaTridr["TichLuyLon"].ToString();
+            }
+            giaTridr.Close();
+            return giaTri;
+        }
+
         public bool addKM(string ma, string ten, float giatri, string noidung, int tichluy)
         {
             try

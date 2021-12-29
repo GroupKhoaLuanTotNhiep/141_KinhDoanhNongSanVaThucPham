@@ -46,6 +46,7 @@
             this.lblXXu = new System.Windows.Forms.Label();
             this.lblGVon = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnUploadHinh = new System.Windows.Forms.Button();
             this.cbbQuayHang = new System.Windows.Forms.ComboBox();
             this.lblQuayHang = new System.Windows.Forms.Label();
             this.cbbLoaiSanPham = new System.Windows.Forms.ComboBox();
@@ -302,6 +303,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnUploadHinh);
             this.groupBox2.Controls.Add(this.cbbQuayHang);
             this.groupBox2.Controls.Add(this.lblQuayHang);
             this.groupBox2.Controls.Add(this.cbbLoaiSanPham);
@@ -326,6 +328,16 @@
             this.groupBox2.Size = new System.Drawing.Size(713, 551);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // btnUploadHinh
+            // 
+            this.btnUploadHinh.Location = new System.Drawing.Point(508, 246);
+            this.btnUploadHinh.Name = "btnUploadHinh";
+            this.btnUploadHinh.Size = new System.Drawing.Size(150, 40);
+            this.btnUploadHinh.TabIndex = 15;
+            this.btnUploadHinh.Text = "Thêm hình ảnh";
+            this.btnUploadHinh.UseVisualStyleBackColor = true;
+            this.btnUploadHinh.Click += new System.EventHandler(this.btnUploadHinh_Click);
             // 
             // cbbQuayHang
             // 
@@ -477,7 +489,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmThemHangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "From Thêm hàng hóa";
+            this.Text = "Form Thêm hàng hóa";
             this.Load += new System.EventHandler(this.frmThemHangHoa_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -528,5 +540,6 @@
         private System.Windows.Forms.Label lblLoaiSP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaSP;
+        private System.Windows.Forms.Button btnUploadHinh;
     }
 }

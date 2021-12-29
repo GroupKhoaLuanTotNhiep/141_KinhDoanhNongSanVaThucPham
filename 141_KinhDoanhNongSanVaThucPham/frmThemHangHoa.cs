@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using NongSanThucPham;
 using DBConnect;
 
@@ -19,6 +20,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
         LoaiSP loaisp = new LoaiSP();
         DonViTinh dvt = new DonViTinh();
         QuayHang qh = new QuayHang();
+        string paths = Application.StartupPath.Substring(0, Application.StartupPath.Length - 10);
         public frmThemHangHoa()
         {
             InitializeComponent();
@@ -173,6 +175,30 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
                 e.Handled = true;
+        }
+
+        private void btnUploadHinh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = "D:\\";
+            open.Filter = "Image File (*.jpg)|*.jpg|All File (*.*)|*.*";
+            if (open.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string name = System.IO.Path.GetFileName(open.FileName);
+                string luu = paths + "\\image\\" + name;
+                try
+                {
+                    FileStream fs = new FileStream(open.FileName, FileMode.Open, FileAccess.Read);
+                    System.IO.File.Copy(open.FileName, luu);
+                    MessageBox.Show("Upload file ảnh thành công", "Thông báo");
+                    txtHinhAnh.Text = name;
+                    fs.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Hình ảnh đã tồn tại hoặc trùng tên, vui lòng kiểm tra lại");
+                }
+            }
         }
     }
 }

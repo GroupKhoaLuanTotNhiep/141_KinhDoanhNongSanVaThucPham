@@ -288,6 +288,50 @@ namespace NongSanThucPham
             return GetChiTietHoaDon(mahd);
         }
 
+        public DataTable loadGVHoaDonTheoNgay(string ngay)
+        {
+            da_HoaDon = new SqlDataAdapter("Select * From HoaDon Where NgayLap='" + ngay + "'", conn.conn);
+            ds_HoaDon = new DataSet();
+            da_HoaDon.Fill(ds_HoaDon, "HoaDon");
+            DataColumn[] key = new DataColumn[1];
+            key[0] = ds_HoaDon.Tables["HoaDon"].Columns["MaHoaDon"];
+            ds_HoaDon.Tables["HoaDon"].PrimaryKey = key;
+            return ds_HoaDon.Tables["HoaDon"];
+        }
+
+        public DataTable loadGVHoaDonTheoNhanVien(string manv)
+        {
+            da_HoaDon = new SqlDataAdapter("Select * From HoaDon Where MaNV='" + manv + "'", conn.conn);
+            ds_HoaDon = new DataSet();
+            da_HoaDon.Fill(ds_HoaDon, "HoaDon");
+            DataColumn[] key = new DataColumn[1];
+            key[0] = ds_HoaDon.Tables["HoaDon"].Columns["MaHoaDon"];
+            ds_HoaDon.Tables["HoaDon"].PrimaryKey = key;
+            return ds_HoaDon.Tables["HoaDon"];
+        }
+
+        public DataTable loadGVHoaDonTheoKhachHang(string makh)
+        {
+            da_HoaDon = new SqlDataAdapter("Select * From HoaDon Where MaKH='" + makh + "'", conn.conn);
+            ds_HoaDon = new DataSet();
+            da_HoaDon.Fill(ds_HoaDon, "HoaDon");
+            DataColumn[] key = new DataColumn[1];
+            key[0] = ds_HoaDon.Tables["HoaDon"].Columns["MaHoaDon"];
+            ds_HoaDon.Tables["HoaDon"].PrimaryKey = key;
+            return ds_HoaDon.Tables["HoaDon"];
+        }
+
+        public DataTable loadGVHoaDonHangHoa(string masp)
+        {
+            da_HoaDon = new SqlDataAdapter("Select HoaDon.* From HoaDon, ChiTietHoaDon Where HoaDon.MaHoaDon = ChiTietHoaDon.MaHoaDon And MaSP='" + masp + "'", conn.conn);
+            ds_HoaDon = new DataSet();
+            da_HoaDon.Fill(ds_HoaDon, "HoaDon, ChiTietHoaDon");
+            DataColumn[] key = new DataColumn[1];
+            key[0] = ds_HoaDon.Tables["HoaDon, ChiTietHoaDon"].Columns["MaHoaDon"];
+            ds_HoaDon.Tables["HoaDon, ChiTietHoaDon"].PrimaryKey = key;
+            return ds_HoaDon.Tables["HoaDon, ChiTietHoaDon"];
+        }
+
         public DataTable loadThongKeTheoThang(DateTime fromDate, DateTime toDate)
         {
             conn.openConnect();

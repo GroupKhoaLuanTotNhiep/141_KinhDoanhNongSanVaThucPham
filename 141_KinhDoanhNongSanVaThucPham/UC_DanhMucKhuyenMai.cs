@@ -204,17 +204,17 @@ namespace _141_KinhDoanhNongSanVaThucPham
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
                 e.Handled = true;
         }
-
-        private void btn_Click(object sender, EventArgs e)
-        {
-            frmYeuCauTichDiem yeuCau = new frmYeuCauTichDiem();
-            yeuCau.ShowDialog();
-        }
-
+        
         private void txtTichLuy_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void btnYeuCau_Click(object sender, EventArgs e)
+        {
+            frmYeuCauTichDiem yeuCau = new frmYeuCauTichDiem();
+            yeuCau.ShowDialog();
         }
     }
 }

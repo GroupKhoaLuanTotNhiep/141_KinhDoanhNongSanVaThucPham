@@ -56,7 +56,7 @@ namespace NongSanThucPham
                 if (conn.checkExist("SanPham", "masp", masp.ToString()))
                 {
 
-                    string strSQL = "Update SanPham Set TenSP=N' " + tensp.Trim() + "', HinhAnh='" + hinhanh + "',GiaVon=" + giavon + ",GiaBan=" + giaban + ",GiamGia=" + giamgia + ",SoLuongSP=" + soluong + ",XuatXu=N'" + xuatxu + "',MoTa=N'" + mota + "',MaLoaiSP=" + maloaisp + ",MaDVT=" + madvt + ",MaQuay='" + maquay + "' Where MaSP='" + masp + "'";
+                    string strSQL = "Update SanPham Set TenSP=N'" + tensp.Trim() + "', HinhAnh='" + hinhanh + "',GiaVon=" + giavon + ",GiaBan=" + giaban + ",GiamGia=" + giamgia + ",SoLuongSP=" + soluong + ",XuatXu=N'" + xuatxu + "',MoTa=N'" + mota + "',MaLoaiSP=" + maloaisp + ",MaDVT=" + madvt + ",MaQuay='" + maquay + "' Where MaSP='" + masp + "'";
                     conn.updateToDatabase(strSQL);
                     return true;
                 }
@@ -214,6 +214,45 @@ namespace NongSanThucPham
             return giavon;
         }
 
+        public string layGiaBan(string masp)
+        {
+            string giaban = "";
+            string strSql = "Select GiaBan From SanPham Where MaSP='" + masp + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                giaban = dr["GiaBan"].ToString();
+            }
+            dr.Close();
+            return giaban;
+        }
+
+        public string layGiamGia(string masp)
+        {
+            string giamgia = "";
+            string strSql = "Select GiamGia From SanPham Where MaSP='" + masp + "'";
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                giamgia = dr["GiamGia"].ToString();
+            }
+            dr.Close();
+            return giamgia;
+        }
+
+        public string layNgayApDung(string masp, int magia)
+        {
+            string ngayad = "";
+            string strSql = "Select NgayApDung From Gia_SanPham Where MaSP='" + masp + "' And MaGia=" + magia;
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                ngayad = dr["NgayApDung"].ToString();
+            }
+            dr.Close();
+            return ngayad;
+        }
+
         public string laySoLuongSPTheoSanPham(string masp)
         {
             string soLuong = "";
@@ -256,6 +295,216 @@ namespace NongSanThucPham
             }
             dr.Close();
             return dvt;
+        }
+        public DataTable loadMaSP()
+        {
+            da_SanPham = new SqlDataAdapter("Select distinct * From SanPham", conn.conn);
+            DataTable dt_SanPham = new DataTable();
+            da_SanPham.Fill(dt_SanPham);
+            return dt_SanPham;
+        }
+        public DataTable loadLichSuGiaBan(string masp)
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("LichSuGiaBan", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@masp", SqlDbType.VarChar));
+                    da.SelectCommand.Parameters["@masp"].Value = masp;
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        public DataTable loadGiaVon()
+        {
+            //da_SanPham = new SqlDataAdapter("Select * From ChiTietPhieuNhapHang", conn.conn);
+            da_SanPham = new SqlDataAdapter("Select distinct * From SanPham", conn.conn);
+            DataTable dt_SanPham = new DataTable();
+            da_SanPham.Fill(dt_SanPham);
+            return dt_SanPham;
+        }
+        public DataTable loadLichSuGiaVon(string masp)
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("LichSuGiaNhap", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@masp", SqlDbType.VarChar));
+                    da.SelectCommand.Parameters["@masp"].Value = masp;
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        public DataTable loadGiamGia()
+        {
+            //da_SanPham = new SqlDataAdapter("Select * From GiamGia_SanPham", conn.conn);
+            da_SanPham = new SqlDataAdapter("Select distinct * From SanPham", conn.conn);
+            DataTable dt_SanPham = new DataTable();
+            da_SanPham.Fill(dt_SanPham);
+            return dt_SanPham;
+        }
+        public DataTable loadLichSuGiamGia(string masp)
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("LichSuGiamGia", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@masp", SqlDbType.VarChar));
+                    da.SelectCommand.Parameters["@masp"].Value = masp;
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        //Thống kê sản phẩm sắp hết hạn sd
+        public DataTable loadThongKeSPSapHetHan()
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("ThongKe_SPSapHetHanSD", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        //Thống kê sản phẩm hết hạn sd
+        public DataTable loadThongKeSPHetHan()
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("ThongKe_SPHetHanSD", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        //Thống kê sản phẩm sắp hết hàng
+        public DataTable loadThongKeSPHetHang()
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("ThongKe_SapHetHang", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        //Thống kê top 10 sản phẩm bán chạy nhất
+        public DataTable loadThongKe_Top10SPBanChay()
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("ThongKe_Top10SPBanChay", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        //Thống kê top 10 sản phẩm bán chậm nhất
+        public DataTable loadThongKe_Top10SPBanCham()
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("ThongKe_Top10SPBanCham", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        //Thống kê KH tiềm năng
+        public DataTable loadThongKe_KHTiemNang(DateTime fromDate, DateTime toDate)
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("ThongKeKHTiemNang", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@fromDate", SqlDbType.Date));
+                    da.SelectCommand.Parameters["@fromDate"].Value = fromDate;
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@toDate", SqlDbType.Date));
+                    da.SelectCommand.Parameters["@toDate"].Value = toDate;
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        //Thống kê tình trạng phiếu thanh lý đã thanh lý
+        public DataTable loadThongKe_DaThanhLy(DateTime fromDate, DateTime toDate)
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("ThongKe_DaThanhLy", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@fromDate", SqlDbType.Date));
+                    da.SelectCommand.Parameters["@fromDate"].Value = fromDate;
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@toDate", SqlDbType.Date));
+                    da.SelectCommand.Parameters["@toDate"].Value = toDate;
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
+        }
+        //Thống kê tình trạng phiếu thanh lý chưa thanh lý
+        public DataTable loadThongKe_ChuaThanhLy()
+        {
+            conn.openConnect();
+            var cmd = new SqlCommand("ThongKe_ChuaThanhLy", conn.conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (DataTable dt = new DataTable())
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                    conn.closeConnect();
+                    return dt;
+                }
+            }
         }
     }
 }

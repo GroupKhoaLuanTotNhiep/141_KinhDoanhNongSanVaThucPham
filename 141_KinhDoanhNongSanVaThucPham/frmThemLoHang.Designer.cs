@@ -36,6 +36,7 @@
             this.lblLoHang = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblTenLo = new System.Windows.Forms.Label();
             this.lblSanPham = new System.Windows.Forms.Label();
             this.lblPhieuNhap = new System.Windows.Forms.Label();
@@ -43,6 +44,9 @@
             this.lblSL = new System.Windows.Forms.Label();
             this.lblMaLo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkGiaBan = new System.Windows.Forms.CheckBox();
+            this.cbbGiaBan = new System.Windows.Forms.ComboBox();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.txtTenLo = new System.Windows.Forms.TextBox();
             this.cbbSanPham = new System.Windows.Forms.ComboBox();
             this.cbbPhieuNhap = new System.Windows.Forms.ComboBox();
@@ -51,10 +55,6 @@
             this.lblHanSD = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtMaLo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtGiaBan = new System.Windows.Forms.TextBox();
-            this.cbbGiaBan = new System.Windows.Forms.ComboBox();
-            this.chkGiaBan = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -190,6 +190,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label1.Location = new System.Drawing.Point(50, 431);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Giá bán";
+            // 
             // lblTenLo
             // 
             this.lblTenLo.AutoSize = true;
@@ -270,6 +280,35 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // chkGiaBan
+            // 
+            this.chkGiaBan.AutoSize = true;
+            this.chkGiaBan.Location = new System.Drawing.Point(36, 401);
+            this.chkGiaBan.Name = "chkGiaBan";
+            this.chkGiaBan.Size = new System.Drawing.Size(113, 21);
+            this.chkGiaBan.TabIndex = 10;
+            this.chkGiaBan.Text = "Nhập giá mới";
+            this.chkGiaBan.UseVisualStyleBackColor = true;
+            this.chkGiaBan.CheckedChanged += new System.EventHandler(this.chkGiaBan_CheckedChanged);
+            // 
+            // cbbGiaBan
+            // 
+            this.cbbGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGiaBan.FormattingEnabled = true;
+            this.cbbGiaBan.Location = new System.Drawing.Point(36, 428);
+            this.cbbGiaBan.Name = "cbbGiaBan";
+            this.cbbGiaBan.Size = new System.Drawing.Size(450, 28);
+            this.cbbGiaBan.TabIndex = 9;
+            // 
+            // txtGiaBan
+            // 
+            this.txtGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaBan.Location = new System.Drawing.Point(36, 428);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(450, 27);
+            this.txtGiaBan.TabIndex = 8;
+            this.txtGiaBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBan_KeyPress);
+            // 
             // txtTenLo
             // 
             this.txtTenLo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -349,45 +388,6 @@
             this.txtMaLo.Size = new System.Drawing.Size(450, 27);
             this.txtMaLo.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.label1.Location = new System.Drawing.Point(50, 431);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Giá bán";
-            // 
-            // txtGiaBan
-            // 
-            this.txtGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaBan.Location = new System.Drawing.Point(36, 428);
-            this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(450, 27);
-            this.txtGiaBan.TabIndex = 8;
-            this.txtGiaBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBan_KeyPress);
-            // 
-            // cbbGiaBan
-            // 
-            this.cbbGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbGiaBan.FormattingEnabled = true;
-            this.cbbGiaBan.Location = new System.Drawing.Point(36, 428);
-            this.cbbGiaBan.Name = "cbbGiaBan";
-            this.cbbGiaBan.Size = new System.Drawing.Size(450, 28);
-            this.cbbGiaBan.TabIndex = 9;
-            // 
-            // chkGiaBan
-            // 
-            this.chkGiaBan.AutoSize = true;
-            this.chkGiaBan.Location = new System.Drawing.Point(36, 401);
-            this.chkGiaBan.Name = "chkGiaBan";
-            this.chkGiaBan.Size = new System.Drawing.Size(113, 21);
-            this.chkGiaBan.TabIndex = 10;
-            this.chkGiaBan.Text = "Nhập giá mới";
-            this.chkGiaBan.UseVisualStyleBackColor = true;
-            this.chkGiaBan.CheckedChanged += new System.EventHandler(this.chkGiaBan_CheckedChanged);
-            // 
             // frmThemLoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -396,7 +396,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmThemLoHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "From Thêm lô hàng";
+            this.Text = "Form Thêm lô hàng";
             this.Load += new System.EventHandler(this.frmThemLoHang_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

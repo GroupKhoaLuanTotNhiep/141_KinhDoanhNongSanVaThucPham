@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using NongSanThucPham;
 using DBConnect;
 
@@ -21,6 +22,8 @@ namespace _141_KinhDoanhNongSanVaThucPham
         DonViTinh dvt = new DonViTinh();
         LoaiSP loai = new LoaiSP();
         QuayHang qh = new QuayHang();
+        LoHang lohang = new LoHang();
+        string paths = Application.StartupPath.Substring(0, Application.StartupPath.Length - 10);
         int index = -1;
         public static string masp = "";
         public static string donvitinh = "";
@@ -29,6 +32,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
         public static DateTime hsd;
         public static string pnh = "";
         public static string magia = "";
+
         public UC_DanhMucHangHoa()
         {
             InitializeComponent();
@@ -161,11 +165,39 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 int maloaisp = int.Parse(dataGV_HangHoa.Rows[index].Cells["MaLoaiSP"].Value.ToString().Trim());
                 int madvt = int.Parse(dataGV_HangHoa.Rows[index].Cells["MaDVT"].Value.ToString().Trim());
                 string maquay = dataGV_HangHoa.Rows[index].Cells["MaQuay"].Value.ToString().Trim();
+                int gia = int.Parse(sp.layGiaBan(masp));
+                float giam = float.Parse(sp.layGiamGia(masp));
 
                 if (!conn.checkExist("SanPham", "MaSP", masp))
                 {
                     MessageBox.Show("Mã sản phẩm " + masp + " chưa tồn tại");
                     return;
+                }
+                if(gia != giaban)
+                {
+                    if (conn.checkExist("Gia_SanPham", "MaSP", masp))
+                    {
+                        string sqlngay = "UPDATE Gia_SanPham SET NgayKetThuc ='" + DateTime.Now.ToString() + "' WHERE MaSP='" + masp + "' AND MaGia='" + sp.layMaGiaBanTheoTenGia(gia) + "'";
+                        conn.updateToDatabase(sqlngay);
+                    }
+                    if(conn.checkExistTwoKey("Gia_SanPham", "MaSP", "MaGia", masp, sp.layMaGiaBanTheoTenGia(giaban)))
+                    {
+                        string sqlngaykt = "UPDATE Gia_SanPham SET NgayKetThuc = NULL WHERE MaSP='" + masp + "' AND MaGia='" + sp.layMaGiaBanTheoTenGia(giaban) + "'";
+                        conn.updateToDatabase(sqlngaykt);
+                    }
+                }
+                if (giam != giamgia)
+                {
+                    if (conn.checkExist("GiamGia_SanPham", "MaSP", masp))
+                    {
+                        string sqln = "UPDATE GiamGia_SanPham SET NgayKT ='" + DateTime.Now.ToString() + "' WHERE MaSP='" + masp + "' AND MaGiam='" + sp.layMaGiamGiaTheoPhanTramGiam(giam) + "'";
+                        conn.updateToDatabase(sqln);
+                    }
+                    if(conn.checkExistTwoKey("GiamGia_SanPham", "MaSP", "MaGiam", masp, sp.layMaGiamGiaTheoPhanTramGiam(giamgia)))
+                    {
+                        string sqlnkt = "UPDATE GiamGia_SanPham SET NgayKT = NULL WHERE MaSP='" + masp + "' AND MaGiam='" + sp.layMaGiamGiaTheoPhanTramGiam(giamgia) + "'";
+                        conn.updateToDatabase(sqlnkt);
+                    }
                 }
                 if (sp.updateSP(masp, tensp, hinhanh, giavon, giaban, giamgia, soluong, xuatxu, mota, maloaisp, madvt, maquay))
                 {
@@ -176,7 +208,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         string strSqlBG = "Insert BangGia Values(" + giaban + ")";
                         conn.updateToDatabase(strSqlBG);
                         MessageBox.Show("Đã thêm thông tin giá bán");
-                        string strSqlGSP = "Insert Gia_SanPham Values('" + masp + "', " + sp.layMaGiaBanTheoTenGia(giaban).ToString() + ", '" + DateTime.Now.ToString() + "', NULL )";
+                        string strSqlGSP = "Insert Gia_SanPham Values('" + masp + "', " + sp.layMaGiaBanTheoTenGia(giaban).ToString() + ", '" + DateTime.Now.ToString() + "', NULL)";
                         conn.updateToDatabase(strSqlGSP);
                         MessageBox.Show("Đã thêm thông tin giá sản phẩm");
                     }
@@ -212,6 +244,20 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     }
 
                     loadGVSanPham();
+
+                    //Cập nhật giá cho lô hàng
+                    try
+                    {
+                        //float sllo = float.Parse(dataGV_LoHang.Rows[index].Cells["SoLuong"].Value.ToString().Trim());
+                        for(int i = 0; i < dataGV_LoHang.RowCount - 1; i++)
+                        {
+                            string maLo = dataGV_LoHang.Rows[i].Cells[0].Value.ToString().Trim();
+                            //string malo = lohang.layLo(masp);
+                            string sql = "UPDATE LoHang SET MaGia=" + sp.layMaGiaBanTheoTenGia(giaban) + " WHERE MaLo='" + maLo + "' AND DATEDIFF(day, GETDATE(), HanSuDung) >" + 30 + " AND SoLuong >" + 0;
+                            conn.updateToDatabase(sql);
+                        }
+                    }
+                    catch { }
                 }
                 else
                 {
@@ -273,9 +319,9 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 ngaysx = DateTime.Parse(dataGV_LoHang.Rows[index].Cells[2].Value.ToString().Trim());
                 hsd = DateTime.Parse(dataGV_LoHang.Rows[index].Cells[3].Value.ToString().Trim());
                 pnh = dataGV_LoHang.Rows[index].Cells[5].Value.ToString().Trim();
-                magia = dataGV_LoHang.Rows[index].Cells[7].Value.ToString().Trim();
+                //magia = sp.layMaGiaBanTheoTenGia(int.Parse(dataGV_HangHoa.Rows[index].Cells["GiaBan"].Value.ToString().Trim()));
                 frmQuyDoiDonViTinh qddvt = new frmQuyDoiDonViTinh();
-                qddvt.ShowDialog();
+                qddvt.Show();
             }
             catch { }
         }
@@ -284,6 +330,49 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             if (e.RowIndex != -1)
                 index = e.RowIndex;
+        }
+
+        private void btnCapNhatHinh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (index == -1)
+                {
+                    MessageBox.Show("Vui lòng chọn sản phẩm muốn cập nhật hình!");
+                }
+                else
+                {
+                    string hinhanh = dataGV_HangHoa.Rows[index].Cells["HinhAnh"].Value.ToString().Trim();
+                    try
+                    {                 
+                        OpenFileDialog open = new OpenFileDialog();
+                        open.InitialDirectory = "D:\\";
+                        open.Filter = "Image File (*.jpg)|*.jpg|All File (*.*)|*.*";
+                        if (open.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        {
+                            string name = System.IO.Path.GetFileName(open.FileName);
+                            string luu = paths + "\\image\\" + name;
+                            FileStream fs = new FileStream(open.FileName, FileMode.Open, FileAccess.Read);
+                            System.IO.File.Copy(open.FileName, luu);
+                            MessageBox.Show("Upload file ảnh thành công", "Thông báo");
+                            hinhanh = name;
+                            fs.Close();
+                        }
+                        string updatehinh = "UPDATE SanPham SET HinhAnh='" + hinhanh + "' WHERE MaSP='" + masp + "'";
+                        conn.updateToDatabase(updatehinh);
+                        loadGVSanPham();
+                        MessageBox.Show("Cập nhật hình thành công!");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Cập nhật hình thất bại!");
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm muốn cập nhật hình");
+            }
         }
 
     }

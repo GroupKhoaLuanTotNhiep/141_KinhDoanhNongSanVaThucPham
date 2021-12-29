@@ -320,7 +320,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmThemKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "From thêm khách hàng";
+            this.Text = "Form thêm khách hàng";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);

@@ -102,6 +102,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 string strPhieuNhap = cbbPhieuNhap.Text;
                 string strSanPham = cbbSanPham.Text;
                 string strGiaBan = "";
+                int giacu = int.Parse(sanPham.layGiaBan(strSanPham));
 
                 if (strMaLo != string.Empty && strTenLo != string.Empty && strSoLuong != string.Empty && strPhieuNhap != string.Empty && strSanPham != string.Empty)
                 {
@@ -157,6 +158,20 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         conn.updateToDatabase(strSql);
                         MessageBox.Show("Lưu lô hàng thành công!");
 
+                        if (giacu != int.Parse(strGiaBan))
+                        {
+                            if (conn.checkExist("Gia_SanPham", "MaSP", strSanPham))
+                            {
+                                string sqlngay = "UPDATE Gia_SanPham SET NgayKetThuc ='" + DateTime.Now.ToString() + "' WHERE MaSP='" + strSanPham + "' AND MaGia='" + sanPham.layMaGiaBanTheoTenGia(giacu) + "'";
+                                conn.updateToDatabase(sqlngay);
+                            }
+                            if (conn.checkExistTwoKey("Gia_SanPham", "MaSP", "MaGia", strSanPham, sanPham.layMaGiaBanTheoTenGia(int.Parse(strGiaBan))))
+                            {
+                                string sqlngaykt = "UPDATE Gia_SanPham SET NgayKetThuc = NULL WHERE MaSP='" + strSanPham + "' AND MaGia='" + sanPham.layMaGiaBanTheoTenGia(int.Parse(strGiaBan)) + "'";
+                                conn.updateToDatabase(sqlngaykt);
+                            }
+                        }
+
                         string strSQLSP = "UPDATE SanPham SET GiaBan=" + strGiaBan + " WHERE MaSP='" + strSanPham + "'";
                         conn.updateToDatabase(strSQLSP);
 
@@ -189,7 +204,21 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         conn.updateToDatabase(strSql);
                         MessageBox.Show("Lưu lô hàng thành công!");
 
-                        string strSqlSp = "UPDATE SanPham SET GiaBan=" + strGiaBan + " WHERE MaSP='" + strSanPham + "'";
+                        if (giacu != int.Parse(cbbGiaBan.Text.Trim()))
+                        {
+                            if (conn.checkExist("Gia_SanPham", "MaSP", strSanPham))
+                            {
+                                string sqlngay = "UPDATE Gia_SanPham SET NgayKetThuc ='" + DateTime.Now.ToString() + "' WHERE MaSP='" + strSanPham + "' AND MaGia='" + sanPham.layMaGiaBanTheoTenGia(giacu) + "'";
+                                conn.updateToDatabase(sqlngay);
+                            }
+                            if (conn.checkExistTwoKey("Gia_SanPham", "MaSP", "MaGia", strSanPham, strGiaBan))
+                            {
+                                string sqlngaykt = "UPDATE Gia_SanPham SET NgayKetThuc = NULL WHERE MaSP='" + strSanPham + "' AND MaGia='" + strGiaBan + "'";
+                                conn.updateToDatabase(sqlngaykt);
+                            }
+                        }
+
+                        string strSqlSp = "UPDATE SanPham SET GiaBan=" + cbbGiaBan.Text.Trim() + " WHERE MaSP='" + strSanPham + "'";
                         conn.updateToDatabase(strSqlSp);
 
                         this.Close();

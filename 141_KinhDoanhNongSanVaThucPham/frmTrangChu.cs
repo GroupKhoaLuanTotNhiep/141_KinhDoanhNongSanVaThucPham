@@ -395,5 +395,35 @@ namespace _141_KinhDoanhNongSanVaThucPham
             if (rs == DialogResult.Yes)
                 this.Close();
         }
+
+        private void TKSanPham_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_ThongKeSanPham sp = new UC_ThongKeSanPham();
+            showUserControl(sp);
+        }
+
+        private void Top10_SPBanChayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_ThongKeTop10SPBanChay banchay = new UC_ThongKeTop10SPBanChay();
+            showUserControl(banchay);
+        }
+
+        private void Top10_SPBanChamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_ThongKeTop10SPBanCham bancham = new UC_ThongKeTop10SPBanCham();
+            showUserControl(bancham);
+        }
+
+        private void KHTiemNangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_ThongKeKHTiemNang kh = new UC_ThongKeKHTiemNang();
+            showUserControl(kh);
+        }
+
+        private void PhieuTLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UC_ThongKeThanhLy tl = new UC_ThongKeThanhLy();
+            showUserControl(tl);
+        }
     }
 }

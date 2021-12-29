@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageTheoThang = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnXemCTTheoThang = new System.Windows.Forms.Button();
+            this.btnXemChiTietThang = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTuNgay = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -44,15 +45,12 @@
             this.txtNgayKT = new System.Windows.Forms.DateTimePicker();
             this.btnXemTKThang = new System.Windows.Forms.Button();
             this.btnInExlThang = new System.Windows.Forms.Button();
+            this.btnBieuDo = new System.Windows.Forms.Button();
             this.dataGV_DTTheoThang = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDonHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongBan_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TienHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageNhanVien = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnXemChiTietNV = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTuNgayNV = new System.Windows.Forms.Label();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -63,7 +61,6 @@
             this.txtNgayKT_NV = new System.Windows.Forms.DateTimePicker();
             this.btnXemTKNhanVien = new System.Windows.Forms.Button();
             this.btnInExlNV = new System.Windows.Forms.Button();
-            this.btnXemCTTheoNhanVien = new System.Windows.Forms.Button();
             this.dataGV_DTTheoNhanVien = new System.Windows.Forms.DataGridView();
             this.thutu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +71,7 @@
             this.tabPageKhachHang = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnXemChiTietKH = new System.Windows.Forms.Button();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTuNgayKH = new System.Windows.Forms.Label();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
@@ -84,7 +82,6 @@
             this.txtNgayKT_KH = new System.Windows.Forms.DateTimePicker();
             this.btnXemTKKhachHang = new System.Windows.Forms.Button();
             this.btnInExlKH = new System.Windows.Forms.Button();
-            this.btnXemCTTheoKhachHang = new System.Windows.Forms.Button();
             this.dataGV_DTTheoKhachHang = new System.Windows.Forms.DataGridView();
             this.tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,16 +102,20 @@
             this.txtNgayKT_HH = new System.Windows.Forms.DateTimePicker();
             this.btnXemTKHangHoa = new System.Windows.Forms.Button();
             this.btnInExlHH = new System.Windows.Forms.Button();
-            this.btnXemCTTheoHangHoa = new System.Windows.Forms.Button();
+            this.btnXemChiTietHH = new System.Windows.Forms.Button();
             this.dataGV_DTTheoHangHoa = new System.Windows.Forms.DataGridView();
-            this.lbl_Tieude = new System.Windows.Forms.Label();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.sott = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl_Tieude = new System.Windows.Forms.Label();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDonHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongBan_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageTheoThang.SuspendLayout();
@@ -151,6 +152,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoHangHoa)).BeginInit();
             this.SuspendLayout();
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -165,7 +170,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 750);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // tabControl1
             // 
@@ -211,21 +216,23 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 7;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel3.ColumnCount = 8;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel3.Controls.Add(this.btnXemCTTheoThang, 0, 0);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.Controls.Add(this.btnXemChiTietThang, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnXemTKThang, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnInExlThang, 6, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnBieuDo, 7, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 15);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -234,15 +241,15 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1174, 57);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // btnXemCTTheoThang
+            // btnXemChiTietThang
             // 
-            this.btnXemCTTheoThang.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnXemCTTheoThang.Location = new System.Drawing.Point(3, 3);
-            this.btnXemCTTheoThang.Name = "btnXemCTTheoThang";
-            this.btnXemCTTheoThang.Size = new System.Drawing.Size(150, 51);
-            this.btnXemCTTheoThang.TabIndex = 11;
-            this.btnXemCTTheoThang.Text = "Xem chi tiết";
-            this.btnXemCTTheoThang.UseVisualStyleBackColor = true;
+            this.btnXemChiTietThang.Location = new System.Drawing.Point(3, 3);
+            this.btnXemChiTietThang.Name = "btnXemChiTietThang";
+            this.btnXemChiTietThang.Size = new System.Drawing.Size(144, 47);
+            this.btnXemChiTietThang.TabIndex = 11;
+            this.btnXemChiTietThang.Text = "Xem chi tiết";
+            this.btnXemChiTietThang.UseVisualStyleBackColor = true;
+            this.btnXemChiTietThang.Click += new System.EventHandler(this.btnXemChiTietThang_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -250,7 +257,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.lblTuNgay, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(355, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(237, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -275,7 +282,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.txtNgayBD, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(472, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(354, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -298,7 +305,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Controls.Add(this.lblDenNgay, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(648, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(530, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -322,7 +329,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Controls.Add(this.txtNgayKT, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(765, 3);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(647, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -342,9 +349,9 @@
             // btnXemTKThang
             // 
             this.btnXemTKThang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnXemTKThang.Location = new System.Drawing.Point(941, 3);
+            this.btnXemTKThang.Location = new System.Drawing.Point(823, 3);
             this.btnXemTKThang.Name = "btnXemTKThang";
-            this.btnXemTKThang.Size = new System.Drawing.Size(87, 38);
+            this.btnXemTKThang.Size = new System.Drawing.Size(111, 38);
             this.btnXemTKThang.TabIndex = 8;
             this.btnXemTKThang.Text = "Xem";
             this.btnXemTKThang.UseVisualStyleBackColor = true;
@@ -353,13 +360,22 @@
             // btnInExlThang
             // 
             this.btnInExlThang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInExlThang.Location = new System.Drawing.Point(1034, 3);
+            this.btnInExlThang.Location = new System.Drawing.Point(940, 3);
             this.btnInExlThang.Name = "btnInExlThang";
-            this.btnInExlThang.Size = new System.Drawing.Size(137, 38);
+            this.btnInExlThang.Size = new System.Drawing.Size(111, 38);
             this.btnInExlThang.TabIndex = 9;
             this.btnInExlThang.Text = "In Excel";
             this.btnInExlThang.UseVisualStyleBackColor = true;
             this.btnInExlThang.Click += new System.EventHandler(this.btnInExlThang_Click);
+            // 
+            // btnBieuDo
+            // 
+            this.btnBieuDo.Location = new System.Drawing.Point(1057, 3);
+            this.btnBieuDo.Name = "btnBieuDo";
+            this.btnBieuDo.Size = new System.Drawing.Size(111, 38);
+            this.btnBieuDo.TabIndex = 12;
+            this.btnBieuDo.Text = "Biểu đồ";
+            this.btnBieuDo.UseVisualStyleBackColor = true;
             // 
             // dataGV_DTTheoThang
             // 
@@ -377,40 +393,7 @@
             this.dataGV_DTTheoThang.RowTemplate.Height = 24;
             this.dataGV_DTTheoThang.Size = new System.Drawing.Size(1174, 549);
             this.dataGV_DTTheoThang.TabIndex = 1;
-            // 
-            // STT
-            // 
-            this.STT.DataPropertyName = "STT_tt";
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            // 
-            // NgayLap
-            // 
-            this.NgayLap.DataPropertyName = "NgayLap";
-            this.NgayLap.HeaderText = "Ngày";
-            this.NgayLap.Name = "NgayLap";
-            this.NgayLap.Width = 120;
-            // 
-            // SoDonHang_tt
-            // 
-            this.SoDonHang_tt.DataPropertyName = "SoDonHang_tt";
-            this.SoDonHang_tt.HeaderText = "Số đơn hàng";
-            this.SoDonHang_tt.Name = "SoDonHang_tt";
-            this.SoDonHang_tt.Width = 150;
-            // 
-            // SoLuongBan_tt
-            // 
-            this.SoLuongBan_tt.DataPropertyName = "SoLuongBan_tt";
-            this.SoLuongBan_tt.HeaderText = "Số lượng";
-            this.SoLuongBan_tt.Name = "SoLuongBan_tt";
-            this.SoLuongBan_tt.Width = 120;
-            // 
-            // TienHang_tt
-            // 
-            this.TienHang_tt.DataPropertyName = "TienHang_tt";
-            this.TienHang_tt.HeaderText = "Tiền hàng";
-            this.TienHang_tt.Name = "TienHang_tt";
-            this.TienHang_tt.Width = 150;
+            this.dataGV_DTTheoThang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DTTheoThang_CellClick);
             // 
             // tabPageNhanVien
             // 
@@ -450,13 +433,13 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutPanel9.Controls.Add(this.btnXemChiTietNV, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel11, 2, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel12, 3, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel13, 4, 0);
             this.tableLayoutPanel9.Controls.Add(this.btnXemTKNhanVien, 5, 0);
             this.tableLayoutPanel9.Controls.Add(this.btnInExlNV, 6, 0);
-            this.tableLayoutPanel9.Controls.Add(this.btnXemCTTheoNhanVien, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 15);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -464,6 +447,16 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(1174, 57);
             this.tableLayoutPanel9.TabIndex = 0;
+            // 
+            // btnXemChiTietNV
+            // 
+            this.btnXemChiTietNV.Location = new System.Drawing.Point(3, 3);
+            this.btnXemChiTietNV.Name = "btnXemChiTietNV";
+            this.btnXemChiTietNV.Size = new System.Drawing.Size(144, 47);
+            this.btnXemChiTietNV.TabIndex = 12;
+            this.btnXemChiTietNV.Text = "Xem chi tiết";
+            this.btnXemChiTietNV.UseVisualStyleBackColor = true;
+            this.btnXemChiTietNV.Click += new System.EventHandler(this.btnXemChiTietNV_Click);
             // 
             // tableLayoutPanel10
             // 
@@ -582,16 +575,6 @@
             this.btnInExlNV.UseVisualStyleBackColor = true;
             this.btnInExlNV.Click += new System.EventHandler(this.btnInExlNV_Click);
             // 
-            // btnXemCTTheoNhanVien
-            // 
-            this.btnXemCTTheoNhanVien.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnXemCTTheoNhanVien.Location = new System.Drawing.Point(3, 3);
-            this.btnXemCTTheoNhanVien.Name = "btnXemCTTheoNhanVien";
-            this.btnXemCTTheoNhanVien.Size = new System.Drawing.Size(150, 51);
-            this.btnXemCTTheoNhanVien.TabIndex = 10;
-            this.btnXemCTTheoNhanVien.Text = "Xem chi tiết";
-            this.btnXemCTTheoNhanVien.UseVisualStyleBackColor = true;
-            // 
             // dataGV_DTTheoNhanVien
             // 
             this.dataGV_DTTheoNhanVien.AllowUserToAddRows = false;
@@ -609,6 +592,7 @@
             this.dataGV_DTTheoNhanVien.RowTemplate.Height = 24;
             this.dataGV_DTTheoNhanVien.Size = new System.Drawing.Size(1174, 549);
             this.dataGV_DTTheoNhanVien.TabIndex = 1;
+            this.dataGV_DTTheoNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DTTheoNhanVien_CellClick);
             // 
             // thutu
             // 
@@ -688,13 +672,13 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutPanel15.Controls.Add(this.btnXemChiTietKH, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 0);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 2, 0);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel18, 3, 0);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel19, 4, 0);
             this.tableLayoutPanel15.Controls.Add(this.btnXemTKKhachHang, 5, 0);
             this.tableLayoutPanel15.Controls.Add(this.btnInExlKH, 6, 0);
-            this.tableLayoutPanel15.Controls.Add(this.btnXemCTTheoKhachHang, 0, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 15);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
@@ -702,6 +686,16 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(1180, 57);
             this.tableLayoutPanel15.TabIndex = 0;
+            // 
+            // btnXemChiTietKH
+            // 
+            this.btnXemChiTietKH.Location = new System.Drawing.Point(3, 3);
+            this.btnXemChiTietKH.Name = "btnXemChiTietKH";
+            this.btnXemChiTietKH.Size = new System.Drawing.Size(144, 47);
+            this.btnXemChiTietKH.TabIndex = 12;
+            this.btnXemChiTietKH.Text = "Xem chi tiết";
+            this.btnXemChiTietKH.UseVisualStyleBackColor = true;
+            this.btnXemChiTietKH.Click += new System.EventHandler(this.btnXemChiTietKH_Click);
             // 
             // tableLayoutPanel16
             // 
@@ -820,16 +814,6 @@
             this.btnInExlKH.UseVisualStyleBackColor = true;
             this.btnInExlKH.Click += new System.EventHandler(this.btnInExlKH_Click);
             // 
-            // btnXemCTTheoKhachHang
-            // 
-            this.btnXemCTTheoKhachHang.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnXemCTTheoKhachHang.Location = new System.Drawing.Point(3, 3);
-            this.btnXemCTTheoKhachHang.Name = "btnXemCTTheoKhachHang";
-            this.btnXemCTTheoKhachHang.Size = new System.Drawing.Size(150, 51);
-            this.btnXemCTTheoKhachHang.TabIndex = 10;
-            this.btnXemCTTheoKhachHang.Text = "Xem chi tiết";
-            this.btnXemCTTheoKhachHang.UseVisualStyleBackColor = true;
-            // 
             // dataGV_DTTheoKhachHang
             // 
             this.dataGV_DTTheoKhachHang.AllowUserToAddRows = false;
@@ -847,6 +831,7 @@
             this.dataGV_DTTheoKhachHang.RowTemplate.Height = 24;
             this.dataGV_DTTheoKhachHang.Size = new System.Drawing.Size(1180, 555);
             this.dataGV_DTTheoKhachHang.TabIndex = 1;
+            this.dataGV_DTTheoKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DTTheoKhachHang_CellClick);
             // 
             // tt
             // 
@@ -933,7 +918,7 @@
             this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel25, 4, 0);
             this.tableLayoutPanel21.Controls.Add(this.btnXemTKHangHoa, 5, 0);
             this.tableLayoutPanel21.Controls.Add(this.btnInExlHH, 6, 0);
-            this.tableLayoutPanel21.Controls.Add(this.btnXemCTTheoHangHoa, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.btnXemChiTietHH, 0, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 15);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
@@ -1059,15 +1044,15 @@
             this.btnInExlHH.UseVisualStyleBackColor = true;
             this.btnInExlHH.Click += new System.EventHandler(this.btnInExlHH_Click);
             // 
-            // btnXemCTTheoHangHoa
+            // btnXemChiTietHH
             // 
-            this.btnXemCTTheoHangHoa.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnXemCTTheoHangHoa.Location = new System.Drawing.Point(3, 3);
-            this.btnXemCTTheoHangHoa.Name = "btnXemCTTheoHangHoa";
-            this.btnXemCTTheoHangHoa.Size = new System.Drawing.Size(150, 51);
-            this.btnXemCTTheoHangHoa.TabIndex = 10;
-            this.btnXemCTTheoHangHoa.Text = "Xem chi tiết";
-            this.btnXemCTTheoHangHoa.UseVisualStyleBackColor = true;
+            this.btnXemChiTietHH.Location = new System.Drawing.Point(3, 3);
+            this.btnXemChiTietHH.Name = "btnXemChiTietHH";
+            this.btnXemChiTietHH.Size = new System.Drawing.Size(144, 48);
+            this.btnXemChiTietHH.TabIndex = 10;
+            this.btnXemChiTietHH.Text = "Xem chi tiết";
+            this.btnXemChiTietHH.UseVisualStyleBackColor = true;
+            this.btnXemChiTietHH.Click += new System.EventHandler(this.btnXemChiTietHH_Click);
             // 
             // dataGV_DTTheoHangHoa
             // 
@@ -1086,23 +1071,7 @@
             this.dataGV_DTTheoHangHoa.RowTemplate.Height = 24;
             this.dataGV_DTTheoHangHoa.Size = new System.Drawing.Size(1180, 555);
             this.dataGV_DTTheoHangHoa.TabIndex = 1;
-            // 
-            // lbl_Tieude
-            // 
-            this.lbl_Tieude.AutoSize = true;
-            this.lbl_Tieude.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_Tieude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Tieude.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lbl_Tieude.Location = new System.Drawing.Point(3, 0);
-            this.lbl_Tieude.Name = "lbl_Tieude";
-            this.lbl_Tieude.Size = new System.Drawing.Size(1194, 75);
-            this.lbl_Tieude.TabIndex = 0;
-            this.lbl_Tieude.Text = "THỐNG KÊ DOANH THU BÁN HÀNG";
-            this.lbl_Tieude.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            this.dataGV_DTTheoHangHoa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DTTheoHangHoa_CellClick);
             // 
             // sott
             // 
@@ -1145,6 +1114,53 @@
             this.tth.HeaderText = "Tiền hàng";
             this.tth.Name = "tth";
             this.tth.Width = 150;
+            // 
+            // lbl_Tieude
+            // 
+            this.lbl_Tieude.AutoSize = true;
+            this.lbl_Tieude.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Tieude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Tieude.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lbl_Tieude.Location = new System.Drawing.Point(3, 0);
+            this.lbl_Tieude.Name = "lbl_Tieude";
+            this.lbl_Tieude.Size = new System.Drawing.Size(1194, 75);
+            this.lbl_Tieude.TabIndex = 0;
+            this.lbl_Tieude.Text = "THỐNG KÊ DOANH THU BÁN HÀNG";
+            this.lbl_Tieude.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            // 
+            // NgayLap
+            // 
+            this.NgayLap.DataPropertyName = "NgayLap";
+            this.NgayLap.HeaderText = "Ngày";
+            this.NgayLap.Name = "NgayLap";
+            this.NgayLap.Width = 120;
+            // 
+            // SoDonHang_tt
+            // 
+            this.SoDonHang_tt.DataPropertyName = "SoDonHang_tt";
+            this.SoDonHang_tt.HeaderText = "Số đơn hàng";
+            this.SoDonHang_tt.Name = "SoDonHang_tt";
+            this.SoDonHang_tt.Width = 150;
+            // 
+            // SoLuongBan_tt
+            // 
+            this.SoLuongBan_tt.DataPropertyName = "SoLuongBan_tt";
+            this.SoLuongBan_tt.HeaderText = "Số lượng";
+            this.SoLuongBan_tt.Name = "SoLuongBan_tt";
+            this.SoLuongBan_tt.Width = 120;
+            // 
+            // TienHang_tt
+            // 
+            this.TienHang_tt.DataPropertyName = "TienHang_tt";
+            this.TienHang_tt.HeaderText = "Tiền hàng";
+            this.TienHang_tt.Name = "TienHang_tt";
+            this.TienHang_tt.Width = 150;
             // 
             // UC_ThongKeDoanhThu
             // 
@@ -1202,12 +1218,13 @@
 
         #endregion
 
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageTheoThang;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button btnXemCTTheoThang;
+        private System.Windows.Forms.Button btnXemChiTietThang;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label lblTuNgay;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
@@ -1218,15 +1235,12 @@
         private System.Windows.Forms.DateTimePicker txtNgayKT;
         private System.Windows.Forms.Button btnXemTKThang;
         private System.Windows.Forms.Button btnInExlThang;
+        private System.Windows.Forms.Button btnBieuDo;
         private System.Windows.Forms.DataGridView dataGV_DTTheoThang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoDonHang_tt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan_tt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TienHang_tt;
         private System.Windows.Forms.TabPage tabPageNhanVien;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.Button btnXemChiTietNV;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label lblTuNgayNV;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
@@ -1237,7 +1251,6 @@
         private System.Windows.Forms.DateTimePicker txtNgayKT_NV;
         private System.Windows.Forms.Button btnXemTKNhanVien;
         private System.Windows.Forms.Button btnInExlNV;
-        private System.Windows.Forms.Button btnXemCTTheoNhanVien;
         private System.Windows.Forms.DataGridView dataGV_DTTheoNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn thutu;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
@@ -1248,6 +1261,7 @@
         private System.Windows.Forms.TabPage tabPageKhachHang;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.Button btnXemChiTietKH;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Label lblTuNgayKH;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
@@ -1258,7 +1272,6 @@
         private System.Windows.Forms.DateTimePicker txtNgayKT_KH;
         private System.Windows.Forms.Button btnXemTKKhachHang;
         private System.Windows.Forms.Button btnInExlKH;
-        private System.Windows.Forms.Button btnXemCTTheoKhachHang;
         private System.Windows.Forms.DataGridView dataGV_DTTheoKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn tt;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
@@ -1279,16 +1292,20 @@
         private System.Windows.Forms.DateTimePicker txtNgayKT_HH;
         private System.Windows.Forms.Button btnXemTKHangHoa;
         private System.Windows.Forms.Button btnInExlHH;
-        private System.Windows.Forms.Button btnXemCTTheoHangHoa;
+        private System.Windows.Forms.Button btnXemChiTietHH;
         private System.Windows.Forms.DataGridView dataGV_DTTheoHangHoa;
-        private System.Windows.Forms.Label lbl_Tieude;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn sott;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvt;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn tth;
+        private System.Windows.Forms.Label lbl_Tieude;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoDonHang_tt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan_tt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TienHang_tt;
 
     }
 }

@@ -32,11 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,6 +89,24 @@
     </Compile>
     <Compile Include="frmQuyDoiDonViTinh.Designer.cs">
       <DependentUpon>frmQuyDoiDonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportDanhSachPhieuGiao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportDanhSachPhieuGiao.Designer.cs">
+      <DependentUpon>frmReportDanhSachPhieuGiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportHoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportHoaDonBanHang.Designer.cs">
+      <DependentUpon>frmReportHoaDonBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportPhieuGiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportPhieuGiaoHang.Designer.cs">
+      <DependentUpon>frmReportPhieuGiaoHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThanhLy.cs">
       <SubType>Form</SubType>
@@ -143,6 +168,30 @@
     <Compile Include="frmTrangChu.Designer.cs">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXemChiTietTheoHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemChiTietTheoHangHoa.Designer.cs">
+      <DependentUpon>frmXemChiTietTheoHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXemChiTietTheoKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemChiTietTheoKhachHang.Designer.cs">
+      <DependentUpon>frmXemChiTietTheoKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXemChiTietTheoNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemChiTietTheoNhanVien.Designer.cs">
+      <DependentUpon>frmXemChiTietTheoNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXemChiTietTheoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemChiTietTheoThang.Designer.cs">
+      <DependentUpon>frmXemChiTietTheoThang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmXuatKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +206,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptCacPhieuGiaoHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCacPhieuGiaoHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptHDBanHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHDBanHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptPhieuGiaoHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPhieuGiaoHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UC_Background.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -277,6 +344,36 @@
     <Compile Include="UC_ThongKeDoanhThu.Designer.cs">
       <DependentUpon>UC_ThongKeDoanhThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_ThongKeKHTiemNang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongKeKHTiemNang.Designer.cs">
+      <DependentUpon>UC_ThongKeKHTiemNang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThongKeSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongKeSanPham.Designer.cs">
+      <DependentUpon>UC_ThongKeSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThongKeThanhLy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongKeThanhLy.Designer.cs">
+      <DependentUpon>UC_ThongKeThanhLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThongKeTop10SPBanCham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongKeTop10SPBanCham.Designer.cs">
+      <DependentUpon>UC_ThongKeTop10SPBanCham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThongKeTop10SPBanChay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThongKeTop10SPBanChay.Designer.cs">
+      <DependentUpon>UC_ThongKeTop10SPBanChay.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_ThongTinNguoiDung.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -306,6 +403,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuyDoiDonViTinh.resx">
       <DependentUpon>frmQuyDoiDonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportDanhSachPhieuGiao.resx">
+      <DependentUpon>frmReportDanhSachPhieuGiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportHoaDonBanHang.resx">
+      <DependentUpon>frmReportHoaDonBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportPhieuGiaoHang.resx">
+      <DependentUpon>frmReportPhieuGiaoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThanhLy.resx">
       <DependentUpon>frmThanhLy.cs</DependentUpon>
@@ -337,6 +443,18 @@
     <EmbeddedResource Include="frmTrangChu.resx">
       <DependentUpon>frmTrangChu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmXemChiTietTheoHangHoa.resx">
+      <DependentUpon>frmXemChiTietTheoHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXemChiTietTheoKhachHang.resx">
+      <DependentUpon>frmXemChiTietTheoKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXemChiTietTheoNhanVien.resx">
+      <DependentUpon>frmXemChiTietTheoNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXemChiTietTheoThang.resx">
+      <DependentUpon>frmXemChiTietTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmXuatKho.resx">
       <DependentUpon>frmXuatKho.cs</DependentUpon>
     </EmbeddedResource>
@@ -352,6 +470,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rptCacPhieuGiaoHang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCacPhieuGiaoHang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptHDBanHang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHDBanHang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPhieuGiaoHang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPhieuGiaoHang.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Background.resx">
       <DependentUpon>UC_Background.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +542,21 @@
     <EmbeddedResource Include="UC_ThongKeDoanhThu.resx">
       <DependentUpon>UC_ThongKeDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongKeKHTiemNang.resx">
+      <DependentUpon>UC_ThongKeKHTiemNang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongKeSanPham.resx">
+      <DependentUpon>UC_ThongKeSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongKeThanhLy.resx">
+      <DependentUpon>UC_ThongKeThanhLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongKeTop10SPBanCham.resx">
+      <DependentUpon>UC_ThongKeTop10SPBanCham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThongKeTop10SPBanChay.resx">
+      <DependentUpon>UC_ThongKeTop10SPBanChay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_ThongTinNguoiDung.resx">
       <DependentUpon>UC_ThongTinNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,6 +585,9 @@
       <Project>{8b260e54-9fdc-4160-8ea7-42763a1c8c6a}</Project>
       <Name>NongSanThucPham</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

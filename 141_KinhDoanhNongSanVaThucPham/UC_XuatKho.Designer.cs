@@ -34,7 +34,7 @@
             this.tabPagePhieuXuat = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
-            this.btnInExecel = new System.Windows.Forms.Button();
+            this.btnInExcel = new System.Windows.Forms.Button();
             this.btnInReport = new System.Windows.Forms.Button();
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.btnSuaPXH = new System.Windows.Forms.Button();
@@ -74,7 +74,6 @@
             this.tabPageXemPhieu = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnInPhieuExcelXuat = new System.Windows.Forms.Button();
             this.btnInPhieuReportXuat = new System.Windows.Forms.Button();
             this.btnInAllXuat = new System.Windows.Forms.Button();
             this.btnXoaPhieuXuat = new System.Windows.Forms.Button();
@@ -190,7 +189,7 @@
             // 
             // groupBoxChucNang
             // 
-            this.groupBoxChucNang.Controls.Add(this.btnInExecel);
+            this.groupBoxChucNang.Controls.Add(this.btnInExcel);
             this.groupBoxChucNang.Controls.Add(this.btnInReport);
             this.groupBoxChucNang.Controls.Add(this.btnThemMoi);
             this.groupBoxChucNang.Controls.Add(this.btnSuaPXH);
@@ -205,15 +204,15 @@
             this.groupBoxChucNang.TabStop = false;
             this.groupBoxChucNang.Text = "Chức năng";
             // 
-            // btnInExecel
+            // btnInExcel
             // 
-            this.btnInExecel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInExecel.Location = new System.Drawing.Point(1193, 30);
-            this.btnInExecel.Name = "btnInExecel";
-            this.btnInExecel.Size = new System.Drawing.Size(90, 40);
-            this.btnInExecel.TabIndex = 5;
-            this.btnInExecel.Text = "In Execel";
-            this.btnInExecel.UseVisualStyleBackColor = true;
+            this.btnInExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInExcel.Location = new System.Drawing.Point(1193, 30);
+            this.btnInExcel.Name = "btnInExcel";
+            this.btnInExcel.Size = new System.Drawing.Size(90, 40);
+            this.btnInExcel.TabIndex = 5;
+            this.btnInExcel.Text = "In Excel";
+            this.btnInExcel.UseVisualStyleBackColor = true;
             // 
             // btnInReport
             // 
@@ -607,7 +606,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnInPhieuExcelXuat);
             this.groupBox1.Controls.Add(this.btnInPhieuReportXuat);
             this.groupBox1.Controls.Add(this.btnInAllXuat);
             this.groupBox1.Controls.Add(this.btnXoaPhieuXuat);
@@ -626,20 +624,10 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // btnInPhieuExcelXuat
-            // 
-            this.btnInPhieuExcelXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInPhieuExcelXuat.Location = new System.Drawing.Point(1270, 39);
-            this.btnInPhieuExcelXuat.Name = "btnInPhieuExcelXuat";
-            this.btnInPhieuExcelXuat.Size = new System.Drawing.Size(90, 40);
-            this.btnInPhieuExcelXuat.TabIndex = 10;
-            this.btnInPhieuExcelXuat.Text = "In Excel";
-            this.btnInPhieuExcelXuat.UseVisualStyleBackColor = true;
-            // 
             // btnInPhieuReportXuat
             // 
             this.btnInPhieuReportXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInPhieuReportXuat.Location = new System.Drawing.Point(1164, 39);
+            this.btnInPhieuReportXuat.Location = new System.Drawing.Point(1256, 39);
             this.btnInPhieuReportXuat.Name = "btnInPhieuReportXuat";
             this.btnInPhieuReportXuat.Size = new System.Drawing.Size(100, 40);
             this.btnInPhieuReportXuat.TabIndex = 9;
@@ -648,7 +636,7 @@
             // 
             // btnInAllXuat
             // 
-            this.btnInAllXuat.Location = new System.Drawing.Point(1068, 39);
+            this.btnInAllXuat.Location = new System.Drawing.Point(1160, 39);
             this.btnInAllXuat.Name = "btnInAllXuat";
             this.btnInAllXuat.Size = new System.Drawing.Size(90, 40);
             this.btnInAllXuat.TabIndex = 1;
@@ -657,7 +645,7 @@
             // 
             // btnXoaPhieuXuat
             // 
-            this.btnXoaPhieuXuat.Location = new System.Drawing.Point(902, 39);
+            this.btnXoaPhieuXuat.Location = new System.Drawing.Point(994, 39);
             this.btnXoaPhieuXuat.Name = "btnXoaPhieuXuat";
             this.btnXoaPhieuXuat.Size = new System.Drawing.Size(160, 40);
             this.btnXoaPhieuXuat.TabIndex = 0;
@@ -910,7 +898,7 @@
         private System.Windows.Forms.TabPage tabPagePhieuXuat;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBoxChucNang;
-        private System.Windows.Forms.Button btnInExecel;
+        private System.Windows.Forms.Button btnInExcel;
         private System.Windows.Forms.Button btnInReport;
         private System.Windows.Forms.Button btnThemMoi;
         private System.Windows.Forms.Button btnSuaPXH;
@@ -944,7 +932,6 @@
         private System.Windows.Forms.TabPage tabPageXemPhieu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnInPhieuExcelXuat;
         private System.Windows.Forms.Button btnInPhieuReportXuat;
         private System.Windows.Forms.Button btnInAllXuat;
         private System.Windows.Forms.Button btnXoaPhieuXuat;

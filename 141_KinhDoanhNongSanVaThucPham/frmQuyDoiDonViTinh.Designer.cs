@@ -50,6 +50,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
+            this.chkLuuLoCu = new System.Windows.Forms.CheckBox();
+            this.cbbLoHangCu = new System.Windows.Forms.ComboBox();
+            this.lblGiaBan = new System.Windows.Forms.Label();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblMaSPCanQD
@@ -118,15 +122,15 @@
             // 
             // txtMaLoMoi
             // 
-            this.txtMaLoMoi.Location = new System.Drawing.Point(133, 146);
+            this.txtMaLoMoi.Location = new System.Drawing.Point(112, 149);
             this.txtMaLoMoi.Name = "txtMaLoMoi";
-            this.txtMaLoMoi.Size = new System.Drawing.Size(100, 22);
+            this.txtMaLoMoi.Size = new System.Drawing.Size(184, 22);
             this.txtMaLoMoi.TabIndex = 9;
             // 
             // lblMaLoLoi
             // 
             this.lblMaLoLoi.AutoSize = true;
-            this.lblMaLoLoi.Location = new System.Drawing.Point(44, 149);
+            this.lblMaLoLoi.Location = new System.Drawing.Point(26, 151);
             this.lblMaLoLoi.Name = "lblMaLoLoi";
             this.lblMaLoLoi.Size = new System.Drawing.Size(68, 17);
             this.lblMaLoLoi.TabIndex = 8;
@@ -134,7 +138,7 @@
             // 
             // txtTenLoMoi
             // 
-            this.txtTenLoMoi.Location = new System.Drawing.Point(365, 146);
+            this.txtTenLoMoi.Location = new System.Drawing.Point(385, 148);
             this.txtTenLoMoi.Name = "txtTenLoMoi";
             this.txtTenLoMoi.Size = new System.Drawing.Size(167, 22);
             this.txtTenLoMoi.TabIndex = 11;
@@ -142,7 +146,7 @@
             // lblTenLoMoi
             // 
             this.lblTenLoMoi.AutoSize = true;
-            this.lblTenLoMoi.Location = new System.Drawing.Point(287, 149);
+            this.lblTenLoMoi.Location = new System.Drawing.Point(307, 151);
             this.lblTenLoMoi.Name = "lblTenLoMoi";
             this.lblTenLoMoi.Size = new System.Drawing.Size(74, 17);
             this.lblTenLoMoi.TabIndex = 10;
@@ -218,7 +222,8 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(196, 301);
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Location = new System.Drawing.Point(133, 321);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(100, 30);
             this.btnLuu.TabIndex = 20;
@@ -228,7 +233,8 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(354, 301);
+            this.btnDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDong.Location = new System.Drawing.Point(281, 321);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(100, 30);
             this.btnDong.TabIndex = 21;
@@ -236,11 +242,51 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
+            // chkLuuLoCu
+            // 
+            this.chkLuuLoCu.AutoSize = true;
+            this.chkLuuLoCu.Location = new System.Drawing.Point(112, 122);
+            this.chkLuuLoCu.Name = "chkLuuLoCu";
+            this.chkLuuLoCu.Size = new System.Drawing.Size(111, 21);
+            this.chkLuuLoCu.TabIndex = 22;
+            this.chkLuuLoCu.Text = "Lưu lô đổi cũ";
+            this.chkLuuLoCu.UseVisualStyleBackColor = true;
+            this.chkLuuLoCu.CheckedChanged += new System.EventHandler(this.chkLuuLoCu_CheckedChanged);
+            // 
+            // cbbLoHangCu
+            // 
+            this.cbbLoHangCu.FormattingEnabled = true;
+            this.cbbLoHangCu.Location = new System.Drawing.Point(112, 148);
+            this.cbbLoHangCu.Name = "cbbLoHangCu";
+            this.cbbLoHangCu.Size = new System.Drawing.Size(184, 24);
+            this.cbbLoHangCu.TabIndex = 23;
+            this.cbbLoHangCu.SelectedIndexChanged += new System.EventHandler(this.cbbLoHangCu_SelectedIndexChanged);
+            // 
+            // lblGiaBan
+            // 
+            this.lblGiaBan.AutoSize = true;
+            this.lblGiaBan.Location = new System.Drawing.Point(307, 289);
+            this.lblGiaBan.Name = "lblGiaBan";
+            this.lblGiaBan.Size = new System.Drawing.Size(138, 17);
+            this.lblGiaBan.TabIndex = 24;
+            this.lblGiaBan.Text = "Giá bán SP được đổi";
+            // 
+            // txtGiaBan
+            // 
+            this.txtGiaBan.Location = new System.Drawing.Point(452, 286);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(100, 22);
+            this.txtGiaBan.TabIndex = 25;
+            // 
             // frmQuyDoiDonViTinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 363);
+            this.ClientSize = new System.Drawing.Size(586, 385);
+            this.Controls.Add(this.txtGiaBan);
+            this.Controls.Add(this.lblGiaBan);
+            this.Controls.Add(this.cbbLoHangCu);
+            this.Controls.Add(this.chkLuuLoCu);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.txtMaPNH);
@@ -295,5 +341,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.CheckBox chkLuuLoCu;
+        private System.Windows.Forms.ComboBox cbbLoHangCu;
+        private System.Windows.Forms.Label lblGiaBan;
+        private System.Windows.Forms.TextBox txtGiaBan;
     }
 }

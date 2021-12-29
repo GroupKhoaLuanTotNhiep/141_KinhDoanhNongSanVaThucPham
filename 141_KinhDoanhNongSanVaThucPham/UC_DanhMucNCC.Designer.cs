@@ -58,6 +58,7 @@
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mncc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaChiNhanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.gbTKNCC.SuspendLayout();
@@ -186,6 +187,7 @@
             this.btnInExc.TabIndex = 3;
             this.btnInExc.Text = "In Excel";
             this.btnInExc.UseVisualStyleBackColor = true;
+            this.btnInExc.Click += new System.EventHandler(this.btnInExc_Click);
             // 
             // btnTaoNCC
             // 
@@ -210,6 +212,7 @@
             // 
             // dataGV_NhaCungCap
             // 
+            this.dataGV_NhaCungCap.AllowUserToAddRows = false;
             this.dataGV_NhaCungCap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGV_NhaCungCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_NhaCungCap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -373,6 +376,10 @@
             this.MaChiNhanh.Name = "MaChiNhanh";
             this.MaChiNhanh.Width = 125;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
             // UC_DanhMucNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -427,5 +434,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn mncc;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChiNhanh;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

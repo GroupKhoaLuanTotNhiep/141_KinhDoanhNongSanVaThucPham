@@ -658,5 +658,22 @@ namespace _141_KinhDoanhNongSanVaThucPham
             else
                 MessageBox.Show("Phiếu giao hàng đã hoàn thành, không thể xóa!");
         }
+
+        private void btnInReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string mapg = txtMaPhieuGiao.Text.Trim();
+                frmReportPhieuGiaoHang rptGH = new frmReportPhieuGiaoHang(mapg);
+                rptGH.ShowDialog();
+            }
+            catch { }
+        }
+
+        private void btnXuatReportPGH_Click(object sender, EventArgs e)
+        {
+            frmReportDanhSachPhieuGiao dsGiao = new frmReportDanhSachPhieuGiao();
+            dsGiao.ShowDialog();
+        }
     }
 }

@@ -340,7 +340,7 @@
             this.ClientSize = new System.Drawing.Size(605, 554);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmThemNCC";
-            this.Text = "From Thêm nhà cung cấp";
+            this.Text = "Form Thêm nhà cung cấp";
             this.Load += new System.EventHandler(this.frmThemNCC_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

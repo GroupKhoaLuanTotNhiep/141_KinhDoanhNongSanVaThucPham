@@ -345,5 +345,11 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 }
             }
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string tukhoa = txtTKNhanVien.Text;
+            dataGV_NhanVien.DataSource = nhanVien.searchNhanVien(tukhoa);
+        }
     }
 }

@@ -206,7 +206,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 string strKhachHang = cbbKhachHang.SelectedValue.ToString().Trim();
                 string strKhuyenMai = cbbKhuyenMai.SelectedValue.ToString().Trim();
                 string strHinhThuc = cbbHinhThuc.SelectedValue.ToString().Trim();
-                string strTinhTrang = cbbTinhTrangHD.Text;
+                string strTinhTrang = cbbTinhTrangHD.Text.Trim();
                 string strTongTien = txtTongTien.Text.Trim();
                 string strKhauTru = txtKhauTru.Text.Trim();
                 if (strKhauTru == string.Empty)
@@ -300,91 +300,92 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     MessageBox.Show("Lưu chi tiết hóa đơn thành công!");
                     string strSqlUPLH = "UPDATE LoHang SET SoLuong=" + (float.Parse(loHang.laySoLuong(strLoHang)) - float.Parse(hoaDon.laySoLuongBan(strMaHoaDon, strSanPham))) + " From LoHang, SanPham WHERE LoHang.MaSP = SanPham.MaSP AND MaLo='" + strLoHang + "' AND LoHang.MaSP='" + strSanPham + "'";
                     conn.updateToDatabase(strSqlUPLH);
+                
+                    strTongTien = hoaDon.updateTongTien(strMaHoaDon).ToString();
+                    txtTongTien.Text = strTongTien;
+                    string strGiaTriKM = khuyenMai.layGiaTriKM(strKhuyenMai);
+                    string strTichDiem = khachHang.layTichDiem(strKhachHang);
+                    string strTichLuy = khuyenMai.layTichLuy(strKhuyenMai);
+                    int khauTruCu = int.Parse(khachHang.layCongNo(strKhachHang)) + int.Parse(hoaDon.layKhauTru(strMaHoaDon));
+                    int tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM)) - khauTruCu;
+                    if (tienTra < 0)
+                    {
+                        string strSqlKH = "UPDATE KhachHang SET CongNo=" + Math.Abs(tienTra) + " WHERE MaKH='" + strKhachHang + "'";
+                        conn.updateToDatabase(strSqlKH);
+                        txtKhauTru.Text = (khauTruCu - Math.Abs(tienTra)).ToString();
+                        tienTra = 0;
+                    }
+                    else
+                    {
+                        string strSqlKH = "UPDATE KhachHang SET CongNo=" + 0 + " WHERE MaKH='" + strKhachHang + "'";
+                        conn.updateToDatabase(strSqlKH);
+                        strKhauTru = (int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM)) - tienTra).ToString();
+                        txtKhauTru.Text = strKhauTru;
+                    }
+                    if ((int.Parse(strTichDiem) - int.Parse(strTichLuy) >= 0))
+                    {
+                        string strSqlUDKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - int.Parse(strTichLuy)) + " WHERE MaKH='" + strKhachHang + "'";
+                        conn.updateToDatabase(strSqlUDKH);
+                    }
+                    else
+                    {
+                        string strSqlUDKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem)) + " WHERE MaKH='" + strKhachHang + "'";
+                        conn.updateToDatabase(strSqlUDKH);
+                    }
+                    //int tienTra = 0;
+                    //string strTichDiem = khachHang.layTichDiem(strKhachHang);
+                    //string strGiaTriKM = khuyenMai.layGiaTriKM(strKhuyenMai);
+                    //if (cbbKhuyenMai.Text.Trim() == "Voucher 0%" || cbbKhuyenMai.SelectedIndex == -1)
+                    //{
+                    //    tienTra = int.Parse(strTongTien);
+                    //}
+                    //else if (cbbKhuyenMai.Text.Trim() == "Voucher 10%" && int.Parse(strTichDiem) >= 3)
+                    //{
+                    //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
+                    //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 3) + " WHERE MaKH='" + strKhachHang + "'";
+                    //    conn.updateToDatabase(strSqlKH); 
+                    //}
+                    //else if (cbbKhuyenMai.Text.Trim() == "Voucher 20%" && int.Parse(strTichDiem) >= 7)
+                    //{
+                    //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
+                    //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 7) + " WHERE MaKH='" + strKhachHang + "'";
+                    //    conn.updateToDatabase(strSqlKH);
+                    //}
+                    //else if (cbbKhuyenMai.Text.Trim() == "Voucher 30%" && int.Parse(strTichDiem) >= 10)
+                    //{
+                    //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
+                    //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 10) + " WHERE MaKH='" + strKhachHang + "'";
+                    //    conn.updateToDatabase(strSqlKH);
+                    //}
+                    //else if (cbbKhuyenMai.Text.Trim() == "Voucher 40%" && int.Parse(strTichDiem) >= 15)
+                    //{
+                    //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
+                    //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 15) + " WHERE MaKH='" + strKhachHang + "'";
+                    //    conn.updateToDatabase(strSqlKH);
+                    //}
+                    //else if (cbbKhuyenMai.Text.Trim() == "Voucher 50%" && int.Parse(strTichDiem) >= 20)
+                    //{
+                    //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
+                    //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 20) + " WHERE MaKH='" + strKhachHang + "'";
+                    //    conn.updateToDatabase(strSqlKH);
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Bạn không đủ điểm để sử dụng khuyến mãi này!");
+                    //    tienTra = int.Parse(strTongTien);
+                    //    return;
+                    //}
+                    txtTienPhaiTra.Text = String.Format("{0:0,0}", tienTra);
+                    string strSqlUDHD = "UPDATE HoaDon SET TongTien=" + strTongTien + ", TienPhaiTra=" + tienTra + ", KhauTru=" + txtKhauTru.Text + " WHERE MaHoaDon='" + strMaHoaDon + "'";
+                    conn.updateToDatabase(strSqlUDHD);
+                    createTable_HoaDon();
+                    btnXoaCTHD.Enabled = btnSuaHD.Enabled = false;
+                    //if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= 100000)
+                    //{
+                    //    btnTichDiem.Enabled = true;
+                    //    btnCapNhatDiem.Enabled = false;
+                    //}
                 }
-                strTongTien = hoaDon.updateTongTien(strMaHoaDon).ToString();
-                txtTongTien.Text = strTongTien;
-                string strGiaTriKM = khuyenMai.layGiaTriKM(strKhuyenMai);
-                string strTichDiem = khachHang.layTichDiem(strKhachHang);
-                string strTichLuy = khuyenMai.layTichLuy(strKhuyenMai);
-                int khauTruCu = int.Parse(khachHang.layCongNo(strKhachHang)) + int.Parse(hoaDon.layKhauTru(strMaHoaDon));
-                int tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM)) - khauTruCu;
-                if (tienTra < 0)
-                {
-                    string strSqlKH = "UPDATE KhachHang SET CongNo=" + Math.Abs(tienTra) + " WHERE MaKH='" + strKhachHang + "'";
-                    conn.updateToDatabase(strSqlKH);
-                    txtKhauTru.Text = (khauTruCu - Math.Abs(tienTra)).ToString();
-                    tienTra = 0;
-                }
-                else
-                {
-                    string strSqlKH = "UPDATE KhachHang SET CongNo=" + 0 + " WHERE MaKH='" + strKhachHang + "'";
-                    conn.updateToDatabase(strSqlKH);
-                    strKhauTru = (int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM)) - tienTra).ToString();
-                    txtKhauTru.Text = strKhauTru;
-                }
-                if ((int.Parse(strTichDiem) - int.Parse(strTichLuy) >= 0))
-                {
-                    string strSqlUDKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - int.Parse(strTichLuy)) + " WHERE MaKH='" + strKhachHang + "'";
-                    conn.updateToDatabase(strSqlUDKH);
-                }
-                else
-                {
-                    string strSqlUDKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem)) + " WHERE MaKH='" + strKhachHang + "'";
-                    conn.updateToDatabase(strSqlUDKH);
-                }
-                //int tienTra = 0;
-                //string strTichDiem = khachHang.layTichDiem(strKhachHang);
-                //string strGiaTriKM = khuyenMai.layGiaTriKM(strKhuyenMai);
-                //if (cbbKhuyenMai.Text.Trim() == "Voucher 0%" || cbbKhuyenMai.SelectedIndex == -1)
-                //{
-                //    tienTra = int.Parse(strTongTien);
-                //}
-                //else if (cbbKhuyenMai.Text.Trim() == "Voucher 10%" && int.Parse(strTichDiem) >= 3)
-                //{
-                //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
-                //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 3) + " WHERE MaKH='" + strKhachHang + "'";
-                //    conn.updateToDatabase(strSqlKH); 
-                //}
-                //else if (cbbKhuyenMai.Text.Trim() == "Voucher 20%" && int.Parse(strTichDiem) >= 7)
-                //{
-                //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
-                //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 7) + " WHERE MaKH='" + strKhachHang + "'";
-                //    conn.updateToDatabase(strSqlKH);
-                //}
-                //else if (cbbKhuyenMai.Text.Trim() == "Voucher 30%" && int.Parse(strTichDiem) >= 10)
-                //{
-                //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
-                //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 10) + " WHERE MaKH='" + strKhachHang + "'";
-                //    conn.updateToDatabase(strSqlKH);
-                //}
-                //else if (cbbKhuyenMai.Text.Trim() == "Voucher 40%" && int.Parse(strTichDiem) >= 15)
-                //{
-                //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
-                //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 15) + " WHERE MaKH='" + strKhachHang + "'";
-                //    conn.updateToDatabase(strSqlKH);
-                //}
-                //else if (cbbKhuyenMai.Text.Trim() == "Voucher 50%" && int.Parse(strTichDiem) >= 20)
-                //{
-                //    tienTra = int.Parse(strTongTien) - (int)(int.Parse(strTongTien) * float.Parse(strGiaTriKM));
-                //    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 20) + " WHERE MaKH='" + strKhachHang + "'";
-                //    conn.updateToDatabase(strSqlKH);
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Bạn không đủ điểm để sử dụng khuyến mãi này!");
-                //    tienTra = int.Parse(strTongTien);
-                //    return;
-                //}
-                txtTienPhaiTra.Text = String.Format("{0:0,0}", tienTra);
-                string strSqlUDHD = "UPDATE HoaDon SET TongTien=" + strTongTien + ", TienPhaiTra=" + tienTra + ", KhauTru=" + txtKhauTru.Text + " WHERE MaHoaDon='" + strMaHoaDon + "'";
-                conn.updateToDatabase(strSqlUDHD);
-                createTable_HoaDon();
-                btnXoaCTHD.Enabled = btnSuaHD.Enabled = false;
-                //if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= 100000)
-                //{
-                //    btnTichDiem.Enabled = true;
-                //    btnCapNhatDiem.Enabled = false;
-                //}
             }
             catch
             {
@@ -396,12 +397,20 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             try
             {
+                string mayeucau = khuyenMai.layMaYeuCau();
                 string strMaHoaDon = txtMaHoaDon.Text.Trim();
                 string strKhachHang = cbbKhachHang.SelectedValue.ToString();
                 string strTichDiem = khachHang.layTichDiem(strKhachHang);
-                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= 100000)
+                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= int.Parse(khuyenMai.layGTHoaDonBT(mayeucau)) && int.Parse(hoaDon.layTongTien(strMaHoaDon)) < int.Parse(khuyenMai.layGTHoaDonLon(mayeucau)))
                 {
-                    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) + 1) + " WHERE MaKH='" + strKhachHang + "'";
+                    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) + int.Parse(khuyenMai.layTichDiemBT(mayeucau))) + " WHERE MaKH='" + strKhachHang + "'";
+                    conn.updateToDatabase(strSqlKH);
+                    MessageBox.Show("Lưu tích điểm thành công!");
+                    btnTichDiem.Enabled = false;
+                }
+                else if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= int.Parse(khuyenMai.layGTHoaDonLon(mayeucau)))
+                {
+                    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) + int.Parse(khuyenMai.layTichDiemLon(mayeucau))) + " WHERE MaKH='" + strKhachHang + "'";
                     conn.updateToDatabase(strSqlKH);
                     MessageBox.Show("Lưu tích điểm thành công!");
                     btnTichDiem.Enabled = false;
@@ -468,7 +477,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 string strKhachHang = cbbKhachHang.SelectedValue.ToString().Trim();
                 string strKhuyenMai = cbbKhuyenMai.SelectedValue.ToString().Trim();
                 string strHinhThuc = cbbHinhThuc.SelectedValue.ToString().Trim();
-                string strTinhTrang = cbbTinhTrangHD.Text;
+                string strTinhTrang = cbbTinhTrangHD.Text.Trim();
                 string strTongTien = txtTongTien.Text.Trim();
                 string strTienPhaiTra = txtTienPhaiTra.Text.Trim();
                 string strGhiChu = txtGhiChu.Text.Trim();
@@ -635,7 +644,8 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 conn.updateToDatabase(strSqlUDHD);
                 createTable_HoaDon();
                 btnXoaCTHD.Enabled = btnSuaHD.Enabled = false;
-                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) < 100000)
+                string mayeucau = khuyenMai.layMaYeuCau();
+                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) < int.Parse(khuyenMai.layGTHoaDonBT(mayeucau)) || int.Parse(hoaDon.layTongTien(strMaHoaDon)) < int.Parse(khuyenMai.layGTHoaDonLon(mayeucau)))
                 {
                     btnCapNhatDiem.Enabled = true;
                     btnTichDiem.Enabled = false;               
@@ -769,7 +779,8 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 conn.updateToDatabase(strSqlUDHD);
                 createTable_HoaDon();
                 btnXoaCTHD.Enabled = btnSuaHD.Enabled = false;
-                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) < 100000)
+                string mayeucau = khuyenMai.layMaYeuCau();
+                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) < int.Parse(khuyenMai.layGTHoaDonBT(mayeucau)) || int.Parse(hoaDon.layTongTien(strMaHoaDon)) < int.Parse(khuyenMai.layGTHoaDonLon(mayeucau)))
                 {
                     btnCapNhatDiem.Enabled = true;
                     btnTichDiem.Enabled = false;
@@ -785,12 +796,20 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             try
             {
+                string mayeucau = khuyenMai.layMaYeuCau();
                 string strMaHoaDon = txtMaHoaDon.Text.Trim();
                 string strKhachHang = cbbKhachHang.SelectedValue.ToString();
                 string strTichDiem = khachHang.layTichDiem(strKhachHang);
-                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) < 100000)
+                if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) >= int.Parse(khuyenMai.layGTHoaDonBT(mayeucau)) && int.Parse(hoaDon.layTongTien(strMaHoaDon)) < int.Parse(khuyenMai.layGTHoaDonLon(mayeucau)))
                 {
-                    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - 1) + " WHERE MaKH='" + strKhachHang + "'";
+                    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - int.Parse(khuyenMai.layTichDiemLon(mayeucau))) + " WHERE MaKH='" + strKhachHang + "'";
+                    conn.updateToDatabase(strSqlKH);
+                    MessageBox.Show("Cập nhật điểm thành công!");
+                    btnCapNhatDiem.Enabled = false;
+                }
+                else if (int.Parse(hoaDon.layTongTien(strMaHoaDon)) < int.Parse(khuyenMai.layGTHoaDonBT(mayeucau)))
+                {
+                    string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - int.Parse(khuyenMai.layTichDiemBT(mayeucau))) + " WHERE MaKH='" + strKhachHang + "'";
                     conn.updateToDatabase(strSqlKH);
                     MessageBox.Show("Cập nhật điểm thành công!");
                     btnCapNhatDiem.Enabled = false;
@@ -855,6 +874,11 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 if (hoaDon.layTinhTrang(mahd) == "Đã giao hàng" || hoaDon.layTinhTrang(mahd) == "Hủy hàng")
                 {
                     MessageBox.Show("Đơn hàng " + mahd + " đã được xử lý xong!");
+                    return;
+                }
+                if(conn.checkExist("PhieuGiaoHang", "MaHoaDon", mahd))
+                {
+                    MessageBox.Show("Đơn hàng " + mahd + " đã được lập phiếu giao, không thể hủy!");
                     return;
                 }
                 for (int i = 0; i < dataGV_CTBanHang.RowCount - 1; i++)
@@ -943,6 +967,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             try
             {
+                string mayeucau = khuyenMai.layMaYeuCau();
                 string strMaHoaHon = txtMaHoaDon.Text.Trim();
                 string strKhachHang = cbbKhachHang.SelectedValue.ToString().Trim();
                 string strKhuyenMai = cbbKhuyenMai.SelectedValue.ToString().Trim();
@@ -956,7 +981,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     txtTienPhaiTra.Text = tienPhaiTra.ToString();
                     //string strSqlKH = "UPDATE KhachHang SET TichDiem=" + (int.Parse(strTichDiem) - int.Parse(strTichLuy)) + " WHERE MaKH='" + strKhachHang + "'";
                     //conn.updateToDatabase(strSqlKH);
-                    if (int.Parse(hoaDon.layTongTien(strMaHoaHon)) >= 100000)
+                    if (int.Parse(hoaDon.layTongTien(strMaHoaHon)) >= int.Parse(khuyenMai.layGTHoaDonBT(mayeucau)))
                     {
                         btnTichDiem.Enabled = true;
                         btnCapNhatDiem.Enabled = false;
@@ -977,6 +1002,17 @@ namespace _141_KinhDoanhNongSanVaThucPham
             {
                 MessageBox.Show("Bị lỗi, hãy kiểm tra lại!");
             }
+        }
+
+        private void btnInReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string mahd = txtMaHoaDon.Text.Trim();
+                frmReportHoaDonBanHang rptHD = new frmReportHoaDonBanHang(mahd);
+                rptHD.ShowDialog();
+            }
+            catch { }
         }
     }
 }

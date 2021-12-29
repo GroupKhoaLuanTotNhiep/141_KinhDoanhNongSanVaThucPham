@@ -138,7 +138,7 @@ namespace NongSanThucPham
 
         public DataTable loadLoHangHetHan()
         {
-            da_LoHang = new SqlDataAdapter("Select * From LoHang Where HanSuDung <'" + DateTime.Now + "'" , conn.conn);
+            da_LoHang = new SqlDataAdapter("Select * From LoHang Where HanSuDung <'" + DateTime.Now + "' And SoLuong >" + 0 , conn.conn);
             dt_LoHang = new DataTable();
             da_LoHang.Fill(dt_LoHang);
             return dt_LoHang;
@@ -146,7 +146,7 @@ namespace NongSanThucPham
 
         public DataTable loadLoHangChuaHetHan()
         {
-            da_LoHang = new SqlDataAdapter("Select * From LoHang Where HanSuDung >='" + DateTime.Now + "'", conn.conn);
+            da_LoHang = new SqlDataAdapter("Select * From LoHang Where HanSuDung >='" + DateTime.Now + "' And SoLuong >" + 0, conn.conn);
             dt_LoHang = new DataTable();
             da_LoHang.Fill(dt_LoHang);
             return dt_LoHang;
@@ -274,6 +274,19 @@ namespace NongSanThucPham
             return ma;
         }
 
+        public string layLo(string masp)
+        {
+            string ma = "";
+            string strSql = "Select MaLo From LoHang Where MaSP='" + masp + "' And (DATEDIFF(day, GETDATE(), HanSuDung) > 30) And SoLuong >" + 0;
+            SqlDataReader dr = conn.getDataReader(strSql);
+            while (dr.Read())
+            {
+                ma = dr["MaLo"].ToString();
+            }
+            dr.Close();
+            return ma;
+        }
+
         public string layMaSPTheoLoHang(string malo)
         {
             string ma = "";
@@ -285,6 +298,14 @@ namespace NongSanThucPham
             }
             dr.Close();
             return ma;
+        }
+
+        public DataTable loadLoHangChuaHetHanTheoSanPham(string masp)
+        {
+            da_LoHang = new SqlDataAdapter("Select * From LoHang Where MaSP='" + masp + "' And HanSuDung >='" + DateTime.Now + "'", conn.conn);
+            dt_LoHang = new DataTable();
+            da_LoHang.Fill(dt_LoHang);
+            return dt_LoHang;
         }
 
     }

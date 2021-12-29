@@ -200,5 +200,109 @@ namespace _141_KinhDoanhNongSanVaThucPham
             else
                 createTable_LoHang();
         }
+
+        private void btnInExc_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                exportExcel_LSP(dataGV_LoHang, saveFileDialog1.FileName);
+        }
+        private void exportExcel_LSP(DataGridView dv, string fileName)
+        {
+            Microsoft.Office.Interop.Excel.Application excel;
+            Microsoft.Office.Interop.Excel.Workbook workbook;
+            Microsoft.Office.Interop.Excel.Worksheet worksheet;
+
+            try
+            {
+                excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = false;
+                excel.DisplayAlerts = false;
+
+                workbook = excel.Workbooks.Add(Type.Missing);
+
+                worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
+                worksheet.Name = "Danh mục lô sản phẩm";
+
+                worksheet.Cells[2, 2] = "DANH MỤC LÔ SẢN PHẨM";
+
+
+                for (int i = 0; i < dataGV_LoHang.ColumnCount; i++)
+                {
+                    worksheet.Cells[4, i + 1] = dataGV_LoHang.Columns[i].HeaderText;
+                }
+
+                for (int i = 0; i < dataGV_LoHang.RowCount; i++)
+                {
+                    for (int j = 0; j < dataGV_LoHang.ColumnCount; j++)
+                    {
+                        worksheet.Cells[i + 5, j + 1] = dataGV_LoHang.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                int dmLH = dataGV_LoHang.RowCount;
+
+                //Định dạng trang
+                worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlLandscape;
+                worksheet.PageSetup.PaperSize = Microsoft.Office.Interop.Excel.XlPaperSize.xlPaperA4;
+                worksheet.PageSetup.LeftMargin = 0;
+                worksheet.PageSetup.RightMargin = 0;
+                worksheet.PageSetup.TopMargin = 0;
+                worksheet.PageSetup.BottomMargin = 0;
+
+                //Định dạng cột
+                worksheet.Range["A1"].ColumnWidth = 12.56;
+                worksheet.Range["B1"].ColumnWidth = 19.22;
+                worksheet.Range["C1"].ColumnWidth = 19.44;
+                worksheet.Range["D1"].ColumnWidth = 16.56;
+                worksheet.Range["E1"].ColumnWidth = 11.67;
+                worksheet.Range["F1"].ColumnWidth = 12.56;
+                worksheet.Range["G1"].ColumnWidth = 17.22;
+                worksheet.Range["H1"].ColumnWidth = 8.22;
+
+                //Định dạng fone chữ
+                worksheet.Range["A1", "H100"].Font.Name = "Times New Roman";
+                worksheet.Range["A1", "H100"].Font.Size = 13;
+                worksheet.Range["A2", "H2"].MergeCells = true;
+                worksheet.Range["A2", "H2"].Font.Bold = true;
+                worksheet.Range["A2", "H2"].Font.Size = 15;
+
+                worksheet.Range["A4", "H4"].Font.Bold = true;
+
+                //worksheet.Range["D" + (dmLH + 7), "E" + (dmLH + 7)].MergeCells = true;
+                //worksheet.Range["D" + (dmLH + 7), "E" + (dmLH + 7)].Font.Bold = true;
+
+                //worksheet.Range["D" + (dmLH + 8), "E" + (dmLH + 8)].MergeCells = true;
+                //worksheet.Range["D" + (dmLH + 8), "E" + (dmLH + 8)].Font.Bold = true;
+
+                //Kẻ bảng
+                worksheet.Range["A4", "H" + (dmLH + 4)].Borders.LineStyle = 1;
+
+                //Định dạng các dòng text
+                worksheet.Range["A2", "H2"].HorizontalAlignment = 3;
+                worksheet.Range["A4", "H4"].HorizontalAlignment = 3; 
+                worksheet.Range["E5", "E" + (dmLH + 5)].HorizontalAlignment = 3;
+                worksheet.Range["F5", "F" + (dmLH + 5)].HorizontalAlignment = 3;
+                worksheet.Range["G5", "G" + (dmLH + 5)].HorizontalAlignment = 3;
+                //worksheet.Range["C6", "C" + (dmLH + 6)].HorizontalAlignment = 3;
+                //worksheet.Range["D6", "D" + (dmLH + 6)].HorizontalAlignment = 3;
+
+                //worksheet.Range["D" + (dmLH + 7), "E" + (dmLH + 7)].HorizontalAlignment = 3;
+
+                //worksheet.Range["D" + (dmLH + 8), "E" + (dmLH + 8)].HorizontalAlignment = 3;
+
+                workbook.SaveAs(fileName);
+                workbook.Close();
+                excel.Quit();
+                MessageBox.Show("Xuất excel thành công!!!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                workbook = null;
+                worksheet = null;
+            }
+        }
     }
 }

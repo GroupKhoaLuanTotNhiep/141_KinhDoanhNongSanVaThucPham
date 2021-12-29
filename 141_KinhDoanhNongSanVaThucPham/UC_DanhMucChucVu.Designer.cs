@@ -60,6 +60,7 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxTTChucVu.SuspendLayout();
             this.groupBoxChucVu.SuspendLayout();
@@ -150,6 +151,7 @@
             this.btnInDanhSach.TabIndex = 11;
             this.btnInDanhSach.Text = "In danh sách";
             this.btnInDanhSach.UseVisualStyleBackColor = true;
+            this.btnInDanhSach.Click += new System.EventHandler(this.btnInDanhSach_Click);
             // 
             // btnThemCV
             // 
@@ -295,6 +297,7 @@
             // 
             // dataGV_DSNhanVien
             // 
+            this.dataGV_DSNhanVien.AllowUserToAddRows = false;
             this.dataGV_DSNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DSNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV,
@@ -373,6 +376,10 @@
             this.Hinh.HeaderText = "Hình ảnh";
             this.Hinh.Name = "Hinh";
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
             // UC_DanhMucChucVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -426,5 +433,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn cv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hinh;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

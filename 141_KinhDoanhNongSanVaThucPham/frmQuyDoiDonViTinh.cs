@@ -31,18 +31,40 @@ namespace _141_KinhDoanhNongSanVaThucPham
             cbbSanPhamDuocQD.ValueMember = "MaSP";
         }
 
+        void loadComboBoxLoHang()
+        {
+            cbbLoHangCu.DataSource = loHang.loadLoHangChuaHetHanTheoSanPham(cbbSanPhamDuocQD.Text.Trim());
+            cbbLoHangCu.DisplayMember = "MaLo";
+            cbbLoHangCu.ValueMember = "MaLo";
+        }
+
         private void cbbSanPhamDuocQD_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (conn.checkExist("LoHang", "MaSP", cbbSanPhamDuocQD.Text))
+            {
+                loadComboBoxLoHang();
+                if (cbbLoHangCu.Items.Count == 0)
+                    cbbLoHangCu.Text = "";
+            }
+            else
+            {
+                cbbLoHangCu.DataSource = loHang.loadLoHangChuaHetHanTheoSanPham(cbbSanPhamDuocQD.Text.Trim());
+                cbbLoHangCu.Text = txtTenLoMoi.Text = "";
+            }
+
             txtDVTDuocQD.Text = sanPham.layDonViTinhTheoSanPham(cbbSanPhamDuocQD.Text.Trim());
+            txtGiaBan.Text = sanPham.layGiaBan(cbbSanPhamDuocQD.Text.Trim());
         }
 
         private void frmQuyDoiDonViTinh_Load(object sender, EventArgs e)
         {
-            txtDVTCanQD.Enabled = txtDVTDuocQD.Enabled = txtMaLoSPDoi.Enabled = txtMaPNH.Enabled = false;
+            chkLuuLoCu.Checked = true;
+            txtDVTCanQD.Enabled = txtDVTDuocQD.Enabled = txtMaLoSPDoi.Enabled = txtMaPNH.Enabled = txtGiaBan.Enabled = false;
             txtMaSPCanQD.Text = UC_DanhMucHangHoa.masp;
             txtDVTCanQD.Text = UC_DanhMucHangHoa.donvitinh;
             txtMaLoSPDoi.Text = UC_DanhMucHangHoa.malo;
             loadComboBoxSanPham();
+            //loadComboBoxLoHang();
             txtMaPNH.Text = UC_DanhMucHangHoa.pnh;
         }
 
@@ -53,7 +75,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 string strMaSPCanDoi = txtMaSPCanQD.Text.Trim();
                 string strSLSPCanDoi = txtSoLuongDoi.Text.Trim();
                 string strMaLoSPCanDoi = txtMaLoSPDoi.Text.Trim();
-                string strMaLoMoi = txtMaLoMoi.Text.Trim();
+                string strMaLoMoi = (chkLuuLoCu.Checked) ? cbbLoHangCu.Text.Trim() : (txtMaLoMoi.Text.Trim() + strMaSPCanDoi);
                 string strTenLoMoi = txtTenLoMoi.Text.Trim();
                 string strMaSPDuocDoi = cbbSanPhamDuocQD.Text.Trim();
                 string strSLQuyDoi1DV = txtSLQuyDoi.Text.Trim();
@@ -65,6 +87,12 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 if(float.Parse(strSLSPCanDoi) > float.Parse(sanPham.laySoLuongSPTheoSanPham(strMaSPCanDoi)))
                 {
                     MessageBox.Show("Số lượng sản phẩm đổi phải nhỏ hơn hoặc bằng số lượng sản phẩm đang có!");
+                    txtSoLuongDoi.Focus();
+                    return;
+                }
+                if (float.Parse(strSLSPCanDoi) > float.Parse(loHang.laySoLuong(strMaLoSPCanDoi)))
+                {
+                    MessageBox.Show("Số lượng sản phẩm đổi phải nhỏ hơn hoặc bằng số lượng sản phẩm đang có trong lô!");
                     txtSoLuongDoi.Focus();
                     return;
                 }
@@ -84,10 +112,16 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 }
                 else
                 {
-                    if (loHang.addLoHang(strMaLoMoi, strTenLoMoi, ngaySanXuat, hanSuDung, soLuongDuocDoi, strMaPNH, strMaSPDuocDoi, int.Parse(UC_DanhMucHangHoa.magia)))
+                    if (loHang.addLoHang(strMaLoMoi, strTenLoMoi, ngaySanXuat, hanSuDung, soLuongDuocDoi, strMaPNH, strMaSPDuocDoi, int.Parse(sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text)))))
                     {
                         MessageBox.Show("Thêm thành công!");
                     }
+                }
+                if (!conn.checkExistTwoKey("Gia_SanPham", "MaSP", "MaGia", strMaSPDuocDoi, sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text))))
+                {
+                    string strSqlGSP = "Insert Gia_SanPham Values('" + strMaSPDuocDoi + "', " + sanPham.layMaGiaBanTheoTenGia(int.Parse(txtGiaBan.Text)) + ", '" + DateTime.Now.ToString() + "', NULL)";
+                    conn.updateToDatabase(strSqlGSP);
+                    MessageBox.Show("Đã thêm thông tin giá sản phẩm");
                 }
                 MessageBox.Show("Lưu thành công!");
                 this.Close();
@@ -102,5 +136,28 @@ namespace _141_KinhDoanhNongSanVaThucPham
         {
             this.Close();
         }
+
+        private void chkLuuLoCu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkLuuLoCu.Checked)
+            {
+                cbbLoHangCu.Visible = true;
+                txtMaLoMoi.Visible = false;
+                txtTenLoMoi.Enabled = false;
+            }
+            else
+            {
+                cbbLoHangCu.Visible = false;
+                txtMaLoMoi.Visible = true;
+                txtTenLoMoi.Enabled = true;
+            }
+            txtTenLoMoi.Text = "";
+        }
+
+        private void cbbLoHangCu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtTenLoMoi.Text = loHang.layTenLoHang(cbbLoHangCu.Text);
+        }
+
     }
 }
