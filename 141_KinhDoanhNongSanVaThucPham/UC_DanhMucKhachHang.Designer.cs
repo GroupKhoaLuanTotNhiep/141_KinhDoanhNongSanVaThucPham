@@ -47,6 +47,7 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TichDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CongNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.gbTKKhach.SuspendLayout();
@@ -171,6 +172,7 @@
             this.btnInExc.TabIndex = 3;
             this.btnInExc.Text = "In Excel";
             this.btnInExc.UseVisualStyleBackColor = true;
+            this.btnInExc.Click += new System.EventHandler(this.btnInExc_Click);
             // 
             // btnTaoKhachHang
             // 
@@ -184,6 +186,7 @@
             // 
             // dataGV_KhachHang
             // 
+            this.dataGV_KhachHang.AllowUserToAddRows = false;
             this.dataGV_KhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_KhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKhachHang,
@@ -258,6 +261,10 @@
             this.CongNo.Name = "CongNo";
             this.CongNo.Width = 125;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
             // UC_DanhMucKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -298,5 +305,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn TichDiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn CongNo;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

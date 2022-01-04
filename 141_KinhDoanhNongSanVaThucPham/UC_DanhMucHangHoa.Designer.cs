@@ -39,14 +39,13 @@
             this.lblNhomHang = new System.Windows.Forms.Label();
             this.gbChucNangHangHoa = new System.Windows.Forms.GroupBox();
             this.btnCapNhatHinh = new System.Windows.Forms.Button();
-            this.btnQuyDoiDVT = new System.Windows.Forms.Button();
             this.btnSuaHang = new System.Windows.Forms.Button();
             this.btnXoaHang = new System.Windows.Forms.Button();
             this.btnThemHang = new System.Windows.Forms.Button();
             this.lblDMHang = new System.Windows.Forms.Label();
             this.groupBoxHangHoa = new System.Windows.Forms.GroupBox();
             this.dataGV_HangHoa = new System.Windows.Forms.DataGridView();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.msp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaDVT = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.GiaVon = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +73,7 @@
             this.btnThanhLy = new System.Windows.Forms.Button();
             this.btnNhap = new System.Windows.Forms.Button();
             this.btnInExc = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.gbTKHang.SuspendLayout();
@@ -192,7 +192,6 @@
             // gbChucNangHangHoa
             // 
             this.gbChucNangHangHoa.Controls.Add(this.btnCapNhatHinh);
-            this.gbChucNangHangHoa.Controls.Add(this.btnQuyDoiDVT);
             this.gbChucNangHangHoa.Controls.Add(this.btnSuaHang);
             this.gbChucNangHangHoa.Controls.Add(this.btnXoaHang);
             this.gbChucNangHangHoa.Controls.Add(this.btnThemHang);
@@ -206,7 +205,7 @@
             // 
             // btnCapNhatHinh
             // 
-            this.btnCapNhatHinh.Location = new System.Drawing.Point(595, 61);
+            this.btnCapNhatHinh.Location = new System.Drawing.Point(504, 61);
             this.btnCapNhatHinh.Name = "btnCapNhatHinh";
             this.btnCapNhatHinh.Size = new System.Drawing.Size(120, 40);
             this.btnCapNhatHinh.TabIndex = 5;
@@ -214,19 +213,9 @@
             this.btnCapNhatHinh.UseVisualStyleBackColor = true;
             this.btnCapNhatHinh.Click += new System.EventHandler(this.btnCapNhatHinh_Click);
             // 
-            // btnQuyDoiDVT
-            // 
-            this.btnQuyDoiDVT.Location = new System.Drawing.Point(449, 61);
-            this.btnQuyDoiDVT.Name = "btnQuyDoiDVT";
-            this.btnQuyDoiDVT.Size = new System.Drawing.Size(120, 40);
-            this.btnQuyDoiDVT.TabIndex = 4;
-            this.btnQuyDoiDVT.Text = "Quy đổi DVT";
-            this.btnQuyDoiDVT.UseVisualStyleBackColor = true;
-            this.btnQuyDoiDVT.Click += new System.EventHandler(this.btnQuyDoiDVT_Click);
-            // 
             // btnSuaHang
             // 
-            this.btnSuaHang.Location = new System.Drawing.Point(321, 61);
+            this.btnSuaHang.Location = new System.Drawing.Point(376, 61);
             this.btnSuaHang.Name = "btnSuaHang";
             this.btnSuaHang.Size = new System.Drawing.Size(100, 40);
             this.btnSuaHang.TabIndex = 3;
@@ -236,7 +225,7 @@
             // 
             // btnXoaHang
             // 
-            this.btnXoaHang.Location = new System.Drawing.Point(195, 61);
+            this.btnXoaHang.Location = new System.Drawing.Point(248, 61);
             this.btnXoaHang.Name = "btnXoaHang";
             this.btnXoaHang.Size = new System.Drawing.Size(100, 40);
             this.btnXoaHang.TabIndex = 2;
@@ -246,7 +235,7 @@
             // 
             // btnThemHang
             // 
-            this.btnThemHang.Location = new System.Drawing.Point(29, 61);
+            this.btnThemHang.Location = new System.Drawing.Point(80, 61);
             this.btnThemHang.Name = "btnThemHang";
             this.btnThemHang.Size = new System.Drawing.Size(140, 40);
             this.btnThemHang.TabIndex = 0;
@@ -280,9 +269,10 @@
             // 
             // dataGV_HangHoa
             // 
+            this.dataGV_HangHoa.AllowUserToAddRows = false;
             this.dataGV_HangHoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_HangHoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaSP,
+            this.msp,
             this.TenSP,
             this.MaDVT,
             this.GiaVon,
@@ -300,16 +290,14 @@
             this.dataGV_HangHoa.RowHeadersWidth = 51;
             this.dataGV_HangHoa.RowTemplate.Height = 24;
             this.dataGV_HangHoa.Size = new System.Drawing.Size(1488, 324);
-            this.dataGV_HangHoa.TabIndex = 3;
+            this.dataGV_HangHoa.TabIndex = 4;
             this.dataGV_HangHoa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_HangHoa_CellClick);
             // 
-            // MaSP
+            // msp
             // 
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.HeaderText = "Mã hàng";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            this.MaSP.Width = 125;
+            this.msp.DataPropertyName = "MaSP";
+            this.msp.HeaderText = "Mã hàng";
+            this.msp.Name = "msp";
             // 
             // TenSP
             // 
@@ -322,7 +310,7 @@
             // MaDVT
             // 
             this.MaDVT.DataPropertyName = "MaDVT";
-            this.MaDVT.HeaderText = "Đơn vị tính";
+            this.MaDVT.HeaderText = "ĐVT";
             this.MaDVT.Name = "MaDVT";
             this.MaDVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.MaDVT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -378,7 +366,7 @@
             // MaLoaiSP
             // 
             this.MaLoaiSP.DataPropertyName = "MaLoaiSP";
-            this.MaLoaiSP.HeaderText = "Loại sản phẩm";
+            this.MaLoaiSP.HeaderText = "Loại SP";
             this.MaLoaiSP.MinimumWidth = 6;
             this.MaLoaiSP.Name = "MaLoaiSP";
             this.MaLoaiSP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -388,7 +376,7 @@
             // MaQuay
             // 
             this.MaQuay.DataPropertyName = "MaQuay";
-            this.MaQuay.HeaderText = "Quầy hàng";
+            this.MaQuay.HeaderText = "Quầy";
             this.MaQuay.MinimumWidth = 6;
             this.MaQuay.Name = "MaQuay";
             this.MaQuay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -556,6 +544,11 @@
             this.btnInExc.TabIndex = 2;
             this.btnInExc.Text = "In DS hàng hóa";
             this.btnInExc.UseVisualStyleBackColor = true;
+            this.btnInExc.Click += new System.EventHandler(this.btnInExc_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
             // 
             // UC_DanhMucHangHoa
             // 
@@ -599,7 +592,6 @@
         private System.Windows.Forms.Button btnThemHang;
         private System.Windows.Forms.Label lblDMHang;
         private System.Windows.Forms.GroupBox groupBoxHangHoa;
-        private System.Windows.Forms.DataGridView dataGV_HangHoa;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBoxLoHang;
         private System.Windows.Forms.DataGridView dataGV_LoHang;
@@ -607,7 +599,18 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnThanhLy;
         private System.Windows.Forms.Button btnNhap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn loma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySanXuat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HanSuDung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPNH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaMa;
+        private System.Windows.Forms.Button btnCapNhatHinh;
+        private System.Windows.Forms.DataGridView dataGV_HangHoa;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn msp;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewComboBoxColumn MaDVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaVon;
@@ -619,15 +622,5 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn MaLoaiSP;
         private System.Windows.Forms.DataGridViewComboBoxColumn MaQuay;
         private System.Windows.Forms.DataGridViewTextBoxColumn HinhAnh;
-        private System.Windows.Forms.Button btnQuyDoiDVT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySanXuat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HanSuDung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPNH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaMa;
-        private System.Windows.Forms.Button btnCapNhatHinh;
     }
 }

@@ -32,6 +32,9 @@
             this.lblTinhLuong = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNgayTinhLuong = new System.Windows.Forms.Label();
+            this.txtNgayTinhLuong = new System.Windows.Forms.DateTimePicker();
+            this.btnXem = new System.Windows.Forms.Button();
             this.lblNgayCuoi = new System.Windows.Forms.Label();
             this.txtDenNgay = new System.Windows.Forms.DateTimePicker();
             this.lblNgayDau = new System.Windows.Forms.Label();
@@ -50,14 +53,12 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.lblMaNV = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnXoaThongTin = new System.Windows.Forms.Button();
+            this.btnSuaThongTin = new System.Windows.Forms.Button();
             this.btnInExcel = new System.Windows.Forms.Button();
             this.btnCapNhatLNV = new System.Windows.Forms.Button();
             this.btnChamCong = new System.Windows.Forms.Button();
             this.dataGV_LuongNhanVien = new System.Windows.Forms.DataGridView();
-            this.btnXem = new System.Windows.Forms.Button();
-            this.btnSuaThongTin = new System.Windows.Forms.Button();
-            this.lblNgayTinhLuong = new System.Windows.Forms.Label();
-            this.txtNgayTinhLuong = new System.Windows.Forms.DateTimePicker();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HeSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +69,7 @@
             this.Phat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTinhLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnXoaThongTin = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -119,7 +120,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 234F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 219F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1396, 219);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
@@ -150,6 +151,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(971, 213);
             this.panel1.TabIndex = 0;
+            // 
+            // lblNgayTinhLuong
+            // 
+            this.lblNgayTinhLuong.AutoSize = true;
+            this.lblNgayTinhLuong.Location = new System.Drawing.Point(65, 143);
+            this.lblNgayTinhLuong.Name = "lblNgayTinhLuong";
+            this.lblNgayTinhLuong.Size = new System.Drawing.Size(107, 17);
+            this.lblNgayTinhLuong.TabIndex = 23;
+            this.lblNgayTinhLuong.Text = "Ngày tính lương";
+            // 
+            // txtNgayTinhLuong
+            // 
+            this.txtNgayTinhLuong.CustomFormat = "dd/MM/yyyy";
+            this.txtNgayTinhLuong.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtNgayTinhLuong.Location = new System.Drawing.Point(178, 141);
+            this.txtNgayTinhLuong.Name = "txtNgayTinhLuong";
+            this.txtNgayTinhLuong.Size = new System.Drawing.Size(150, 22);
+            this.txtNgayTinhLuong.TabIndex = 22;
+            // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(806, 137);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(75, 30);
+            this.btnXem.TabIndex = 21;
+            this.btnXem.Text = "Xem";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // lblNgayCuoi
             // 
@@ -305,6 +334,26 @@
             this.panel2.Size = new System.Drawing.Size(413, 213);
             this.panel2.TabIndex = 1;
             // 
+            // btnXoaThongTin
+            // 
+            this.btnXoaThongTin.Location = new System.Drawing.Point(222, 161);
+            this.btnXoaThongTin.Name = "btnXoaThongTin";
+            this.btnXoaThongTin.Size = new System.Drawing.Size(90, 30);
+            this.btnXoaThongTin.TabIndex = 4;
+            this.btnXoaThongTin.Text = "Xóa";
+            this.btnXoaThongTin.UseVisualStyleBackColor = true;
+            this.btnXoaThongTin.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSuaThongTin
+            // 
+            this.btnSuaThongTin.Location = new System.Drawing.Point(112, 161);
+            this.btnSuaThongTin.Name = "btnSuaThongTin";
+            this.btnSuaThongTin.Size = new System.Drawing.Size(90, 30);
+            this.btnSuaThongTin.TabIndex = 3;
+            this.btnSuaThongTin.Text = "Sửa";
+            this.btnSuaThongTin.UseVisualStyleBackColor = true;
+            this.btnSuaThongTin.Click += new System.EventHandler(this.btnSuaThongTin_Click);
+            // 
             // btnInExcel
             // 
             this.btnInExcel.Location = new System.Drawing.Point(112, 114);
@@ -313,6 +362,7 @@
             this.btnInExcel.TabIndex = 2;
             this.btnInExcel.Text = "In Excel";
             this.btnInExcel.UseVisualStyleBackColor = true;
+            this.btnInExcel.Click += new System.EventHandler(this.btnInExcel_Click);
             // 
             // btnCapNhatLNV
             // 
@@ -336,6 +386,7 @@
             // 
             // dataGV_LuongNhanVien
             // 
+            this.dataGV_LuongNhanVien.AllowUserToAddRows = false;
             this.dataGV_LuongNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_LuongNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV,
@@ -356,55 +407,17 @@
             this.dataGV_LuongNhanVien.TabIndex = 2;
             this.dataGV_LuongNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_LuongNhanVien_CellClick);
             // 
-            // btnXem
-            // 
-            this.btnXem.Location = new System.Drawing.Point(806, 137);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(75, 30);
-            this.btnXem.TabIndex = 21;
-            this.btnXem.Text = "Xem";
-            this.btnXem.UseVisualStyleBackColor = true;
-            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
-            // 
-            // btnSuaThongTin
-            // 
-            this.btnSuaThongTin.Location = new System.Drawing.Point(112, 161);
-            this.btnSuaThongTin.Name = "btnSuaThongTin";
-            this.btnSuaThongTin.Size = new System.Drawing.Size(90, 30);
-            this.btnSuaThongTin.TabIndex = 3;
-            this.btnSuaThongTin.Text = "Sửa";
-            this.btnSuaThongTin.UseVisualStyleBackColor = true;
-            this.btnSuaThongTin.Click += new System.EventHandler(this.btnSuaThongTin_Click);
-            // 
-            // lblNgayTinhLuong
-            // 
-            this.lblNgayTinhLuong.AutoSize = true;
-            this.lblNgayTinhLuong.Location = new System.Drawing.Point(65, 143);
-            this.lblNgayTinhLuong.Name = "lblNgayTinhLuong";
-            this.lblNgayTinhLuong.Size = new System.Drawing.Size(107, 17);
-            this.lblNgayTinhLuong.TabIndex = 23;
-            this.lblNgayTinhLuong.Text = "Ngày tính lương";
-            // 
-            // txtNgayTinhLuong
-            // 
-            this.txtNgayTinhLuong.CustomFormat = "dd/MM/yyyy";
-            this.txtNgayTinhLuong.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtNgayTinhLuong.Location = new System.Drawing.Point(178, 141);
-            this.txtNgayTinhLuong.Name = "txtNgayTinhLuong";
-            this.txtNgayTinhLuong.Size = new System.Drawing.Size(150, 22);
-            this.txtNgayTinhLuong.TabIndex = 22;
-            // 
             // MaNV
             // 
             this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã nhân viên";
+            this.MaNV.HeaderText = "Mã NV";
             this.MaNV.Name = "MaNV";
             this.MaNV.Width = 130;
             // 
             // TenNV
             // 
             this.TenNV.DataPropertyName = "TenNV";
-            this.TenNV.HeaderText = "Tên nhân viên";
+            this.TenNV.HeaderText = "Tên NV";
             this.TenNV.Name = "TenNV";
             this.TenNV.Width = 200;
             // 
@@ -418,7 +431,7 @@
             // LuongCoBan
             // 
             this.LuongCoBan.DataPropertyName = "LuongCoBan";
-            this.LuongCoBan.HeaderText = "Lương cơ bản";
+            this.LuongCoBan.HeaderText = "Lương CB";
             this.LuongCoBan.Name = "LuongCoBan";
             this.LuongCoBan.Width = 130;
             // 
@@ -464,15 +477,9 @@
             this.NgayTinhLuong.Name = "NgayTinhLuong";
             this.NgayTinhLuong.Width = 140;
             // 
-            // btnXoaThongTin
+            // saveFileDialog1
             // 
-            this.btnXoaThongTin.Location = new System.Drawing.Point(222, 161);
-            this.btnXoaThongTin.Name = "btnXoaThongTin";
-            this.btnXoaThongTin.Size = new System.Drawing.Size(90, 30);
-            this.btnXoaThongTin.TabIndex = 4;
-            this.btnXoaThongTin.Text = "Xóa";
-            this.btnXoaThongTin.UseVisualStyleBackColor = true;
-            this.btnXoaThongTin.Click += new System.EventHandler(this.btnXoa_Click);
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
             // 
             // frmTinhLuong
             // 
@@ -527,6 +534,8 @@
         private System.Windows.Forms.Button btnSuaThongTin;
         private System.Windows.Forms.Label lblNgayTinhLuong;
         private System.Windows.Forms.DateTimePicker txtNgayTinhLuong;
+        private System.Windows.Forms.Button btnXoaThongTin;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HeSoLuong;
@@ -537,6 +546,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Phat;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTinhLuong;
-        private System.Windows.Forms.Button btnXoaThongTin;
     }
 }

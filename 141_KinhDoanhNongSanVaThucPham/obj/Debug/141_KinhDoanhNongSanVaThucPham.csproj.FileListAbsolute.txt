@@ -171,3 +171,30 @@ D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongS
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmReportHoaDonBanHang.resources
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmReportPhieuGiaoHang.resources
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmReportDanhSachPhieuGiao.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmReportDanhSachPhieuGiao.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmReportHoaDonBanHang.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmReportPhieuGiaoHang.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmXemChiTietTheoHangHoa.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmXemChiTietTheoKhachHang.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmXemChiTietTheoNhanVien.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmXemChiTietTheoThang.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmBieuDoDoanhThu.resources
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.dll
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.pdb
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.xml
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\NK\Downloads\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.Wpf.xml
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.WinForms.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.Wpf.dll
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.pdb
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.xml
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.WinForms.pdb
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.WinForms.xml
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.Wpf.pdb
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.Wpf.xml
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmBieuDoDoanhThu.resources

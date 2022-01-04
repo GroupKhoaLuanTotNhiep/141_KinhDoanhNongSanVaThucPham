@@ -32,13 +32,14 @@
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnSuaHinhThuc = new System.Windows.Forms.Button();
+            this.btnXoaHinhThuc = new System.Windows.Forms.Button();
             this.btnThemHinhThuc = new System.Windows.Forms.Button();
             this.txtTenHinhThuc = new System.Windows.Forms.TextBox();
             this.lblHinhThucThanhToan = new System.Windows.Forms.Label();
             this.dataGV_HTThanhToan = new System.Windows.Forms.DataGridView();
             this.MaHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnXoaHinhThuc = new System.Windows.Forms.Button();
+            this.lblTenHTTT = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxChucNang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_HTThanhToan)).BeginInit();
@@ -64,6 +65,7 @@
             // 
             // groupBoxChucNang
             // 
+            this.groupBoxChucNang.Controls.Add(this.lblTenHTTT);
             this.groupBoxChucNang.Controls.Add(this.btnLamMoi);
             this.groupBoxChucNang.Controls.Add(this.btnSuaHinhThuc);
             this.groupBoxChucNang.Controls.Add(this.btnXoaHinhThuc);
@@ -101,6 +103,17 @@
             this.btnSuaHinhThuc.UseVisualStyleBackColor = true;
             this.btnSuaHinhThuc.Click += new System.EventHandler(this.btnSuaHinhThuc_Click);
             // 
+            // btnXoaHinhThuc
+            // 
+            this.btnXoaHinhThuc.Location = new System.Drawing.Point(228, 83);
+            this.btnXoaHinhThuc.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXoaHinhThuc.Name = "btnXoaHinhThuc";
+            this.btnXoaHinhThuc.Size = new System.Drawing.Size(150, 50);
+            this.btnXoaHinhThuc.TabIndex = 2;
+            this.btnXoaHinhThuc.Text = "Xóa HTTT";
+            this.btnXoaHinhThuc.UseVisualStyleBackColor = true;
+            this.btnXoaHinhThuc.Click += new System.EventHandler(this.btnXoaHinhThuc_Click);
+            // 
             // btnThemHinhThuc
             // 
             this.btnThemHinhThuc.Location = new System.Drawing.Point(39, 83);
@@ -114,7 +127,7 @@
             // 
             // txtTenHinhThuc
             // 
-            this.txtTenHinhThuc.Location = new System.Drawing.Point(268, 29);
+            this.txtTenHinhThuc.Location = new System.Drawing.Point(317, 25);
             this.txtTenHinhThuc.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenHinhThuc.Name = "txtTenHinhThuc";
             this.txtTenHinhThuc.Size = new System.Drawing.Size(250, 22);
@@ -165,16 +178,14 @@
             this.TenHT.MinimumWidth = 6;
             this.TenHT.Name = "TenHT";
             // 
-            // btnXoaHinhThuc
+            // lblTenHTTT
             // 
-            this.btnXoaHinhThuc.Location = new System.Drawing.Point(228, 83);
-            this.btnXoaHinhThuc.Margin = new System.Windows.Forms.Padding(4);
-            this.btnXoaHinhThuc.Name = "btnXoaHinhThuc";
-            this.btnXoaHinhThuc.Size = new System.Drawing.Size(150, 50);
-            this.btnXoaHinhThuc.TabIndex = 2;
-            this.btnXoaHinhThuc.Text = "Xóa HTTT";
-            this.btnXoaHinhThuc.UseVisualStyleBackColor = true;
-            this.btnXoaHinhThuc.Click += new System.EventHandler(this.btnXoaHinhThuc_Click);
+            this.lblTenHTTT.AutoSize = true;
+            this.lblTenHTTT.Location = new System.Drawing.Point(202, 28);
+            this.lblTenHTTT.Name = "lblTenHTTT";
+            this.lblTenHTTT.Size = new System.Drawing.Size(107, 17);
+            this.lblTenHTTT.TabIndex = 5;
+            this.lblTenHTTT.Text = "Nhập tên HTTT";
             // 
             // UC_DanhMucHT_ThanhToan
             // 
@@ -206,5 +217,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenHT;
         private System.Windows.Forms.Button btnXoaHinhThuc;
+        private System.Windows.Forms.Label lblTenHTTT;
     }
 }

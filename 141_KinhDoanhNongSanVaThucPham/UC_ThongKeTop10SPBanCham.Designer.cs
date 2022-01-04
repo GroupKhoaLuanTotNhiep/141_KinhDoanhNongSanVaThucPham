@@ -31,13 +31,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtNgayKT = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDenNgay = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtNgayBD = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTuNgay = new System.Windows.Forms.Label();
             this.btnXemTK_Top10SPBanCham = new System.Windows.Forms.Button();
             this.btnInExcel = new System.Windows.Forms.Button();
-            this.dataGV_Top10SPBanCham = new System.Windows.Forms.DataGridView();
+            this.dataGV_Top5SPBanCham = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +51,11 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGV_Top10SPBanCham)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGV_Top5SPBanCham)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -71,7 +79,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.dataGV_Top10SPBanCham, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.dataGV_Top5SPBanCham, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 74);
@@ -93,10 +101,10 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnXemTK_Top10SPBanCham, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnInExcel, 6, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -107,49 +115,11 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1044, 57);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(316, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(98, 51);
-            this.tableLayoutPanel4.TabIndex = 4;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(420, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(150, 51);
-            this.tableLayoutPanel5.TabIndex = 5;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(576, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(98, 51);
-            this.tableLayoutPanel6.TabIndex = 6;
-            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Controls.Add(this.txtNgayKT, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(680, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -157,7 +127,88 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(150, 51);
-            this.tableLayoutPanel7.TabIndex = 7;
+            this.tableLayoutPanel7.TabIndex = 14;
+            // 
+            // txtNgayKT
+            // 
+            this.txtNgayKT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtNgayKT.Location = new System.Drawing.Point(3, 5);
+            this.txtNgayKT.Name = "txtNgayKT";
+            this.txtNgayKT.Size = new System.Drawing.Size(144, 27);
+            this.txtNgayKT.TabIndex = 0;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.lblDenNgay, 0, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(576, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(98, 51);
+            this.tableLayoutPanel6.TabIndex = 13;
+            // 
+            // lblDenNgay
+            // 
+            this.lblDenNgay.AutoSize = true;
+            this.lblDenNgay.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblDenNgay.Location = new System.Drawing.Point(16, 5);
+            this.lblDenNgay.Name = "lblDenNgay";
+            this.lblDenNgay.Size = new System.Drawing.Size(79, 46);
+            this.lblDenNgay.TabIndex = 0;
+            this.lblDenNgay.Text = "Đến ngày";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.txtNgayBD, 0, 1);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(420, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(150, 51);
+            this.tableLayoutPanel5.TabIndex = 12;
+            // 
+            // txtNgayBD
+            // 
+            this.txtNgayBD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtNgayBD.Location = new System.Drawing.Point(3, 5);
+            this.txtNgayBD.Name = "txtNgayBD";
+            this.txtNgayBD.Size = new System.Drawing.Size(144, 27);
+            this.txtNgayBD.TabIndex = 0;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.lblTuNgay, 0, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(316, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(98, 51);
+            this.tableLayoutPanel4.TabIndex = 11;
+            // 
+            // lblTuNgay
+            // 
+            this.lblTuNgay.AutoSize = true;
+            this.lblTuNgay.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblTuNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTuNgay.Location = new System.Drawing.Point(27, 5);
+            this.lblTuNgay.Name = "lblTuNgay";
+            this.lblTuNgay.Size = new System.Drawing.Size(68, 46);
+            this.lblTuNgay.TabIndex = 0;
+            this.lblTuNgay.Text = "Từ ngày";
             // 
             // btnXemTK_Top10SPBanCham
             // 
@@ -181,21 +232,21 @@
             this.btnInExcel.UseVisualStyleBackColor = true;
             this.btnInExcel.Click += new System.EventHandler(this.btnInExcel_Click);
             // 
-            // dataGV_Top10SPBanCham
+            // dataGV_Top5SPBanCham
             // 
-            this.dataGV_Top10SPBanCham.AllowUserToAddRows = false;
-            this.dataGV_Top10SPBanCham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGV_Top10SPBanCham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGV_Top5SPBanCham.AllowUserToAddRows = false;
+            this.dataGV_Top5SPBanCham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGV_Top5SPBanCham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSP,
             this.TenSP,
             this.SoLuongBan,
             this.dvt});
-            this.dataGV_Top10SPBanCham.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGV_Top10SPBanCham.Location = new System.Drawing.Point(3, 78);
-            this.dataGV_Top10SPBanCham.Name = "dataGV_Top10SPBanCham";
-            this.dataGV_Top10SPBanCham.RowTemplate.Height = 24;
-            this.dataGV_Top10SPBanCham.Size = new System.Drawing.Size(1044, 553);
-            this.dataGV_Top10SPBanCham.TabIndex = 1;
+            this.dataGV_Top5SPBanCham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGV_Top5SPBanCham.Location = new System.Drawing.Point(3, 78);
+            this.dataGV_Top5SPBanCham.Name = "dataGV_Top5SPBanCham";
+            this.dataGV_Top5SPBanCham.RowTemplate.Height = 24;
+            this.dataGV_Top5SPBanCham.Size = new System.Drawing.Size(1044, 553);
+            this.dataGV_Top5SPBanCham.TabIndex = 1;
             // 
             // MaSP
             // 
@@ -234,7 +285,7 @@
             this.lbl_Tieude.Name = "lbl_Tieude";
             this.lbl_Tieude.Size = new System.Drawing.Size(1050, 71);
             this.lbl_Tieude.TabIndex = 0;
-            this.lbl_Tieude.Text = "THỐNG KÊ TOP 10 SẢN PHẨM BÁN CHẬM NHẤT";
+            this.lbl_Tieude.Text = "THỐNG KÊ TOP 5 SẢN PHẨM BÁN CHẬM NHẤT";
             this.lbl_Tieude.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // saveFileDialog1
@@ -252,7 +303,13 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGV_Top10SPBanCham)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGV_Top5SPBanCham)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,18 +319,22 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Button btnXemTK_Top10SPBanCham;
         private System.Windows.Forms.Button btnInExcel;
-        private System.Windows.Forms.DataGridView dataGV_Top10SPBanCham;
+        private System.Windows.Forms.DataGridView dataGV_Top5SPBanCham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvt;
         private System.Windows.Forms.Label lbl_Tieude;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label lblTuNgay;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.DateTimePicker txtNgayBD;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label lblDenNgay;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.DateTimePicker txtNgayKT;
     }
 }

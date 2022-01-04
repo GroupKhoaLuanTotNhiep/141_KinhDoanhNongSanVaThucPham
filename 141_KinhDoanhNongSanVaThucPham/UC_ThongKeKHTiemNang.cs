@@ -54,20 +54,23 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 worksheet.Name = "Thống kê KH tiềm năng";
 
                 worksheet.Cells[2, 2] = "BÁO CÁO THỐNG KÊ KHÁCH HÀNG TIỀM NĂNG";
+                worksheet.Cells[3, 2] = "Từ " + txtNgayBD.Text + " đến " + txtNgayKT.Text;
 
                 for (int i = 0; i < dataGV_KHTiemNang.ColumnCount; i++)
                 {
-                    worksheet.Cells[4, i + 1] = dataGV_KHTiemNang.Columns[i].HeaderText;
+                    worksheet.Cells[5, i + 1] = dataGV_KHTiemNang.Columns[i].HeaderText;
                 }
+
+                int tkshh = dataGV_KHTiemNang.RowCount;
 
                 for (int i = 0; i < dataGV_KHTiemNang.RowCount; i++)
                 {
                     for (int j = 0; j < dataGV_KHTiemNang.ColumnCount; j++)
                     {
-                        worksheet.Cells[i + 5, j + 1] = dataGV_KHTiemNang.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 6, j + 1] = dataGV_KHTiemNang.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Range["E6", "E" + (tkshh + 6)].NumberFormat = "@";
                     }
                 }
-                int tkshh = dataGV_KHTiemNang.RowCount;
 
                 //Định dạng trang
                 worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlPortrait;
@@ -95,19 +98,19 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 worksheet.Range["A3", "F3"].MergeCells = true;
                 worksheet.Range["A3", "F3"].Font.Italic = true;
 
-                worksheet.Range["A4", "F4"].Font.Bold = true;
+                worksheet.Range["A5", "F5"].Font.Bold = true;
 
                 //Kẻ bảng
-                worksheet.Range["A4", "F" + (tkshh + 4)].Borders.LineStyle = 1;
+                worksheet.Range["A5", "F" + (tkshh + 5)].Borders.LineStyle = 1;
 
                 //Định dạng các dòng text
                 worksheet.Range["A2", "F2"].HorizontalAlignment = 3;
-                worksheet.Range["A4", "F4"].HorizontalAlignment = 3;
-                worksheet.Range["A5", "A" + (tkshh + 5)].HorizontalAlignment = 3;
-                worksheet.Range["B5", "B" + (tkshh + 5)].HorizontalAlignment = 3;
-                worksheet.Range["E5", "E" + (tkshh + 5)].HorizontalAlignment = 3;
-                worksheet.Range["E5", "E" + (tkshh + 5)].NumberFormat = "@";
-                worksheet.Range["F5", "F" + (tkshh + 5)].HorizontalAlignment = 3;
+                worksheet.Range["A3", "D3"].HorizontalAlignment = 3;
+                worksheet.Range["A5", "F5"].HorizontalAlignment = 3;
+                worksheet.Range["A6", "A" + (tkshh + 6)].HorizontalAlignment = 3;
+                worksheet.Range["B6", "B" + (tkshh + 6)].HorizontalAlignment = 3;
+                worksheet.Range["E6", "E" + (tkshh + 6)].HorizontalAlignment = 3;
+                worksheet.Range["F6", "F" + (tkshh + 6)].HorizontalAlignment = 3;
 
 
                 workbook.SaveAs(fileName);

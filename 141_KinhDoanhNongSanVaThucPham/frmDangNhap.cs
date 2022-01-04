@@ -116,7 +116,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 errorProvider1.Clear();
                 if (loginSuccess)
                 {
-                    MessageBox.Show("Đăng nhập thành công!");
+                    //MessageBox.Show("Đăng nhập thành công!");
                     frmTrangChu frmTC = new frmTrangChu();
                     frmTC.Show();
                     this.Hide();

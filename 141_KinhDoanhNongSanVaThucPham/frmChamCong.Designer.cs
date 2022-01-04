@@ -47,14 +47,15 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.lblMaNV = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnXem = new System.Windows.Forms.Button();
+            this.btnThemThongTin = new System.Windows.Forms.Button();
             this.btnInExel = new System.Windows.Forms.Button();
             this.btnXoaThongTin = new System.Windows.Forms.Button();
             this.cbbNhanVien = new System.Windows.Forms.ComboBox();
             this.lblNhanVien = new System.Windows.Forms.Label();
             this.txtChonNgay = new System.Windows.Forms.DateTimePicker();
             this.lblLocNgay = new System.Windows.Forms.Label();
-            this.btnThemThongTin = new System.Windows.Forms.Button();
-            this.btnXem = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_ChamCong)).BeginInit();
             this.panel1.SuspendLayout();
@@ -96,6 +97,7 @@
             // 
             // dataGV_ChamCong
             // 
+            this.dataGV_ChamCong.AllowUserToAddRows = false;
             this.dataGV_ChamCong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_ChamCong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNV,
@@ -259,6 +261,26 @@
             this.panel2.Size = new System.Drawing.Size(1128, 112);
             this.panel2.TabIndex = 3;
             // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(197, 44);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(75, 30);
+            this.btnXem.TabIndex = 8;
+            this.btnXem.Text = "Xem";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
+            // btnThemThongTin
+            // 
+            this.btnThemThongTin.Location = new System.Drawing.Point(609, 44);
+            this.btnThemThongTin.Name = "btnThemThongTin";
+            this.btnThemThongTin.Size = new System.Drawing.Size(150, 30);
+            this.btnThemThongTin.TabIndex = 7;
+            this.btnThemThongTin.Text = "Thêm thông tin";
+            this.btnThemThongTin.UseVisualStyleBackColor = true;
+            this.btnThemThongTin.Click += new System.EventHandler(this.btnThemThongTin_Click);
+            // 
             // btnInExel
             // 
             this.btnInExel.Location = new System.Drawing.Point(985, 44);
@@ -267,6 +289,7 @@
             this.btnInExel.TabIndex = 6;
             this.btnInExel.Text = "In Excel";
             this.btnInExel.UseVisualStyleBackColor = true;
+            this.btnInExel.Click += new System.EventHandler(this.btnInExel_Click);
             // 
             // btnXoaThongTin
             // 
@@ -317,25 +340,9 @@
             this.lblLocNgay.TabIndex = 0;
             this.lblLocNgay.Text = "Lọc ngày";
             // 
-            // btnThemThongTin
+            // saveFileDialog1
             // 
-            this.btnThemThongTin.Location = new System.Drawing.Point(609, 44);
-            this.btnThemThongTin.Name = "btnThemThongTin";
-            this.btnThemThongTin.Size = new System.Drawing.Size(150, 30);
-            this.btnThemThongTin.TabIndex = 7;
-            this.btnThemThongTin.Text = "Thêm thông tin";
-            this.btnThemThongTin.UseVisualStyleBackColor = true;
-            this.btnThemThongTin.Click += new System.EventHandler(this.btnThemThongTin_Click);
-            // 
-            // btnXem
-            // 
-            this.btnXem.Location = new System.Drawing.Point(197, 44);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(75, 30);
-            this.btnXem.TabIndex = 8;
-            this.btnXem.Text = "Xem";
-            this.btnXem.UseVisualStyleBackColor = true;
-            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
             // 
             // frmChamCong
             // 
@@ -387,5 +394,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
         private System.Windows.Forms.Button btnThemThongTin;
         private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

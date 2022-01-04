@@ -80,7 +80,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     MessageBox.Show("Ngày làm phải nhỏ hơn hoặc bằng Ngày hiện tại!");
                     return;
                 }
-                for (int i = 0; i < dataGV_ChamCong.RowCount - 1; i++)
+                for (int i = 0; i < dataGV_ChamCong.RowCount; i++)
                 {
                     string manv = dataGV_ChamCong.Rows[i].Cells["MaNV"].Value.ToString().Trim();
                     string ngaylam = DateTime.ParseExact(txtNgayLam.Text, "dd/MM/yyyy", null).ToString("yyyy/MM/dd");
@@ -223,5 +223,100 @@ namespace _141_KinhDoanhNongSanVaThucPham
             dataGV_ChamCong.DataSource = nhanVien.searchNgayCongTheoMaNV(cbbNhanVien.Text.Trim());
         }
 
+        private void btnInExel_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                exportExcel_ChamCong(dataGV_ChamCong, saveFileDialog1.FileName);
+        }
+        private void exportExcel_ChamCong(DataGridView dv, string fileName)
+        {
+            Microsoft.Office.Interop.Excel.Application excel;
+            Microsoft.Office.Interop.Excel.Workbook workbook;
+            Microsoft.Office.Interop.Excel.Worksheet worksheet;
+
+            try
+            {
+                excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = false;
+                excel.DisplayAlerts = false;
+
+                workbook = excel.Workbooks.Add(Type.Missing);
+
+                worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
+                worksheet.Name = "Chấm công NV";
+
+                worksheet.Cells[2, 2] = "BÁO CÁO CHẤM CÔNG NHÂN VIÊN";
+                worksheet.Cells[3, 2] = "Ngày " + txtChonNgay.Text;
+
+
+                for (int i = 0; i < dataGV_ChamCong.ColumnCount; i++)
+                {
+                    worksheet.Cells[5, i + 2] = dataGV_ChamCong.Columns[i].HeaderText;
+                }
+
+                int tkTHH = dataGV_ChamCong.RowCount;
+
+                for (int i = 0; i < dataGV_ChamCong.RowCount; i++)
+                {
+                    for (int j = 0; j < dataGV_ChamCong.ColumnCount; j++)
+                    {
+                        worksheet.Cells[i + 6, j + 2] = dataGV_ChamCong.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[tkTHH + 7, 3] = "Số nhân viên đi làm: " + (dataGV_ChamCong.DataSource as DataTable).Compute("Count(MaNV)", "");
+                    }
+                }
+
+                worksheet.Range["B" + (tkTHH + 7), "E" + (tkTHH + 7)].Font.Bold = true;
+
+                //Định dạng trang
+                worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlPortrait;
+                worksheet.PageSetup.PaperSize = Microsoft.Office.Interop.Excel.XlPaperSize.xlPaperA4;
+                worksheet.PageSetup.LeftMargin = 0;
+                worksheet.PageSetup.RightMargin = 0;
+                worksheet.PageSetup.TopMargin = 0;
+                worksheet.PageSetup.BottomMargin = 0;
+
+                //Định dạng cột
+                worksheet.Range["B1"].ColumnWidth = 15.89;
+                worksheet.Range["C1"].ColumnWidth = 29.67;
+                worksheet.Range["D1"].ColumnWidth = 17;
+                worksheet.Range["E1"].ColumnWidth = 17;
+
+                //Định dạng fone chữ
+                worksheet.Range["B1", "E100"].Font.Name = "Times New Roman";
+                worksheet.Range["B1", "E100"].Font.Size = 13;
+                worksheet.Range["B2", "E2"].MergeCells = true;
+                worksheet.Range["B2", "E2"].Font.Bold = true;
+                worksheet.Range["B2", "E2"].Font.Size = 15;
+
+                worksheet.Range["B3", "E3"].MergeCells = true;
+                worksheet.Range["B3", "E3"].Font.Italic = true;
+
+                worksheet.Range["B5", "E5"].Font.Bold = true;
+
+                //Kẻ bảng
+                worksheet.Range["B5", "E" + (tkTHH + 5)].Borders.LineStyle = 1;
+
+                //Định dạng các dòng text
+                worksheet.Range["B2", "E2"].HorizontalAlignment = 3;
+                worksheet.Range["B3", "E3"].HorizontalAlignment = 3;
+                worksheet.Range["B5", "E5"].HorizontalAlignment = 3;
+                worksheet.Range["B6", "B" + (tkTHH + 6)].HorizontalAlignment = 3;
+                worksheet.Range["E6", "E" + (tkTHH + 6)].HorizontalAlignment = 3;
+
+                workbook.SaveAs(fileName);
+                workbook.Close();
+                excel.Quit();
+                MessageBox.Show("Xuất excel thành công!!!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                workbook = null;
+                worksheet = null;
+            }
+        }
     }
 }

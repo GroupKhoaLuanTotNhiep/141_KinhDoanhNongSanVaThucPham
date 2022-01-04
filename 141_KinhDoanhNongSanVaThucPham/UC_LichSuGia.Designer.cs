@@ -41,7 +41,6 @@
             this.NgayApDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnXemBDGiaBan = new System.Windows.Forms.Button();
             this.cbbSanPhamGia = new System.Windows.Forms.ComboBox();
             this.lblXemGiaSP = new System.Windows.Forms.Label();
             this.tabPageGiaNhap = new System.Windows.Forms.TabPage();
@@ -52,7 +51,6 @@
             this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnXemBDGiaVon = new System.Windows.Forms.Button();
             this.cbbSanPhamVon = new System.Windows.Forms.ComboBox();
             this.lblXemGiaVon = new System.Windows.Forms.Label();
             this.tabPageGiamGia = new System.Windows.Forms.TabPage();
@@ -65,7 +63,6 @@
             this.NgayTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnXemBDGiam = new System.Windows.Forms.Button();
             this.cbbSanPhamGiam = new System.Windows.Forms.ComboBox();
             this.lblXemGiamGia = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -152,6 +149,7 @@
             // 
             // dataGV_GiaSanPham
             // 
+            this.dataGV_GiaSanPham.AllowUserToAddRows = false;
             this.dataGV_GiaSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_GiaSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaGia,
@@ -169,42 +167,47 @@
             // 
             // MaGia
             // 
+            this.MaGia.DataPropertyName = "MaGia";
             this.MaGia.HeaderText = "Mã giá";
             this.MaGia.Name = "MaGia";
             // 
             // GiaSP
             // 
+            this.GiaSP.DataPropertyName = "GiaSP";
             this.GiaSP.HeaderText = "Giá sản phẩm";
             this.GiaSP.Name = "GiaSP";
             this.GiaSP.Width = 120;
             // 
             // MaSP
             // 
+            this.MaSP.DataPropertyName = "MaSP";
             this.MaSP.HeaderText = "Mã sản phẩm";
             this.MaSP.Name = "MaSP";
             this.MaSP.Width = 120;
             // 
             // TenSP
             // 
+            this.TenSP.DataPropertyName = "TenSP";
             this.TenSP.HeaderText = "Tên sản phẩm";
             this.TenSP.Name = "TenSP";
             this.TenSP.Width = 200;
             // 
             // NgayApDung
             // 
+            this.NgayApDung.DataPropertyName = "NgayApDung";
             this.NgayApDung.HeaderText = "Ngày áp dụng";
             this.NgayApDung.Name = "NgayApDung";
             this.NgayApDung.Width = 150;
             // 
             // NgayKetThuc
             // 
+            this.NgayKetThuc.DataPropertyName = "NgayKetThuc";
             this.NgayKetThuc.HeaderText = "Ngày kết thúc";
             this.NgayKetThuc.Name = "NgayKetThuc";
             this.NgayKetThuc.Width = 150;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnXemBDGiaBan);
             this.panel1.Controls.Add(this.cbbSanPhamGia);
             this.panel1.Controls.Add(this.lblXemGiaSP);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -213,24 +216,17 @@
             this.panel1.Size = new System.Drawing.Size(1174, 129);
             this.panel1.TabIndex = 1;
             // 
-            // btnXemBDGiaBan
-            // 
-            this.btnXemBDGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXemBDGiaBan.Location = new System.Drawing.Point(625, 38);
-            this.btnXemBDGiaBan.Name = "btnXemBDGiaBan";
-            this.btnXemBDGiaBan.Size = new System.Drawing.Size(150, 40);
-            this.btnXemBDGiaBan.TabIndex = 2;
-            this.btnXemBDGiaBan.Text = "Xem biểu đồ";
-            this.btnXemBDGiaBan.UseVisualStyleBackColor = true;
-            // 
             // cbbSanPhamGia
             // 
+            this.cbbSanPhamGia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbbSanPhamGia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbSanPhamGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSanPhamGia.FormattingEnabled = true;
             this.cbbSanPhamGia.Location = new System.Drawing.Point(251, 45);
             this.cbbSanPhamGia.Name = "cbbSanPhamGia";
-            this.cbbSanPhamGia.Size = new System.Drawing.Size(300, 28);
+            this.cbbSanPhamGia.Size = new System.Drawing.Size(600, 28);
             this.cbbSanPhamGia.TabIndex = 1;
+            this.cbbSanPhamGia.SelectedIndexChanged += new System.EventHandler(this.cbbSanPhamGia_SelectedIndexChanged);
             // 
             // lblXemGiaSP
             // 
@@ -248,7 +244,7 @@
             this.tabPageGiaNhap.Location = new System.Drawing.Point(4, 25);
             this.tabPageGiaNhap.Name = "tabPageGiaNhap";
             this.tabPageGiaNhap.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGiaNhap.Size = new System.Drawing.Size(1158, 642);
+            this.tabPageGiaNhap.Size = new System.Drawing.Size(1186, 683);
             this.tabPageGiaNhap.TabIndex = 1;
             this.tabPageGiaNhap.Text = "Giá nhập/Giá vốn";
             this.tabPageGiaNhap.UseVisualStyleBackColor = true;
@@ -265,11 +261,12 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1152, 636);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1180, 677);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // dataGV_GiaVon
             // 
+            this.dataGV_GiaVon.AllowUserToAddRows = false;
             this.dataGV_GiaVon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_GiaVon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSanPham,
@@ -277,65 +274,61 @@
             this.DonGia,
             this.NgayNhap});
             this.dataGV_GiaVon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGV_GiaVon.Location = new System.Drawing.Point(3, 130);
+            this.dataGV_GiaVon.Location = new System.Drawing.Point(3, 138);
             this.dataGV_GiaVon.Name = "dataGV_GiaVon";
             this.dataGV_GiaVon.RowTemplate.Height = 24;
-            this.dataGV_GiaVon.Size = new System.Drawing.Size(1146, 503);
+            this.dataGV_GiaVon.Size = new System.Drawing.Size(1174, 536);
             this.dataGV_GiaVon.TabIndex = 0;
             // 
             // MaSanPham
             // 
+            this.MaSanPham.DataPropertyName = "MaSP";
             this.MaSanPham.HeaderText = "Mã sản phẩm";
             this.MaSanPham.Name = "MaSanPham";
             this.MaSanPham.Width = 140;
             // 
             // TenSanPham
             // 
+            this.TenSanPham.DataPropertyName = "TenSP";
             this.TenSanPham.HeaderText = "Tên sản phẩm";
             this.TenSanPham.Name = "TenSanPham";
             this.TenSanPham.Width = 250;
             // 
             // DonGia
             // 
+            this.DonGia.DataPropertyName = "DonGia";
             this.DonGia.HeaderText = "Giá vốn";
             this.DonGia.Name = "DonGia";
             this.DonGia.Width = 120;
             // 
             // NgayNhap
             // 
-            this.NgayNhap.HeaderText = "Ngày áp dụng";
+            this.NgayNhap.DataPropertyName = "NgayNhap";
+            this.NgayNhap.HeaderText = "Ngày nhập";
             this.NgayNhap.Name = "NgayNhap";
             this.NgayNhap.Width = 150;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnXemBDGiaVon);
             this.panel2.Controls.Add(this.cbbSanPhamVon);
             this.panel2.Controls.Add(this.lblXemGiaVon);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1146, 121);
+            this.panel2.Size = new System.Drawing.Size(1174, 129);
             this.panel2.TabIndex = 1;
-            // 
-            // btnXemBDGiaVon
-            // 
-            this.btnXemBDGiaVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXemBDGiaVon.Location = new System.Drawing.Point(649, 38);
-            this.btnXemBDGiaVon.Name = "btnXemBDGiaVon";
-            this.btnXemBDGiaVon.Size = new System.Drawing.Size(150, 40);
-            this.btnXemBDGiaVon.TabIndex = 2;
-            this.btnXemBDGiaVon.Text = "Xem biểu đồ";
-            this.btnXemBDGiaVon.UseVisualStyleBackColor = true;
             // 
             // cbbSanPhamVon
             // 
+            this.cbbSanPhamVon.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbbSanPhamVon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbSanPhamVon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSanPhamVon.FormattingEnabled = true;
             this.cbbSanPhamVon.Location = new System.Drawing.Point(287, 45);
             this.cbbSanPhamVon.Name = "cbbSanPhamVon";
-            this.cbbSanPhamVon.Size = new System.Drawing.Size(300, 28);
+            this.cbbSanPhamVon.Size = new System.Drawing.Size(600, 28);
             this.cbbSanPhamVon.TabIndex = 1;
+            this.cbbSanPhamVon.SelectedIndexChanged += new System.EventHandler(this.cbbSanPhamVon_SelectedIndexChanged);
             // 
             // lblXemGiaVon
             // 
@@ -352,7 +345,7 @@
             this.tabPageGiamGia.Controls.Add(this.tableLayoutPanel4);
             this.tabPageGiamGia.Location = new System.Drawing.Point(4, 25);
             this.tabPageGiamGia.Name = "tabPageGiamGia";
-            this.tabPageGiamGia.Size = new System.Drawing.Size(1158, 642);
+            this.tabPageGiamGia.Size = new System.Drawing.Size(1186, 683);
             this.tabPageGiamGia.TabIndex = 2;
             this.tabPageGiamGia.Text = "Giá giảm(Phần trăm)";
             this.tabPageGiamGia.UseVisualStyleBackColor = true;
@@ -369,11 +362,12 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1158, 642);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1186, 683);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // dataGV_GiamGia
             // 
+            this.dataGV_GiamGia.AllowUserToAddRows = false;
             this.dataGV_GiamGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_GiamGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaGiam,
@@ -383,76 +377,74 @@
             this.NgayTH,
             this.NgayKT});
             this.dataGV_GiamGia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGV_GiamGia.Location = new System.Drawing.Point(3, 131);
+            this.dataGV_GiamGia.Location = new System.Drawing.Point(3, 139);
             this.dataGV_GiamGia.Name = "dataGV_GiamGia";
             this.dataGV_GiamGia.RowTemplate.Height = 24;
-            this.dataGV_GiamGia.Size = new System.Drawing.Size(1152, 508);
+            this.dataGV_GiamGia.Size = new System.Drawing.Size(1180, 541);
             this.dataGV_GiamGia.TabIndex = 0;
             // 
             // MaGiam
             // 
+            this.MaGiam.DataPropertyName = "MaGiam";
             this.MaGiam.HeaderText = "Mã giảm";
             this.MaGiam.Name = "MaGiam";
             // 
             // PhanTramGiam
             // 
+            this.PhanTramGiam.DataPropertyName = "PhanTramGiam";
             this.PhanTramGiam.HeaderText = "Phần trăm giảm";
             this.PhanTramGiam.Name = "PhanTramGiam";
             this.PhanTramGiam.Width = 140;
             // 
             // msp
             // 
+            this.msp.DataPropertyName = "MaSP";
             this.msp.HeaderText = "Mã sản phẩm";
             this.msp.Name = "msp";
             this.msp.Width = 130;
             // 
             // tsp
             // 
+            this.tsp.DataPropertyName = "TenSP";
             this.tsp.HeaderText = "Tên sản phẩm";
             this.tsp.Name = "tsp";
             this.tsp.Width = 250;
             // 
             // NgayTH
             // 
+            this.NgayTH.DataPropertyName = "NgayTH";
             this.NgayTH.HeaderText = "Ngày thực hiện";
             this.NgayTH.Name = "NgayTH";
             this.NgayTH.Width = 130;
             // 
             // NgayKT
             // 
+            this.NgayKT.DataPropertyName = "NgayKT";
             this.NgayKT.HeaderText = "Ngày kết thúc";
             this.NgayKT.Name = "NgayKT";
             this.NgayKT.Width = 130;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnXemBDGiam);
             this.panel3.Controls.Add(this.cbbSanPhamGiam);
             this.panel3.Controls.Add(this.lblXemGiamGia);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1152, 122);
+            this.panel3.Size = new System.Drawing.Size(1180, 130);
             this.panel3.TabIndex = 1;
-            // 
-            // btnXemBDGiam
-            // 
-            this.btnXemBDGiam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXemBDGiam.Location = new System.Drawing.Point(671, 38);
-            this.btnXemBDGiam.Name = "btnXemBDGiam";
-            this.btnXemBDGiam.Size = new System.Drawing.Size(150, 40);
-            this.btnXemBDGiam.TabIndex = 2;
-            this.btnXemBDGiam.Text = "Xem biểu đồ";
-            this.btnXemBDGiam.UseVisualStyleBackColor = true;
             // 
             // cbbSanPhamGiam
             // 
+            this.cbbSanPhamGiam.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbbSanPhamGiam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbSanPhamGiam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSanPhamGiam.FormattingEnabled = true;
             this.cbbSanPhamGiam.Location = new System.Drawing.Point(297, 45);
             this.cbbSanPhamGiam.Name = "cbbSanPhamGiam";
-            this.cbbSanPhamGiam.Size = new System.Drawing.Size(300, 28);
+            this.cbbSanPhamGiam.Size = new System.Drawing.Size(600, 28);
             this.cbbSanPhamGiam.TabIndex = 1;
+            this.cbbSanPhamGiam.SelectedIndexChanged += new System.EventHandler(this.cbbSanPhamGiam_SelectedIndexChanged);
             // 
             // lblXemGiamGia
             // 
@@ -471,6 +463,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UC_LichSuGia";
             this.Size = new System.Drawing.Size(1200, 780);
+            this.Load += new System.EventHandler(this.UC_LichSuGia_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabControlLSGia.ResumeLayout(false);
@@ -501,39 +494,36 @@
         private System.Windows.Forms.TabPage tabPageGiaBan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGV_GiaSanPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayApDung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnXemBDGiaBan;
         private System.Windows.Forms.ComboBox cbbSanPhamGia;
         private System.Windows.Forms.Label lblXemGiaSP;
         private System.Windows.Forms.TabPage tabPageGiaNhap;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.DataGridView dataGV_GiaVon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSanPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnXemBDGiaVon;
         private System.Windows.Forms.ComboBox cbbSanPhamVon;
         private System.Windows.Forms.Label lblXemGiaVon;
         private System.Windows.Forms.TabPage tabPageGiamGia;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.DataGridView dataGV_GiamGia;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ComboBox cbbSanPhamGiam;
+        private System.Windows.Forms.Label lblXemGiamGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaGiam;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhanTramGiam;
         private System.Windows.Forms.DataGridViewTextBoxColumn msp;
         private System.Windows.Forms.DataGridViewTextBoxColumn tsp;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTH;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKT;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnXemBDGiam;
-        private System.Windows.Forms.ComboBox cbbSanPhamGiam;
-        private System.Windows.Forms.Label lblXemGiamGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayApDung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
     }
 }

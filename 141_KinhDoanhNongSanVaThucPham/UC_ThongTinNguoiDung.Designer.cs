@@ -62,6 +62,8 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBoxNhanVien = new System.Windows.Forms.PictureBox();
             this.txtHinhNV = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnDiemDanh = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -81,8 +83,6 @@
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnDiemDanh = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -91,6 +91,7 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNhanVien)).BeginInit();
+            this.tableLayoutPanel11.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -99,7 +100,6 @@
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.tableLayoutPanel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -180,14 +180,14 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 556F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1305, 535);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
@@ -256,49 +256,49 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(265, 339);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(250, 22);
+            this.txtEmail.Size = new System.Drawing.Size(500, 22);
             this.txtEmail.TabIndex = 17;
             // 
             // txtSDT
             // 
             this.txtSDT.Location = new System.Drawing.Point(265, 291);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(250, 22);
+            this.txtSDT.Size = new System.Drawing.Size(500, 22);
             this.txtSDT.TabIndex = 16;
             // 
             // txtNS
             // 
             this.txtNS.Location = new System.Drawing.Point(265, 243);
             this.txtNS.Name = "txtNS";
-            this.txtNS.Size = new System.Drawing.Size(250, 22);
+            this.txtNS.Size = new System.Drawing.Size(500, 22);
             this.txtNS.TabIndex = 15;
             // 
             // txtGT
             // 
             this.txtGT.Location = new System.Drawing.Point(265, 195);
             this.txtGT.Name = "txtGT";
-            this.txtGT.Size = new System.Drawing.Size(250, 22);
+            this.txtGT.Size = new System.Drawing.Size(500, 22);
             this.txtGT.TabIndex = 14;
             // 
             // txtQuyen
             // 
             this.txtQuyen.Location = new System.Drawing.Point(265, 147);
             this.txtQuyen.Name = "txtQuyen";
-            this.txtQuyen.Size = new System.Drawing.Size(250, 22);
+            this.txtQuyen.Size = new System.Drawing.Size(500, 22);
             this.txtQuyen.TabIndex = 13;
             // 
             // txtCV
             // 
             this.txtCV.Location = new System.Drawing.Point(265, 99);
             this.txtCV.Name = "txtCV";
-            this.txtCV.Size = new System.Drawing.Size(250, 22);
+            this.txtCV.Size = new System.Drawing.Size(500, 22);
             this.txtCV.TabIndex = 12;
             // 
             // txtTenNV
             // 
             this.txtTenNV.Location = new System.Drawing.Point(265, 51);
             this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.Size = new System.Drawing.Size(250, 22);
+            this.txtTenNV.Size = new System.Drawing.Size(500, 22);
             this.txtTenNV.TabIndex = 11;
             // 
             // lblMaNV
@@ -341,7 +341,7 @@
             // 
             this.txtMaNV.Location = new System.Drawing.Point(265, 3);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(250, 22);
+            this.txtMaNV.Size = new System.Drawing.Size(500, 22);
             this.txtMaNV.TabIndex = 10;
             // 
             // lblTenDN
@@ -366,14 +366,14 @@
             // 
             this.txtTenDN.Location = new System.Drawing.Point(265, 435);
             this.txtTenDN.Name = "txtTenDN";
-            this.txtTenDN.Size = new System.Drawing.Size(250, 22);
+            this.txtTenDN.Size = new System.Drawing.Size(500, 22);
             this.txtTenDN.TabIndex = 21;
             // 
             // txtMK
             // 
             this.txtMK.Location = new System.Drawing.Point(265, 483);
             this.txtMK.Name = "txtMK";
-            this.txtMK.Size = new System.Drawing.Size(250, 22);
+            this.txtMK.Size = new System.Drawing.Size(500, 22);
             this.txtMK.TabIndex = 22;
             // 
             // lblGt
@@ -445,6 +445,33 @@
             this.txtHinhNV.Name = "txtHinhNV";
             this.txtHinhNV.Size = new System.Drawing.Size(250, 22);
             this.txtHinhNV.TabIndex = 14;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 3;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel11.Controls.Add(this.btnDiemDanh, 1, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 83);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1305, 48);
+            this.tableLayoutPanel11.TabIndex = 2;
+            // 
+            // btnDiemDanh
+            // 
+            this.btnDiemDanh.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDiemDanh.Location = new System.Drawing.Point(133, 3);
+            this.btnDiemDanh.Name = "btnDiemDanh";
+            this.btnDiemDanh.Size = new System.Drawing.Size(120, 42);
+            this.btnDiemDanh.TabIndex = 3;
+            this.btnDiemDanh.Text = "Điểm danh";
+            this.btnDiemDanh.UseVisualStyleBackColor = true;
+            this.btnDiemDanh.Click += new System.EventHandler(this.btnDiemDanh_Click);
             // 
             // tabPage2
             // 
@@ -655,33 +682,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 3;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel11.Controls.Add(this.btnDiemDanh, 1, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 83);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(1305, 48);
-            this.tableLayoutPanel11.TabIndex = 2;
-            // 
-            // btnDiemDanh
-            // 
-            this.btnDiemDanh.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDiemDanh.Location = new System.Drawing.Point(133, 3);
-            this.btnDiemDanh.Name = "btnDiemDanh";
-            this.btnDiemDanh.Size = new System.Drawing.Size(120, 42);
-            this.btnDiemDanh.TabIndex = 3;
-            this.btnDiemDanh.Text = "Điểm danh";
-            this.btnDiemDanh.UseVisualStyleBackColor = true;
-            this.btnDiemDanh.Click += new System.EventHandler(this.btnDiemDanh_Click);
-            // 
             // UC_ThongTinNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -701,6 +701,7 @@
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNhanVien)).EndInit();
+            this.tableLayoutPanel11.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -711,7 +712,6 @@
             this.tableLayoutPanel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.tableLayoutPanel11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -1014,5 +1014,114 @@ namespace _141_KinhDoanhNongSanVaThucPham
             }
             catch { }
         }
+
+        private void btnInTatCaHD_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                exportExcel_HD(dataGV_HoaDon, saveFileDialog1.FileName);
+        }
+        private void exportExcel_HD(DataGridView dv, string fileName)
+        {
+            Microsoft.Office.Interop.Excel.Application excel;
+            Microsoft.Office.Interop.Excel.Workbook workbook;
+            Microsoft.Office.Interop.Excel.Worksheet worksheet;
+
+            try
+            {
+                excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = false;
+                excel.DisplayAlerts = false;
+
+                workbook = excel.Workbooks.Add(Type.Missing);
+
+                worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
+                worksheet.Name = "Báo cáo hóa đơn";
+
+                worksheet.Cells[2, 2] = "BÁO CÁO HÓA ĐƠN";
+                worksheet.Cells[3, 2] = "Từ " + txtNgayDau.Text + "đến " + txtNgayCuoi.Text;
+
+                int tkshh = dataGV_HoaDon.RowCount;
+                for (int i = 0; i < dataGV_HoaDon.ColumnCount; i++)
+                {
+                    worksheet.Cells[5, i + 1] = dataGV_HoaDon.Columns[i].HeaderText;
+                    worksheet.Cells[tkshh + 6, 6] = (dataGV_HoaDon.DataSource as DataTable).Compute("Sum(TongTien)", "");
+                    worksheet.Cells[tkshh + 6, 7] = (dataGV_HoaDon.DataSource as DataTable).Compute("Sum(TienPhaiTra)", "");
+                }
+
+                for (int i = 0; i < dataGV_HoaDon.RowCount; i++)
+                {
+                    for (int j = 0; j < dataGV_HoaDon.ColumnCount; j++)
+                    {
+                        worksheet.Cells[i + 6, j + 1] = dataGV_HoaDon.Rows[i].Cells[j].Value.ToString();
+
+                    }
+                }
+
+                worksheet.Cells[tkshh + 6, 1] = "Tổng";
+                worksheet.Range["A" + (tkshh + 6), "L" + (tkshh + 6)].Font.Bold = true;
+                //Định dạng trang
+                worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlLandscape;
+                worksheet.PageSetup.PaperSize = Microsoft.Office.Interop.Excel.XlPaperSize.xlPaperA4;
+                worksheet.PageSetup.LeftMargin = 0;
+                worksheet.PageSetup.RightMargin = 0;
+                worksheet.PageSetup.TopMargin = 0;
+                worksheet.PageSetup.BottomMargin = 0;
+
+                //Định dạng cột
+                worksheet.Range["A1"].ColumnWidth = 8.78;
+                worksheet.Range["B1"].ColumnWidth = 8;
+                worksheet.Range["C1"].ColumnWidth = 9.56;
+                worksheet.Range["D1"].ColumnWidth = 16.78;
+                worksheet.Range["E1"].ColumnWidth = 16.78;
+                worksheet.Range["F1"].ColumnWidth = 12.11;
+                worksheet.Range["G1"].ColumnWidth = 13.56;
+                worksheet.Range["H1"].ColumnWidth = 8.78;
+                worksheet.Range["I1"].ColumnWidth = 9.89;
+                worksheet.Range["J1"].ColumnWidth = 15.44;
+                worksheet.Range["K1"].ColumnWidth = 8.78;
+                worksheet.Range["L1"].ColumnWidth = 11.11;
+
+                //Định dạng fone chữ
+                worksheet.Range["A1", "L100"].Font.Name = "Times New Roman";
+                worksheet.Range["A1", "L100"].Font.Size = 13;
+                worksheet.Range["A2", "L2"].MergeCells = true;
+                worksheet.Range["A2", "L2"].Font.Bold = true;
+                worksheet.Range["A2", "L2"].Font.Size = 15;
+
+                worksheet.Range["A3", "L3"].MergeCells = true;
+                worksheet.Range["A3", "L3"].Font.Italic = true;
+                worksheet.Range["A3", "L3"].Font.Size = 15;
+
+                worksheet.Range["A5", "L5"].Font.Bold = true;
+
+                //Kẻ bảng
+                worksheet.Range["A5", "L" + (tkshh + 6)].Borders.LineStyle = 1;
+
+                //Định dạng các dòng text
+                worksheet.Range["A2", "L2"].HorizontalAlignment = 3;
+                worksheet.Range["A3", "L3"].HorizontalAlignment = 3;
+                worksheet.Range["A5", "L5"].HorizontalAlignment = 3;
+                worksheet.Range["A5", "A" + (tkshh + 6)].HorizontalAlignment = 3;
+                worksheet.Range["B5", "B" + (tkshh + 5)].HorizontalAlignment = 3;
+                worksheet.Range["C5", "C" + (tkshh + 5)].HorizontalAlignment = 3;
+                worksheet.Range["H5", "H" + (tkshh + 5)].HorizontalAlignment = 3;
+                worksheet.Range["I5", "I" + (tkshh + 5)].HorizontalAlignment = 3;
+                worksheet.Range["L5", "L" + (tkshh + 5)].HorizontalAlignment = 3;
+
+                workbook.SaveAs(fileName);
+                workbook.Close();
+                excel.Quit();
+                MessageBox.Show("Xuất excel thành công!!!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                workbook = null;
+                worksheet = null;
+            }
+        }
     }
 }

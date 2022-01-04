@@ -33,6 +33,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageTheoThang = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGV_DTTheoThang = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayban = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDonHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXemChiTietThang = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,9 +51,14 @@
             this.btnXemTKThang = new System.Windows.Forms.Button();
             this.btnInExlThang = new System.Windows.Forms.Button();
             this.btnBieuDo = new System.Windows.Forms.Button();
-            this.dataGV_DTTheoThang = new System.Windows.Forms.DataGridView();
             this.tabPageNhanVien = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.dataGV_DTTheoNhanVien = new System.Windows.Forms.DataGridView();
+            this.thutu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sodh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tienhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXemChiTietNV = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,13 +71,6 @@
             this.txtNgayKT_NV = new System.Windows.Forms.DateTimePicker();
             this.btnXemTKNhanVien = new System.Windows.Forms.Button();
             this.btnInExlNV = new System.Windows.Forms.Button();
-            this.dataGV_DTTheoNhanVien = new System.Windows.Forms.DataGridView();
-            this.thutu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sodh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tienhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageKhachHang = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
@@ -84,10 +87,9 @@
             this.btnInExlKH = new System.Windows.Forms.Button();
             this.dataGV_DTTheoKhachHang = new System.Windows.Forms.DataGridView();
             this.tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ls = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tongth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageHangHoa = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
@@ -111,29 +113,24 @@
             this.SoLuongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tth = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_Tieude = new System.Windows.Forms.Label();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDonHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongBan_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TienHang_tt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageTheoThang.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoThang)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoThang)).BeginInit();
             this.tabPageNhanVien.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoNhanVien)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoNhanVien)).BeginInit();
             this.tabPageKhachHang.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
@@ -201,8 +198,8 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.dataGV_DTTheoThang, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -211,8 +208,53 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1180, 630);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // dataGV_DTTheoThang
+            // 
+            this.dataGV_DTTheoThang.AllowUserToAddRows = false;
+            this.dataGV_DTTheoThang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGV_DTTheoThang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.ngayban,
+            this.SoDonHang_tt,
+            this.TienHang_tt});
+            this.dataGV_DTTheoThang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGV_DTTheoThang.Location = new System.Drawing.Point(3, 78);
+            this.dataGV_DTTheoThang.Name = "dataGV_DTTheoThang";
+            this.dataGV_DTTheoThang.RowTemplate.Height = 24;
+            this.dataGV_DTTheoThang.Size = new System.Drawing.Size(1174, 549);
+            this.dataGV_DTTheoThang.TabIndex = 2;
+            this.dataGV_DTTheoThang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DTTheoThang_CellClick);
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            // 
+            // ngayban
+            // 
+            this.ngayban.DataPropertyName = "NgayLap";
+            this.ngayban.HeaderText = "Ngày";
+            this.ngayban.Name = "ngayban";
+            this.ngayban.Width = 120;
+            // 
+            // SoDonHang_tt
+            // 
+            this.SoDonHang_tt.DataPropertyName = "SoDonHang_tt";
+            this.SoDonHang_tt.HeaderText = "Số đơn hàng";
+            this.SoDonHang_tt.Name = "SoDonHang_tt";
+            this.SoDonHang_tt.Width = 150;
+            // 
+            // TienHang_tt
+            // 
+            this.TienHang_tt.DataPropertyName = "TienHang_tt";
+            this.TienHang_tt.HeaderText = "Tiền hàng";
+            this.TienHang_tt.Name = "TienHang_tt";
+            this.TienHang_tt.Width = 150;
             // 
             // tableLayoutPanel3
             // 
@@ -376,24 +418,7 @@
             this.btnBieuDo.TabIndex = 12;
             this.btnBieuDo.Text = "Biểu đồ";
             this.btnBieuDo.UseVisualStyleBackColor = true;
-            // 
-            // dataGV_DTTheoThang
-            // 
-            this.dataGV_DTTheoThang.AllowUserToAddRows = false;
-            this.dataGV_DTTheoThang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGV_DTTheoThang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
-            this.NgayLap,
-            this.SoDonHang_tt,
-            this.SoLuongBan_tt,
-            this.TienHang_tt});
-            this.dataGV_DTTheoThang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGV_DTTheoThang.Location = new System.Drawing.Point(3, 78);
-            this.dataGV_DTTheoThang.Name = "dataGV_DTTheoThang";
-            this.dataGV_DTTheoThang.RowTemplate.Height = 24;
-            this.dataGV_DTTheoThang.Size = new System.Drawing.Size(1174, 549);
-            this.dataGV_DTTheoThang.TabIndex = 1;
-            this.dataGV_DTTheoThang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DTTheoThang_CellClick);
+            this.btnBieuDo.Click += new System.EventHandler(this.btnBieuDo_Click);
             // 
             // tabPageNhanVien
             // 
@@ -410,8 +435,8 @@
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.dataGV_DTTheoNhanVien, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
@@ -422,6 +447,58 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1180, 630);
             this.tableLayoutPanel8.TabIndex = 1;
+            // 
+            // dataGV_DTTheoNhanVien
+            // 
+            this.dataGV_DTTheoNhanVien.AllowUserToAddRows = false;
+            this.dataGV_DTTheoNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGV_DTTheoNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.thutu,
+            this.nv,
+            this.HoTenNV,
+            this.sodh,
+            this.tienhang});
+            this.dataGV_DTTheoNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGV_DTTheoNhanVien.Location = new System.Drawing.Point(3, 78);
+            this.dataGV_DTTheoNhanVien.Name = "dataGV_DTTheoNhanVien";
+            this.dataGV_DTTheoNhanVien.RowTemplate.Height = 24;
+            this.dataGV_DTTheoNhanVien.Size = new System.Drawing.Size(1174, 549);
+            this.dataGV_DTTheoNhanVien.TabIndex = 2;
+            this.dataGV_DTTheoNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DTTheoNhanVien_CellClick);
+            // 
+            // thutu
+            // 
+            this.thutu.DataPropertyName = "STT_nv";
+            this.thutu.HeaderText = "STT";
+            this.thutu.Name = "thutu";
+            // 
+            // nv
+            // 
+            this.nv.DataPropertyName = "MaNV";
+            this.nv.HeaderText = "Mã số";
+            this.nv.Name = "nv";
+            this.nv.Width = 120;
+            // 
+            // HoTenNV
+            // 
+            this.HoTenNV.DataPropertyName = "TenNV";
+            this.HoTenNV.HeaderText = "Họ và tên";
+            this.HoTenNV.Name = "HoTenNV";
+            this.HoTenNV.Width = 200;
+            // 
+            // sodh
+            // 
+            this.sodh.DataPropertyName = "SoDonHang_nv";
+            this.sodh.HeaderText = "Số đơn hàng";
+            this.sodh.Name = "sodh";
+            this.sodh.Width = 150;
+            // 
+            // tienhang
+            // 
+            this.tienhang.DataPropertyName = "TienHang_nv";
+            this.tienhang.HeaderText = "Tiền hàng";
+            this.tienhang.Name = "tienhang";
+            this.tienhang.Width = 150;
             // 
             // tableLayoutPanel9
             // 
@@ -445,6 +522,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(1174, 57);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
@@ -575,66 +653,6 @@
             this.btnInExlNV.UseVisualStyleBackColor = true;
             this.btnInExlNV.Click += new System.EventHandler(this.btnInExlNV_Click);
             // 
-            // dataGV_DTTheoNhanVien
-            // 
-            this.dataGV_DTTheoNhanVien.AllowUserToAddRows = false;
-            this.dataGV_DTTheoNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGV_DTTheoNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.thutu,
-            this.MaNV,
-            this.TenNV,
-            this.sodh,
-            this.soluong,
-            this.tienhang});
-            this.dataGV_DTTheoNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGV_DTTheoNhanVien.Location = new System.Drawing.Point(3, 78);
-            this.dataGV_DTTheoNhanVien.Name = "dataGV_DTTheoNhanVien";
-            this.dataGV_DTTheoNhanVien.RowTemplate.Height = 24;
-            this.dataGV_DTTheoNhanVien.Size = new System.Drawing.Size(1174, 549);
-            this.dataGV_DTTheoNhanVien.TabIndex = 1;
-            this.dataGV_DTTheoNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_DTTheoNhanVien_CellClick);
-            // 
-            // thutu
-            // 
-            this.thutu.DataPropertyName = "STT_nv";
-            this.thutu.HeaderText = "STT";
-            this.thutu.Name = "thutu";
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã số";
-            this.MaNV.Name = "MaNV";
-            this.MaNV.Width = 140;
-            // 
-            // TenNV
-            // 
-            this.TenNV.DataPropertyName = "TenNV";
-            this.TenNV.HeaderText = "Họ và tên";
-            this.TenNV.Name = "TenNV";
-            this.TenNV.Width = 200;
-            // 
-            // sodh
-            // 
-            this.sodh.DataPropertyName = "SoDonHang_nv";
-            this.sodh.HeaderText = "Số đơn hàng";
-            this.sodh.Name = "sodh";
-            this.sodh.Width = 150;
-            // 
-            // soluong
-            // 
-            this.soluong.DataPropertyName = "SoLuongBan_nv";
-            this.soluong.HeaderText = "Số lượng";
-            this.soluong.Name = "soluong";
-            this.soluong.Width = 120;
-            // 
-            // tienhang
-            // 
-            this.tienhang.DataPropertyName = "TienHang_nv";
-            this.tienhang.HeaderText = "Tiền hàng";
-            this.tienhang.Name = "tienhang";
-            this.tienhang.Width = 150;
-            // 
             // tabPageKhachHang
             // 
             this.tabPageKhachHang.Controls.Add(this.tableLayoutPanel14);
@@ -684,6 +702,7 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(1180, 57);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
@@ -820,10 +839,9 @@
             this.dataGV_DTTheoKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_DTTheoKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tt,
-            this.MaKH,
-            this.TenKH,
+            this.kh,
+            this.HoTenKH,
             this.SoDonHang,
-            this.ls,
             this.tongth});
             this.dataGV_DTTheoKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGV_DTTheoKhachHang.Location = new System.Drawing.Point(3, 78);
@@ -838,35 +856,26 @@
             this.tt.DataPropertyName = "STT_kh";
             this.tt.HeaderText = "STT";
             this.tt.Name = "tt";
-            this.tt.Width = 80;
             // 
-            // MaKH
+            // kh
             // 
-            this.MaKH.DataPropertyName = "MaKH";
-            this.MaKH.HeaderText = "Mã số";
-            this.MaKH.Name = "MaKH";
-            this.MaKH.Width = 160;
+            this.kh.DataPropertyName = "MaKH";
+            this.kh.HeaderText = "Mã số";
+            this.kh.Name = "kh";
             // 
-            // TenKH
+            // HoTenKH
             // 
-            this.TenKH.DataPropertyName = "TenKH";
-            this.TenKH.HeaderText = "Họ và tên";
-            this.TenKH.Name = "TenKH";
-            this.TenKH.Width = 220;
+            this.HoTenKH.DataPropertyName = "TenKH";
+            this.HoTenKH.HeaderText = "Họ và tên";
+            this.HoTenKH.Name = "HoTenKH";
+            this.HoTenKH.Width = 200;
             // 
             // SoDonHang
             // 
             this.SoDonHang.DataPropertyName = "SoDonHang_kh";
             this.SoDonHang.HeaderText = "Số đơn hàng";
             this.SoDonHang.Name = "SoDonHang";
-            this.SoDonHang.Width = 130;
-            // 
-            // ls
-            // 
-            this.ls.DataPropertyName = "SoLuongBan_kh";
-            this.ls.HeaderText = "Số lượng";
-            this.ls.Name = "ls";
-            this.ls.Width = 120;
+            this.SoDonHang.Width = 150;
             // 
             // tongth
             // 
@@ -1128,40 +1137,6 @@
             this.lbl_Tieude.Text = "THỐNG KÊ DOANH THU BÁN HÀNG";
             this.lbl_Tieude.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // STT
-            // 
-            this.STT.DataPropertyName = "STT";
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            // 
-            // NgayLap
-            // 
-            this.NgayLap.DataPropertyName = "NgayLap";
-            this.NgayLap.HeaderText = "Ngày";
-            this.NgayLap.Name = "NgayLap";
-            this.NgayLap.Width = 120;
-            // 
-            // SoDonHang_tt
-            // 
-            this.SoDonHang_tt.DataPropertyName = "SoDonHang_tt";
-            this.SoDonHang_tt.HeaderText = "Số đơn hàng";
-            this.SoDonHang_tt.Name = "SoDonHang_tt";
-            this.SoDonHang_tt.Width = 150;
-            // 
-            // SoLuongBan_tt
-            // 
-            this.SoLuongBan_tt.DataPropertyName = "SoLuongBan_tt";
-            this.SoLuongBan_tt.HeaderText = "Số lượng";
-            this.SoLuongBan_tt.Name = "SoLuongBan_tt";
-            this.SoLuongBan_tt.Width = 120;
-            // 
-            // TienHang_tt
-            // 
-            this.TienHang_tt.DataPropertyName = "TienHang_tt";
-            this.TienHang_tt.HeaderText = "Tiền hàng";
-            this.TienHang_tt.Name = "TienHang_tt";
-            this.TienHang_tt.Width = 150;
-            // 
             // UC_ThongKeDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1174,6 +1149,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageTheoThang.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoThang)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
@@ -1181,9 +1157,9 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoThang)).EndInit();
             this.tabPageNhanVien.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoNhanVien)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
@@ -1191,7 +1167,6 @@
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
             this.tableLayoutPanel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGV_DTTheoNhanVien)).EndInit();
             this.tabPageKhachHang.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
@@ -1236,7 +1211,6 @@
         private System.Windows.Forms.Button btnXemTKThang;
         private System.Windows.Forms.Button btnInExlThang;
         private System.Windows.Forms.Button btnBieuDo;
-        private System.Windows.Forms.DataGridView dataGV_DTTheoThang;
         private System.Windows.Forms.TabPage tabPageNhanVien;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
@@ -1251,13 +1225,6 @@
         private System.Windows.Forms.DateTimePicker txtNgayKT_NV;
         private System.Windows.Forms.Button btnXemTKNhanVien;
         private System.Windows.Forms.Button btnInExlNV;
-        private System.Windows.Forms.DataGridView dataGV_DTTheoNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thutu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sodh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tienhang;
         private System.Windows.Forms.TabPage tabPageKhachHang;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
@@ -1272,13 +1239,6 @@
         private System.Windows.Forms.DateTimePicker txtNgayKT_KH;
         private System.Windows.Forms.Button btnXemTKKhachHang;
         private System.Windows.Forms.Button btnInExlKH;
-        private System.Windows.Forms.DataGridView dataGV_DTTheoKhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoDonHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ls;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tongth;
         private System.Windows.Forms.TabPage tabPageHangHoa;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
@@ -1301,11 +1261,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn tth;
         private System.Windows.Forms.Label lbl_Tieude;
+        private System.Windows.Forms.DataGridView dataGV_DTTheoKhachHang;
+        private System.Windows.Forms.DataGridView dataGV_DTTheoThang;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayLap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngayban;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDonHang_tt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan_tt;
         private System.Windows.Forms.DataGridViewTextBoxColumn TienHang_tt;
+        private System.Windows.Forms.DataGridView dataGV_DTTheoNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thutu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTenNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sodh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tienhang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTenKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoDonHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongth;
 
     }
 }

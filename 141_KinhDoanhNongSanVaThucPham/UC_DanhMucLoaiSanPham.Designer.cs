@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxChucNang = new System.Windows.Forms.GroupBox();
+            this.lblTenLSP = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnSuaLoai = new System.Windows.Forms.Button();
             this.btnXoaLoai = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             // 
             // groupBoxChucNang
             // 
+            this.groupBoxChucNang.Controls.Add(this.lblTenLSP);
             this.groupBoxChucNang.Controls.Add(this.btnLamMoi);
             this.groupBoxChucNang.Controls.Add(this.btnSuaLoai);
             this.groupBoxChucNang.Controls.Add(this.btnXoaLoai);
@@ -78,6 +80,15 @@
             this.groupBoxChucNang.TabIndex = 2;
             this.groupBoxChucNang.TabStop = false;
             this.groupBoxChucNang.Text = "Chức năng";
+            // 
+            // lblTenLSP
+            // 
+            this.lblTenLSP.AutoSize = true;
+            this.lblTenLSP.Location = new System.Drawing.Point(221, 51);
+            this.lblTenLSP.Name = "lblTenLSP";
+            this.lblTenLSP.Size = new System.Drawing.Size(96, 17);
+            this.lblTenLSP.TabIndex = 5;
+            this.lblTenLSP.Text = "Nhập tên LSP";
             // 
             // btnLamMoi
             // 
@@ -125,7 +136,7 @@
             // 
             // txtTenLoai
             // 
-            this.txtTenLoai.Location = new System.Drawing.Point(268, 50);
+            this.txtTenLoai.Location = new System.Drawing.Point(325, 48);
             this.txtTenLoai.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenLoai.Name = "txtTenLoai";
             this.txtTenLoai.Size = new System.Drawing.Size(249, 22);
@@ -206,5 +217,6 @@
         private System.Windows.Forms.DataGridView dataGV_LoaiSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLoaiSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiSP;
+        private System.Windows.Forms.Label lblTenLSP;
     }
 }

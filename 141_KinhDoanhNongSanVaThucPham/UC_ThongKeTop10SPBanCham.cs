@@ -25,16 +25,18 @@ namespace _141_KinhDoanhNongSanVaThucPham
         private void btnXemTK_Top10SPBanCham_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = sp.loadThongKe_Top10SPBanCham();
-            dataGV_Top10SPBanCham.DataSource = dt;
+            var fromDate = txtNgayBD.Value;
+            var toDate = txtNgayKT.Value;
+            dt = sp.loadThongKe_Top5SPBanCham(fromDate, toDate);
+            dataGV_Top5SPBanCham.DataSource = dt;
         }
 
         private void btnInExcel_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                exportExcel_top10BanCham(dataGV_Top10SPBanCham, saveFileDialog1.FileName);
+                exportExcel_top5BanCham(dataGV_Top5SPBanCham, saveFileDialog1.FileName);
         }
-        private void exportExcel_top10BanCham(DataGridView dv, string fileName)
+        private void exportExcel_top5BanCham(DataGridView dv, string fileName)
         {
             Microsoft.Office.Interop.Excel.Application excel;
             Microsoft.Office.Interop.Excel.Workbook workbook;
@@ -49,23 +51,24 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 workbook = excel.Workbooks.Add(Type.Missing);
 
                 worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
-                worksheet.Name = "Thống kê Top 10 SP Bán Chậm";
+                worksheet.Name = "Thống kê Top 5 SP Bán Chậm";
 
-                worksheet.Cells[2, 2] = "BÁO CÁO THỐNG KÊ TOP 10 SẢN PHẨM BÁN CHẬM NHẤT";
+                worksheet.Cells[2, 2] = "BÁO CÁO THỐNG KÊ TOP 5 SẢN PHẨM BÁN CHẬM NHẤT";
+                worksheet.Cells[3, 2] = "Từ " + txtNgayBD.Text + " đến " + txtNgayKT.Text;
 
-                for (int i = 0; i < dataGV_Top10SPBanCham.ColumnCount; i++)
+                for (int i = 0; i < dataGV_Top5SPBanCham.ColumnCount; i++)
                 {
-                    worksheet.Cells[4, i + 1] = dataGV_Top10SPBanCham.Columns[i].HeaderText;
+                    worksheet.Cells[5, i + 1] = dataGV_Top5SPBanCham.Columns[i].HeaderText;
                 }
 
-                for (int i = 0; i < dataGV_Top10SPBanCham.RowCount; i++)
+                for (int i = 0; i < dataGV_Top5SPBanCham.RowCount; i++)
                 {
-                    for (int j = 0; j < dataGV_Top10SPBanCham.ColumnCount; j++)
+                    for (int j = 0; j < dataGV_Top5SPBanCham.ColumnCount; j++)
                     {
-                        worksheet.Cells[i + 5, j + 1] = dataGV_Top10SPBanCham.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 6, j + 1] = dataGV_Top5SPBanCham.Rows[i].Cells[j].Value.ToString();
                     }
                 }
-                int tkshh = dataGV_Top10SPBanCham.RowCount;
+                int tkshh = dataGV_Top5SPBanCham.RowCount;
 
                 //Định dạng trang
                 worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlPortrait;
@@ -91,14 +94,15 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 worksheet.Range["A3", "D3"].MergeCells = true;
                 worksheet.Range["A3", "D3"].Font.Italic = true;
 
-                worksheet.Range["A4", "D4"].Font.Bold = true;
+                worksheet.Range["A5", "D5"].Font.Bold = true;
 
                 //Kẻ bảng
-                worksheet.Range["A4", "D" + (tkshh + 4)].Borders.LineStyle = 1;
+                worksheet.Range["A5", "D" + (tkshh + 5)].Borders.LineStyle = 1;
 
                 //Định dạng các dòng text
                 worksheet.Range["A2", "D2"].HorizontalAlignment = 3;
-                worksheet.Range["A4", "D4"].HorizontalAlignment = 3;
+                worksheet.Range["A3", "D3"].HorizontalAlignment = 3;
+                worksheet.Range["A5", "D5"].HorizontalAlignment = 3;
                 worksheet.Range["A5", "A" + (tkshh + 5)].HorizontalAlignment = 3;
                 worksheet.Range["C5", "C" + (tkshh + 5)].HorizontalAlignment = 3;
                 worksheet.Range["D5", "D" + (tkshh + 5)].HorizontalAlignment = 3;

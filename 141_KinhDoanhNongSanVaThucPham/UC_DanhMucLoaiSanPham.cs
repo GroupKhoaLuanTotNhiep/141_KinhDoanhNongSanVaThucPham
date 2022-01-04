@@ -129,5 +129,6 @@ namespace _141_KinhDoanhNongSanVaThucPham
             txtTenLoai.Focus();
             load();
         }
+
     }
 }

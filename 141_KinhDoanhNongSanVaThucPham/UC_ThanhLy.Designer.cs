@@ -95,6 +95,10 @@
             this.txtTKPhieuThanhLy = new System.Windows.Forms.TextBox();
             this.groupBoxPhieuThanhLy = new System.Windows.Forms.GroupBox();
             this.dataGV_PhieuThanhLy = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBoxCTPhieuThanhLy = new System.Windows.Forms.GroupBox();
+            this.dataGV_CTPhieuThanhLy = new System.Windows.Forms.DataGridView();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.MaPhieuTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,9 +106,6 @@
             this.LiDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.XuLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBoxCTPhieuThanhLy = new System.Windows.Forms.GroupBox();
-            this.dataGV_CTPhieuThanhLy = new System.Windows.Forms.DataGridView();
             this.MaTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MLo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TLo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -226,6 +227,7 @@
             this.btnInExcel.TabIndex = 5;
             this.btnInExcel.Text = "In Excel";
             this.btnInExcel.UseVisualStyleBackColor = true;
+            this.btnInExcel.Click += new System.EventHandler(this.btnInExcel_Click);
             // 
             // btnInReport
             // 
@@ -683,6 +685,7 @@
             this.btnInTatCaPTL.TabIndex = 1;
             this.btnInTatCaPTL.Text = "In tất cả";
             this.btnInTatCaPTL.UseVisualStyleBackColor = true;
+            this.btnInTatCaPTL.Click += new System.EventHandler(this.btnInTatCaPTL_Click);
             // 
             // btnXoaPhieuTL
             // 
@@ -770,6 +773,7 @@
             // 
             // dataGV_PhieuThanhLy
             // 
+            this.dataGV_PhieuThanhLy.AllowUserToAddRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -811,55 +815,6 @@
             this.dataGV_PhieuThanhLy.TabIndex = 0;
             this.dataGV_PhieuThanhLy.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_PhieuThanhLy_CellClick);
             // 
-            // MaPhieuTL
-            // 
-            this.MaPhieuTL.DataPropertyName = "MaPTL";
-            this.MaPhieuTL.HeaderText = "Mã phiếu thanh lý";
-            this.MaPhieuTL.Name = "MaPhieuTL";
-            this.MaPhieuTL.Width = 180;
-            // 
-            // NgayTL
-            // 
-            this.NgayTL.DataPropertyName = "NgayTL";
-            this.NgayTL.HeaderText = "Ngày thanh lý";
-            this.NgayTL.Name = "NgayTL";
-            this.NgayTL.Width = 150;
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã nhân viên";
-            this.MaNV.Name = "MaNV";
-            this.MaNV.Width = 150;
-            // 
-            // MaChiNhanh
-            // 
-            this.MaChiNhanh.DataPropertyName = "MaChiNhanh";
-            this.MaChiNhanh.HeaderText = "Mã chi nhánh";
-            this.MaChiNhanh.Name = "MaChiNhanh";
-            this.MaChiNhanh.Width = 150;
-            // 
-            // LiDo
-            // 
-            this.LiDo.DataPropertyName = "LiDo";
-            this.LiDo.HeaderText = "Lí do";
-            this.LiDo.Name = "LiDo";
-            this.LiDo.Width = 150;
-            // 
-            // XuLy
-            // 
-            this.XuLy.DataPropertyName = "XuLy";
-            this.XuLy.HeaderText = "Xử lý";
-            this.XuLy.Name = "XuLy";
-            this.XuLy.Width = 150;
-            // 
-            // TinhTrang
-            // 
-            this.TinhTrang.DataPropertyName = "TinhTrang";
-            this.TinhTrang.HeaderText = "Tình trạng";
-            this.TinhTrang.Name = "TinhTrang";
-            this.TinhTrang.Width = 150;
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
@@ -888,6 +843,7 @@
             // 
             // dataGV_CTPhieuThanhLy
             // 
+            this.dataGV_CTPhieuThanhLy.AllowUserToAddRows = false;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -928,10 +884,63 @@
             this.dataGV_CTPhieuThanhLy.Size = new System.Drawing.Size(1362, 244);
             this.dataGV_CTPhieuThanhLy.TabIndex = 1;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
+            // MaPhieuTL
+            // 
+            this.MaPhieuTL.DataPropertyName = "MaPTL";
+            this.MaPhieuTL.HeaderText = "Mã PTL";
+            this.MaPhieuTL.Name = "MaPhieuTL";
+            this.MaPhieuTL.Width = 180;
+            // 
+            // NgayTL
+            // 
+            this.NgayTL.DataPropertyName = "NgayTL";
+            this.NgayTL.HeaderText = "Ngày thanh lý";
+            this.NgayTL.Name = "NgayTL";
+            this.NgayTL.Width = 150;
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.Name = "MaNV";
+            this.MaNV.Width = 150;
+            // 
+            // MaChiNhanh
+            // 
+            this.MaChiNhanh.DataPropertyName = "MaChiNhanh";
+            this.MaChiNhanh.HeaderText = "Mã CN";
+            this.MaChiNhanh.Name = "MaChiNhanh";
+            this.MaChiNhanh.Width = 150;
+            // 
+            // LiDo
+            // 
+            this.LiDo.DataPropertyName = "LiDo";
+            this.LiDo.HeaderText = "Lí do";
+            this.LiDo.Name = "LiDo";
+            this.LiDo.Width = 150;
+            // 
+            // XuLy
+            // 
+            this.XuLy.DataPropertyName = "XuLy";
+            this.XuLy.HeaderText = "Xử lý";
+            this.XuLy.Name = "XuLy";
+            this.XuLy.Width = 150;
+            // 
+            // TinhTrang
+            // 
+            this.TinhTrang.DataPropertyName = "TinhTrang";
+            this.TinhTrang.HeaderText = "Tình trạng";
+            this.TinhTrang.Name = "TinhTrang";
+            this.TinhTrang.Width = 150;
+            // 
             // MaTL
             // 
             this.MaTL.DataPropertyName = "MaPTL";
-            this.MaTL.HeaderText = "Mã phiếu thanh lý";
+            this.MaTL.HeaderText = "Mã PTL";
             this.MaTL.Name = "MaTL";
             this.MaTL.Width = 150;
             // 
@@ -972,7 +981,7 @@
             // SL
             // 
             this.SL.DataPropertyName = "SoLuong";
-            this.SL.HeaderText = "Số lượng thanh lý";
+            this.SL.HeaderText = "Số lượng TL";
             this.SL.Name = "SL";
             this.SL.Width = 150;
             // 
@@ -1075,13 +1084,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLo;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongXuat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaTL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MLo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TLo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSanPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DVT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaPhieuTL;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTL;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
@@ -1089,5 +1092,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LiDo;
         private System.Windows.Forms.DataGridViewTextBoxColumn XuLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaTL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MLo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TLo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSanPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DVT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
     }
 }

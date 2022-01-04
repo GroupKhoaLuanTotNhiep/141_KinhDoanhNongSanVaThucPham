@@ -81,9 +81,19 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     MessageBox.Show("Mã hình thức thanh toán " + ma + " chưa tồn tại");
                     return;
                 }
-                if(conn.checkExist("HoaDon", "MaTH", ma))
+                if (conn.checkExist("HoaDon", "MaTH", ma))
                 {
                     MessageBox.Show("Hình thức thanh toán này đang được sử dụng ở bảng hóa đơn");
+                    return;
+                }
+                if (conn.checkExist("PhieuNhapHang", "MaHT", ma))
+                {
+                    MessageBox.Show("Hình thức thanh toán này đang được sử dụng ở bảng phiếu nhập hàng");
+                    return;
+                }
+                if(ma == "1" || ma == "2" || ma == "3")
+                {
+                    MessageBox.Show("Mã " + ma + " này đã mặt định nên không thể xóa");
                     return;
                 }
                 if (MessageBox.Show("Bạn có thật sự muốn xóa hình thức thanh toán này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.No)

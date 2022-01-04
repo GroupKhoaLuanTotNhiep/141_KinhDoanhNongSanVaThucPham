@@ -98,6 +98,17 @@
             this.txtTimKiemPGH = new System.Windows.Forms.TextBox();
             this.groupBoxCacPGH = new System.Windows.Forms.GroupBox();
             this.dataGV_PhieuGiaoHang = new System.Windows.Forms.DataGridView();
+            this.groupBoxCTPhieuGiao = new System.Windows.Forms.GroupBox();
+            this.dataGV_ChiTietGiaoHang = new System.Windows.Forms.DataGridView();
+            this.MaHDBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuongSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaGiam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.MaPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaChiNhanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,16 +120,6 @@
             this.DiaChiGiao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDTGiao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBoxCTPhieuGiao = new System.Windows.Forms.GroupBox();
-            this.dataGV_ChiTietGiaoHang = new System.Windows.Forms.DataGridView();
-            this.MaHDBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaGiam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControlGiaoHang.SuspendLayout();
             this.tabPageLapPhieuGiao.SuspendLayout();
@@ -833,6 +834,7 @@
             this.btnXuatTatCaPGH.TabIndex = 8;
             this.btnXuatTatCaPGH.Text = "Xuất tất cả";
             this.btnXuatTatCaPGH.UseVisualStyleBackColor = true;
+            this.btnXuatTatCaPGH.Click += new System.EventHandler(this.btnXuatTatCaPGH_Click);
             // 
             // txtNgayCuoi
             // 
@@ -906,6 +908,7 @@
             // 
             // dataGV_PhieuGiaoHang
             // 
+            this.dataGV_PhieuGiaoHang.AllowUserToAddRows = false;
             this.dataGV_PhieuGiaoHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_PhieuGiaoHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPG,
@@ -928,78 +931,6 @@
             this.dataGV_PhieuGiaoHang.TabIndex = 0;
             this.dataGV_PhieuGiaoHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_PhieuGiaoHang_CellClick);
             // 
-            // MaPG
-            // 
-            this.MaPG.DataPropertyName = "MaPGH";
-            this.MaPG.HeaderText = "Mã phiếu giao";
-            this.MaPG.Name = "MaPG";
-            // 
-            // MaNV
-            // 
-            this.MaNV.DataPropertyName = "MaNV";
-            this.MaNV.HeaderText = "Mã nhân viên";
-            this.MaNV.Name = "MaNV";
-            // 
-            // MaChiNhanh
-            // 
-            this.MaChiNhanh.DataPropertyName = "MaChiNhanh";
-            this.MaChiNhanh.HeaderText = "Mã chi nhánh";
-            this.MaChiNhanh.Name = "MaChiNhanh";
-            // 
-            // NgayGiao
-            // 
-            this.NgayGiao.DataPropertyName = "NgayGiao";
-            this.NgayGiao.HeaderText = "Ngày giao";
-            this.NgayGiao.Name = "NgayGiao";
-            this.NgayGiao.Width = 120;
-            // 
-            // MaHoaDon
-            // 
-            this.MaHoaDon.DataPropertyName = "MaHoaDon";
-            this.MaHoaDon.HeaderText = "Mã hóa đơn";
-            this.MaHoaDon.Name = "MaHoaDon";
-            // 
-            // MaKM
-            // 
-            this.MaKM.DataPropertyName = "MaKM";
-            this.MaKM.HeaderText = "Mã khuyến mãi";
-            this.MaKM.Name = "MaKM";
-            this.MaKM.Width = 110;
-            // 
-            // TongTien
-            // 
-            this.TongTien.DataPropertyName = "TongTien";
-            this.TongTien.HeaderText = "Tổng tiền";
-            this.TongTien.Name = "TongTien";
-            this.TongTien.Width = 120;
-            // 
-            // TienPhaiTra
-            // 
-            this.TienPhaiTra.DataPropertyName = "TienPhaiTra";
-            this.TienPhaiTra.HeaderText = "Tiền trả lại";
-            this.TienPhaiTra.Name = "TienPhaiTra";
-            this.TienPhaiTra.Width = 120;
-            // 
-            // DiaChiGiao
-            // 
-            this.DiaChiGiao.DataPropertyName = "DiaChiGiao";
-            this.DiaChiGiao.HeaderText = "Địa chỉ giao";
-            this.DiaChiGiao.Name = "DiaChiGiao";
-            this.DiaChiGiao.Width = 250;
-            // 
-            // SDTGiao
-            // 
-            this.SDTGiao.DataPropertyName = "SDTGiao";
-            this.SDTGiao.HeaderText = "Số điện thoại giao";
-            this.SDTGiao.Name = "SDTGiao";
-            // 
-            // TinhTrang
-            // 
-            this.TinhTrang.DataPropertyName = "TinhTrang";
-            this.TinhTrang.HeaderText = "Tình trạng";
-            this.TinhTrang.Name = "TinhTrang";
-            this.TinhTrang.Width = 120;
-            // 
             // groupBoxCTPhieuGiao
             // 
             this.groupBoxCTPhieuGiao.Controls.Add(this.dataGV_ChiTietGiaoHang);
@@ -1016,6 +947,7 @@
             // 
             // dataGV_ChiTietGiaoHang
             // 
+            this.dataGV_ChiTietGiaoHang.AllowUserToAddRows = false;
             this.dataGV_ChiTietGiaoHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_ChiTietGiaoHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHDBH,
@@ -1089,6 +1021,82 @@
             this.TongThanhTien.HeaderText = "Thành tiền";
             this.TongThanhTien.Name = "TongThanhTien";
             this.TongThanhTien.Width = 120;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
+            // 
+            // MaPG
+            // 
+            this.MaPG.DataPropertyName = "MaPGH";
+            this.MaPG.HeaderText = "Mã PG";
+            this.MaPG.Name = "MaPG";
+            // 
+            // MaNV
+            // 
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.Name = "MaNV";
+            // 
+            // MaChiNhanh
+            // 
+            this.MaChiNhanh.DataPropertyName = "MaChiNhanh";
+            this.MaChiNhanh.HeaderText = "Mã CN";
+            this.MaChiNhanh.Name = "MaChiNhanh";
+            // 
+            // NgayGiao
+            // 
+            this.NgayGiao.DataPropertyName = "NgayGiao";
+            this.NgayGiao.HeaderText = "Ngày giao";
+            this.NgayGiao.Name = "NgayGiao";
+            this.NgayGiao.Width = 120;
+            // 
+            // MaHoaDon
+            // 
+            this.MaHoaDon.DataPropertyName = "MaHoaDon";
+            this.MaHoaDon.HeaderText = "Mã HD";
+            this.MaHoaDon.Name = "MaHoaDon";
+            // 
+            // MaKM
+            // 
+            this.MaKM.DataPropertyName = "MaKM";
+            this.MaKM.HeaderText = "Mã KM";
+            this.MaKM.Name = "MaKM";
+            this.MaKM.Width = 110;
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            this.TongTien.HeaderText = "Tổng tiền";
+            this.TongTien.Name = "TongTien";
+            this.TongTien.Width = 120;
+            // 
+            // TienPhaiTra
+            // 
+            this.TienPhaiTra.DataPropertyName = "TienPhaiTra";
+            this.TienPhaiTra.HeaderText = "Tiền trả lại";
+            this.TienPhaiTra.Name = "TienPhaiTra";
+            this.TienPhaiTra.Width = 120;
+            // 
+            // DiaChiGiao
+            // 
+            this.DiaChiGiao.DataPropertyName = "DiaChiGiao";
+            this.DiaChiGiao.HeaderText = "Địa chỉ giao";
+            this.DiaChiGiao.Name = "DiaChiGiao";
+            this.DiaChiGiao.Width = 250;
+            // 
+            // SDTGiao
+            // 
+            this.SDTGiao.DataPropertyName = "SDTGiao";
+            this.SDTGiao.HeaderText = "SĐT giao";
+            this.SDTGiao.Name = "SDTGiao";
+            // 
+            // TinhTrang
+            // 
+            this.TinhTrang.DataPropertyName = "TinhTrang";
+            this.TinhTrang.HeaderText = "Tình trạng";
+            this.TinhTrang.Name = "TinhTrang";
+            this.TinhTrang.Width = 120;
             // 
             // UC_GiaoHang
             // 
@@ -1191,17 +1199,6 @@
         private System.Windows.Forms.DataGridView dataGV_ChiTietGiaoHang;
         private System.Windows.Forms.TextBox txtTienTraLai;
         private System.Windows.Forms.Label lblTienTraLai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaChiNhanh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayGiao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TienPhaiTra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChiGiao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SDTGiao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHD;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongBan;
@@ -1216,5 +1213,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaGiam;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongThanhTien;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaPG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaChiNhanh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayGiao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TienPhaiTra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChiGiao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDTGiao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
     }
 }

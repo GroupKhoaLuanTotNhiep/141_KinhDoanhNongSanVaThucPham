@@ -39,6 +39,7 @@
             this.dataGV_DonViTinh = new System.Windows.Forms.DataGridView();
             this.MaDVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenDVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTenDVT = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxChucNang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_DonViTinh)).BeginInit();
@@ -64,6 +65,7 @@
             // 
             // groupBoxChucNang
             // 
+            this.groupBoxChucNang.Controls.Add(this.lblTenDVT);
             this.groupBoxChucNang.Controls.Add(this.btnLamMoi);
             this.groupBoxChucNang.Controls.Add(this.btnSuaDVT);
             this.groupBoxChucNang.Controls.Add(this.btnXoaDVT);
@@ -121,7 +123,7 @@
             // 
             // txtTenDVT
             // 
-            this.txtTenDVT.Location = new System.Drawing.Point(214, 40);
+            this.txtTenDVT.Location = new System.Drawing.Point(259, 37);
             this.txtTenDVT.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenDVT.Name = "txtTenDVT";
             this.txtTenDVT.Size = new System.Drawing.Size(200, 22);
@@ -171,6 +173,15 @@
             this.TenDVT.MinimumWidth = 6;
             this.TenDVT.Name = "TenDVT";
             // 
+            // lblTenDVT
+            // 
+            this.lblTenDVT.AutoSize = true;
+            this.lblTenDVT.Location = new System.Drawing.Point(154, 40);
+            this.lblTenDVT.Name = "lblTenDVT";
+            this.lblTenDVT.Size = new System.Drawing.Size(98, 17);
+            this.lblTenDVT.TabIndex = 5;
+            this.lblTenDVT.Text = "Nhập tên ĐVT";
+            // 
             // UC_DanhMucDonViTinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -201,5 +212,6 @@
         private System.Windows.Forms.DataGridView dataGV_DonViTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaDVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenDVT;
+        private System.Windows.Forms.Label lblTenDVT;
     }
 }

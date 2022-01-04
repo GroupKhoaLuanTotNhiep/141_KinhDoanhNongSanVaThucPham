@@ -100,6 +100,7 @@
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenDVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControlXuatHang.SuspendLayout();
             this.tabPagePhieuXuat.SuspendLayout();
@@ -213,6 +214,7 @@
             this.btnInExcel.TabIndex = 5;
             this.btnInExcel.Text = "In Excel";
             this.btnInExcel.UseVisualStyleBackColor = true;
+            this.btnInExcel.Click += new System.EventHandler(this.btnInExcel_Click);
             // 
             // btnInReport
             // 
@@ -642,6 +644,7 @@
             this.btnInAllXuat.TabIndex = 1;
             this.btnInAllXuat.Text = "In tất cả";
             this.btnInAllXuat.UseVisualStyleBackColor = true;
+            this.btnInAllXuat.Click += new System.EventHandler(this.btnInAllXuat_Click);
             // 
             // btnXoaPhieuXuat
             // 
@@ -729,6 +732,7 @@
             // 
             // dataGV_PhieuXuat
             // 
+            this.dataGV_PhieuXuat.AllowUserToAddRows = false;
             this.dataGV_PhieuXuat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_PhieuXuat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPXK,
@@ -793,6 +797,7 @@
             // 
             // dataGV_CTPhieuXuat
             // 
+            this.dataGV_CTPhieuXuat.AllowUserToAddRows = false;
             this.dataGV_CTPhieuXuat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_CTPhieuXuat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPhieuXuat,
@@ -857,6 +862,10 @@
             this.SoLuong.HeaderText = "Số lượng xuất";
             this.SoLuong.Name = "SoLuong";
             this.SoLuong.Width = 150;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
             // 
             // UC_XuatKho
             // 
@@ -964,5 +973,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenDVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

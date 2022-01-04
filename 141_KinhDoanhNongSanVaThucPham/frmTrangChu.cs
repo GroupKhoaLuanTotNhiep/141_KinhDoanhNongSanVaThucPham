@@ -398,32 +398,67 @@ namespace _141_KinhDoanhNongSanVaThucPham
 
         private void TKSanPham_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UC_ThongKeSanPham sp = new UC_ThongKeSanPham();
-            showUserControl(sp);
+            if (checkper("Admin") || checkper("User") || checkper("User_Kho"))
+            {
+                UC_ThongKeSanPham sp = new UC_ThongKeSanPham();
+                showUserControl(sp);
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền");
+            }
         }
 
         private void Top10_SPBanChayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UC_ThongKeTop10SPBanChay banchay = new UC_ThongKeTop10SPBanChay();
-            showUserControl(banchay);
+            if (checkper("Admin") || checkper("User") || checkper("User_Sale") || checkper("User_Cash"))
+            {
+                UC_ThongKeTop10SPBanChay banchay = new UC_ThongKeTop10SPBanChay();
+                showUserControl(banchay);
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền");
+            }
         }
 
         private void Top10_SPBanChamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UC_ThongKeTop10SPBanCham bancham = new UC_ThongKeTop10SPBanCham();
-            showUserControl(bancham);
+            if (checkper("Admin") || checkper("User") || checkper("User_Sale") || checkper("User_Cash"))
+            {
+                UC_ThongKeTop10SPBanCham bancham = new UC_ThongKeTop10SPBanCham();
+                showUserControl(bancham);
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền");
+            }
         }
 
         private void KHTiemNangToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UC_ThongKeKHTiemNang kh = new UC_ThongKeKHTiemNang();
-            showUserControl(kh);
+            if (checkper("Admin") || checkper("User") || checkper("User_Sale") || checkper("User_Cash"))
+            {
+                UC_ThongKeKHTiemNang kh = new UC_ThongKeKHTiemNang();
+                showUserControl(kh);
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền");
+            }
         }
 
         private void PhieuTLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UC_ThongKeThanhLy tl = new UC_ThongKeThanhLy();
-            showUserControl(tl);
+            if (checkper("Admin") || checkper("User") || checkper("User_Kho"))
+            {
+                UC_ThongKeThanhLy tl = new UC_ThongKeThanhLy();
+                showUserControl(tl);
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền");
+            }
         }
     }
 }

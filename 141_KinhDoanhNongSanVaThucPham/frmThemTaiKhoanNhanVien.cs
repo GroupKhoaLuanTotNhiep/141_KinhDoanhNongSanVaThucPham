@@ -169,9 +169,9 @@ namespace _141_KinhDoanhNongSanVaThucPham
                         if (rs == DialogResult.No)
                             return;
                     }
-                    string strSQL = "UPDATE Quyen_NhanVien SET MaQuyen='" + strQuyenHan + "', HoatDong=N'" + strHDTG + "', TenDN='" + strTenDangNhap + "', MatKhau='" + strPassWord + "' WHERE MaNV='" + strMaNhanVien + "'";
-                    conn.updateToDatabase(strSQL);
-                    string strSql = "UPDATE Quyen_NhanVien SET MaQuyen='" + strQuyenHan + "', HoatDong=N'" + strHDTG + "', TenDN='" + strTenDangNhap + "', MatKhau='" + strPassWord + "' WHERE MaNV='" + strMaNhanVien + "' AND MaQuyen='" + strQuyenHan + "'";
+                    //string strSQL = "UPDATE Quyen_NhanVien SET MaQuyen='" + strQuyenHan + "', HoatDong=N'" + strHDTG + "', TenDN='" + strTenDangNhap + "', MatKhau='" + strPassWord + "' WHERE MaNV='" + strMaNhanVien + "'";
+                    //conn.updateToDatabase(strSQL);
+                    string strSql = "UPDATE Quyen_NhanVien SET HoatDong=N'" + strHDTG + "', TenDN='" + strTenDangNhap + "', MatKhau='" + strPassWord + "' WHERE MaNV='" + strMaNhanVien + "' AND MaQuyen='" + strQuyenHan + "'";
                     conn.updateToDatabase(strSql);
                     createTable_NhanVienDaCoTK();
                     MessageBox.Show("Cập nhật tài khoản thành công!");

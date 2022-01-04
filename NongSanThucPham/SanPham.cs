@@ -419,15 +419,19 @@ namespace NongSanThucPham
             }
         }
         //Thống kê top 10 sản phẩm bán chạy nhất
-        public DataTable loadThongKe_Top10SPBanChay()
+        public DataTable loadThongKe_Top5SPBanChay(DateTime @fromDate, DateTime @toDate)
         {
             conn.openConnect();
-            var cmd = new SqlCommand("ThongKe_Top10SPBanChay", conn.conn);
+            var cmd = new SqlCommand("ThongKe_Top5SPBanChay", conn.conn);
             cmd.CommandType = CommandType.StoredProcedure;
             using (DataTable dt = new DataTable())
             {
                 using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@fromDate", SqlDbType.Date));
+                    da.SelectCommand.Parameters["@fromDate"].Value = fromDate;
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@toDate", SqlDbType.Date));
+                    da.SelectCommand.Parameters["@toDate"].Value = toDate;
                     da.Fill(dt);
                     conn.closeConnect();
                     return dt;
@@ -435,15 +439,19 @@ namespace NongSanThucPham
             }
         }
         //Thống kê top 10 sản phẩm bán chậm nhất
-        public DataTable loadThongKe_Top10SPBanCham()
+        public DataTable loadThongKe_Top5SPBanCham(DateTime @fromDate, DateTime @toDate)
         {
             conn.openConnect();
-            var cmd = new SqlCommand("ThongKe_Top10SPBanCham", conn.conn);
+            var cmd = new SqlCommand("ThongKe_Top5SPBanCham", conn.conn);
             cmd.CommandType = CommandType.StoredProcedure;
             using (DataTable dt = new DataTable())
             {
                 using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@fromDate", SqlDbType.Date));
+                    da.SelectCommand.Parameters["@fromDate"].Value = fromDate;
+                    da.SelectCommand.Parameters.Add(new SqlParameter("@toDate", SqlDbType.Date));
+                    da.SelectCommand.Parameters["@toDate"].Value = toDate;
                     da.Fill(dt);
                     conn.closeConnect();
                     return dt;
