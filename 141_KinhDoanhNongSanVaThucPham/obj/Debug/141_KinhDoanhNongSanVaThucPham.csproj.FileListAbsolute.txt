@@ -198,3 +198,4 @@ D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongS
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.Wpf.pdb
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\bin\Debug\LiveCharts.Wpf.xml
 D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmBieuDoDoanhThu.resources
+D:\Khóa luận tốt nghiệp\141_KinhDoanhNongSanVaThucPham\141_KinhDoanhNongSanVaThucPham\obj\Debug\_141_KinhDoanhNongSanVaThucPham.frmDatGiamGiaSanPham.resources

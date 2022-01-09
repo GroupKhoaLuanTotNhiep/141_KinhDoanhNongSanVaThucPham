@@ -219,7 +219,7 @@ namespace _141_KinhDoanhNongSanVaThucPham
                     return;
                 }
 
-                string strSqlPX = "UPDATE PhieuXuatHang SET NgayXuat='" + strNgayXuat + "', MaChiNhanh='" + strChiNhanh + "', MaQuay='" + strQuayHang + "' WHERE MaPXH='" + strMaPhieuXuat + "'";
+                string strSqlPX = "UPDATE PhieuXuatHang SET NgayXuat='" + strNgayXuat + "', MaChiNhanh='" + strChiNhanh + "' WHERE MaPXH='" + strMaPhieuXuat + "'";
                 conn.updateToDatabase(strSqlPX);
                 createTable_PhieuXuatHang();
                 MessageBox.Show("Cập nhật phiếu xuất hàng thành công!");

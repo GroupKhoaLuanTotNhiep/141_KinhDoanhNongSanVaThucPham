@@ -17,6 +17,9 @@ namespace _141_KinhDoanhNongSanVaThucPham
     {
         Connection cn = new Connection();
         SanPham sp = new SanPham();
+        int index = -1;
+        public static string masp = "";
+
         public UC_ThongKeSanPham()
         {
             InitializeComponent();
@@ -329,6 +332,23 @@ namespace _141_KinhDoanhNongSanVaThucPham
                 workbook = null;
                 worksheet = null;
             }
+        }
+
+        private void dataGV_SapHetHanSD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+                index = e.RowIndex;
+        }
+
+        private void btnTHGiamGia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                masp = dataGV_SapHetHanSD.Rows[index].Cells[2].Value.ToString().Trim();
+                frmDatGiamGiaSanPham gg = new frmDatGiamGiaSanPham(masp);
+                gg.ShowDialog();
+            }
+            catch { }
         }
     }
 }

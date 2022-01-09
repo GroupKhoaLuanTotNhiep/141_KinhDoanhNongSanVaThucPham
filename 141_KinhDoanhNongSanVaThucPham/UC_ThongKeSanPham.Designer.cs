@@ -52,10 +52,17 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.btnXemTK_SapHetHanSD = new System.Windows.Forms.Button();
             this.btnInExcel_SapHetHan = new System.Windows.Forms.Button();
             this.dataGV_SapHetHanSD = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HanSuDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.slu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tdvt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
@@ -73,14 +80,7 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaLo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HanSuDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.slu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tdvt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTHGiamGia = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -352,10 +352,10 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tableLayoutPanel9.Controls.Add(this.btnTHGiamGia, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel11, 2, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel12, 3, 0);
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel13, 4, 0);
             this.tableLayoutPanel9.Controls.Add(this.btnXemTK_SapHetHanSD, 5, 0);
             this.tableLayoutPanel9.Controls.Add(this.btnInExcel_SapHetHan, 6, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -405,19 +405,6 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(107, 51);
             this.tableLayoutPanel12.TabIndex = 6;
             // 
-            // tableLayoutPanel13
-            // 
-            this.tableLayoutPanel13.ColumnCount = 1;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(739, 3);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 2;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(164, 51);
-            this.tableLayoutPanel13.TabIndex = 7;
-            // 
             // btnXemTK_SapHetHanSD
             // 
             this.btnXemTK_SapHetHanSD.Dock = System.Windows.Forms.DockStyle.Top;
@@ -459,6 +446,59 @@
             this.dataGV_SapHetHanSD.RowTemplate.Height = 24;
             this.dataGV_SapHetHanSD.Size = new System.Drawing.Size(1135, 558);
             this.dataGV_SapHetHanSD.TabIndex = 1;
+            this.dataGV_SapHetHanSD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_SapHetHanSD_CellClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "STT";
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // MaLo
+            // 
+            this.MaLo.DataPropertyName = "MaLo";
+            this.MaLo.HeaderText = "Mã lô";
+            this.MaLo.Name = "MaLo";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "MaSP";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã sản phẩm";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "TenSP";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Tên sản phẩm";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // HanSuDung
+            // 
+            this.HanSuDung.DataPropertyName = "HanSuDung";
+            this.HanSuDung.HeaderText = "Hạn sử dụng";
+            this.HanSuDung.Name = "HanSuDung";
+            this.HanSuDung.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Con";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Còn";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // slu
+            // 
+            this.slu.DataPropertyName = "SoLuong";
+            this.slu.HeaderText = "SL";
+            this.slu.Name = "slu";
+            // 
+            // tdvt
+            // 
+            this.tdvt.DataPropertyName = "TenDVT";
+            this.tdvt.HeaderText = "ĐVT";
+            this.tdvt.Name = "tdvt";
             // 
             // tabPage3
             // 
@@ -646,57 +686,16 @@
             // 
             this.saveFileDialog1.Filter = "Excel 2007|.xlsx|Excel 2010|*.xlsx";
             // 
-            // dataGridViewTextBoxColumn1
+            // btnTHGiamGia
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "STT";
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // MaLo
-            // 
-            this.MaLo.DataPropertyName = "MaLo";
-            this.MaLo.HeaderText = "Mã lô";
-            this.MaLo.Name = "MaLo";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MaSP";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã sản phẩm";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TenSP";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Tên sản phẩm";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // HanSuDung
-            // 
-            this.HanSuDung.DataPropertyName = "HanSuDung";
-            this.HanSuDung.HeaderText = "Hạn sử dụng";
-            this.HanSuDung.Name = "HanSuDung";
-            this.HanSuDung.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Con";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Còn";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // slu
-            // 
-            this.slu.DataPropertyName = "SoLuong";
-            this.slu.HeaderText = "SL";
-            this.slu.Name = "slu";
-            // 
-            // tdvt
-            // 
-            this.tdvt.DataPropertyName = "TenDVT";
-            this.tdvt.HeaderText = "ĐVT";
-            this.tdvt.Name = "tdvt";
+            this.btnTHGiamGia.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTHGiamGia.Location = new System.Drawing.Point(3, 3);
+            this.btnTHGiamGia.Name = "btnTHGiamGia";
+            this.btnTHGiamGia.Size = new System.Drawing.Size(218, 51);
+            this.btnTHGiamGia.TabIndex = 11;
+            this.btnTHGiamGia.Text = "Thực hiện giảm giá";
+            this.btnTHGiamGia.UseVisualStyleBackColor = true;
+            this.btnTHGiamGia.Click += new System.EventHandler(this.btnTHGiamGia_Click);
             // 
             // UC_ThongKeSanPham
             // 
@@ -750,7 +749,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Button btnXemTK_SapHetHanSD;
         private System.Windows.Forms.Button btnInExcel_SapHetHan;
         private System.Windows.Forms.DataGridView dataGV_SapHetHanSD;
@@ -779,5 +777,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn slu;
         private System.Windows.Forms.DataGridViewTextBoxColumn tdvt;
+        private System.Windows.Forms.Button btnTHGiamGia;
     }
 }
